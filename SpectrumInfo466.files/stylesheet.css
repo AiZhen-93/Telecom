@@ -74,10 +74,26 @@ a:visited
 	text-underline-style:single;
 	font-family:新細明體, serif;
 	mso-font-charset:136;}
-.font27
+.font11
+	{color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Microsoft JhengHei UI", sans-serif;
+	mso-font-charset:136;}
+.font26
 	{color:black;
 	font-size:12.0pt;
 	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;}
+.font29
+	{color:white;
+	font-size:11.0pt;
+	font-weight:400;
 	font-style:normal;
 	text-decoration:none;
 	font-family:微軟正黑體, sans-serif;
@@ -86,19 +102,11 @@ a:visited
 	{color:white;
 	font-size:11.0pt;
 	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;}
-.font31
-	{color:white;
-	font-size:11.0pt;
-	font-weight:400;
 	font-style:italic;
 	text-decoration:none;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;}
-.font45
+.font44
 	{color:red;
 	font-size:10.0pt;
 	font-weight:400;
@@ -136,178 +144,61 @@ td
 	text-align:left;}
 .xl68
 	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;}
 .xl69
 	{mso-style-parent:style0;
-	color:white;
 	font-size:10.0pt;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;}
 .xl70
 	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
+	font-size:14.0pt;
 	font-weight:700;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:#F29F27;
-	mso-pattern:black none;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
 	white-space:normal;}
 .xl71
 	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
+	font-size:14.0pt;
 	font-weight:700;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:#F29F27;
-	mso-pattern:black none;
-	white-space:normal;}
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;}
 .xl72
 	{mso-style-parent:style0;
-	color:white;
 	font-size:10.0pt;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:#F29F27;
-	mso-pattern:black none;
-	white-space:normal;}
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;}
 .xl73
 	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
+	font-size:14.0pt;
 	font-weight:700;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;}
 .xl74
 	{mso-style-parent:style0;
-	color:white;
-	font-size:10.5pt;
-	font-weight:700;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;}
 .xl75
 	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
+	font-size:14.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;}
 .xl76
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:#F29F27;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl77
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:Consolas, monospace;
-	mso-font-charset:0;
-	text-align:center;
-	border:1.0pt solid white;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl78
-	{mso-style-parent:style0;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;}
-.xl79
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;}
-.xl80
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	white-space:normal;}
-.xl81
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;}
-.xl82
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;}
-.xl83
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;}
-.xl84
-	{mso-style-parent:style0;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;}
-.xl85
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;}
-.xl86
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:left;}
-.xl87
+.xl77
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;}
-.xl88
+.xl78
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -317,7 +208,7 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
 	border-left:1.0pt solid windowtext;}
-.xl89
+.xl79
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -327,7 +218,7 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
 	border-left:.5pt solid windowtext;}
-.xl90
+.xl80
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -337,7 +228,7 @@ td
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:.5pt solid windowtext;}
-.xl91
+.xl81
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -351,7 +242,7 @@ td
 	background:#E71A0F;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl92
+.xl82
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -364,7 +255,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#E71A0F;
 	mso-pattern:black none;}
-.xl93
+.xl83
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -377,7 +268,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#E71A0F;
 	mso-pattern:black none;}
-.xl94
+.xl84
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -389,7 +280,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl95
+.xl85
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -398,7 +289,7 @@ td
 	border:.5pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl96
+.xl86
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -411,7 +302,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#0065AC;
 	mso-pattern:black none;}
-.xl97
+.xl87
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -423,7 +314,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl98
+.xl88
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -435,6 +326,126 @@ td
 	border-bottom:1.0pt solid windowtext;
 	border-left:.5pt solid windowtext;
 	background:#0065AC;
+	mso-pattern:black none;}
+.xl89
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#0065AC;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl90
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#0065AC;
+	mso-pattern:black none;}
+.xl91
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;}
+.xl92
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;}
+.xl93
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;}
+.xl94
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#F29F27;
+	mso-pattern:black none;}
+.xl95
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-style:italic;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:.5pt solid windowtext;
+	background:#F29F27;
+	mso-pattern:black none;}
+.xl96
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-style:italic;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:.5pt solid windowtext;
+	background:#0065AC;
+	mso-pattern:black none;}
+.xl97
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#F29F27;
+	mso-pattern:black none;}
+.xl98
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#E71A0F;
 	mso-pattern:black none;}
 .xl99
 	{mso-style-parent:style0;
@@ -447,9 +458,8 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
 	border-left:.5pt solid windowtext;
-	background:#0065AC;
-	mso-pattern:black none;
-	white-space:normal;}
+	background:#E71A0F;
+	mso-pattern:black none;}
 .xl100
 	{mso-style-parent:style0;
 	color:white;
@@ -461,42 +471,39 @@ td
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:.5pt solid windowtext;
-	background:#0065AC;
+	background:#E71A0F;
 	mso-pattern:black none;}
 .xl101
 	{mso-style-parent:style0;
+	color:white;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:.5pt solid windowtext;
-	background:#D9D9D9;
+	border:.5pt solid windowtext;
+	background:#E71A0F;
 	mso-pattern:black none;}
 .xl102
 	{mso-style-parent:style0;
+	color:white;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:.5pt solid windowtext;
-	background:#D9D9D9;
+	border:.5pt solid windowtext;
+	background:#0065AC;
 	mso-pattern:black none;}
 .xl103
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
+	text-align:center;
 	border-top:.5pt solid windowtext;
 	border-right:.5pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
 	border-left:.5pt solid windowtext;
-	background:#D9D9D9;
+	background:#F29F27;
 	mso-pattern:black none;}
 .xl104
 	{mso-style-parent:style0;
@@ -506,32 +513,23 @@ td
 	text-align:center;
 	border-top:.5pt solid windowtext;
 	border-right:none;
-	border-bottom:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
 	border-left:.5pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
 .xl105
 	{mso-style-parent:style0;
 	font-size:11.0pt;
-	font-style:italic;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:.5pt solid windowtext;
-	background:#F29F27;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	background:#D9D9D9;
 	mso-pattern:black none;}
 .xl106
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-style:italic;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border:.5pt solid windowtext;
-	background:#0065AC;
-	mso-pattern:black none;}
-.xl107
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -539,13 +537,23 @@ td
 	text-align:center;
 	border-top:1.0pt solid windowtext;
 	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;}
+.xl107
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
 	border-bottom:.5pt solid windowtext;
 	border-left:.5pt solid windowtext;
-	background:#F29F27;
+	background:#D9D9D9;
 	mso-pattern:black none;}
 .xl108
 	{mso-style-parent:style0;
-	color:white;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -554,7 +562,7 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:.5pt solid windowtext;
 	border-left:.5pt solid windowtext;
-	background:#E71A0F;
+	background:#D9D9D9;
 	mso-pattern:black none;}
 .xl109
 	{mso-style-parent:style0;
@@ -562,12 +570,8 @@ td
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
-	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:.5pt solid windowtext;
-	background:#E71A0F;
+	border:.5pt solid windowtext;
+	background:#0065AC;
 	mso-pattern:black none;}
 .xl110
 	{mso-style-parent:style0;
@@ -575,140 +579,27 @@ td
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
-	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:.5pt solid windowtext;
+	border:.5pt solid windowtext;
 	background:#E71A0F;
 	mso-pattern:black none;}
 .xl111
 	{mso-style-parent:style0;
-	color:white;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
-	text-align:center;
-	border:.5pt solid windowtext;
-	background:#E71A0F;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#F29F27;
 	mso-pattern:black none;}
 .xl112
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border:.5pt solid windowtext;
-	background:#0065AC;
-	mso-pattern:black none;}
-.xl113
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:.5pt solid windowtext;
-	background:#F29F27;
-	mso-pattern:black none;}
-.xl114
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:.5pt solid windowtext;
-	background:#F29F27;
-	mso-pattern:black none;}
-.xl115
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:none;
-	border-left:.5pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;}
-.xl116
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:.5pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;}
-.xl117
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	border-top:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;
-	border-left:.5pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;}
-.xl118
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;
-	border-left:.5pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;}
-.xl119
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	border:.5pt solid windowtext;
-	background:#0065AC;
-	mso-pattern:black none;}
-.xl120
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	border:.5pt solid windowtext;
-	background:#E71A0F;
-	mso-pattern:black none;}
-.xl121
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	border-top:.5pt solid windowtext;
-	border-right:.5pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:.5pt solid windowtext;
-	background:#F29F27;
-	mso-pattern:black none;}
-.xl122
 	{mso-style-parent:style0;
 	font-size:18.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;}
-.xl123
+.xl113
 	{mso-style-parent:style0;
 	color:white;
 	font-size:16.0pt;
@@ -720,7 +611,7 @@ td
 	background:#4EA6DC;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl124
+.xl114
 	{mso-style-parent:style0;
 	color:black;
 	font-weight:700;
@@ -731,7 +622,7 @@ td
 	background:#D0E1F2;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl125
+.xl115
 	{mso-style-parent:style0;
 	color:black;
 	font-weight:700;
@@ -742,7 +633,7 @@ td
 	background:#E9F1F9;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl126
+.xl116
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -754,7 +645,7 @@ td
 	background:#0070C0;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl127
+.xl117
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -766,7 +657,7 @@ td
 	background:#F29F27;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl128
+.xl118
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -778,19 +669,19 @@ td
 	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl129
+.xl119
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	mso-number-format:"\@";
 	text-align:center;}
-.xl130
+.xl120
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	border:.5pt solid windowtext;}
-.xl131
+.xl121
 	{mso-style-parent:style0;
 	color:white;
 	font-family:微軟正黑體, sans-serif;
@@ -800,7 +691,7 @@ td
 	border:.5pt solid windowtext;
 	background:#0070C0;
 	mso-pattern:black none;}
-.xl132
+.xl122
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -809,7 +700,7 @@ td
 	border:.5pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl133
+.xl123
 	{mso-style-parent:style0;
 	color:white;
 	font-family:微軟正黑體, sans-serif;
@@ -819,7 +710,7 @@ td
 	border:.5pt solid windowtext;
 	background:red;
 	mso-pattern:black none;}
-.xl134
+.xl124
 	{mso-style-parent:style16;
 	color:windowtext;
 	font-family:微軟正黑體, sans-serif;
@@ -828,7 +719,7 @@ td
 	text-align:center;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;}
-.xl135
+.xl125
 	{mso-style-parent:style16;
 	color:windowtext;
 	font-family:微軟正黑體, sans-serif;
@@ -836,7 +727,7 @@ td
 	text-align:center;
 	vertical-align:bottom;
 	border:.5pt solid windowtext;}
-.xl136
+.xl126
 	{mso-style-parent:style0;
 	color:white;
 	font-weight:700;
@@ -846,7 +737,7 @@ td
 	border:.5pt solid windowtext;
 	background:#0070C0;
 	mso-pattern:black none;}
-.xl137
+.xl127
 	{mso-style-parent:style0;
 	color:white;
 	font-weight:700;
@@ -856,7 +747,7 @@ td
 	border:.5pt solid windowtext;
 	background:red;
 	mso-pattern:black none;}
-.xl138
+.xl128
 	{mso-style-parent:style0;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
@@ -865,7 +756,7 @@ td
 	border:.5pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl139
+.xl129
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -873,7 +764,7 @@ td
 	border:.5pt solid windowtext;
 	background:#00FF99;
 	mso-pattern:black none;}
-.xl140
+.xl130
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -881,7 +772,7 @@ td
 	border:.5pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl141
+.xl131
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -889,7 +780,7 @@ td
 	border:.5pt solid windowtext;
 	background:#D1FFE0;
 	mso-pattern:black none;}
-.xl142
+.xl132
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -897,12 +788,12 @@ td
 	border:.5pt solid windowtext;
 	background:#97FFBA;
 	mso-pattern:black none;}
-.xl143
+.xl133
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	border:.5pt solid windowtext;}
-.xl144
+.xl134
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -915,7 +806,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#C65911;
 	mso-pattern:black none;}
-.xl145
+.xl135
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -928,7 +819,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#C65911;
 	mso-pattern:black none;}
-.xl146
+.xl136
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -938,7 +829,7 @@ td
 	background:#D9D9D9;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl147
+.xl137
 	{mso-style-parent:style0;
 	color:windowtext;
 	font-size:11.0pt;
@@ -951,7 +842,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl148
+.xl138
 	{mso-style-parent:style0;
 	color:windowtext;
 	font-size:11.0pt;
@@ -964,7 +855,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl149
+.xl139
 	{mso-style-parent:style0;
 	color:windowtext;
 	font-size:11.0pt;
@@ -977,7 +868,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl150
+.xl140
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -989,7 +880,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl151
+.xl141
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1002,7 +893,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#0065AC;
 	mso-pattern:black none;}
-.xl152
+.xl142
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1015,7 +906,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#E71A0F;
 	mso-pattern:black none;}
-.xl153
+.xl143
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1027,7 +918,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl154
+.xl144
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1040,7 +931,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#E71A0F;
 	mso-pattern:black none;}
-.xl155
+.xl145
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1053,7 +944,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#E71A0F;
 	mso-pattern:black none;}
-.xl156
+.xl146
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1065,7 +956,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl157
+.xl147
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1078,7 +969,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#0065AC;
 	mso-pattern:black none;}
-.xl158
+.xl148
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1090,7 +981,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl159
+.xl149
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1103,7 +994,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#C65911;
 	mso-pattern:black none;}
-.xl160
+.xl150
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1116,35 +1007,35 @@ td
 	background:#F29F27;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl161
+.xl151
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	background:#00FF99;
 	mso-pattern:black none;}
-.xl162
+.xl152
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	background:#97FFBA;
 	mso-pattern:black none;}
-.xl163
+.xl153
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	background:#D1FFE0;
 	mso-pattern:black none;}
-.xl164
+.xl154
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	background:#E2EFDA;
 	mso-pattern:black none;}
-.xl165
+.xl155
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -1152,7 +1043,7 @@ td
 	border:.5pt solid windowtext;
 	background:#E2EFDA;
 	mso-pattern:black none;}
-.xl166
+.xl156
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1161,13 +1052,13 @@ td
 	border:.5pt solid windowtext;
 	background:#E2EFDA;
 	mso-pattern:black none;}
-.xl167
+.xl157
 	{mso-style-parent:style0;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;}
-.xl168
+.xl158
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1180,7 +1071,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#F78A85;
 	mso-pattern:black none;}
-.xl169
+.xl159
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1190,7 +1081,7 @@ td
 	border:.5pt solid windowtext;
 	background:#F78A85;
 	mso-pattern:black none;}
-.xl170
+.xl160
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1201,7 +1092,7 @@ td
 	border:.5pt solid windowtext;
 	background:#F78A85;
 	mso-pattern:black none;}
-.xl171
+.xl161
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -1214,7 +1105,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#F78A85;
 	mso-pattern:black none;}
-.xl172
+.xl162
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -1227,7 +1118,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#E71A0F;
 	mso-pattern:black none;}
-.xl173
+.xl163
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -1240,7 +1131,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#E71A0F;
 	mso-pattern:black none;}
-.xl174
+.xl164
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1252,7 +1143,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl175
+.xl165
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1264,7 +1155,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl176
+.xl166
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1276,7 +1167,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#F29F27;
 	mso-pattern:black none;}
-.xl177
+.xl167
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -1289,7 +1180,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#0065AC;
 	mso-pattern:black none;}
-.xl178
+.xl168
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -1302,7 +1193,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#0065AC;
 	mso-pattern:black none;}
-.xl179
+.xl169
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1314,7 +1205,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl180
+.xl170
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -1327,7 +1218,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#F78A85;
 	mso-pattern:black none;}
-.xl181
+.xl171
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -1340,7 +1231,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#E71A0F;
 	mso-pattern:black none;}
-.xl182
+.xl172
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -1353,7 +1244,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#C65911;
 	mso-pattern:black none;}
-.xl183
+.xl173
 	{mso-style-parent:style0;
 	color:windowtext;
 	font-size:10.0pt;
@@ -1366,7 +1257,7 @@ td
 	border-left:.5pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl184
+.xl174
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1378,22 +1269,14 @@ td
 	border-left:.5pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl185
+.xl175
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	background:#F2F2F2;
 	mso-pattern:black none;}
-.xl186
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	background:#F2F2F2;
-	mso-pattern:black none;}
-.xl187
+.xl176
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-weight:700;
@@ -1402,14 +1285,14 @@ td
 	background:#F2F2F2;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl188
+.xl177
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	background:#DDEBF7;
 	mso-pattern:black none;}
-.xl189
+.xl178
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-weight:700;
@@ -1417,7 +1300,7 @@ td
 	mso-font-charset:136;
 	background:#DDEBF7;
 	mso-pattern:black none;}
-.xl190
+.xl179
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-weight:700;
@@ -1425,13 +1308,13 @@ td
 	mso-font-charset:136;
 	background:#DDEBF7;
 	mso-pattern:black none;}
-.xl191
+.xl180
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	background:#DDEBF7;
 	mso-pattern:black none;}
-.xl192
+.xl181
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-weight:700;
@@ -1440,7 +1323,7 @@ td
 	background:#DDEBF7;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl193
+.xl182
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1451,14 +1334,7 @@ td
 	border-left:none;
 	background:#DDEBF7;
 	mso-pattern:black none;}
-.xl194
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	background:#EDEDED;
-	mso-pattern:black none;}
-.xl195
+.xl183
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1466,7 +1342,14 @@ td
 	text-align:center;
 	background:#EDEDED;
 	mso-pattern:black none;}
-.xl196
+.xl184
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	background:#EDEDED;
+	mso-pattern:black none;}
+.xl185
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-weight:700;
@@ -1474,7 +1357,7 @@ td
 	mso-font-charset:136;
 	background:#EDEDED;
 	mso-pattern:black none;}
-.xl197
+.xl186
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-weight:700;
@@ -1486,7 +1369,7 @@ td
 	border-left:none;
 	background:#EDEDED;
 	mso-pattern:black none;}
-.xl198
+.xl187
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-weight:700;
@@ -1498,7 +1381,7 @@ td
 	border-left:none;
 	background:#DDEBF7;
 	mso-pattern:black none;}
-.xl199
+.xl188
 	{mso-style-parent:style0;
 	font-size:14.0pt;
 	font-weight:700;
@@ -1506,20 +1389,7 @@ td
 	mso-font-charset:136;
 	background:#EDEDED;
 	mso-pattern:black none;}
-.xl200
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	background:#FCE4D6;
-	mso-pattern:black none;}
-.xl201
-	{mso-style-parent:style0;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	background:#FCE4D6;
-	mso-pattern:black none;}
-.xl202
+.xl189
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1527,7 +1397,20 @@ td
 	text-align:center;
 	background:#FCE4D6;
 	mso-pattern:black none;}
-.xl203
+.xl190
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	background:#FCE4D6;
+	mso-pattern:black none;}
+.xl191
+	{mso-style-parent:style0;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	background:#FCE4D6;
+	mso-pattern:black none;}
+.xl192
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-weight:700;
@@ -1536,7 +1419,7 @@ td
 	background:#FCE4D6;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl204
+.xl193
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-style:italic;
@@ -1544,31 +1427,275 @@ td
 	mso-font-charset:136;
 	background:#FCE4D6;
 	mso-pattern:black none;}
-.xl205
+.xl194
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:left;}
-.xl206
+.xl195
 	{mso-style-parent:style0;
+	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
-	mso-number-format:"Short Date";
-	text-align:left;}
-.xl207
-	{mso-style-parent:style17;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl196
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	background:#FCE4D6;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl197
+	{mso-style-parent:style0;
 	color:windowtext;
+	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
-	text-align:left;}
-.xl208
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#9BC2E6;
+	mso-pattern:black none;}
+.xl198
+	{mso-style-parent:style0;
+	color:windowtext;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#9BC2E6;
+	mso-pattern:black none;}
+.xl199
+	{mso-style-parent:style0;
+	color:windowtext;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#9BC2E6;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl200
+	{mso-style-parent:style0;
+	color:windowtext;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#9BC2E6;
+	mso-pattern:black none;}
+.xl201
+	{mso-style-parent:style0;
+	color:windowtext;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#9BC2E6;
+	mso-pattern:black none;}
+.xl202
+	{mso-style-parent:style0;
+	color:windowtext;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:left;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#9BC2E6;
+	mso-pattern:black none;}
+.xl203
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	background:#D6DCE4;
 	mso-pattern:black none;}
+.xl204
+	{mso-style-parent:style17;
+	color:#0563C1;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#DDEBF7;
+	mso-pattern:black none;}
+.xl205
+	{mso-style-parent:style17;
+	color:#0563C1;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#FCE4D6;
+	mso-pattern:black none;}
+.xl206
+	{mso-style-parent:style17;
+	color:#0563C1;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#FFF2CC;
+	mso-pattern:black none;}
+.xl207
+	{mso-style-parent:style0;
+	font-size:24.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:left;}
+.xl208
+	{mso-style-parent:style17;
+	color:#0563C1;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:left;}
 .xl209
+	{mso-style-parent:style17;
+	color:#0563C1;
+	text-decoration:underline;
+	text-underline-style:single;
+	text-align:left;}
+.xl210
+	{mso-style-parent:style0;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	mso-number-format:"Short Date";
+	text-align:left;}
+.xl211
+	{mso-style-parent:style0;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#C6E0B4;
+	mso-pattern:black none;}
+.xl212
+	{mso-style-parent:style0;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#F8CBAD;
+	mso-pattern:black none;}
+.xl213
+	{mso-style-parent:style0;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#D9D9D9;
+	mso-pattern:black none;}
+.xl214
+	{mso-style-parent:style0;
+	color:white;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl215
+	{mso-style-parent:style0;
+	color:white;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl216
+	{mso-style-parent:style0;
+	color:white;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	background:red;
+	mso-pattern:black none;}
+.xl217
+	{mso-style-parent:style0;
+	color:white;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;}
+.xl218
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid windowtext;
+	background:#F29F27;
+	mso-pattern:black none;}
+.xl219
+	{mso-style-parent:style0;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#F29F27;
+	mso-pattern:black none;}
+.xl220
+	{mso-style-parent:style17;
+	color:#0563C1;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;}
+.xl221
 	{mso-style-parent:style17;
 	color:#0563C1;
 	font-size:11.0pt;
@@ -1579,7 +1706,7 @@ td
 	text-align:center;
 	background:#D9E1F2;
 	mso-pattern:black none;}
-.xl210
+.xl222
 	{mso-style-parent:style17;
 	color:red;
 	text-decoration:underline;
@@ -1587,7 +1714,7 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:left;}
-.xl211
+.xl223
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -1598,7 +1725,7 @@ td
 	border-left:1.0pt solid windowtext;
 	background:#D6DCE4;
 	mso-pattern:black none;}
-.xl212
+.xl224
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -1609,7 +1736,7 @@ td
 	border-left:none;
 	background:#D6DCE4;
 	mso-pattern:black none;}
-.xl213
+.xl225
 	{mso-style-parent:style0;
 	color:#00B050;
 	font-weight:700;
@@ -1620,249 +1747,34 @@ td
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;}
-.xl214
-	{mso-style-parent:style17;
-	color:#0563C1;
-	text-decoration:underline;
-	text-underline-style:single;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#DDEBF7;
-	mso-pattern:black none;}
-.xl215
-	{mso-style-parent:style17;
-	color:#0563C1;
-	text-decoration:underline;
-	text-underline-style:single;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#FCE4D6;
-	mso-pattern:black none;}
-.xl216
-	{mso-style-parent:style17;
-	color:#0563C1;
-	text-decoration:underline;
-	text-underline-style:single;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#FFF2CC;
-	mso-pattern:black none;}
-.xl217
-	{mso-style-parent:style0;
-	color:white;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#0070C0;
-	mso-pattern:black none;}
-.xl218
-	{mso-style-parent:style0;
-	color:white;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:.5pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#0070C0;
-	mso-pattern:black none;}
-.xl219
-	{mso-style-parent:style0;
-	color:white;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:.5pt solid windowtext;
-	background:red;
-	mso-pattern:black none;}
-.xl220
-	{mso-style-parent:style0;
-	color:white;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:.5pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;}
-.xl221
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:.5pt solid windowtext;
-	background:#F29F27;
-	mso-pattern:black none;}
-.xl222
-	{mso-style-parent:style0;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#F29F27;
-	mso-pattern:black none;}
-.xl223
-	{mso-style-parent:style0;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#C6E0B4;
-	mso-pattern:black none;}
-.xl224
-	{mso-style-parent:style0;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#F8CBAD;
-	mso-pattern:black none;}
-.xl225
-	{mso-style-parent:style0;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#D9D9D9;
-	mso-pattern:black none;}
 .xl226
 	{mso-style-parent:style17;
-	color:#0563C1;
-	text-decoration:underline;
-	text-underline-style:single;
+	color:windowtext;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:left;}
 .xl227
 	{mso-style-parent:style0;
-	font-size:24.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:left;}
-.xl228
-	{mso-style-parent:style17;
-	color:#0563C1;
-	text-decoration:underline;
-	text-underline-style:single;
-	text-align:left;}
-.xl229
-	{mso-style-parent:style17;
-	color:#0563C1;
-	text-decoration:underline;
-	text-underline-style:single;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;}
-.xl230
-	{mso-style-parent:style0;
-	color:white;
 	font-size:10.0pt;
-	font-weight:700;
+	font-style:italic;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl231
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl232
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl233
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl234
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl235
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl236
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#F2F2F2;
+	background:#FCE4D6;
 	mso-pattern:black none;}
-.xl237
+.xl228
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#DDEBF7;
+	mso-pattern:black none;}
+.xl229
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1872,9 +1784,188 @@ td
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;
-	background:#F2F2F2;
+	background:#DDEBF7;
+	mso-pattern:black none;}
+.xl230
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#DDEBF7;
+	mso-pattern:black none;}
+.xl231
+	{mso-style-parent:style0;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#FCE4D6;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl232
+	{mso-style-parent:style0;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#FCE4D6;
+	mso-pattern:black none;}
+.xl233
+	{mso-style-parent:style0;
+	color:gray;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#FCE4D6;
+	mso-pattern:black none;}
+.xl234
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-style:italic;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#EDEDED;
+	mso-pattern:black none;}
+.xl235
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl236
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl237
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#0070C0;
 	mso-pattern:black none;}
 .xl238
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl239
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl240
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl241
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl242
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl243
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl244
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#EDEDED;
+	mso-pattern:black none;}
+.xl245
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-family:微軟正黑體, sans-serif;
@@ -1884,39 +1975,18 @@ td
 	border-right:none;
 	border-bottom:none;
 	border-left:none;
-	background:#F2F2F2;
+	background:#EDEDED;
 	mso-pattern:black none;}
-.xl239
+.xl246
 	{mso-style-parent:style0;
 	font-size:10.0pt;
+	font-style:italic;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	background:#DDEBF7;
 	mso-pattern:black none;}
-.xl240
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-style:italic;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:.5pt hairline windowtext;
-	background:#F2F2F2;
-	mso-pattern:black none;}
-.xl241
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-style:italic;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#F2F2F2;
-	mso-pattern:black none;}
-.xl242
+.xl247
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-style:italic;
@@ -1927,144 +1997,67 @@ td
 	border-right:.5pt hairline windowtext;
 	border-bottom:none;
 	border-left:none;
-	background:#F2F2F2;
-	mso-pattern:black none;}
-.xl243
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
 	background:#DDEBF7;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl244
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#DDEBF7;
-	mso-pattern:black none;}
-.xl245
-	{mso-style-parent:style0;
-	font-size:8.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#00B0F0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl246
-	{mso-style-parent:style0;
-	font-size:8.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#00B0F0;
-	mso-pattern:black none;}
-.xl247
-	{mso-style-parent:style0;
-	font-size:8.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#00B0F0;
 	mso-pattern:black none;}
 .xl248
 	{mso-style-parent:style0;
-	font-size:8.0pt;
-	font-weight:700;
+	font-size:10.0pt;
+	font-style:italic;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	border-top:none;
 	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#00B0F0;
+	border-bottom:none;
+	border-left:.5pt hairline windowtext;
+	background:#DDEBF7;
 	mso-pattern:black none;}
 .xl249
 	{mso-style-parent:style0;
-	font-size:8.0pt;
+	color:white;
+	font-size:10.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
+	border-top:1.0pt solid windowtext;
 	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#00B0F0;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#FF6161;
 	mso-pattern:black none;}
 .xl250
 	{mso-style-parent:style0;
-	font-size:8.0pt;
+	color:white;
+	font-size:10.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
 	border-left:none;
-	background:#00B0F0;
+	background:#FF6161;
 	mso-pattern:black none;}
 .xl251
 	{mso-style-parent:style0;
 	color:white;
-	font-size:11.0pt;
+	font-size:10.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
-	border-right:none;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
 	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#0070C0;
+	border-left:none;
+	background:#FF6161;
 	mso-pattern:black none;}
 .xl252
 	{mso-style-parent:style0;
 	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#0070C0;
-	mso-pattern:black none;}
-.xl253
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#0070C0;
-	mso-pattern:black none;}
-.xl254
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
+	font-size:10.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -2073,7 +2066,35 @@ td
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:1.0pt solid windowtext;
-	background:#0070C0;
+	background:#FF6161;
+	mso-pattern:black none;}
+.xl253
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#FF6161;
+	mso-pattern:black none;}
+.xl254
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#FF6161;
 	mso-pattern:black none;}
 .xl255
 	{mso-style-parent:style0;
@@ -2083,13 +2104,70 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl256
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;}
+.xl257
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;}
+.xl258
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:red;
+	mso-pattern:black none;}
+.xl259
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
 	border-top:none;
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;
-	background:#0070C0;
+	background:red;
 	mso-pattern:black none;}
-.xl256
+.xl260
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -2101,99 +2179,9 @@ td
 	border-right:1.0pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;
-	background:#0070C0;
+	background:red;
 	mso-pattern:black none;}
-.xl257
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	white-space:normal;}
-.xl258
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;}
-.xl259
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;}
-.xl260
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;}
 .xl261
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;}
-.xl262
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;}
-.xl263
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;}
-.xl264
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;}
-.xl265
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-style:italic;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#DDEBF7;
-	mso-pattern:black none;}
-.xl266
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-style:italic;
@@ -2204,9 +2192,9 @@ td
 	border-right:.5pt hairline windowtext;
 	border-bottom:none;
 	border-left:none;
-	background:#DDEBF7;
+	background:#EDEDED;
 	mso-pattern:black none;}
-.xl267
+.xl262
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-style:italic;
@@ -2217,9 +2205,38 @@ td
 	border-right:none;
 	border-bottom:none;
 	border-left:.5pt hairline windowtext;
+	background:#EDEDED;
+	mso-pattern:black none;}
+.xl263
+	{mso-style-parent:style0;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#DDEBF7;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl264
+	{mso-style-parent:style0;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
 	background:#DDEBF7;
 	mso-pattern:black none;}
-.xl268
+.xl265
+	{mso-style-parent:style0;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#F2F2F2;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl266
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-weight:700;
@@ -2228,6 +2245,34 @@ td
 	text-align:center;
 	border-top:1.0pt solid windowtext;
 	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#FFC000;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl267
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#FFC000;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl268
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
 	border-bottom:none;
 	border-left:none;
 	background:#FFC000;
@@ -2240,12 +2285,13 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
+	border-top:none;
 	border-right:none;
-	border-bottom:none;
-	border-left:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
 	background:#FFC000;
-	mso-pattern:black none;}
+	mso-pattern:black none;
+	white-space:normal;}
 .xl270
 	{mso-style-parent:style0;
 	font-size:11.0pt;
@@ -2253,22 +2299,14 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
 	border-left:none;
 	background:#FFC000;
-	mso-pattern:black none;}
+	mso-pattern:black none;
+	white-space:normal;}
 .xl271
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#FFC000;
-	mso-pattern:black none;}
-.xl272
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-weight:700;
@@ -2277,6 +2315,20 @@ td
 	text-align:center;
 	border-top:none;
 	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#FFC000;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl272
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
 	border-bottom:none;
 	border-left:none;
 	background:#FFC000;
@@ -2288,9 +2340,9 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
 	border-left:none;
 	background:#FFC000;
 	mso-pattern:black none;}
@@ -2301,209 +2353,57 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
+	background:#FFC000;
+	mso-pattern:black none;}
+.xl275
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#FFC000;
+	mso-pattern:black none;}
+.xl276
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#FFC000;
+	mso-pattern:black none;}
+.xl277
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
 	border-top:none;
 	border-right:1.0pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;
 	background:#FFC000;
 	mso-pattern:black none;}
-.xl275
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-style:italic;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;}
-.xl276
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl277
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:#0070C0;
-	mso-pattern:black none;}
 .xl278
 	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
+	font-size:10.0pt;
+	font-style:italic;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#0070C0;
+	background:#F2F2F2;
 	mso-pattern:black none;}
 .xl279
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#DDEBF7;
-	mso-pattern:black none;}
-.xl280
-	{mso-style-parent:style0;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:#FFD54F;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl281
-	{mso-style-parent:style0;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:#FFD54F;
-	mso-pattern:black none;}
-.xl282
-	{mso-style-parent:style0;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#FFD54F;
-	mso-pattern:black none;}
-.xl283
-	{mso-style-parent:style0;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#FFD54F;
-	mso-pattern:black none;}
-.xl284
-	{mso-style-parent:style0;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#FFD54F;
-	mso-pattern:black none;}
-.xl285
-	{mso-style-parent:style0;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#FFD54F;
-	mso-pattern:black none;}
-.xl286
-	{mso-style-parent:style0;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#FFD54F;
-	mso-pattern:black none;}
-.xl287
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#EDEDED;
-	mso-pattern:black none;}
-.xl288
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:#EDEDED;
-	mso-pattern:black none;}
-.xl289
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-style:italic;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:.5pt hairline windowtext;
-	background:#EDEDED;
-	mso-pattern:black none;}
-.xl290
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-style:italic;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#EDEDED;
-	mso-pattern:black none;}
-.xl291
 	{mso-style-parent:style0;
 	font-size:10.0pt;
 	font-style:italic;
@@ -2514,220 +2414,86 @@ td
 	border-right:.5pt hairline windowtext;
 	border-bottom:none;
 	border-left:none;
-	background:#EDEDED;
+	background:#F2F2F2;
 	mso-pattern:black none;}
-.xl292
-	{mso-style-parent:style0;
-	color:white;
-	font-size:8.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl293
-	{mso-style-parent:style0;
-	color:white;
-	font-size:8.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl294
-	{mso-style-parent:style0;
-	color:white;
-	font-size:8.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl295
-	{mso-style-parent:style0;
-	color:white;
-	font-size:8.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl296
-	{mso-style-parent:style0;
-	color:white;
-	font-size:8.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl297
-	{mso-style-parent:style0;
-	color:white;
-	font-size:8.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl298
-	{mso-style-parent:style0;
-	color:white;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#F78A85;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl299
-	{mso-style-parent:style0;
-	color:white;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:#F78A85;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl300
-	{mso-style-parent:style0;
-	color:white;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#F78A85;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl301
-	{mso-style-parent:style0;
-	color:white;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#F78A85;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl302
-	{mso-style-parent:style0;
-	color:white;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#F78A85;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl303
-	{mso-style-parent:style0;
-	color:white;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#F78A85;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl304
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#EDEDED;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl305
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#EDEDED;
-	mso-pattern:black none;}
-.xl306
+.xl280
 	{mso-style-parent:style0;
 	font-size:10.0pt;
+	font-style:italic;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
+	border-top:none;
 	border-right:none;
 	border-bottom:none;
-	border-left:none;
-	background:#DDEBF7;
+	border-left:.5pt hairline windowtext;
+	background:#F2F2F2;
 	mso-pattern:black none;}
-.xl307
+.xl281
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#FFC000;
+	mso-pattern:black none;}
+.xl282
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#FFC000;
+	mso-pattern:black none;}
+.xl283
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:red;
+	mso-pattern:black none;}
+.xl284
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:red;
+	mso-pattern:black none;}
+.xl285
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;}
+.xl286
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -2742,7 +2508,195 @@ td
 	background:#0070C0;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl308
+.xl287
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl288
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#00B0F0;
+	mso-pattern:black none;}
+.xl289
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#00B0F0;
+	mso-pattern:black none;}
+.xl290
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#00B0F0;
+	mso-pattern:black none;}
+.xl291
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#00B0F0;
+	mso-pattern:black none;}
+.xl292
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#00B0F0;
+	mso-pattern:black none;}
+.xl293
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl294
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;}
+.xl295
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl296
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl297
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;}
+.xl298
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl299
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl300
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl301
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl302
+	{mso-style-parent:style0;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#EDEDED;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl303
+	{mso-style-parent:style0;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#EDEDED;
+	mso-pattern:black none;}
+.xl304
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#F2F2F2;
+	mso-pattern:black none;}
+.xl305
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -2757,7 +2711,7 @@ td
 	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl309
+.xl306
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -2772,7 +2726,7 @@ td
 	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl310
+.xl307
 	{mso-style-parent:style0;
 	color:white;
 	font-size:11.0pt;
@@ -2781,6 +2735,47 @@ td
 	mso-font-charset:136;
 	text-align:center;
 	border-top:1.5pt solid #00B050;
+	border-right:1.5pt solid #00B050;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl308
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.5pt solid #00B050;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl309
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl310
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
 	border-right:1.5pt solid #00B050;
 	border-bottom:none;
 	border-left:none;
@@ -2797,7 +2792,7 @@ td
 	text-align:center;
 	border-top:none;
 	border-right:none;
-	border-bottom:none;
+	border-bottom:1.5pt solid #00B050;
 	border-left:1.5pt solid #00B050;
 	background:red;
 	mso-pattern:black none;
@@ -2810,6 +2805,10 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.5pt solid #00B050;
+	border-left:none;
 	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
@@ -2823,57 +2822,12 @@ td
 	text-align:center;
 	border-top:none;
 	border-right:1.5pt solid #00B050;
-	border-bottom:none;
+	border-bottom:1.5pt solid #00B050;
 	border-left:none;
 	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl314
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.5pt solid #00B050;
-	border-left:1.5pt solid #00B050;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl315
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.5pt solid #00B050;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl316
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.5pt solid #00B050;
-	border-bottom:1.5pt solid #00B050;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl317
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -2888,7 +2842,7 @@ td
 	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl318
+.xl315
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -2902,7 +2856,7 @@ td
 	border-left:none;
 	background:red;
 	mso-pattern:black none;}
-.xl319
+.xl316
 	{mso-style-parent:style0;
 	color:white;
 	font-size:10.0pt;
@@ -2911,6 +2865,44 @@ td
 	mso-font-charset:136;
 	text-align:center;
 	border-top:1.5pt solid #00B050;
+	border-right:1.5pt solid #00B050;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;}
+.xl317
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.5pt solid #00B050;
+	background:red;
+	mso-pattern:black none;}
+.xl318
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:red;
+	mso-pattern:black none;}
+.xl319
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
 	border-right:1.5pt solid #00B050;
 	border-bottom:none;
 	border-left:none;
@@ -2926,7 +2918,7 @@ td
 	text-align:center;
 	border-top:none;
 	border-right:none;
-	border-bottom:none;
+	border-bottom:1.5pt solid #00B050;
 	border-left:1.5pt solid #00B050;
 	background:red;
 	mso-pattern:black none;}
@@ -2938,6 +2930,10 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.5pt solid #00B050;
+	border-left:none;
 	background:red;
 	mso-pattern:black none;}
 .xl322
@@ -2950,53 +2946,11 @@ td
 	text-align:center;
 	border-top:none;
 	border-right:1.5pt solid #00B050;
-	border-bottom:none;
+	border-bottom:1.5pt solid #00B050;
 	border-left:none;
 	background:red;
 	mso-pattern:black none;}
 .xl323
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.5pt solid #00B050;
-	border-left:1.5pt solid #00B050;
-	background:red;
-	mso-pattern:black none;}
-.xl324
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.5pt solid #00B050;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;}
-.xl325
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.5pt solid #00B050;
-	border-bottom:1.5pt solid #00B050;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;}
-.xl326
 	{mso-style-parent:style0;
 	font-size:8.0pt;
 	font-weight:700;
@@ -3010,7 +2964,7 @@ td
 	background:#FFC000;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl327
+.xl324
 	{mso-style-parent:style0;
 	font-size:8.0pt;
 	font-weight:700;
@@ -3024,7 +2978,7 @@ td
 	background:#FFC000;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl328
+.xl325
 	{mso-style-parent:style0;
 	font-size:8.0pt;
 	font-weight:700;
@@ -3032,6 +2986,44 @@ td
 	mso-font-charset:136;
 	text-align:center;
 	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#FFC000;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl326
+	{mso-style-parent:style0;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#FFC000;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl327
+	{mso-style-parent:style0;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#FFC000;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl328
+	{mso-style-parent:style0;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
 	border-right:1.0pt solid windowtext;
 	border-bottom:none;
 	border-left:none;
@@ -3047,7 +3039,7 @@ td
 	text-align:center;
 	border-top:none;
 	border-right:none;
-	border-bottom:none;
+	border-bottom:1.0pt solid windowtext;
 	border-left:1.0pt solid windowtext;
 	background:#FFC000;
 	mso-pattern:black none;
@@ -3059,6 +3051,10 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
 	background:#FFC000;
 	mso-pattern:black none;
 	white-space:normal;}
@@ -3071,7 +3067,7 @@ td
 	text-align:center;
 	border-top:none;
 	border-right:1.0pt solid windowtext;
-	border-bottom:none;
+	border-bottom:1.0pt solid windowtext;
 	border-left:none;
 	background:#FFC000;
 	mso-pattern:black none;
@@ -3083,11 +3079,11 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
+	border-top:1.0pt solid windowtext;
 	border-right:none;
-	border-bottom:1.0pt solid windowtext;
+	border-bottom:none;
 	border-left:1.0pt solid windowtext;
-	background:#FFC000;
+	background:#FFF2CC;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl333
@@ -3097,11 +3093,11 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
+	border-top:1.0pt solid windowtext;
 	border-right:none;
-	border-bottom:1.0pt solid windowtext;
+	border-bottom:none;
 	border-left:none;
-	background:#FFC000;
+	background:#FFF2CC;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl334
@@ -3111,11 +3107,11 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
+	border-top:1.0pt solid windowtext;
 	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
+	border-bottom:none;
 	border-left:none;
-	background:#FFC000;
+	background:#FFF2CC;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl335
@@ -3125,9 +3121,9 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
+	border-top:none;
 	border-right:none;
-	border-bottom:none;
+	border-bottom:1.0pt solid windowtext;
 	border-left:1.0pt solid windowtext;
 	background:#FFF2CC;
 	mso-pattern:black none;
@@ -3139,9 +3135,9 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
+	border-top:none;
 	border-right:none;
-	border-bottom:none;
+	border-bottom:1.0pt solid windowtext;
 	border-left:none;
 	background:#FFF2CC;
 	mso-pattern:black none;
@@ -3153,15 +3149,156 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
+	border-top:none;
 	border-right:1.0pt solid windowtext;
-	border-bottom:none;
+	border-bottom:1.0pt solid windowtext;
 	border-left:none;
 	background:#FFF2CC;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl338
 	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-style:italic;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;}
+.xl339
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#FFD54F;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl340
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#FFD54F;
+	mso-pattern:black none;}
+.xl341
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#FFD54F;
+	mso-pattern:black none;}
+.xl342
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#FFD54F;
+	mso-pattern:black none;}
+.xl343
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#FFD54F;
+	mso-pattern:black none;}
+.xl344
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#FFD54F;
+	mso-pattern:black none;}
+.xl345
+	{mso-style-parent:style0;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#FFD54F;
+	mso-pattern:black none;}
+.xl346
+	{mso-style-parent:style0;
+	color:white;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl347
+	{mso-style-parent:style0;
+	color:white;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl348
+	{mso-style-parent:style0;
+	color:white;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl349
+	{mso-style-parent:style0;
+	color:white;
 	font-size:8.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
@@ -3171,11 +3308,12 @@ td
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:1.0pt solid windowtext;
-	background:#FFF2CC;
+	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl339
+.xl350
 	{mso-style-parent:style0;
+	color:white;
 	font-size:8.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
@@ -3185,11 +3323,12 @@ td
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;
-	background:#FFF2CC;
+	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl340
+.xl351
 	{mso-style-parent:style0;
+	color:white;
 	font-size:8.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
@@ -3199,191 +3338,13 @@ td
 	border-right:1.0pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;
-	background:#FFF2CC;
+	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl341
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.5pt solid #00B050;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;}
-.xl342
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.5pt solid #00B050;
-	border-right:1.5pt solid #00B050;
-	border-bottom:none;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;}
-.xl343
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.5pt solid #00B050;
-	background:red;
-	mso-pattern:black none;}
-.xl344
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:red;
-	mso-pattern:black none;}
-.xl345
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.5pt solid #00B050;
-	border-bottom:none;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;}
-.xl346
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.5pt solid #00B050;
-	border-left:1.5pt solid #00B050;
-	background:red;
-	mso-pattern:black none;}
-.xl347
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.5pt solid #00B050;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;}
-.xl348
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.5pt solid #00B050;
-	border-bottom:1.5pt solid #00B050;
-	border-left:none;
-	background:red;
-	mso-pattern:black none;}
-.xl349
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid black;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid black;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl350
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid black;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:#0070C0;
-	mso-pattern:black none;}
-.xl351
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid black;
-	background:#0070C0;
-	mso-pattern:black none;}
 .xl352
 	{mso-style-parent:style0;
 	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid black;
-	border-left:1.0pt solid black;
-	background:#0070C0;
-	mso-pattern:black none;}
-.xl353
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid black;
-	border-left:none;
-	background:#0070C0;
-	mso-pattern:black none;}
-.xl354
-	{mso-style-parent:style0;
-	font-size:11.0pt;
+	font-size:9.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -3392,25 +3353,43 @@ td
 	border-right:none;
 	border-bottom:none;
 	border-left:1.0pt solid windowtext;
-	background:#FFC000;
+	background:#F78A85;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl355
+.xl353
 	{mso-style-parent:style0;
-	font-size:11.0pt;
+	color:white;
+	font-size:9.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
+	border-top:1.0pt solid windowtext;
 	border-right:none;
 	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#FFC000;
-	mso-pattern:black none;}
-.xl356
+	border-left:none;
+	background:#F78A85;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl354
 	{mso-style-parent:style0;
-	font-size:11.0pt;
+	color:white;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#F78A85;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl355
+	{mso-style-parent:style0;
+	color:white;
+	font-size:9.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -3419,21 +3398,37 @@ td
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:1.0pt solid windowtext;
-	background:#FFC000;
-	mso-pattern:black none;}
-.xl357
+	background:#F78A85;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl356
 	{mso-style-parent:style0;
 	color:white;
-	font-size:11.0pt;
+	font-size:9.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
+	border-top:none;
 	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:red;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#F78A85;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl357
+	{mso-style-parent:style0;
+	color:white;
+	font-size:9.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#F78A85;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl358
@@ -3444,7 +3439,7 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
+	border-top:1.5pt solid #00B050;
 	border-right:none;
 	border-bottom:none;
 	border-left:none;
@@ -3458,8 +3453,8 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
+	border-top:1.5pt solid #00B050;
+	border-right:1.5pt solid #00B050;
 	border-bottom:none;
 	border-left:none;
 	background:red;
@@ -3475,7 +3470,7 @@ td
 	border-top:none;
 	border-right:none;
 	border-bottom:none;
-	border-left:1.0pt solid windowtext;
+	border-left:1.5pt solid #00B050;
 	background:red;
 	mso-pattern:black none;}
 .xl361
@@ -3487,7 +3482,7 @@ td
 	mso-font-charset:136;
 	text-align:center;
 	border-top:none;
-	border-right:1.0pt solid windowtext;
+	border-right:1.5pt solid #00B050;
 	border-bottom:none;
 	border-left:none;
 	background:red;
@@ -3502,8 +3497,8 @@ td
 	text-align:center;
 	border-top:none;
 	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
+	border-bottom:1.5pt solid #00B050;
+	border-left:1.5pt solid #00B050;
 	background:red;
 	mso-pattern:black none;}
 .xl363
@@ -3516,7 +3511,7 @@ td
 	text-align:center;
 	border-top:none;
 	border-right:none;
-	border-bottom:1.0pt solid windowtext;
+	border-bottom:1.5pt solid #00B050;
 	border-left:none;
 	background:red;
 	mso-pattern:black none;}
@@ -3529,41 +3524,44 @@ td
 	mso-font-charset:136;
 	text-align:center;
 	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
+	border-right:1.5pt solid #00B050;
+	border-bottom:1.5pt solid #00B050;
 	border-left:none;
 	background:red;
 	mso-pattern:black none;}
 .xl365
 	{mso-style-parent:style0;
-	font-size:9.0pt;
+	color:white;
+	font-size:11.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
+	border-top:1.0pt solid black;
 	border-right:none;
 	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#00B0F0;
+	border-left:1.0pt solid black;
+	background:#0070C0;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl366
 	{mso-style-parent:style0;
-	font-size:9.0pt;
+	color:white;
+	font-size:11.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:1.0pt solid windowtext;
+	border-top:1.0pt solid black;
 	border-right:none;
 	border-bottom:none;
 	border-left:none;
-	background:#00B0F0;
+	background:#0070C0;
 	mso-pattern:black none;}
 .xl367
 	{mso-style-parent:style0;
-	font-size:9.0pt;
+	color:white;
+	font-size:11.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -3571,34 +3569,205 @@ td
 	border-top:none;
 	border-right:none;
 	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#00B0F0;
+	border-left:1.0pt solid black;
+	background:#0070C0;
 	mso-pattern:black none;}
 .xl368
 	{mso-style-parent:style0;
-	font-size:9.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#00B0F0;
-	mso-pattern:black none;}
-.xl369
-	{mso-style-parent:style0;
-	font-size:9.0pt;
+	color:white;
+	font-size:11.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	border-top:none;
 	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#00B0F0;
+	border-bottom:1.0pt solid black;
+	border-left:1.0pt solid black;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl369
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid black;
+	border-left:none;
+	background:#0070C0;
 	mso-pattern:black none;}
 .xl370
 	{mso-style-parent:style0;
 	font-size:9.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;}
+.xl371
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl372
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl373
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl374
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl375
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl376
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl377
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#F2F2F2;
+	mso-pattern:black none;}
+.xl378
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:#F2F2F2;
+	mso-pattern:black none;}
+.xl379
+	{mso-style-parent:style0;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl380
+	{mso-style-parent:style0;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	background:#00B0F0;
+	mso-pattern:black none;}
+.xl381
+	{mso-style-parent:style0;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#00B0F0;
+	mso-pattern:black none;}
+.xl382
+	{mso-style-parent:style0;
+	font-size:8.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#00B0F0;
+	mso-pattern:black none;}
+.xl383
+	{mso-style-parent:style0;
+	font-size:8.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -3609,160 +3778,108 @@ td
 	border-left:none;
 	background:#00B0F0;
 	mso-pattern:black none;}
-.xl371
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#F2F2F2;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl372
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#FFC000;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl373
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#FFC000;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl374
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#FFC000;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl375
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#FFC000;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl376
-	{mso-style-parent:style0;
-	font-size:10.0pt;
-	font-style:italic;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#FCE4D6;
-	mso-pattern:black none;}
-.xl377
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;}
-.xl378
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;}
-.xl379
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;}
-.xl380
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;}
-.xl381
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;}
-.xl382
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;}
-.xl383
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;}
 .xl384
 	{mso-style-parent:style0;
-	font-size:11.0pt;
+	font-size:8.0pt;
+	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
 	border-top:none;
-	border-right:none;
+	border-right:1.0pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
-	border-left:none;}
+	border-left:none;
+	background:#00B0F0;
+	mso-pattern:black none;}
 .xl385
 	{mso-style-parent:style0;
 	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	white-space:normal;}
+.xl386
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;}
+.xl387
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl388
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl389
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;}
+.xl390
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl391
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl392
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
+.xl393
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
@@ -3770,123 +3887,47 @@ td
 	border-right:1.0pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;}
-.xl386
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#FCE4D6;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl387
-	{mso-style-parent:style0;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#FCE4D6;
-	mso-pattern:black none;}
-.xl388
-	{mso-style-parent:style0;
-	color:gray;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	background:#FCE4D6;
-	mso-pattern:black none;}
-.xl389
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl390
-	{mso-style-parent:style0;
-	color:white;
-	font-size:11.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl391
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#FF6161;
-	mso-pattern:black none;}
-.xl392
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:none;
-	background:#FF6161;
-	mso-pattern:black none;}
-.xl393
-	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:none;
-	border-left:none;
-	background:#FF6161;
-	mso-pattern:black none;}
 .xl394
 	{mso-style-parent:style0;
-	color:white;
-	font-size:10.0pt;
-	font-weight:700;
+	font-size:14.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#FF6161;
-	mso-pattern:black none;}
+	mso-number-format:"\@";
+	text-align:left;}
 .xl395
 	{mso-style-parent:style0;
 	color:white;
-	font-size:10.0pt;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl396
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl397
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -3895,12 +3936,13 @@ td
 	border-right:none;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;
-	background:#FF6161;
-	mso-pattern:black none;}
-.xl396
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl398
 	{mso-style-parent:style0;
 	color:white;
-	font-size:10.0pt;
+	font-size:11.0pt;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -3909,9 +3951,152 @@ td
 	border-right:1.0pt solid windowtext;
 	border-bottom:1.0pt solid windowtext;
 	border-left:none;
-	background:#FF6161;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl399
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl400
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl401
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl402
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl403
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl404
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl405
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:none;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl406
+	{mso-style-parent:style0;
+	color:windowtext;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#9BC2E6;
 	mso-pattern:black none;}
-.xl397
+.xl407
+	{mso-style-parent:style0;
+	color:windowtext;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	background:#9BC2E6;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl408
+	{mso-style-parent:style0;
+	color:windowtext;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:1.0pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;
+	background:#9BC2E6;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl409
 	{mso-style-parent:style0;
 	color:windowtext;
 	font-size:11.0pt;
@@ -3924,153 +4109,15 @@ td
 	border-left:none;
 	background:#D9D9D9;
 	mso-pattern:black none;}
-.xl398
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:.5pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl399
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:none;
-	border-bottom:.5pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;}
-.xl400
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;}
-.xl401
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:none;
-	border-bottom:.5pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl402
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;}
-.xl403
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:none;
-	border-right:none;
-	border-bottom:.5pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl404
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;}
-.xl405
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;}
-.xl406
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:1.0pt solid windowtext;
-	border-bottom:1.0pt solid windowtext;
-	border-left:none;}
-.xl407
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border:1.0pt solid windowtext;}
-.xl408
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:.5pt solid windowtext;
-	border-right:none;
-	border-bottom:1.0pt solid windowtext;
-	border-left:1.0pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl409
-	{mso-style-parent:style0;
-	font-size:11.0pt;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border-top:1.0pt solid windowtext;
-	border-right:none;
-	border-bottom:none;
-	border-left:1.0pt solid windowtext;
-	background:#D9D9D9;
-	mso-pattern:black none;
-	white-space:normal;}
 .xl410
 	{mso-style-parent:style0;
 	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
+	border-top:1.0pt solid windowtext;
 	border-right:none;
-	border-bottom:none;
+	border-bottom:.5pt solid windowtext;
 	border-left:1.0pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;
@@ -4081,115 +4128,110 @@ td
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border-top:none;
+	border-top:.5pt solid windowtext;
 	border-right:none;
-	border-bottom:1.0pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;}
+.xl412
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;}
+.xl413
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
 	border-left:1.0pt solid windowtext;
 	background:#D9D9D9;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl412
-	{mso-style-parent:style0;
-	color:white;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border:1.5pt solid white;
-	background:#F29F27;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl413
-	{mso-style-parent:style0;
-	color:white;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border:1.5pt solid white;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
 .xl414
 	{mso-style-parent:style0;
-	color:white;
-	font-size:16.0pt;
-	font-weight:700;
+	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:1.5pt solid white;
-	background:#F29F27;
-	mso-pattern:black none;
-	white-space:normal;}
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;}
 .xl415
 	{mso-style-parent:style0;
-	color:white;
-	font-size:16.0pt;
-	font-weight:700;
+	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:1.5pt solid white;
-	background:red;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D9D9D9;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl416
 	{mso-style-parent:style0;
-	color:windowtext;
-	font-weight:700;
+	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:1.5pt solid white;
-	mso-diagonal-down:1.0pt solid #D9D9D9;
-	background:#F29F27;
-	mso-pattern:black none;
-	white-space:normal;}
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
 .xl417
 	{mso-style-parent:style0;
-	color:windowtext;
-	font-weight:700;
+	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:1.5pt solid white;
-	mso-diagonal-down:1.0pt solid #D9D9D9;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
 .xl418
 	{mso-style-parent:style0;
-	color:white;
-	font-weight:700;
+	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:1.5pt solid white;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:none;}
 .xl419
 	{mso-style-parent:style0;
-	color:white;
-	font-weight:700;
+	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:1.5pt solid white;
-	background:#F99107;
-	mso-pattern:black none;
-	white-space:normal;}
+	border:1.0pt solid windowtext;}
 .xl420
 	{mso-style-parent:style0;
-	color:white;
-	font-size:16.0pt;
-	font-weight:700;
+	font-size:11.0pt;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:1.5pt solid white;
-	background:#0070C0;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	background:#D9D9D9;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl421
@@ -4205,6 +4247,50 @@ td
 	white-space:normal;}
 .xl422
 	{mso-style-parent:style0;
+	color:black;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:1.5pt solid white;
+	background:#E9F1F9;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl423
+	{mso-style-parent:style0;
+	color:white;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:1.5pt solid white;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl424
+	{mso-style-parent:style0;
+	color:white;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:1.5pt solid white;
+	background:#F29F27;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl425
+	{mso-style-parent:style0;
+	color:white;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:1.5pt solid white;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl426
+	{mso-style-parent:style0;
 	color:windowtext;
 	font-weight:700;
 	font-family:微軟正黑體, sans-serif;
@@ -4215,18 +4301,7 @@ td
 	background:#0070C0;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl423
-	{mso-style-parent:style0;
-	color:black;
-	font-weight:700;
-	font-family:微軟正黑體, sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border:1.5pt solid white;
-	background:#E9F1F9;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl424
+.xl427
 	{mso-style-parent:style0;
 	color:windowtext;
 	font-weight:700;
@@ -4238,65 +4313,78 @@ td
 	background:#F99107;
 	mso-pattern:black none;
 	white-space:normal;}
-.xl425
-	{mso-style-parent:style0;
-	color:white;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:"Microsoft JhengHei UI", sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border:1.0pt solid white;
-	background:red;
-	mso-pattern:black none;
-	white-space:normal;}
-.xl426
-	{mso-style-parent:style0;
-	color:white;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:"Microsoft JhengHei UI", sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border:1.0pt solid white;
-	background:red;
-	mso-pattern:black none;}
-.xl427
-	{mso-style-parent:style0;
-	color:white;
-	font-size:14.0pt;
-	font-weight:700;
-	font-family:"Microsoft JhengHei UI", sans-serif;
-	mso-font-charset:136;
-	text-align:center;
-	border:1.0pt solid white;
-	background:#0070C0;
-	mso-pattern:black none;
-	white-space:normal;}
 .xl428
 	{mso-style-parent:style0;
 	color:white;
-	font-size:14.0pt;
 	font-weight:700;
-	font-family:"Microsoft JhengHei UI", sans-serif;
+	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:1.0pt solid white;
-	background:#0070C0;
-	mso-pattern:black none;}
+	border:1.5pt solid white;
+	background:#F99107;
+	mso-pattern:black none;
+	white-space:normal;}
 .xl429
 	{mso-style-parent:style0;
-	color:white;
-	font-size:14.0pt;
+	color:windowtext;
 	font-weight:700;
-	font-family:"Microsoft JhengHei UI", sans-serif;
+	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
 	text-align:center;
-	border:1.0pt solid white;
-	background:#F29F27;
+	border:1.5pt solid white;
+	mso-diagonal-down:1.0pt solid #D9D9D9;
+	background:red;
 	mso-pattern:black none;
 	white-space:normal;}
 .xl430
+	{mso-style-parent:style0;
+	color:white;
+	font-size:16.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:1.5pt solid white;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl431
+	{mso-style-parent:style0;
+	color:white;
+	font-size:16.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:1.5pt solid white;
+	background:#F29F27;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl432
+	{mso-style-parent:style0;
+	color:white;
+	font-size:16.0pt;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:1.5pt solid white;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl433
+	{mso-style-parent:style0;
+	color:windowtext;
+	font-weight:700;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;
+	border:1.5pt solid white;
+	mso-diagonal-down:1.0pt solid #D9D9D9;
+	background:#F29F27;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl434
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -4305,7 +4393,7 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:none;
 	border-left:.5pt solid windowtext;}
-.xl431
+.xl435
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -4314,7 +4402,7 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:.5pt solid windowtext;
 	border-left:.5pt solid windowtext;}
-.xl432
+.xl436
 	{mso-style-parent:style0;
 	font-family:微軟正黑體, sans-serif;
 	mso-font-charset:136;
@@ -4323,3 +4411,626 @@ td
 	border-right:.5pt solid windowtext;
 	border-bottom:none;
 	border-left:.5pt solid windowtext;}
+.xl437
+	{mso-style-parent:style0;
+	mso-number-format:"\@";}
+.xl438
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	mso-number-format:"\@";
+	text-align:left;}
+.xl439
+	{mso-style-parent:style0;
+	font-size:10.0pt;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	mso-number-format:"\@";}
+.xl440
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:none;
+	border-bottom:1.0pt solid white;
+	border-left:1.0pt solid white;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl441
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:1.0pt solid white;
+	border-bottom:1.0pt solid white;
+	border-left:none;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl442
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl443
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:none;
+	border-bottom:1.0pt solid white;
+	border-left:1.0pt solid white;
+	background:#F29F27;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl444
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:1.0pt solid white;
+	border-bottom:1.0pt solid white;
+	border-left:none;
+	background:#F29F27;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl445
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#F29F27;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl446
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#F29F27;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl447
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:none;
+	border-bottom:1.0pt solid white;
+	border-left:1.0pt solid white;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl448
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:1.0pt solid white;
+	border-bottom:1.0pt solid white;
+	border-left:none;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl449
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl450
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:1.0pt solid white;
+	border-bottom:none;
+	border-left:1.0pt solid white;
+	background:#0192FF;
+	mso-pattern:black none;}
+.xl451
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#0192FF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl452
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid white;
+	border-bottom:none;
+	border-left:1.0pt solid white;
+	background:#0192FF;
+	mso-pattern:black none;}
+.xl453
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid white;
+	border-bottom:1.0pt solid white;
+	border-left:1.0pt solid white;
+	background:#0192FF;
+	mso-pattern:black none;}
+.xl454
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:none;
+	border-bottom:1.0pt solid white;
+	border-left:1.0pt solid white;
+	background:#305496;
+	mso-pattern:black none;}
+.xl455
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:1.0pt solid white;
+	border-bottom:1.0pt solid white;
+	border-left:none;
+	background:#305496;
+	mso-pattern:black none;}
+.xl456
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#305496;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl457
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;}
+.xl458
+	{mso-style-parent:style0;
+	font-size:11.0pt;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";}
+.xl459
+	{mso-style-parent:style0;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";}
+.xl460
+	{mso-style-parent:style0;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;}
+.xl461
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:1.0pt solid white;
+	border-bottom:none;
+	border-left:1.0pt solid white;
+	background:#F5B75D;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl462
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#F5B75D;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl463
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid white;
+	border-bottom:none;
+	border-left:1.0pt solid white;
+	background:#F5B75D;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl464
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid white;
+	border-bottom:1.0pt solid white;
+	border-left:1.0pt solid white;
+	background:#F5B75D;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl465
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:none;
+	border-bottom:1.0pt solid white;
+	border-left:1.0pt solid white;
+	background:#BF8F00;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl466
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:1.0pt solid white;
+	border-bottom:1.0pt solid white;
+	border-left:none;
+	background:#BF8F00;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl467
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#BF8F00;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl468
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#BF8F00;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl469
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:1.0pt solid white;
+	border-bottom:none;
+	border-left:1.0pt solid white;
+	background:#FF6161;
+	mso-pattern:black none;}
+.xl470
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#FF6161;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl471
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid white;
+	border-bottom:none;
+	border-left:1.0pt solid white;
+	background:#FF6161;
+	mso-pattern:black none;}
+.xl472
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:none;
+	border-right:1.0pt solid white;
+	border-bottom:1.0pt solid white;
+	border-left:1.0pt solid white;
+	background:#FF6161;
+	mso-pattern:black none;}
+.xl473
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:none;
+	border-bottom:1.0pt solid white;
+	border-left:1.0pt solid white;
+	background:#C00000;
+	mso-pattern:black none;}
+.xl474
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border-top:1.0pt solid white;
+	border-right:1.0pt solid white;
+	border-bottom:1.0pt solid white;
+	border-left:none;
+	background:#C00000;
+	mso-pattern:black none;}
+.xl475
+	{mso-style-parent:style0;
+	color:white;
+	font-size:11.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#C00000;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl476
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#0192FF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl477
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#0192FF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl478
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#F5B75D;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl479
+	{mso-style-parent:style0;
+	color:white;
+	font-size:10.0pt;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#FF6161;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl480
+	{mso-style-parent:style0;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#0070C0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl481
+	{mso-style-parent:style0;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#0070C0;
+	mso-pattern:black none;}
+.xl482
+	{mso-style-parent:style0;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:#F29F27;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl483
+	{mso-style-parent:style0;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:red;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl484
+	{mso-style-parent:style0;
+	color:white;
+	font-size:14.0pt;
+	font-weight:700;
+	font-family:Consolas, monospace;
+	mso-font-charset:0;
+	mso-number-format:"\@";
+	text-align:center;
+	border:1.0pt solid white;
+	background:red;
+	mso-pattern:black none;}
+.xl485
+	{mso-style-parent:style0;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	mso-number-format:"\@";
+	text-align:left;}
