@@ -11593,7 +11593,7 @@ td
 	vertical-align:top;
 	border-top:none;
 	border-right:.5pt solid windowtext;
-	border-bottom:none;
+	border-bottom:.5pt solid windowtext;
 	border-left:.5pt solid windowtext;
 	background:#F2F2F2;
 	mso-pattern:black none;}
@@ -11606,7 +11606,7 @@ td
 	vertical-align:top;
 	border-top:none;
 	border-right:.5pt solid windowtext;
-	border-bottom:.5pt solid windowtext;
+	border-bottom:none;
 	border-left:.5pt solid windowtext;
 	background:#F2F2F2;
 	mso-pattern:black none;}
@@ -11636,3 +11636,9 @@ td
 	border-left:.5pt solid windowtext;
 	background:#FFF2CC;
 	mso-pattern:black none;}
+.xl1027
+	{mso-style-parent:style0;
+	color:red;
+	font-family:微軟正黑體, sans-serif;
+	mso-font-charset:136;
+	text-align:center;}
