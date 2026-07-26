@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>測速地圖</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="brand">
+                <a href="SpectrumInfo466_v1.html" aria-label="回到首頁">
+                    <img class="brand-icon" src="pic/profile.png" alt="">
+                    <span class="brand-text">愛蓁電信工作室 - 頻譜資訊網</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="主要選單">
+                <ul>
+                    <li class="nav-item"><a href="SpectrumInfo466_v1.html">首頁</a></li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">頻譜與站台資訊</button>
+                        <ul class="submenu">
+                            <li><a href="spectrum-allocation.html">頻譜核配圖</a></li>
+                            <li><a href="spectrum-allocation-table.html">頻譜核配表</a></li>
+                            <li><a href="tac-enb-table.html">TAC&eNB表</a></li>
+                            <li><a href="cid-table.html">CID與優先級</a></li>
+                            <li><a href="site-configuration-crazy-signal.html">站台配置/狂訊號</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">監測專區</button>
+                        <ul class="submenu">
+                            <li><a href="merge-zone.html">合併專區</a></li>
+                            <li><a href="sa-launch-monitoring.html">5G SA開台監測</a></li>
+                            <li><a href="unknown-frequency-monitoring.html">不明頻點監測</a></li>
+                            <li><a href="night-sleep-status.html">夜間休眠情形</a></li>
+                            <li><a href="fet-n28-n41-adjustment.html">遠傳N28N41調整情形</a></li>
+                            <li><a href="base-station-maintenance.html">基地台維護公告</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu active">
+                        <button class="nav-trigger" type="button" aria-expanded="false">測速資訊</button>
+                        <ul class="submenu">
+                            <li><a href="speed-region.html">區域選擇</a></li>
+                            <li><a class="current" href="speed-map.html">測速地圖</a></li>
+                            <li><a href="speed-database.html">測速資料庫</a></li>
+                            <li><a href="max-speed-calculator.html">最高網速試算</a></li>
+                            <li><a href="speed-test-tool.html">測速 & 路測相關工具</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">專題發表</button>
+                        <ul class="submenu">
+                            <li><a href="project-videos.html">專題影片</a></li>
+                            <li><a href="project-articles.html">專題文章</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="content-area speed-map-page" aria-label="測速地圖">
+            <section class="spectrum-toolbar speed-map-toolbar" aria-label="測速地圖資訊">
+                <div>
+                    <p class="section-kicker">Speed Test Area Map</p>
+                    <h1>區域定點測速地圖</h1>
+                    <p class="spectrum-updated">選擇欲觀看測速區域，連結到相應的播放清單</p>
+                </div>
+            </section>
+            <section class="regional-map-panel" aria-label="依地區選擇 YouTube 測速播放清單">
+                <div class="regional-map-stage">
+                    <svg
+                        id="taiwanRegionMap"
+                        class="taiwan-region-map"
+                        viewBox="470 330 540 955"
+                        role="img"
+                        aria-labelledby="taiwanRegionMapTitle taiwanRegionMapDesc">
+                        <title id="taiwanRegionMapTitle">台灣測速地區互動地圖</title>
+                        <desc id="taiwanRegionMapDesc">滑鼠移到縣市會亮起所屬地區，點選可開啟對應 YouTube 播放清單。</desc>
+                    </svg>
+                </div>
+                <aside class="regional-map-info" aria-live="polite">
+                    <p class="section-kicker">Speed Playlist</p>
+                    <h2 id="regionMapTitle">選擇測速地區</h2>
+                    <p id="regionMapCounties">滑鼠移到地圖上的縣市，或直接點選區域開啟播放清單。</p>
+                    <a
+                        id="regionMapLink"
+                        class="region-map-link"
+                        href="https://www.youtube.com/watch?v=QVE98aA90os&list=PLjZKU2OCXBSXzzwRLLyXvcIW-KtCYZTqh&pp=sAgC"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <img class="region-map-link-icon" src="pic/YT_icon.png" alt="" aria-hidden="true">
+                        <span id="regionMapLinkText">開啟播放清單</span>
+                    </a>
+                </aside>
+            </section>
+            <section class="spectrum-toolbar speed-map-toolbar google-map-toolbar" aria-label="全台測速地圖資訊">
+                <div>
+                    <p class="section-kicker">Speed Test Map</p>
+                    <h2>全台測速地圖</h2>
+                    <p class="spectrum-updated">瀏覽全台測速位置和路段</p>
+                </div>
+            </section>
+            <iframe
+                class="speed-map-frame"
+                title="測速地圖"
+                src="https://www.google.com/maps/d/u/0/embed?hl=zh-TW&mid=1HE5K8MR2R2k8cFB9wTmYHE9hJ0NP0zo&ehbc=2E312F"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+        </main>
+    </div>
+</body>
+</html>

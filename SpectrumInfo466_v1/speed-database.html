@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>測速資料庫</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="speed-database-data.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="brand">
+                <a href="SpectrumInfo466_v1.html" aria-label="回到首頁">
+                    <img class="brand-icon" src="pic/profile.png" alt="">
+                    <span class="brand-text">愛蓁電信工作室 - 頻譜資訊網</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="主要選單">
+                <ul>
+                    <li class="nav-item"><a href="SpectrumInfo466_v1.html">首頁</a></li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">頻譜與站台資訊</button>
+                        <ul class="submenu">
+                            <li><a href="spectrum-allocation.html">頻譜核配圖</a></li>
+                            <li><a href="spectrum-allocation-table.html">頻譜核配表</a></li>
+                            <li><a href="tac-enb-table.html">TAC&eNB表</a></li>
+                            <li><a href="cid-table.html">CID與優先級</a></li>
+                            <li><a href="site-configuration-crazy-signal.html">站台配置/狂訊號</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">監測專區</button>
+                        <ul class="submenu">
+                            <li><a href="merge-zone.html">合併專區</a></li>
+                            <li><a href="sa-launch-monitoring.html">5G SA開台監測</a></li>
+                            <li><a href="unknown-frequency-monitoring.html">不明頻點監測</a></li>
+                            <li><a href="night-sleep-status.html">夜間休眠情形</a></li>
+                            <li><a href="fet-n28-n41-adjustment.html">遠傳N28N41調整情形</a></li>
+                            <li><a href="base-station-maintenance.html">基地台維護公告</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu active">
+                        <button class="nav-trigger" type="button" aria-expanded="false">測速資訊</button>
+                        <ul class="submenu">
+                            <li><a href="speed-region.html">區域選擇</a></li>
+                            <li><a href="speed-map.html">測速地圖</a></li>
+                            <li><a class="current" href="speed-database.html">測速資料庫</a></li>
+                            <li><a href="max-speed-calculator.html">最高網速試算</a></li>
+                            <li><a href="speed-test-tool.html">測速 & 路測相關工具</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">專題發表</button>
+                        <ul class="submenu">
+                            <li><a href="project-videos.html">專題影片</a></li>
+                            <li><a href="project-articles.html">專題文章</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="content-area speed-database-page" aria-label="測速資料庫">
+            <section class="spectrum-toolbar table-toolbar" aria-label="測速資料庫資訊">
+                <div>
+                    <p class="section-kicker">Sample Database</p>
+                    <h1>測速資料庫</h1>
+                    <p class="spectrum-updated">更新於: 2026/07/16</p>
+                </div>
+            </section>
+
+            <section class="speed-database-controls" aria-label="測速資料庫篩選">
+                <div class="speed-select-group">
+                    <label class="operator-select-label" for="databaseOperator">電信業者</label>
+                    <select class="operator-select" id="databaseOperator" name="operator">
+                        <option value="all" selected>不指定</option>
+                        <option value="cht">中華電信</option>
+                        <option value="fet">遠傳電信</option>
+                        <option value="twm">台灣大哥大</option>
+                        <option value="tstar">原台灣之星</option>
+                        <option value="apt">原亞太電信</option>
+                    </select>
+                </div>
+                <div class="speed-select-group">
+                    <label class="operator-select-label" for="databaseContent">測試內容</label>
+                    <select class="operator-select" id="databaseContent" name="content">
+                        <option value="all" selected>不指定</option>
+                        <option value="speedtest">定點測速</option>
+                        <option value="signal">移動收訊</option>
+                        <option value="moving">移動測速</option>
+                    </select>
+                </div>
+                <div class="speed-select-group">
+                    <label class="operator-select-label" for="databasePlaylist">測試縣市</label>
+                    <select class="operator-select" id="databasePlaylist" name="city">
+                        <option value="all" selected>不指定</option>
+                    </select>
+                </div>
+                <div class="speed-select-group">
+                    <label class="operator-select-label" for="databaseProject">測試專案</label>
+                    <select class="operator-select" id="databaseProject" name="project">
+                        <option value="all" selected>不指定</option>
+                        <option value="__empty">非專案測試</option>
+                    </select>
+                </div>
+                <form class="speed-database-search" id="databaseSearchForm">
+                    <label class="operator-select-label" for="databaseKeyword">文字篩選</label>
+                    <div class="speed-database-search-row">
+                        <input class="operator-select" id="databaseKeyword" name="keyword" type="search" autocomplete="off">
+                        <button class="speed-database-search-button" type="submit">搜尋</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="speed-database-board" aria-label="測速資料表">
+                <div class="speed-database-summary" aria-live="polite">
+                    <span id="speedDatabaseCount">顯示 0 / 0 筆</span>
+                </div>
+                <div class="speed-database-scroll">
+                    <table class="speed-database-table">
+                        <thead id="speedDatabaseHead"></thead>
+                        <tbody id="speedDatabaseBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
