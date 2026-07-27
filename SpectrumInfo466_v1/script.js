@@ -54,6 +54,188 @@ if (homePage) {
     updateCurrentTime();
     setInterval(updateCurrentTime, 30000);
 
+    const detectorOperators = [
+        {
+            id: "cht",
+            name: "中華電信",
+            url: "https://downdetector.tw/status/chunghwa-telecom-zhong-hua-dian-xin/",
+        },
+        {
+            id: "fet",
+            name: "遠傳電信",
+            url: "https://downdetector.tw/status/far-eastone-telecommunications-fet-yuan-chuan-dian-xin/",
+        },
+        {
+            id: "twm",
+            name: "台灣大哥大",
+            url: "https://downdetector.tw/status/taiwan-mobile-tai-wan-da-ge-da/",
+        },
+    ];
+    const detectorIntervalMs = 120000;
+    const detectorProxyUrl = "https://api.allorigins.win/raw?url=";
+    const statusLabels = {
+        green: "連線正常",
+        yellow: "局部異常",
+        red: "重大異常",
+    };
+
+    const setOperatorStatus = (operatorId, level, details = "", reportCount = null) => {
+        const cell = homePage.querySelector(`[data-operator-status="${operatorId}"]`);
+        if (!cell) {
+            return;
+        }
+
+        const light = cell.querySelector(".status-light");
+        const label = cell.querySelector(".status-text");
+        const countLabel = cell.querySelector(".status-report-count");
+        if (light) {
+            light.className = `status-light status-${level}`;
+        }
+        if (label) {
+            label.textContent = statusLabels[level] || statusLabels.green;
+        }
+        if (countLabel) {
+            countLabel.textContent = Number.isFinite(reportCount) ? `${reportCount}` : "--";
+            countLabel.setAttribute("aria-label", Number.isFinite(reportCount) ? `最近5分鐘回報 ${reportCount}` : "回報數讀取中");
+        }
+        cell.title = details;
+        cell.setAttribute("aria-label", details || label?.textContent || "");
+    };
+
+    const normalizeDetectorText = (html) => {
+        const template = document.createElement("template");
+        template.innerHTML = html;
+        return template.content.textContent.replace(/\s+/g, " ").trim();
+    };
+
+    const getReportedProblemShares = (pageText) => {
+        const section = pageText.split(/Most reported problems|最多回報/i)[1]?.split(/Your feedback|How would you rate|您的意見|你會如何評價/i)[0] || "";
+        const pattern = /(\d{1,3})%\s+(.+?)(?=\s+\d{1,3}%|$)/g;
+        const shares = [];
+        let match;
+
+        while ((match = pattern.exec(section))) {
+            shares.push({
+                share: Number(match[1]),
+                label: match[2].trim().replace(/\s{2,}/g, " "),
+            });
+        }
+
+        return shares;
+    };
+
+    const getTopReportedProblem = (pageText) => getReportedProblemShares(pageText)[0] || { share: 0, label: "" };
+
+    const extractReportPoints = (html) => {
+        const points = [];
+        const now = Date.now();
+        const numericPairPattern = /\[\s*(\d{10,13})\s*,\s*(\d{1,6})\s*\]/g;
+        const objectPointPattern = /["']?(?:x|date|time|timestamp)["']?\s*:\s*(\d{10,13})\s*,\s*["']?(?:y|value|count|reports)["']?\s*:\s*(\d{1,6})/g;
+        let match;
+
+        while ((match = numericPairPattern.exec(html))) {
+            const timestamp = Number(match[1]);
+            const count = Number(match[2]);
+            points.push({ timestamp: timestamp < 1000000000000 ? timestamp * 1000 : timestamp, count });
+        }
+
+        while ((match = objectPointPattern.exec(html))) {
+            const timestamp = Number(match[1]);
+            const count = Number(match[2]);
+            points.push({ timestamp: timestamp < 1000000000000 ? timestamp * 1000 : timestamp, count });
+        }
+
+        return points
+            .filter((point) => point.timestamp > now - 25 * 60 * 60 * 1000 && point.timestamp < now + 10 * 60 * 1000)
+            .sort((a, b) => a.timestamp - b.timestamp);
+    };
+
+    const getRecentReportCount = (html, pageText) => {
+        if (/show no current problems|no current problems|沒有目前問題|未偵測到問題/i.test(pageText)) {
+            return 0;
+        }
+
+        const points = extractReportPoints(html);
+        if (!points.length) {
+            return 0;
+        }
+
+        const newestTime = points[points.length - 1].timestamp;
+        return points
+            .filter((point) => newestTime - point.timestamp <= 5 * 60 * 1000)
+            .reduce((total, point) => total + point.count, 0);
+    };
+
+    const fetchDetectorPage = async (url) => {
+        const urls = [
+            url,
+            `${detectorProxyUrl}${encodeURIComponent(url)}`,
+        ];
+
+        for (const targetUrl of urls) {
+            try {
+                const response = await fetch(`${targetUrl}${targetUrl.includes("?") ? "&" : "?"}t=${Date.now()}`, {
+                    cache: "no-store",
+                    headers: { Accept: "text/html" },
+                });
+                if (response.ok) {
+                    return response.text();
+                }
+            } catch (error) {
+                // DownDetector can reject cross-origin or automated reads; try the next route.
+            }
+        }
+
+        throw new Error("無法讀取 DownDetector 狀態頁。");
+    };
+
+    const evaluateDetectorStatus = (html) => {
+        const pageText = normalizeDetectorText(html);
+        const recentReports = getRecentReportCount(html, pageText);
+        const topProblem = getTopReportedProblem(pageText);
+        const isBroadbandOnlyLikely = /Broadband Internet|寬頻網路/i.test(topProblem.label) && topProblem.share > 30;
+
+        if (isBroadbandOnlyLikely) {
+            return { level: "green", recentReports, topProblem };
+        }
+
+        if (recentReports > 100) {
+            return { level: "red", recentReports, topProblem };
+        }
+
+        if (recentReports > 10) {
+            return { level: "yellow", recentReports, topProblem };
+        }
+
+        return { level: "green", recentReports, topProblem };
+    };
+
+    const checkDetectorStatuses = async () => {
+        if (document.visibilityState === "hidden") {
+            return;
+        }
+
+        await Promise.all(detectorOperators.map(async (operator) => {
+            try {
+                const html = await fetchDetectorPage(operator.url);
+                const result = evaluateDetectorStatus(html);
+                setOperatorStatus(
+                    operator.id,
+                    result.level,
+                    `${operator.name}: 最近5分鐘回報 ${result.recentReports}，最多回報 ${result.topProblem.label || "未知"} ${result.topProblem.share || 0}%`,
+                    result.recentReports,
+                );
+            } catch (error) {
+                setOperatorStatus(operator.id, "green", `${operator.name}: 無法讀取 DownDetector，暫以連線正常顯示`, null);
+                console.warn(`${operator.name} DownDetector check failed`, error);
+            }
+        }));
+    };
+
+    checkDetectorStatuses();
+    setInterval(checkDetectorStatuses, detectorIntervalMs);
+    document.addEventListener("visibilitychange", checkDetectorStatuses);
+
     const operatorColors = [
         { match: "中華", color: "#8fd0ff" },
         { match: "遠傳", color: "#ff8a8a" },
@@ -994,11 +1176,17 @@ if (speedDatabasePage) {
 if (maxSpeedPage) {
     const calculator = maxSpeedPage.querySelector(".speed-calculator");
     const technologySelect = maxSpeedPage.querySelector("#speedTechnology");
+    const directionSelect = maxSpeedPage.querySelector("#speedDirection");
     const operatorSelect = maxSpeedPage.querySelector("#speedOperator");
     const form = maxSpeedPage.querySelector("#maxSpeedForm");
     const quickConfigOptions = maxSpeedPage.querySelector("#quickConfigOptions");
+    const quickConfigFieldset = quickConfigOptions?.closest(".speed-fieldset");
     const bandOptions = maxSpeedPage.querySelector("#bandOptions");
+    const bandFieldsetLegend = maxSpeedPage.querySelector("#bandFieldsetLegend");
+    const ulCa = maxSpeedPage.querySelector("#ulCa");
+    const ulCaFieldset = maxSpeedPage.querySelector("#ulCaFieldset");
     const output = maxSpeedPage.querySelector("#maxSpeedOutput");
+    const outputLabel = maxSpeedPage.querySelector("#maxSpeedLabel");
     const speedLimitNote = maxSpeedPage.querySelector("#speedLimitNote");
     const hint = maxSpeedPage.querySelector("#bandHint");
     const qam256 = maxSpeedPage.querySelector("#qam256");
@@ -1054,9 +1242,66 @@ if (maxSpeedPage) {
         ],
     };
 
-    const operatorBandsByTechnology = {
-        lte: lteOperatorBands,
-        nsa: nsaOperatorBands,
+    const lteUploadOperatorBands = {
+        cht: [
+            { id: "ul-b1-18500", label: "B1[18500]", speed: 70 },
+            { id: "ul-b3-19400", label: "B3[19400]", speed: 35 },
+            { id: "ul-b3-19750", label: "B3[19750]", speed: 70 },
+            { id: "ul-b7-21050", label: "B7[21050]", speed: 70 },
+            { id: "ul-b7-21400", label: "B7[21400]", speed: 35 },
+            { id: "ul-b8-21650", label: "B8[21650]", speed: 30 },
+            { id: "ul-b8-21750", label: "B8[21750]", speed: 32 },
+        ],
+        fet: [
+            { id: "ul-fet-b1-18075", label: "B1[18075]", speed: 50 },
+            { id: "ul-fet-b3-19550", label: "B3[19550]", speed: 70 },
+            { id: "ul-fet-b7-21250", label: "B7[21250]", speed: 70 },
+            { id: "ul-fet-b28-27310", label: "B28[27310]", speed: 63 },
+            { id: "ul-fet-b28-27435", label: "B28[27435]", speed: 12 },
+            { id: "ul-fet-tdd-37900", label: "B38/B41[37900/40540]", speed: 12, ulCa: true },
+            { id: "ul-fet-tdd-38098", label: "B38/B41[38098/40738]", speed: 12, ulCa: true },
+        ],
+        twm: [
+            { id: "ul-twm-b1-18250", label: "B1[18250]", speed: 65 },
+            { id: "ul-twm-b1-18375", label: "B1[18375]", speed: 12, indoorOnly: true },
+            { id: "ul-twm-b3-19275", label: "B3[19275]", speed: 45 },
+            { id: "ul-twm-b7-20850", label: "B7[20850]", speed: 65 },
+            { id: "ul-twm-b8-21525", label: "B8[21525]", speed: 12 },
+            { id: "ul-twm-b28-27560", label: "B28[27560]", speed: 60 },
+        ],
+    };
+
+    const nsaUploadOperatorBands = {
+        cht: [
+            { id: "ul-n1-394000", label: "N1[394000]", speed: 115, category: "5g" },
+            { id: "ul-n8-dss-182000", label: "N8 DSS[182000]", speed: 45, category: "5g" },
+            { id: "ul-n78-631000", label: "N78[631000]", speed: 160, category: "5g" },
+            ...lteUploadOperatorBands.cht.map((band) => ({ ...band, category: "4g" })),
+        ],
+        fet: [
+            { id: "ul-fet-n28-dss-142600", label: "N28 DSS[142600]", speed: 50, category: "5g" },
+            { id: "ul-fet-n28-145100", label: "N28[145100]", speed: 0, category: "5g", disabledAlways: true },
+            { id: "ul-fet-n38-n41-517230", label: "N38/N41[517230]", speed: 0, category: "5g", disabledAlways: true },
+            { id: "ul-fet-n78-625334", label: "N78[625334]", speed: 140, category: "5g" },
+            ...lteUploadOperatorBands.fet.map((band) => ({ ...band, category: "4g" })),
+        ],
+        twm: [
+            { id: "ul-twm-n28-dss-147600", label: "N28 DSS[147600]", speed: 50, category: "5g" },
+            { id: "ul-twm-n78-621334", label: "N78[621334]", speed: 70, category: "5g" },
+            { id: "ul-twm-n78-636000", label: "N78[636000]", speed: 105, category: "5g" },
+            ...lteUploadOperatorBands.twm.map((band) => ({ ...band, category: "4g" })),
+        ],
+    };
+
+    const operatorBandsByDirection = {
+        downlink: {
+            lte: lteOperatorBands,
+            nsa: nsaOperatorBands,
+        },
+        uplink: {
+            lte: lteUploadOperatorBands,
+            nsa: nsaUploadOperatorBands,
+        },
     };
 
     const quickConfigurations = {
@@ -1235,21 +1480,37 @@ if (maxSpeedPage) {
     };
 
     const defaultHints = {
-        lte: {
-            cht: "最多可選 5 個頻段；B8[3650] 與 B8[3750] 不可同時選取。",
-            fet: "最多可選 4 個頻段；僅指定特殊組合可選 5 個。",
-            twm: "B7[2850] 與 B8[3525] 不可同時選取；B1[375] 僅限室內站。",
+        downlink: {
+            lte: {
+                cht: "最多可選 5 個頻段；B8[3650] 與 B8[3750] 不可同時選取。",
+                fet: "最多可選 4 個頻段；僅指定特殊組合可選 5 個。",
+                twm: "B7[2850] 與 B8[3525] 不可同時選取；B1[375] 僅限室內站。",
+            },
+            nsa: {
+                cht: "5G 至少需選 1 個頻段。",
+                fet: "5G 最多可選 2 個頻段；N28 DSS[152670] 與 N28[156010] 不可同時選取。",
+                twm: "5G 最多可選 2 個頻段；N28 DSS[158690] 與 B8[3525]、B28[9560] 不可同時選取。",
+            },
         },
-        nsa: {
-            cht: "5G 至少需選 1 個頻段。",
-            fet: "5G 最多可選 2 個頻段；N28 DSS[152670] 與 N28[156010] 不可同時選取。",
-            twm: "5G 最多可選 2 個頻段；N28 DSS[158690] 與 B8[3525]、B28[9560] 不可同時選取。",
+        uplink: {
+            lte: {
+                cht: "上傳僅能選擇 1 個 4G 頻段。",
+                fet: "上傳僅能選擇 1 個 4G 頻段；遠傳電信未開啟上傳256QAM。",
+                twm: "上傳僅能選擇 1 個 4G 頻段；B1[18375] 僅限室內站。",
+            },
+            nsa: {
+                cht: "5G NSA 上傳至少需選 1 個 5G 頻段；5G 與 4G 各最多 1 個。",
+                fet: "5G NSA 上傳至少需選 1 個 5G 頻段；5G 與 4G 各最多 1 個，遠傳電信未開啟上傳256QAM。",
+                twm: "5G NSA 上傳至少需選 1 個 5G 頻段；5G 與 4G 各最多 1 個。",
+            },
         },
     };
 
+    const selectedDirection = () => directionSelect?.value || "downlink";
     const selectedTechnology = () => technologySelect.value;
-    const activeBands = () => operatorBandsByTechnology[selectedTechnology()]?.[operatorSelect.value] || [];
-    const activeHint = () => defaultHints[selectedTechnology()]?.[operatorSelect.value] || "";
+    const isUplink = () => selectedDirection() === "uplink";
+    const activeBands = () => operatorBandsByDirection[selectedDirection()]?.[selectedTechnology()]?.[operatorSelect.value] || [];
+    const activeHint = () => defaultHints[selectedDirection()]?.[selectedTechnology()]?.[operatorSelect.value] || "";
     const selectedQuickConfig = () => form.querySelector('input[name="quickConfig"]:checked')?.value || "manual";
     const hasFetTddSelected = () => Boolean(
         form.querySelector('input[value="fet-tdd-37900"]:checked, input[value="fet-tdd-38098"]:checked'),
@@ -1262,6 +1523,24 @@ if (maxSpeedPage) {
         const indoorInput = form.querySelector('input[name="siteType"][value="indoor"]');
         const outdoorInput = form.querySelector('input[name="siteType"][value="outdoor"]');
         const macroInput = form.querySelector('input[name="siteType"][value="macro"]');
+        if (isUplink()) {
+            indoorInput.disabled = false;
+            outdoorInput.disabled = false;
+            macroInput.disabled = false;
+            const shouldForceIndoor = operatorSelect.value === "twm" && hasTwmUploadIndoorOnlyBandSelected();
+            outdoorInput.disabled = shouldForceIndoor;
+            macroInput.disabled = shouldForceIndoor;
+            if (shouldForceIndoor && !indoorInput.checked) {
+                indoorInput.checked = true;
+                if (showMessage) {
+                    hint.textContent = "勾選 B1[18375] 時，站台類型只能選擇室內站。";
+                    hint.classList.add("is-warning");
+                }
+            }
+            updateUploadExtras();
+            return;
+        }
+
         const shouldDisableIndoor = operatorSelect.value === "fet" && hasFetTddSelected();
         const shouldForceIndoor = operatorSelect.value === "twm" && hasTwmIndoorOnlyBandSelected();
 
@@ -1293,7 +1572,7 @@ if (maxSpeedPage) {
 
     const setManualControlsDisabled = (disabled) => {
         form.classList.toggle("is-quick-mode", disabled);
-        form.querySelectorAll('input[name="band"], input[name="siteType"], #qam256').forEach((input) => {
+        form.querySelectorAll('input[data-band-input], input[name="siteType"], #qam256').forEach((input) => {
             input.disabled = disabled;
         });
     };
@@ -1311,7 +1590,7 @@ if (maxSpeedPage) {
             return;
         }
 
-        form.querySelectorAll('input[name="band"]').forEach((input) => {
+        form.querySelectorAll('input[data-band-input]').forEach((input) => {
             input.checked = config.bands.includes(input.value);
         });
 
@@ -1327,6 +1606,19 @@ if (maxSpeedPage) {
     };
 
     const renderQuickConfigs = () => {
+        if (isUplink()) {
+            if (quickConfigFieldset) {
+                quickConfigFieldset.hidden = true;
+            }
+            quickConfigOptions.innerHTML = "";
+            setManualControlsDisabled(false);
+            return;
+        }
+
+        if (quickConfigFieldset) {
+            quickConfigFieldset.hidden = false;
+        }
+
         const configs = quickConfigLabels[selectedTechnology()]?.[operatorSelect.value] || [];
         quickConfigOptions.innerHTML = `
             <label>
@@ -1348,7 +1640,13 @@ if (maxSpeedPage) {
     const renderBands = () => {
         const bands = activeBands();
         bandOptions.innerHTML = "";
-        qam256.checked = true;
+        qam256.checked = !isUplink();
+        if (outputLabel) {
+            outputLabel.textContent = isUplink() ? "最快上傳網速" : "最快下載網速";
+        }
+        if (bandFieldsetLegend) {
+            bandFieldsetLegend.textContent = isUplink() ? "連接的主頻段(P Cell)" : "站台開啟頻段";
+        }
 
         if (!bands.length) {
             bandOptions.innerHTML = '<p class="speed-hint">此制式與業者的頻段、計算規則待補。</p>';
@@ -1383,13 +1681,26 @@ if (maxSpeedPage) {
                 title.className = "band-group-title";
                 title.textContent = band.category === "5g" ? "5G 頻段" : "4G頻段";
                 bandOptions.append(title);
+                if (isUplink() && selectedTechnology() === "nsa" && band.category === "4g") {
+                    const noneLabel = document.createElement("label");
+                    noneLabel.className = "band-option";
+                    noneLabel.innerHTML = `
+                        <input type="radio" name="band-nsa-4g" value="none-4g" data-band-input checked>
+                        <span>不選 4G頻段</span>
+                    `;
+                    bandOptions.append(noneLabel);
+                }
                 lastCategory = band.category;
             }
 
             const label = document.createElement("label");
             label.className = "band-option";
+            const inputType = isUplink() ? "radio" : "checkbox";
+            const inputName = isUplink()
+                ? `band-${selectedTechnology()}-${band.category || "lte"}`
+                : "band";
             label.innerHTML = `
-                <input type="checkbox" name="band" value="${band.id}">
+                <input type="${inputType}" name="${inputName}" value="${band.id}" data-band-input>
                 <span>${band.label}</span>
             `;
             bandOptions.append(label);
@@ -1407,19 +1718,39 @@ if (maxSpeedPage) {
     const getSelectedBands = () => {
         const bands = activeBands();
         const checkedIds = new Set(
-            Array.from(form.querySelectorAll('input[name="band"]:checked')).map((input) => input.value),
+            Array.from(form.querySelectorAll('input[data-band-input]:checked')).map((input) => input.value),
         );
         return bands.filter((band) => checkedIds.has(band.id));
     };
 
     const selectedBandIds = () => new Set(
-        Array.from(form.querySelectorAll('input[name="band"]:checked')).map((input) => input.value),
+        Array.from(form.querySelectorAll('input[data-band-input]:checked')).map((input) => input.value),
     );
 
     const sameSet = (ids, expected) => ids.size === expected.length && expected.every((id) => ids.has(id));
     const isNsaCht = () => selectedTechnology() === "nsa" && operatorSelect.value === "cht";
     const isNsaFet = () => selectedTechnology() === "nsa" && operatorSelect.value === "fet";
     const isNsaTwm = () => selectedTechnology() === "nsa" && operatorSelect.value === "twm";
+    const isUplinkNsaCht = () => isUplink() && selectedTechnology() === "nsa" && operatorSelect.value === "cht";
+    const selectedUploadBands = () => getSelectedBands();
+    const hasFetUploadTddSelected = () => selectedUploadBands().some((band) => band.ulCa);
+    const hasTwmUploadIndoorOnlyBandSelected = () => selectedUploadBands().some((band) => band.indoorOnly);
+
+    const updateUploadExtras = () => {
+        const isFetUpload = isUplink() && operatorSelect.value === "fet";
+        if (ulCaFieldset) {
+            ulCaFieldset.hidden = !(isFetUpload && hasFetUploadTddSelected());
+        }
+        if (ulCa && ulCaFieldset?.hidden) {
+            ulCa.checked = false;
+        }
+        if (qam256) {
+            qam256.disabled = isFetUpload;
+            if (isFetUpload) {
+                qam256.checked = false;
+            }
+        }
+    };
 
     const validateFetBands = () => {
         const ids = selectedBandIds();
@@ -1454,9 +1785,51 @@ if (maxSpeedPage) {
             return "";
         }
 
+        if (band.disabledAlways) {
+            return "此上傳頻段目前不可選";
+        }
+
         const selectedBands = activeBands().filter((item) => ids.has(item.id));
         const selected5g = selectedBands.filter((item) => item.category === "5g");
         const selected4g = selectedBands.filter((item) => item.category === "4g");
+
+        if (isUplink()) {
+            if (operatorSelect.value === "fet") {
+                if (selectedTechnology() === "nsa" && band.id === "ul-fet-b28-27435") {
+                    return "5G NSA 下不可選";
+                }
+                if (band.id === "ul-fet-b28-27310" && ids.has("ul-fet-n28-dss-142600")) {
+                    return "N28 DSS 已占用 B28";
+                }
+                if (band.id === "ul-fet-n28-dss-142600" && ids.has("ul-fet-b28-27310")) {
+                    return "B28 已被選取";
+                }
+            }
+
+            if (operatorSelect.value === "twm") {
+                if ((band.id === "ul-twm-b8-21525" || band.id === "ul-twm-b28-27560") && ids.has("ul-twm-n28-dss-147600")) {
+                    return "N28 DSS 已占用 B8/B28";
+                }
+                if (band.id === "ul-twm-n28-dss-147600" && (ids.has("ul-twm-b8-21525") || ids.has("ul-twm-b28-27560"))) {
+                    return "B8/B28 已被選取";
+                }
+            }
+
+            if (isUplinkNsaCht()) {
+                if (band.id === "ul-b1-18500" && ids.has("ul-n1-394000")) {
+                    return "N1 已占用 B1";
+                }
+                if ((band.id === "ul-b8-21650" || band.id === "ul-b8-21750") && ids.has("ul-n8-dss-182000")) {
+                    return "N8 DSS 已占用 B8";
+                }
+                if (band.id === "ul-n1-394000" && ids.has("ul-b1-18500")) {
+                    return "B1 已被選取";
+                }
+                if (band.id === "ul-n8-dss-182000" && (ids.has("ul-b8-21650") || ids.has("ul-b8-21750"))) {
+                    return "B8 已被選取";
+                }
+            }
+        }
 
         if (band.exclusiveGroup && selectedBands.some((item) => item.exclusiveGroup === band.exclusiveGroup)) {
             return "同頻段互斥";
@@ -1547,13 +1920,65 @@ if (maxSpeedPage) {
         return "";
     };
 
+    const validateUplinkBands = () => {
+        const selectedBands = getSelectedBands();
+        const ids = selectedBandIds();
+        const selected5g = selectedBands.filter((band) => band.category === "5g");
+        const selected4g = selectedBands.filter((band) => band.category === "4g");
+
+        if (selectedTechnology() === "lte") {
+            return selectedBands.length > 1 ? "上傳僅能選擇 1 個 4G 頻段。" : "";
+        }
+
+        if (!selected5g.length) {
+            return "5G NSA 上傳至少需勾選 1 個 5G 頻段。";
+        }
+
+        if (selected5g.length > 1) {
+            return "5G 上傳僅能選擇 1 個頻段。";
+        }
+
+        if (selected4g.length > 1) {
+            return "4G 上傳僅能選擇 1 個頻段。";
+        }
+
+        if (isUplinkNsaCht()) {
+            if (ids.has("ul-n1-394000") && ids.has("ul-b1-18500")) {
+                return "勾選 N1[394000] 時，不可再勾選 B1[18500]。";
+            }
+            if (ids.has("ul-n8-dss-182000") && (ids.has("ul-b8-21650") || ids.has("ul-b8-21750"))) {
+                return "勾選 N8 DSS[182000] 時，不可再勾選 B8[21650] 或 B8[21750]。";
+            }
+        }
+
+        if (operatorSelect.value === "fet" && selectedTechnology() === "nsa") {
+            if (ids.has("ul-fet-n28-145100") || ids.has("ul-fet-n38-n41-517230")) {
+                return "N28[145100] 與 N38/N41[517230] 目前不可選。";
+            }
+            if (ids.has("ul-fet-b28-27435")) {
+                return "5G NSA 下，B28[27435] 不可選。";
+            }
+            if (ids.has("ul-fet-n28-dss-142600") && ids.has("ul-fet-b28-27310")) {
+                return "勾選 N28 DSS[142600] 時，不可再勾選 B28[27310]。";
+            }
+        }
+
+        if (operatorSelect.value === "twm" && selectedTechnology() === "nsa") {
+            if (ids.has("ul-twm-n28-dss-147600") && (ids.has("ul-twm-b8-21525") || ids.has("ul-twm-b28-27560"))) {
+                return "勾選 N28 DSS[147600] 時，不可再勾選 B8[21525] 或 B28[27560]。";
+            }
+        }
+
+        return "";
+    };
+
     const updateBandAvailability = () => {
         if (form.classList.contains("is-quick-mode")) {
             return;
         }
 
         const ids = selectedBandIds();
-        form.querySelectorAll('input[name="band"]').forEach((input) => {
+        form.querySelectorAll('input[data-band-input]').forEach((input) => {
             const band = bandById(input.value);
             const reason = disabledReasonForBand(band, ids);
             const label = input.closest(".band-option");
@@ -1758,14 +2183,35 @@ if (maxSpeedPage) {
     };
 
     const enforceBandRules = (changedInput) => {
-        if (!changedInput || changedInput.name !== "band" || !changedInput.checked) {
+        if (!changedInput || !changedInput.matches("input[data-band-input]") || !changedInput.checked) {
             return;
         }
 
         const bands = activeBands();
         const changedBand = bands.find((band) => band.id === changedInput.value);
+        if (isUplink()) {
+            form.querySelectorAll('input[data-band-input]:checked').forEach((input) => {
+                const band = bands.find((item) => item.id === input.value);
+                const sameUploadGroup = selectedTechnology() === "lte" || band?.category === changedBand?.category;
+                if (input !== changedInput && sameUploadGroup) {
+                    input.checked = false;
+                }
+            });
+
+            const message = validateUplinkBands();
+            if (message && !message.includes("至少需勾選")) {
+                changedInput.checked = false;
+                hint.textContent = message;
+                hint.classList.add("is-warning");
+            } else {
+                hint.textContent = activeHint();
+                hint.classList.remove("is-warning");
+            }
+            return;
+        }
+
         if (changedBand?.exclusiveGroup) {
-            form.querySelectorAll('input[name="band"]:checked').forEach((input) => {
+            form.querySelectorAll('input[data-band-input]:checked').forEach((input) => {
                 const band = bands.find((item) => item.id === input.value);
                 if (input !== changedInput && band?.exclusiveGroup === changedBand.exclusiveGroup) {
                     input.checked = false;
@@ -1827,7 +2273,7 @@ if (maxSpeedPage) {
             return;
         }
 
-        const checked = Array.from(form.querySelectorAll('input[name="band"]:checked'));
+        const checked = Array.from(form.querySelectorAll('input[data-band-input]:checked'));
         if (checked.length > 5) {
             changedInput.checked = false;
             hint.textContent = "所有選項最多只能勾選 5 個。";
@@ -1842,6 +2288,26 @@ if (maxSpeedPage) {
     const calculateSpeed = () => {
         const selectedBands = getSelectedBands();
         updateBandAvailability();
+        updateUploadExtras();
+        if (!activeBands().length) {
+            output.value = "0Mbps";
+            speedLimitNote.hidden = true;
+            hint.textContent = activeHint();
+            hint.classList.remove("is-warning");
+            return;
+        }
+
+        if (isUplink()) {
+            const message = validateUplinkBands();
+            if (message && selectedTechnology() === "nsa") {
+                output.value = "0Mbps";
+                speedLimitNote.hidden = true;
+                hint.textContent = message;
+                hint.classList.add("is-warning");
+                return;
+            }
+        }
+
         if ((isNsaCht() || isNsaFet() || isNsaTwm()) && !selectedBands.some((band) => band.category === "5g")) {
             output.value = "0Mbps";
             speedLimitNote.hidden = true;
@@ -1854,25 +2320,52 @@ if (maxSpeedPage) {
         const siteType = form.querySelector('input[name="siteType"]:checked')?.value || "outdoor";
         let total = selectedBands.reduce((sum, band) => {
             let speed = band.speed;
-            if (siteType === "indoor" && (selectedTechnology() === "lte" || band.category === "4g" || band.indoorHalf)) {
-                speed *= 0.5;
-            }
-            if (siteType === "macro" && band.macroDouble) {
-                speed *= 2;
-            }
-            if (qam256.checked && (selectedTechnology() === "lte" || band.category === "4g")) {
-                speed *= 1.33;
+            if (isUplink()) {
+                if (siteType === "indoor") {
+                    speed *= 1.03;
+                }
+                if (band.ulCa && ulCa?.checked) {
+                    speed *= 2;
+                }
+                if (qam256.checked && (selectedTechnology() === "lte" || band.category === "4g")) {
+                    speed *= 1.33;
+                }
+            } else {
+                if (siteType === "indoor" && (selectedTechnology() === "lte" || band.category === "4g" || band.indoorHalf)) {
+                    speed *= 0.5;
+                }
+                if (siteType === "macro" && band.macroDouble) {
+                    speed *= 2;
+                }
+                if (qam256.checked && (selectedTechnology() === "lte" || band.category === "4g")) {
+                    speed *= 1.33;
+                }
             }
             return sum + speed;
         }, 0);
 
         const rounded = Math.round(total * 10) / 10;
         output.value = `${Number.isInteger(rounded) ? rounded.toFixed(0) : rounded}Mbps`;
+        if (isUplink()) {
+            speedLimitNote.hidden = true;
+            if (!hint.classList.contains("is-warning")) {
+                hint.textContent = activeHint();
+            }
+            return;
+        }
+
         updateSpeedLimitNote(total);
         updateNsaChtHint();
         updateNsaFetHint();
         updateNsaTwmHint();
     };
+
+    directionSelect?.addEventListener("change", () => {
+        calculator.dataset.direction = selectedDirection();
+        renderQuickConfigs();
+        renderBands();
+        calculateSpeed();
+    });
 
     technologySelect.addEventListener("change", () => {
         calculator.dataset.technology = selectedTechnology();
@@ -1896,7 +2389,7 @@ if (maxSpeedPage) {
         }
 
         enforceBandRules(event.target);
-        if (event.target.name === "band") {
+        if (event.target.matches("input[data-band-input]")) {
             updateSiteTypeRestrictions(false);
         }
         if (event.target.name === "siteType") {
@@ -1906,6 +2399,7 @@ if (maxSpeedPage) {
     });
 
     calculator.dataset.technology = selectedTechnology();
+    calculator.dataset.direction = selectedDirection();
     renderQuickConfigs();
     renderBands();
     calculateSpeed();

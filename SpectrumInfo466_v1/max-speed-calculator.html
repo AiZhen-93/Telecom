@@ -77,6 +77,13 @@
                         </select>
                     </div>
                     <div class="speed-select-group">
+                        <label class="operator-select-label" for="speedDirection">計算項目</label>
+                        <select class="operator-select" id="speedDirection" name="direction">
+                            <option value="downlink" selected>下載</option>
+                            <option value="uplink">上傳</option>
+                        </select>
+                    </div>
+                    <div class="speed-select-group">
                         <label class="operator-select-label" for="speedOperator">業者</label>
                         <select class="operator-select" id="speedOperator" name="operator">
                             <option value="cht" selected>中華電信</option>
@@ -90,7 +97,7 @@
             <section class="speed-calculator" data-technology="lte" data-operator="cht">
                 <div class="speed-visual-panel">
                     <div class="speed-result" aria-live="polite">
-                        <span>最快網速</span>
+                        <span id="maxSpeedLabel">最快下載網速</span>
                         <strong><output id="maxSpeedOutput">0Mbps</output></strong>
                         <small class="speed-limit-note" id="speedLimitNote" hidden></small>
                     </div>
@@ -126,7 +133,7 @@
                     </fieldset>
 
                     <fieldset class="speed-fieldset">
-                        <legend>站台開啟頻段</legend>
+                        <legend id="bandFieldsetLegend">站台開啟頻段</legend>
                         <div class="band-grid" id="bandOptions"></div>
                         <p class="speed-hint" id="bandHint" aria-live="polite">最多可選 5 個頻段；B8[3650] 與 B8[3750] 不可同時選取。</p>
                     </fieldset>
@@ -147,6 +154,14 @@
                                 <span>大型室外站</span>
                             </label>
                         </div>
+                    </fieldset>
+
+                    <fieldset class="speed-fieldset" id="ulCaFieldset" hidden>
+                        <legend>UL CA</legend>
+                        <label class="qam-toggle">
+                            <input type="checkbox" id="ulCa">
+                            <span>開啟TDD UL CA</span>
+                        </label>
                     </fieldset>
 
                     <fieldset class="speed-fieldset">
