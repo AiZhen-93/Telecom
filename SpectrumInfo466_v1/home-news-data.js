@@ -1,6 +1,16 @@
 window.homeNewsData = [
   {
     "source": "回報",
+    "date": "2026/7/27",
+    "category": "核網異常",
+    "operator": "遠傳",
+    "area": "全區",
+    "site": "多數",
+    "content": "14時35分起VoLTE發生短暫異常導致無法撥接電話，於15時5分陸續恢復",
+    "link": null
+  },
+  {
+    "source": "回報",
     "date": "2026/6/25",
     "category": "頻率改配",
     "operator": "遠傳",
@@ -17,16 +27,6 @@ window.homeNewsData = [
     "area": "台中",
     "site": "部分",
     "content": "TDD2600 5G N38/N41訊號關閉，改開回4G B38/B41，並重新允許主頻接入",
-    "link": null
-  },
-  {
-    "source": "實測+回報",
-    "date": "2026/6/5",
-    "category": "參數調整",
-    "operator": "遠傳",
-    "area": "不明",
-    "site": "少數",
-    "content": "有開啟5G N28 DSS的站台，LTE B28 eNB站號第二碼會+5",
     "link": null
   },
   {
@@ -1090,12 +1090,12 @@ window.homeNewsData = [
     "link": "https://youtu.be/HEf5ifKN13c"
   },
   {
-    "source": "",
+    "source": "實測",
     "date": "2022/6/8",
-    "category": "",
-    "operator": "",
-    "area": "",
-    "site": "",
+    "category": "頻率改配",
+    "operator": "遠傳",
+    "area": "板橋",
+    "site": "多數",
     "content": "遠傳電信5G 板橋車站全站體已佈建室內型N78 可達近1Gbps",
     "link": "https://youtu.be/SKVNZL6ZO8k"
   },
@@ -1103,7 +1103,7 @@ window.homeNewsData = [
     "source": "實測",
     "date": "2022/6/3",
     "category": "頻率改配",
-    "operator": "亞太",
+    "operator": "遠傳",
     "area": "全區",
     "site": "部分",
     "content": "亞太電信4G 900MHz陸續關頻",

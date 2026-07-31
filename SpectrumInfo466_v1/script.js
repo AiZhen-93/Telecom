@@ -63,24 +63,90 @@ if (homePage) {
     updateCurrentTime();
     setInterval(updateCurrentTime, 30000);
 
+    const marqueeText = homePage.querySelector("#homeMarqueeText");
+    const marqueeFallbackMessage = "歡迎來到愛蓁電信工作室 - 頻譜資訊網~";
+
+    const loadMarqueeMessages = async () => {
+        try {
+            const response = await fetch(`marquee.txt?t=${Date.now()}`, { cache: "no-store" });
+            if (!response.ok) {
+                throw new Error("marquee.txt 無法讀取。");
+            }
+
+            const text = await response.text();
+            const messages = text
+                .split(/\r?\n/)
+                .map((line) => line.trim())
+                .filter(Boolean);
+            return messages.length ? messages : [marqueeFallbackMessage];
+        } catch (error) {
+            console.warn("Marquee messages check failed", error);
+            return [marqueeFallbackMessage];
+        }
+    };
+
+    const playMarquee = async () => {
+        if (!marqueeText) {
+            return;
+        }
+
+        const windowElement = marqueeText.closest(".marquee-window");
+        const messages = await loadMarqueeMessages();
+        let index = 0;
+
+        const runNextMessage = () => {
+            const message = messages[index % messages.length];
+            index += 1;
+            marqueeText.textContent = message;
+
+            requestAnimationFrame(() => {
+                const windowWidth = windowElement?.clientWidth || 0;
+                const textWidth = marqueeText.scrollWidth;
+                const distance = windowWidth + textWidth;
+                const duration = Math.max(5200, distance * 18);
+
+                marqueeText.getAnimations().forEach((animation) => animation.cancel());
+                const animation = marqueeText.animate([
+                    { transform: `translateX(${windowWidth}px)` },
+                    { transform: `translateX(${-textWidth}px)` },
+                ], {
+                    duration,
+                    easing: "linear",
+                    fill: "forwards",
+                });
+
+                animation.onfinish = runNextMessage;
+                animation.oncancel = null;
+            });
+        };
+
+        runNextMessage();
+    };
+
+    playMarquee();
+
     const detectorOperators = [
         {
             id: "cht",
             name: "中華電信",
+            flagKey: "CHT_status",
             url: "https://downdetector.tw/status/chunghwa-telecom-zhong-hua-dian-xin/",
         },
         {
             id: "fet",
             name: "遠傳電信",
+            flagKey: "FET_status",
             url: "https://downdetector.tw/status/far-eastone-telecommunications-fet-yuan-chuan-dian-xin/",
         },
         {
             id: "twm",
             name: "台灣大哥大",
+            flagKey: "TWM_status",
             url: "https://downdetector.tw/status/taiwan-mobile-tai-wan-da-ge-da/",
         },
     ];
     const detectorIntervalMs = 120000;
+    const statusFlagUrl = "flags.txt";
     const detectorProxyUrl = "https://api.allorigins.win/raw?url=";
     const statusLabels = {
         green: "連線正常",
@@ -104,8 +170,10 @@ if (homePage) {
             label.textContent = statusLabels[level] || statusLabels.green;
         }
         if (countLabel) {
-            countLabel.textContent = Number.isFinite(reportCount) ? `${reportCount}` : "--";
-            countLabel.setAttribute("aria-label", Number.isFinite(reportCount) ? `最近5分鐘回報 ${reportCount}` : "回報數讀取中");
+            const hasNumericCount = Number.isFinite(reportCount);
+            const hasTextCount = typeof reportCount === "string" && reportCount.trim();
+            countLabel.textContent = hasNumericCount || hasTextCount ? `${reportCount}` : "--";
+            countLabel.setAttribute("aria-label", hasNumericCount ? `最近5分鐘回報 ${reportCount}` : details || "回報數讀取中");
         }
         cell.title = details;
         cell.setAttribute("aria-label", details || label?.textContent || "");
@@ -198,6 +266,43 @@ if (homePage) {
         throw new Error("無法讀取 DownDetector 狀態頁。");
     };
 
+    const parseStatusFlags = (text) => text
+        .split(/\r?\n/)
+        .reduce((flags, line) => {
+            const match = line.trim().match(/^([A-Za-z_]+)\s*[:=]\s*([0-2])\s*$/);
+            if (match) {
+                flags[match[1]] = Number(match[2]);
+            }
+            return flags;
+        }, {});
+
+    const fetchStatusFlags = async () => {
+        try {
+            const response = await fetch(`${statusFlagUrl}?t=${Date.now()}`, { cache: "no-store" });
+            if (!response.ok) {
+                throw new Error("flags.txt 無法讀取。");
+            }
+            return { flags: parseStatusFlags(await response.text()), readable: true };
+        } catch (error) {
+            console.warn("Status flags check failed", error);
+            return { flags: {}, readable: false };
+        }
+    };
+
+    const applyManualStatusFlag = (operator, flagValue) => {
+        if (flagValue === 1) {
+            setOperatorStatus(operator.id, "yellow", `${operator.name}: flags.txt 手動指定局部異常`, "手動");
+            return true;
+        }
+
+        if (flagValue === 2) {
+            setOperatorStatus(operator.id, "red", `${operator.name}: flags.txt 手動指定重大異常`, "手動");
+            return true;
+        }
+
+        return false;
+    };
+
     const evaluateDetectorStatus = (html) => {
         const pageText = normalizeDetectorText(html);
         const recentReports = getRecentReportCount(html, pageText);
@@ -224,7 +329,20 @@ if (homePage) {
             return;
         }
 
+        const statusFlagsResult = await fetchStatusFlags();
+        const statusFlags = statusFlagsResult.flags;
+
         await Promise.all(detectorOperators.map(async (operator) => {
+            const flagValue = statusFlags[operator.flagKey] ?? 0;
+            if (applyManualStatusFlag(operator, flagValue)) {
+                return;
+            }
+
+            if (!statusFlagsResult.readable) {
+                setOperatorStatus(operator.id, "green", `${operator.name}: flags.txt 讀取失敗，請用 HTTP 伺服器開啟頁面`, "F!");
+                return;
+            }
+
             try {
                 const html = await fetchDetectorPage(operator.url);
                 const result = evaluateDetectorStatus(html);
@@ -2699,7 +2817,7 @@ if (maintenancePage) {
 
 const nightSleepPage = document.querySelector(".night-sleep-page");
 if (nightSleepPage) {
-    const sleepData = {"times":["00:00","00:15","00:30","00:45","01:00","01:15","01:30","01:45","02:00","02:15","02:30","02:45","03:00","03:15","03:30","03:45","04:00","04:15","04:30","04:45","05:00","05:15","05:30","05:45","06:00","06:15","06:30","06:45","07:00","07:15","07:30","07:45","08:00"],"operators":[{"key":"cht","label":"中華電信","bands":[{"label":"4G 900MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2600MHz","values":[100,70,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,100,100,100,100,100,100,100,100]},{"label":"5G 2100MHz","values":[100,90,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,100,100,100,100,100,100,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]}]},{"key":"fet","label":"遠傳電信","bands":[{"label":"4G 700MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,100,70,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,60,80,90,100,100,100,100]},{"label":"4G 2600MHz","values":[100,100,100,100,40,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,40,70,90,100,100,100,100]},{"label":"4G TD2600MHz","values":[100,100,100,100,80,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,70,100,100,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]}]},{"key":"twm","label":"台灣大哥大","bands":[{"label":"4G 700MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 900MHz","values":[100,100,100,100,100,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,80,80]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,70,60,50,50,50,50,50,50,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,100,100]},{"label":"4G 2600MHz","values":[100,100,100,100,100,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,100,100]}]}]};
+    const sleepData = {"times":["00:00","00:15","00:30","00:45","01:00","01:15","01:30","01:45","02:00","02:15","02:30","02:45","03:00","03:15","03:30","03:45","04:00","04:15","04:30","04:45","05:00","05:15","05:30","05:45","06:00","06:15","06:30","06:45","07:00","07:15","07:30","07:45","08:00"],"operators":[{"key":"cht","label":"中華電信","bands":[{"label":"4G 900MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2600MHz","values":[100,60,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,60,100,100,100,100,100,100,100,100]},{"label":"5G 2100MHz","values":[100,90,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,90,100,100,100,100,100,100,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]}]},{"key":"fet","label":"遠傳電信","bands":[{"label":"4G 700MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,100,70,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,60,80,90,100,100,100,100]},{"label":"4G 2600MHz","values":[100,100,100,100,40,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,40,70,90,100,100,100,100]},{"label":"4G TD2600MHz","values":[100,100,100,100,80,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,70,100,100,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]}]},{"key":"twm","label":"台灣大哥大","bands":[{"label":"4G 700MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 900MHz","values":[100,100,100,100,100,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,80,80]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,60,50,40,40,40,40,40,40,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,100,100]},{"label":"4G 2600MHz","values":[100,100,100,100,100,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,100,100]}]}]};
     const slider = nightSleepPage.querySelector("#sleepTimeSlider");
     const playButton = nightSleepPage.querySelector("#sleepPlayButton");
     const clockLabel = nightSleepPage.querySelector("#sleepClockLabel");
