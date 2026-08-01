@@ -1,5 +1,5 @@
 window.mergeZoneData = {
-    "updated": "更新於: 2026/07/26",
+    "updated": "更新於: 2026/08/01",
     "sections": [
         {
             "key": "twm-tst",
@@ -2396,13 +2396,13 @@ window.mergeZoneData = {
                                 },
                                 {
                                     "text": "L2600TD[20MHz]",
-                                    "tone": "green",
+                                    "tone": "red",
                                     "border": "green",
                                     "strike": false
                                 },
                                 {
                                     "text": "L2600TD[20MHz]",
-                                    "tone": "green",
+                                    "tone": "red",
                                     "border": null,
                                     "strike": false
                                 },
@@ -2519,13 +2519,13 @@ window.mergeZoneData = {
                                 },
                                 {
                                     "text": "L2600TD[20MHz]",
-                                    "tone": "green",
+                                    "tone": "red",
                                     "border": "green",
                                     "strike": false
                                 },
                                 {
                                     "text": "L2600TD[20MHz]",
-                                    "tone": "green",
+                                    "tone": "red",
                                     "border": null,
                                     "strike": false
                                 },
@@ -2558,7 +2558,7 @@ window.mergeZoneData = {
                         }
                     ],
                     "adjustment": "部分地區開放B7 MOCN，同時調高Band 3 (L1800)優先級。\n2月底南部(嘉義以南)局部地區已開；3月底台北西門町一帶局部已開",
-                    "impact": "可組3CA，網速可望明顯提升，但只有局部地區開放",
+                    "impact": "可組3CA，網速可望明顯提升，但僅有局部地區開放",
                     "videos": [
                         {
                             "title": "捷運北門站 B7 MOCN已開 | 3CA飆破400Mbps+",
@@ -2638,13 +2638,13 @@ window.mergeZoneData = {
                                 },
                                 {
                                     "text": "L2600TD[20MHz]",
-                                    "tone": "green",
+                                    "tone": "red",
                                     "border": "green",
                                     "strike": false
                                 },
                                 {
                                     "text": "L2600TD[20MHz]",
-                                    "tone": "green",
+                                    "tone": "red",
                                     "border": null,
                                     "strike": false
                                 },
@@ -2761,7 +2761,7 @@ window.mergeZoneData = {
                                 },
                                 {
                                     "text": "L2600TD[20MHz]",
-                                    "tone": "green",
+                                    "tone": "red",
                                     "border": "green",
                                     "strike": false
                                 },
@@ -2860,7 +2860,7 @@ window.mergeZoneData = {
                                 },
                                 {
                                     "text": "L2600TD[20MHz]",
-                                    "tone": "green",
+                                    "tone": "red",
                                     "border": "green",
                                     "strike": false
                                 },
@@ -2942,7 +2942,7 @@ window.mergeZoneData = {
                                 },
                                 {
                                     "text": "L2600TD[20MHz]",
-                                    "tone": "green",
+                                    "tone": "red",
                                     "border": "green",
                                     "strike": false
                                 },
@@ -3225,7 +3225,16 @@ window.mergeZoneData = {
                     ],
                     "adjustment": "將原本亞太電信700MHz可憐頻5MHz*2改開成5G訊號",
                     "impact": "-",
-                    "videos": []
+                    "videos": [
+                        {
+                            "title": "遠傳電信5G&4G測速 微風南山-信義連通天橋 | 原亞太可憐頻拿來開5G了！N28[156010] (2026年7月)",
+                            "url": "https://youtu.be/P7Gd1S6yEUs"
+                        },
+                        {
+                            "title": "遠傳電信5G測速 捷運101站5號出口 | 有開N28[152670]和N28[156010] (2026年7月)",
+                            "url": "https://youtu.be/hZndwMOHI6Y"
+                        }
+                    ]
                 }
             ]
         }

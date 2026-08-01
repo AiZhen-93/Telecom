@@ -5,6 +5,38 @@ const assetPath = (path) => {
     }
     return new URL(path, siteAssetBase).toString();
 };
+
+const visitCounterEndpoint = "https://aizhen-visit-counter.2010magnitude.workers.dev/hit";
+const updateVisitCount = async () => {
+    const counters = document.querySelectorAll("[data-visit-count]");
+    if (!counters.length) {
+        return;
+    }
+
+    try {
+        const response = await fetch(visitCounterEndpoint, { cache: "no-store" });
+        if (!response.ok) {
+            throw new Error(`Visit counter responded with ${response.status}`);
+        }
+
+        const data = await response.json();
+        const count = Number(data.count);
+        if (!Number.isFinite(count)) {
+            throw new Error("Visit counter response did not include a numeric count.");
+        }
+
+        counters.forEach((counter) => {
+            counter.textContent = count.toLocaleString("zh-TW");
+        });
+    } catch (error) {
+        counters.forEach((counter) => {
+            counter.textContent = "--";
+        });
+    }
+};
+
+updateVisitCount();
+
 document.querySelectorAll(".has-submenu > .nav-trigger").forEach((button) => {
     button.addEventListener("click", () => {
         const item = button.closest(".has-submenu");
