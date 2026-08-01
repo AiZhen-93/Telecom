@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>測速 & 路測相關工具</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="brand">
+                <a href="../home.html" aria-label="回到首頁">
+                    <img class="brand-icon" src="../pic/profile.png" alt="">
+                    <span class="brand-text">愛蓁電信工作室 - 頻譜資訊網</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="主要選單">
+                <ul>
+                    <li class="nav-item"><a href="../home.html">首頁</a></li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">頻譜與站台資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../spectrum/allocation_diagram.html">頻譜核配圖</a></li>
+                            <li><a href="../spectrum/allocation_table.html">頻譜核配表</a></li>
+                            <li><a href="../spectrum/cell_tac_enb.html">TAC&eNB表</a></li>
+                            <li><a href="../spectrum/cell_sector_cid.html">CID與優先級</a></li>
+                            <li><a href="../spectrum/cell_configuration.html">站台配置</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">監測專區</button>
+                        <ul class="submenu">
+                            <li><a href="../monitoring/merge.html">合併進度監測</a></li>
+                            <li><a href="../monitoring/sa_rollout.html">5G SA開台監測</a></li>
+                            <li><a href="../monitoring/unknown_frequency.html">不明頻點監測</a></li>
+                            <li><a href="../monitoring/cell_power_saving.html">夜間休眠監測</a></li>
+                            <li><a href="../monitoring/frequency refarming.html">頻率改配監測</a></li>
+                            <li><a href="../monitoring/maintenance.html">基地台維護公告</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu active">
+                        <button class="nav-trigger" type="button" aria-expanded="false">測速資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../speedtest/projects.html">測速專案</a></li>
+                            <li><a href="../speedtest/test_maps.html">測速地圖</a></li>
+                            <li><a href="../speedtest/sample_database.html">測速資料庫</a></li>
+                            <li><a href="../speedtest/peak_throughput_calculator.html">最高網速試算</a></li>
+                            <li><a class="current" href="../speedtest/tools.html">測速 & 路測相關工具</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">專題發表</button>
+                        <ul class="submenu">
+                            <li><a href="../Topics/videos.html">專題影片</a></li>
+                            <li><a href="../Topics/article.html">專題文章</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="content-area live-speed-page" aria-label="測速 & 路測相關工具">
+            <section class="spectrum-toolbar speed-toolbar" aria-label="測速 & 路測相關工具資訊">
+                <div>
+                    <p class="section-kicker">Tools</p>
+                    <h1>測速 & 路測相關工具</h1>
+                    <p class="spectrum-updated">查看目前網路資訊，並快速開啟常用測速服務和Apps</p>
+                </div>
+            </section>
+
+            <section class="speedtest-client-info" aria-label="使用者連線資訊">
+                <h2>網路資訊</h2>
+                <article>
+                    <span>目前 IP</span>
+                    <strong id="speedtestClientIp">查詢中</strong>
+                </article>
+                <article>
+                    <span>ISP 業者</span>
+                    <strong id="speedtestClientIsp">查詢中</strong>
+                </article>
+            </section>
+
+            <section class="external-speed-tools" aria-labelledby="externalSpeedToolsTitle">
+                <div class="tools-section-heading">
+                    <p class="section-kicker">SpeedTest Tools</p>
+                    <h2 id="externalSpeedToolsTitle">測速工具</h2>
+                </div>
+                <div class="external-speed-grid">
+                    <a class="external-speed-card" href="https://www.speedtest.net/zh-Hant" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/speedtest_ookla.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>SpeedTest(OOKLA)</strong>
+                            <span>全球常用測速平台，可測下載、上傳、Ping，並自動選擇鄰近測速節點。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://speed.cloudflare.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/speedtest_cloudflare.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>SpeedTest(Cloudflare)</strong>
+                            <span>Cloudflare 提供的網路品質測試，可查看延遲、下載、上傳與封包品質指標。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://fast.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/speedtest_fast.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>Fast.com</strong>
+                            <span>Netflix 提供的簡潔測速服務，適合快速檢查串流與一般下載速度。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="http://speed5.ntu.edu.tw/speed5/" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/speedtest_ntu.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>台大測速</strong>
+                            <span>台灣大學測速服務，適合用來觀察連往台灣學術網路節點的連線表現。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://speed.hinet.net/httptest.html" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/speedtest_hinet.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>HINET HTTP傳輸測試</strong>
+                            <span>中華電信 HiNet 的 HTTP 傳輸測試，透過實際的檔案下載來檢視下行網速表現，可依據需求選擇不同大小的測試檔案。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://ljxi.github.io/NetworkPanel/" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/speedtest_panel.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>網路面板</strong>
+                            <span>可以進行長時間連續的下載測速。請注意，這可能會快速消耗您的流量，並使裝置發燙。</span>
+                        </span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="external-speed-tools" aria-labelledby="caComboToolsTitle">
+                <div class="tools-section-heading">
+                    <p class="section-kicker">CA Combos</p>
+                    <h2 id="caComboToolsTitle">CA組合查詢</h2>
+                </div>
+                <div class="external-speed-grid ca-tool-grid">
+                    <a class="external-speed-card" href="https://cacombos.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/CACombos.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>CA Combos</strong>
+                            <span>可以根據手機型號查詢其modem型號和CA組合資料。不過此網站基本已經不再更新。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://uecapability.smartphonecombo.it/library/" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/UE_Capability_Parser.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>UE Capability Parser</strong>
+                            <span>一個可以讓使用者上傳自己手機連線能力log檔的平台，透過信令正規化解析，轉換成易於閱讀的裝置連線能力和CA組合報表。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://goo.gl/9a5k3X" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/Peter79101622.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>Peter手機電信表格</strong>
+                            <span>由mobile01知名作者 Peter大 所自行整理的各式手機CA組合表格，以及各電信方案AMBR、出國上網卡等實用資訊。</span>
+                        </span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="external-speed-tools" aria-labelledby="baseStationToolsTitle">
+                <div class="tools-section-heading">
+                    <p class="section-kicker">Cell Towers Searching</p>
+                    <h2 id="baseStationToolsTitle">基站查詢</h2>
+                </div>
+                <div class="external-speed-grid base-station-tool-grid">
+                    <a class="external-speed-card" href="https://freqdbo.ncc.gov.tw/Portal/NCCB06Q_01v1.aspx" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/NCC_logo.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>NCC資料庫</strong>
+                            <span>可依縣市路段查詢電信基地台的執照發行情形，檢視其頻率和功率等資訊。</span>
+                        </span>
+                    </a>
+                    <article class="external-speed-card tool-card-with-video">
+                        <a class="tool-main-link" href="https://www.cellmapper.net/map?MCC=466&amp;MNC=1&amp;type=LTE&amp;latitude=24.162664969885213&amp;longitude=120.66666623668254&amp;zoom=11.600837226773235" target="_blank" rel="noopener noreferrer">
+                            <img src="../pic/Cellmapper.png" alt="">
+                            <span class="external-speed-text">
+                                <strong>Cellmapper</strong>
+                                <span>專為電信愛好者打造的基地台資訊地圖。透過手機的app蒐集周邊的站台數據，並以地圖的方式呈現站台分布，推估位置，並可詳細檢視其站台號碼、頻段、PCI及涵蓋範圍等詳細資料。</span>
+                            </span>
+                        </a>
+                        <a class="tool-video-link" href="https://www.youtube.com/watch?v=x2s8zusFPYw" target="_blank" rel="noopener noreferrer">
+                            <img src="../pic/YT_icon.png" alt="">
+                            <span>觀看教學</span>
+                        </a>
+                    </article>
+                    <a class="external-speed-card" href="https://opencellid.org/" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/OpenCellId.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>OpenCellId</strong>
+                            <span>世界上最大的公開基站資料庫。儘管台灣這邊的數據已經停止更新，但仍可以查詢到過去的站台資料，甚至是2G/3G。</span>
+                        </span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="external-speed-tools" aria-labelledby="roadTestAppsTitle">
+                <div class="tools-section-heading">
+                    <p class="section-kicker">DT Apps</p>
+                    <h2 id="roadTestAppsTitle">路測Apps</h2>
+                </div>
+                <div class="external-speed-grid road-test-app-grid">
+                    <article class="external-speed-card tool-card-with-video">
+                        <a class="tool-main-link" href="https://play.google.com/store/apps/details?id=com.qtrun.QuickTest" target="_blank" rel="noopener noreferrer">
+                            <img src="../pic/NSG.png" alt="">
+                            <span class="external-speed-text">
+                                <strong>Network Signal Guru</strong>
+                                <span>Network Signal Guru是一款極為強大的專業路測軟體，能測量基地台各式訊號指標、檢視連線頻段及CA載波聚合狀態，更能解析層三信令供各式站台參數檢視，還具備所頻段、鎖網路、鎖頻點及腳本測試等進階功能。</span>
+                                <span class="tool-warning">手機必須ROOT才可使用完整功能，部分功能需付費。</span>
+                            </span>
+                        </a>
+                        <a class="tool-video-link" href="https://youtu.be/O2JCKN4NSFU" target="_blank" rel="noopener noreferrer">
+                            <img src="../pic/YT_icon.png" alt="">
+                            <span>觀看教學</span>
+                        </a>
+                    </article>
+                    <article class="external-speed-card tool-card-with-video">
+                        <a class="tool-main-link" href="https://play.google.com/store/apps/details?id=cz.mroczis.netmonster" target="_blank" rel="noopener noreferrer">
+                            <img src="../pic/NetMonster.png" alt="">
+                            <span class="external-speed-text">
+                                <strong>NetMonster</strong>
+                                <span>NetMonster是一款直觀的訊號檢視軟體，可以直接看到站台的各項訊號指標，明確的CA載波聚合組合顯示，其進階版更提供以TA值反推站台位置的功能。</span>
+                                <span class="tool-warning">CA頻段組合必須要在RRC連接狀態才會準確。部分手機會有CA、頻寬顯示異常、雙卡資訊干擾等情形。</span>
+                            </span>
+                        </a>
+                        <a class="tool-video-link" href="https://youtu.be/Mo6SrNKIC0U" target="_blank" rel="noopener noreferrer">
+                            <img src="../pic/YT_icon.png" alt="">
+                            <span>觀看教學</span>
+                        </a>
+                    </article>
+                    <a class="external-speed-card" href="https://play.google.com/store/apps/details?id=com.parizene.netmonitor" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/Netmonitor.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>Netmonitor</strong>
+                            <span>NetMonster是一款介面友善的訊號檢視軟體，可檢視站台各項訊號指標，透過圖表和色調呈現訊號變化及強度，亦有儀表和地圖等介面。</span>
+                            <span class="tool-warning">部分手機會有頻寬顯示異常、雙卡資訊干擾等情形。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://play.google.com/store/apps/details?id=com.gyokovsolutions.gnettrackproplus" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/G-NetTrackPro.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>G-NetTrack Pro</strong>
+                            <span>G-NetTrack Pro是一款可以記錄手機各項訊號指標數值變化的軟體，也是很多電信工程師愛用的app之一。</span>
+                            <span class="tool-warning">此為付費版本，免費版請下載G-NetTrack Lite。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://play.google.com/store/apps/details?id=com.nperf.tester" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/nPerf.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>nPerf</strong>
+                            <span>nPerf是一款可以評測上網實際體驗指標的app，並有地圖功能可以記錄路段的訊號涵蓋情形。</span>
+                            <span class="tool-warning">已ROOT的裝置無法上傳測試數據。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://play.google.com/store/apps/details/Opensignal_5G_4G_Speed_Test?id=com.staircase3.opensignal" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/Opensignal.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>Opensignal</strong>
+                            <span>Opensignal是一款可以進行測速，並透過地圖共享訊號涵蓋的軟體。其官方也會根據大量用戶的測試結果發布電信業者的網路評比報告。</span>
+                            <span class="tool-warning">此軟體無法檢視站台和頻段資訊。</span>
+                        </span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="external-speed-tools" aria-labelledby="mapAppsTitle">
+                <div class="tools-section-heading">
+                    <p class="section-kicker">Maps</p>
+                    <h2 id="mapAppsTitle">地圖Apps</h2>
+                </div>
+                <div class="external-speed-grid map-app-grid">
+                    <a class="external-speed-card" href="https://apkpure.com/a-gps-tracker/com.giobat.troviamoci" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/A-GPS_Tracker.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>A-GPS Tracker</strong>
+                            <span>A-GPS是一款可以記錄GPS軌跡的軟體，可用於路測路線檢視及匯出GPX檔。儘管它已經在Play商店下架，但仍可以下載到apk安裝並正常運行。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://play.google.com/store/apps/details?id=net.osmand" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/OsmAnd.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>OsmAnd</strong>
+                            <span>開放街區地圖的官方app，完整的離線向量地圖，適合在預期收訊較弱甚至是沒有網路的路段使用，並擁有多項自訂設置和外掛套件可使用。</span>
+                        </span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="external-speed-tools" aria-labelledby="forumToolsTitle">
+                <div class="tools-section-heading">
+                    <p class="section-kicker">Forums</p>
+                    <h2 id="forumToolsTitle">論壇社群</h2>
+                </div>
+                <div class="external-speed-grid forum-tool-grid">
+                    <a class="external-speed-card" href="https://www.mobile01.com/topiclist.php?f=18" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/mobile01_icon.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>Mobile01電信版</strong>
+                            <span>台灣消費者通訊討論園地，偏向實際收訊經驗分享與門號資費優惠方案討論。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://www.ptt.cc/bbs/MobileComm/index.html" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/ptt_icon.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>PTT通訊版</strong>
+                            <span>台灣最活躍的通訊討論區之一，以文字討論為主。最新的電信新聞稿、NCC政令、資費整理通常能在這裡找到。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://www.telecomhall.net/" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/telecomHall_icon.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>telecomHall</strong>
+                            <span>國際性的電信工程師論壇，主要使用英文交流。工程技術導向，討論偏向技術層面和實務部署與維運。</span>
+                        </span>
+                    </a>
+                    <a class="external-speed-card" href="https://www.txrjy.com/forum.php" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/txrjy_c114_icon.png" alt="">
+                        <span class="external-speed-text">
+                            <strong>通信人家園</strong>
+                            <span>中國大型的通信技術論壇，長期聚焦電信工程與教育，中文技術資料非常豐富。</span>
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer" aria-label="網站資訊">
+            <div class="footer-main">
+                <div class="footer-brand-block">
+                    <a class="footer-brand" href="../home.html" aria-label="回到首頁">
+                        <img class="footer-logo" src="../pic/profile.png" alt="">
+                        <span>愛蓁電信工作室 - 頻譜資訊網</span>
+                    </a>
+                                        <p class="footer-tagline">蓁心為您做最好～</p>
+                    <div class="footer-actions" aria-label="相關連結">
+                        <a class="footer-button" href="https://www.youtube.com/@Aizhen-Telecom" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/YT_icon.png" alt="" aria-hidden="true">測速頻道</a>
+                        <a class="footer-button" href="https://www.google.com/maps/d/u/0/edit?hl=zh-TW&amp;mid=1HE5K8MR2R2k8cFB9wTmYHE9hJ0NP0zo" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/google_maps.png" alt="" aria-hidden="true">測速地圖</a>
+                        <a class="footer-button" href="mailto:2010magnitude@gmail.com"><img class="footer-button-icon" src="../pic/gmail_icon.png" alt="" aria-hidden="true">聯絡愛蓁</a>
+                    </div>
+                </div>
+                <div class="footer-notes">
+                    <p>建議使用電腦瀏覽體驗較佳，手機等行動裝置建議以電腦版模式或橫向瀏覽。</p>
+                    <p>本網站資料由個人長期測試數據及網友回報所整理，僅供參考。若要引用或截圖分享請務必註明來源出處，感謝您。</p>
+                    <p>聲明: 本工作室僅在本網站和YouTube平台經營，任何在其他平台(包含但不限於IG、Threads、PTT、Dcard、bilibili等)皆為冒名使用，請勿受騙上當。<br>所有電信相關資訊皆為免費提供，不會向您收取任何費用，若您想表達感謝，可以在這裡 <a class="footer-inline-link" href="https://reurl.cc/rxeGN4" target="_blank" rel="noopener noreferrer">贊助愛蓁</a>。</p>
+                </div>
+            </div>
+            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.0.0</span><a href="../changelog.txt">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 (C)2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
+        </footer>
+    </div>
+</body>
+</html>
