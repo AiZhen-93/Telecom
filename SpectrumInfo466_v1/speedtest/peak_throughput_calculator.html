@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最高網速試算</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="brand">
+                <a href="../home.html" aria-label="回到首頁">
+                    <img class="brand-icon" src="../pic/profile.png" alt="">
+                    <span class="brand-text">愛蓁電信工作室 - 頻譜資訊網</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="主要選單">
+                <ul>
+                    <li class="nav-item"><a href="../home.html">首頁</a></li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">頻譜與站台資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../spectrum/allocation_diagram.html">頻譜核配圖</a></li>
+                            <li><a href="../spectrum/allocation_table.html">頻譜核配表</a></li>
+                            <li><a href="../spectrum/cell_tac_enb.html">TAC&eNB表</a></li>
+                            <li><a href="../spectrum/cell_sector_cid.html">CID與優先級</a></li>
+                            <li><a href="../spectrum/cell_configuration.html">站台配置</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">監測專區</button>
+                        <ul class="submenu">
+                            <li><a href="../monitoring/merge.html">合併進度監測</a></li>
+                            <li><a href="../monitoring/sa_rollout.html">5G SA開台監測</a></li>
+                            <li><a href="../monitoring/unknown_frequency.html">不明頻點監測</a></li>
+                            <li><a href="../monitoring/cell_power_saving.html">夜間休眠監測</a></li>
+                            <li><a href="../monitoring/frequency refarming.html">頻率改配監測</a></li>
+                            <li><a href="../monitoring/maintenance.html">基地台維護公告</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu active">
+                        <button class="nav-trigger" type="button" aria-expanded="false">測速資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../speedtest/projects.html">測速專案</a></li>
+                            <li><a href="../speedtest/test_maps.html">測速地圖</a></li>
+                            <li><a href="../speedtest/sample_database.html">測速資料庫</a></li>
+                            <li><a class="current" href="../speedtest/peak_throughput_calculator.html">最高網速試算</a></li>
+                            <li><a href="../speedtest/tools.html">測速 & 路測相關工具</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">專題發表</button>
+                        <ul class="submenu">
+                            <li><a href="../Topics/videos.html">專題影片</a></li>
+                            <li><a href="../Topics/article.html">專題文章</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="content-area max-speed-page" aria-label="最高網速試算">
+            <section class="spectrum-toolbar speed-toolbar" aria-label="最高網速試算資訊">
+                <div>
+                    <p class="section-kicker">Peak Speed Calculator</p>
+                    <h1>最高網速試算</h1>
+                    <p class="spectrum-updated">選擇業者、頻段與站台型態後即時計算理論最高網速</p>
+                </div>
+                <div class="speed-select-controls">
+                    <div class="speed-select-group">
+                        <label class="operator-select-label" for="speedTechnology">網路類型</label>
+                        <select class="operator-select" id="speedTechnology" name="technology">
+                            <option value="lte" selected>4G LTE</option>
+                            <option value="nsa">5G NSA</option>
+                        </select>
+                    </div>
+                    <div class="speed-select-group">
+                        <label class="operator-select-label" for="speedDirection">計算項目</label>
+                        <select class="operator-select" id="speedDirection" name="direction">
+                            <option value="downlink" selected>下載</option>
+                            <option value="uplink">上傳</option>
+                        </select>
+                    </div>
+                    <div class="speed-select-group">
+                        <label class="operator-select-label" for="speedOperator">業者</label>
+                        <select class="operator-select" id="speedOperator" name="operator">
+                            <option value="cht" selected>中華電信</option>
+                            <option value="fet">遠傳電信</option>
+                            <option value="twm">台灣大哥大</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="speed-calculator" data-technology="lte" data-operator="cht">
+                <div class="speed-visual-panel">
+                    <div class="speed-result" aria-live="polite">
+                        <span id="maxSpeedLabel">最快下載網速</span>
+                        <strong><output id="maxSpeedOutput">0Mbps</output></strong>
+                        <small class="speed-limit-note" id="speedLimitNote" hidden></small>
+                    </div>
+                    <svg class="base-station-hero" viewBox="0 0 260 320" aria-hidden="true" role="img">
+                        <g class="tower-waves">
+                            <path d="M82 72C66 88 56 110 56 134" />
+                            <path d="M178 72C194 88 204 110 204 134" />
+                            <path d="M55 45C31 70 18 101 18 134" />
+                            <path d="M205 45C229 70 242 101 242 134" />
+                        </g>
+                        <g class="tower-core">
+                            <path d="M130 38V116" />
+                            <circle cx="130" cy="34" r="12" />
+                            <rect x="96" y="86" width="18" height="58" rx="6" />
+                            <rect x="146" y="86" width="18" height="58" rx="6" />
+                            <path d="M105 112H155" />
+                            <path d="M130 116L70 284H190L130 116Z" />
+                            <path d="M102 196H158" />
+                            <path d="M88 236H172" />
+                            <path d="M106 152L154 196" />
+                            <path d="M154 152L106 196" />
+                            <path d="M91 205L169 262" />
+                            <path d="M169 205L91 262" />
+                            <path d="M52 284H208" />
+                        </g>
+                    </svg>
+                </div>
+
+                <form class="speed-control-panel" id="maxSpeedForm">
+                    <fieldset class="speed-fieldset">
+                        <legend>快速配置</legend>
+                        <div class="quick-config-options" id="quickConfigOptions"></div>
+                    </fieldset>
+
+                    <fieldset class="speed-fieldset">
+                        <legend id="bandFieldsetLegend">站台開啟頻段</legend>
+                        <div class="band-grid" id="bandOptions"></div>
+                        <p class="speed-hint" id="bandHint" aria-live="polite">最多可選 5 個頻段；B8[3650] 與 B8[3750] 不可同時選取。</p>
+                    </fieldset>
+
+                    <fieldset class="speed-fieldset">
+                        <legend>站台類型</legend>
+                        <div class="segmented-options">
+                            <label>
+                                <input type="radio" name="siteType" value="outdoor" checked>
+                                <span>室外站</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="siteType" value="indoor">
+                                <span>室內站</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="siteType" value="macro">
+                                <span>大型室外站</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="speed-fieldset" id="ulCaFieldset" hidden>
+                        <legend>UL CA</legend>
+                        <label class="qam-toggle">
+                            <input type="checkbox" id="ulCa">
+                            <span>開啟TDD UL CA</span>
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="speed-fieldset">
+                        <legend>調變</legend>
+                        <label class="qam-toggle">
+                            <input type="checkbox" id="qam256" checked>
+                            <span>開啟256QAM</span>
+                        </label>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section class="speed-notes" aria-label="最高網速試算補充說明">
+                <div class="speed-notes-heading">
+                    <h2>補充說明</h2>
+                    <a class="ambr-video-link" href="https://www.youtube.com/watch?v=Qg_2Xg4dY5I" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/YT_icon.png" alt="" aria-hidden="true">
+                        <span>進一步瞭解最高網速</span>
+                    </a>
+                </div>
+                <ul>
+                    <li>頁面呈現的網速是依據現行業者頻段頻寬、天線 MIMO 和調變所計算出之理論最高速率，並經由實際情況微調，僅供參考。行動通信網路實際連線速率會因使用地點之地形、氣候、地上物遮蔽情形、使用之終端設備、應用軟體、使用人數、距離基地台遠近、客戶移動速度或其他因素，例如基地台抗爭拆台等影響而有所差異。</li>
+                    <li>站台類型選項主要在天線差異，一般室外站為 2x2 MIMO，室內站為 1x1 SISO（室內型主動天線除外）；大型室外站中高頻為 4x4 MIMO，但這種站台非常稀少。</li>
+                    <li>部分頻段 CA 組合規則因未符合 3GPP 規範或是絕大多數終端裝置皆未支援，因此不予同時勾選。</li>
+                    <li>TDD 網速呈現係依現行業者開台配置來計算。遠傳電信 4G B38/B41 配置為 SA2/SSP7，上下行配比 8:2；5G N38/N41 配置為 2.5ms 雙週期，上下行配比 7:3。5G n78 頻段三家業者配置皆為 2.5ms 雙週期，上下行配比 7:3。</li>
+                    <li>n257 毫米波 mmWave 由於目前仍在測試階段，尚未宣布正式開台，因此在網速計算畫面不予呈現。業者預計的配置為 0.625ms，上下行配比 3:1，64QAM調變，每 100MHz 頻寬最高下行速率約為566Mbps。</li>
+                </ul>
+            </section>
+
+            <section class="ambr-section" aria-label="電信商AMBR">
+                <div class="ambr-heading">
+                    <div>
+                        <p class="section-kicker">Operator AMBR</p>
+                        <h2>電信商AMBR</h2>
+                    </div>
+                    <a class="ambr-video-link" href="https://www.youtube.com/watch?v=FISP0HMY0DA" target="_blank" rel="noopener noreferrer">
+                        <img src="../pic/YT_icon.png" alt="" aria-hidden="true">
+                        <span>進一步瞭解AMBR</span>
+                    </a>
+                </div>
+                <p class="ambr-intro">AMBR是Aggregate Maximum Bit Rate（聚合最大位元速率）的縮寫，是4G/5G行動網路中用來限制資料傳輸速率上限的一個參數。電信業者可能會依據不同資費方案類型來制定不同的AMBR級距。</p>
+
+                <div class="ambr-grid">
+                    <article class="ambr-card ambr-cht">
+                        <header>
+                            <img src="../pic/CHT_icon.png" alt="">
+                            <h3>中華電信</h3>
+                        </header>
+                        <div class="ambr-table">
+                            <div class="ambr-table-head">
+                                <span>AMBR級距</span>
+                                <span>適用資費方案</span>
+                            </div>
+                            <h4>4G方案</h4>
+                            <div class="ambr-row is-retired">
+                                <div class="ambr-rate"><img src="../pic/sim-cht.svg" alt=""><span>APN-AMBR<strong>DL 256Mbps<br>UL 64Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>舊無框行動4G方案(已不適用)</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-cht.svg" alt=""><span>APN-AMBR<strong>DL 300Mbps<br>UL 50Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>$499以下大部分方案</span><span>4G預付卡</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-cht.svg" alt=""><span>APN-AMBR<strong>DL 800Mbps<br>UL 150Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>4G全速吃到飽方案</span><span>4G 7日體驗卡</span></div>
+                            </div>
+                            <h4>5G方案</h4>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-cht.svg" alt=""><span>APN-AMBR<strong>DL 550Mbps<br>UL 110Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>$599 / $799 / $999 / $1199</span><span>5G預付卡</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-cht.svg" alt=""><span>APN-AMBR<strong>DL 1100Mbps<br>UL 200Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>$1399 / $1599</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-cht.svg" alt=""><span>APN-AMBR<strong>DL 1600Mbps<br>UL 200Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>$1799 / $2699</span><span>5G 7日體驗卡</span></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ambr-card ambr-fet">
+                        <header>
+                            <img src="../pic/FET_icon.jpg" alt="">
+                            <h3>遠傳電信</h3>
+                        </header>
+                        <div class="ambr-table">
+                            <div class="ambr-table-head">
+                                <span>AMBR級距</span>
+                                <span>適用資費方案</span>
+                            </div>
+                            <h4>4G方案</h4>
+                            <div class="ambr-row is-retired">
+                                <div class="ambr-rate"><img src="../pic/sim-fet.svg" alt=""><span>APN-AMBR<strong>DL 300Mbps<br>UL 50Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>原亞太電信4G方案(已不適用)</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-fet.svg" alt=""><span>APN-AMBR<strong>DL 250Mbps<br>UL 150Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>5G預付卡購買4G計日型方案</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-fet.svg" alt=""><span>APN-AMBR<strong>DL 450Mbps<br>UL 150Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>4G的所有方案</span><span>4G預付卡</span><span>4G 7日體驗卡</span></div>
+                            </div>
+                            <h4>5G方案</h4>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-fet.svg" alt=""><span>APN-AMBR<strong>DL 500Mbps<br>UL 200Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>$599 / $799 / $999 / $1199</span><span>5G預付卡 1日/3日/30日</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-fet.svg" alt=""><span>APN-AMBR<strong>DL 1000Mbps<br>UL 200Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>$1399 / $1599</span><span>5G預付卡 計量型/量到降速型</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-fet.svg" alt=""><span>APN-AMBR<strong>DL 1500Mbps<br>UL 200Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>$1799 / $2699</span><span>4G方案一鍵升級5G 1日/3日/7日</span><span>5G 7日體驗卡</span></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ambr-card ambr-twm">
+                        <header>
+                            <img src="../pic/TWM_icon.png" alt="">
+                            <h3>台灣大哥大</h3>
+                        </header>
+                        <div class="ambr-table">
+                            <div class="ambr-table-head">
+                                <span>AMBR級距</span>
+                                <span>適用資費方案</span>
+                            </div>
+                            <h4>4G方案</h4>
+                            <div class="ambr-row is-retired">
+                                <div class="ambr-rate"><img src="../pic/sim-twm.svg" alt=""><span>APN-AMBR<strong>DL 226Mbps<br>UL 60Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>早期的4G所有方案(已不適用)</span></div>
+                            </div>
+                            <div class="ambr-row is-retired">
+                                <div class="ambr-rate"><img src="../pic/sim-twm.svg" alt=""><span>APN-AMBR<strong>DL 500Mbps<br>UL 75Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>原台灣之星4G方案(已不適用)</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-twm.svg" alt=""><span>APN-AMBR<strong>DL 860Mbps<br>UL 150Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>現今的4G所有方案</span><span>4G預付卡</span><span>4G 7日體驗卡</span></div>
+                            </div>
+                            <h4>5G方案</h4>
+                            <div class="ambr-row is-retired">
+                                <div class="ambr-rate"><img src="../pic/sim-twm.svg" alt=""><span>APN-AMBR<strong>DL 1792Mbps<br>UL 250Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>舊的5G所有方案(已不適用)</span></div>
+                            </div>
+                            <div class="ambr-row">
+                                <div class="ambr-rate"><img src="../pic/sim-twm.svg" alt=""><span>APN-AMBR<strong>DL 2000Mbps<br>UL 1000Mbps</strong></span></div>
+                                <div class="ambr-plan"><span>原台灣之星5G方案</span><span>新的所有5G方案</span><span>5G預付卡</span><span>5G 7日體驗卡</span></div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="ambr-extra-notes" aria-label="AMBR補充說明">
+                    <h3>補充說明</h3>
+                    <p>上述AMBR數值係指不限速吃到飽方案或流量尚未用盡之情形，若為限速型方案或量到降速，則AMBR也會調整成相應數值，例如：</p>
+                    <div class="ambr-note-columns">
+                        <div>
+                            <h4>4G方案</h4>
+                            <ul>
+                                <li>限速/量到降速21Mbps：DL 26Mbps/UL 26Mbps，或DL 21Mbps/UL 21Mbps，或 DL 21Mbps/UL 11Mbps</li>
+                                <li>限速/量到降速10Mbps：DL 9.8Mbps/UL 9.8Mbps</li>
+                                <li>限速/量到降速5Mbps：DL 4.9Mbps/UL 4.9Mbps</li>
+                                <li>限速/量到降速1Mbps：DL 1Mbps/UL 1Mbps</li>
+                                <li>限速/量到降速128Kbps：DL 125Kbps/UL 125Kbps</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>5G方案</h4>
+                            <ul>
+                                <li>999量到降速：DL 50Mbps/UL 20Mbps</li>
+                                <li>799量到降速：DL 21Mbps/UL 21Mbps</li>
+                                <li>666量到降速：DL 17Mbps/UL 17Mbps</li>
+                                <li>599量到降速：DL 12Mbps/UL 12Mbps</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="ambr-backend-note">此外，有少部分方案業者是透過後端網管設備限速的方式來實施降速措施，此時用戶無法於APN-AMBR看出實際設定的限速值。</p>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer" aria-label="網站資訊">
+            <div class="footer-main">
+                <div class="footer-brand-block">
+                    <a class="footer-brand" href="../home.html" aria-label="回到首頁">
+                        <img class="footer-logo" src="../pic/profile.png" alt="">
+                        <span>愛蓁電信工作室 - 頻譜資訊網</span>
+                    </a>
+                                        <p class="footer-tagline">蓁心為您做最好～</p>
+                    <div class="footer-actions" aria-label="相關連結">
+                        <a class="footer-button" href="https://www.youtube.com/@Aizhen-Telecom" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/YT_icon.png" alt="" aria-hidden="true">測速頻道</a>
+                        <a class="footer-button" href="https://www.google.com/maps/d/u/0/edit?hl=zh-TW&amp;mid=1HE5K8MR2R2k8cFB9wTmYHE9hJ0NP0zo" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/google_maps.png" alt="" aria-hidden="true">測速地圖</a>
+                        <a class="footer-button" href="mailto:2010magnitude@gmail.com"><img class="footer-button-icon" src="../pic/gmail_icon.png" alt="" aria-hidden="true">聯絡愛蓁</a>
+                    </div>
+                </div>
+                <div class="footer-notes">
+                    <p>建議使用電腦瀏覽體驗較佳，手機等行動裝置建議以電腦版模式或橫向瀏覽。</p>
+                    <p>本網站資料由個人長期測試數據及網友回報所整理，僅供參考。若要引用或截圖分享請務必註明來源出處，感謝您。</p>
+                    <p>聲明: 本工作室僅在本網站和YouTube平台經營，任何在其他平台(包含但不限於IG、Threads、PTT、Dcard、bilibili等)皆為冒名使用，請勿受騙上當。<br>所有電信相關資訊皆為免費提供，不會向您收取任何費用，若您想表達感謝，可以在這裡 <a class="footer-inline-link" href="https://reurl.cc/rxeGN4" target="_blank" rel="noopener noreferrer">贊助愛蓁</a>。</p>
+                </div>
+            </div>
+            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.0.0</span><a href="../changelog.txt">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 (C)2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
+        </footer>
+    </div>
+</body>
+</html>

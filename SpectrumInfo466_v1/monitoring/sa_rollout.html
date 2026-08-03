@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G SA開台監測</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="brand">
+                <a href="../home.html" aria-label="回到首頁">
+                    <img class="brand-icon" src="../pic/profile.png" alt="">
+                    <span class="brand-text">愛蓁電信工作室 - 頻譜資訊網</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="主要選單">
+                <ul>
+                    <li class="nav-item"><a href="../home.html">首頁</a></li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">頻譜與站台資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../spectrum/allocation_diagram.html">頻譜核配圖</a></li>
+                            <li><a href="../spectrum/allocation_table.html">頻譜核配表</a></li>
+                            <li><a href="../spectrum/cell_tac_enb.html">TAC&eNB表</a></li>
+                            <li><a href="../spectrum/cell_sector_cid.html">CID與優先級</a></li>
+                            <li><a href="../spectrum/cell_configuration.html">站台配置</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu active">
+                        <button class="nav-trigger" type="button" aria-expanded="false">監測專區</button>
+                        <ul class="submenu">
+                            <li><a href="../monitoring/merge.html">合併進度監測</a></li>
+                            <li><a class="current" href="../monitoring/sa_rollout.html">5G SA開台監測</a></li>
+                            <li><a href="../monitoring/unknown_frequency.html">不明頻點監測</a></li>
+                            <li><a href="../monitoring/cell_power_saving.html">夜間休眠監測</a></li>
+                            <li><a href="../monitoring/frequency refarming.html">頻率改配監測</a></li>
+                            <li><a href="../monitoring/maintenance.html">基地台維護公告</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">測速資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../speedtest/projects.html">測速專案</a></li>
+                            <li><a href="../speedtest/test_maps.html">測速地圖</a></li>
+                            <li><a href="../speedtest/sample_database.html">測速資料庫</a></li>
+                            <li><a href="../speedtest/peak_throughput_calculator.html">最高網速試算</a></li>
+                            <li><a href="../speedtest/tools.html">測速 & 路測相關工具</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">專題發表</button>
+                        <ul class="submenu">
+                            <li><a href="../Topics/videos.html">專題影片</a></li>
+                            <li><a href="../Topics/article.html">專題文章</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="content-area scanning-center-page" aria-label="5G SA開台監測">
+            <section class="spectrum-toolbar table-toolbar" aria-label="5G SA開台監測資訊">
+                <div>
+                    <p class="section-kicker">5G Standalone Rollout Status</p>
+                    <h1 id="saRolloutTitle">5G SA開台監測</h1>
+                    <p class="spectrum-updated">5G NSA 雖然能快速利用既有 LTE 網路提供 5G 高速傳輸，但仍需依賴 4G 核心網，因此在低延遲、網路切片、邊緣運算、大規模物聯網及未來B5G、6G新功能的支援上有所限制，因此逐步由 NSA 邁向 SA演進是必須的方向。</p>
+                </div>
+                <div class="scan-banner sa-rollout-banner" aria-hidden="true">
+                    <img src="../pic/NR_SA_Banner.jpg" alt="">
+                </div>
+            </section>
+            <section class="sa-rollout-panel" aria-labelledby="saRolloutTitle">
+                <div class="sa-rollout-scroll">
+                    <table class="sa-rollout-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">SA開台跡象</th>
+                                <th scope="col">理由</th>
+                                <th scope="col">中華電信</th>
+                                <th scope="col">遠傳電信</th>
+                                <th scope="col">台灣大哥大</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">配置gNB站號</th>
+                                <td class="sa-reason-cell">gNB是向UE提供NR用戶面連接的節點，也就是俗稱的5G基地台。想要開台SA，那麼配置gNB站台號碼是必不可少的。</td>
+                                <td class="sa-detail-cell sa-cht" style="--progress: 35%"><div><span>2023Q2 北捷地下段皆已配置</span></div><div><span>2023Q4 新竹以北已廣泛配置</span></div><div><span>2026Q3 都會區開始有更多站台配置</span></div></td>
+                                <td class="sa-detail-cell sa-fet" style="--progress: 80%"><div><span>2022Q4 都會區已經廣泛配置</span></div><div><span>2023Q1 非都會地區亦都有些許配置</span></div></td>
+                                <td class="sa-detail-cell sa-twm" style="--progress: 5%"><div><span>2023Q1 國父紀念館附近有一站已配置</span></div></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">配置gNB TAC</th>
+                                <td class="sa-reason-cell">一旦gNB站台不設為Cell Barred，且配置了Tracking Area Code，代表著UE將可以嘗試發起對5G SA網路的註冊，如果大量站台都已配置，肯定離開台不遠了。</td>
+                                <td class="sa-detail-cell sa-cht" style="--progress: 20%"><div><span>2023Q1 國父紀念館附近有一站已配置 2026Q3 都會區開始有更多站台配置</span></div></td>
+                                <td class="sa-detail-cell sa-fet" style="--progress: 10%"><div><span>2024Q1 遠東通訊園區已配置</span></div><div><span>2025Q3台北大巨蛋已配置</span></div></td>
+                                <td class="sa-detail-cell sa-twm" style="--progress: 5%"><div><span>2023Q3 台北市信義區有零星站台已配置</span></div><div><span>2025Q1 台中工業區有一站已配置</span></div></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">低頻重耕為5G</th>
+                                <td class="sa-reason-cell">5G SA模式下手機將不會再同時連接到4G eNB站台，因此有良好的5G涵蓋率是必須的，否則頻繁回落到4G會使體驗相當糟糕。而光靠高頻的n78來擔任5G涵蓋主力顯然是不現實的，必須加入較低的頻段，也就是業者必須將現行的4G低頻段開出5G DSS或進行頻率重耕，以保證5G涵蓋。</td>
+                                <td class="sa-detail-cell sa-cht" style="--progress: 20%"><div><span>2021Q1 各地皆陸續開始佈建N1頻段</span></div><div><span>2025Q3 總公司附近開出零星N8頻段</span></div></td>
+                                <td class="sa-detail-cell sa-fet" style="--progress: 40%"><div><span>2026Q1 開始於室外開出N28 DSS</span></div><div><span>2026Q3 開始試開出B28 5MHz*2</span></div></td>
+                                <td class="sa-detail-cell sa-twm" style="--progress: 80%"><div><span>2022Q1 已廣泛開出N28 DSS，不在限於室內商場/隧道</span></div></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">啟用NR CA</th>
+                                <td class="sa-reason-cell">5G SA模式下手機只會連接5G基地台，沒有EN-DC雙連來進行網速疊加。欲跑出更快的速率，得靠NR CA技術，透過多個5G頻段聚合來實現。在NSA下已經廣泛啟用NR CA技術，那麼未來邁向SA亦可以直接使用。</td>
+                                <td class="sa-detail-cell sa-cht" style="--progress: 70%"><div><span>2023Q4 開始開出n78+n1 NR CA</span></div><div><span>2025Q4 NOKIA站台亦允許n1+n78 NR CA的組合</span></div></td>
+                                <td class="sa-detail-cell sa-fet" style="--progress: 70%"><div><span>2024Q4 於南港試開出n78+n28 NR CA</span></div><div><span>2025Q4 於淡水試開出n78+n28 NR CA</span></div><div><span>2026Q1 開始開出n38/n41，可組n78+n38/n41 NR CA</span></div><div><span>2026Q2 開始於其他地區開出n28+n78或n78+n28 NR CA</span></div></td>
+                                <td class="sa-detail-cell sa-twm" style="--progress: 80%"><div><span>2022Q4 開始開出n28+n78 NR CA</span></div><div><span>2024Q1 合併台灣之星後，開始開出n78+n78 NR CA，共100MHz</span></div></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">配置sib24</th>
+                                <td class="sa-reason-cell">sib24是LTE重新導向到NR的信令，UE在收到sib24後，就會去搜索其相應的5G頻點，並接入到SA，這在用戶選擇5G/4G自動連線的網路模式下是必須配置的。</td>
+                                <td class="sa-detail-cell sa-cht" style="--progress: 5%"><div><span>2023Q4 中央公園附近已配置</span></div></td>
+                                <td class="sa-detail-cell sa-fet" style="--progress: 5%"><div><span>2024Q1 遠東通訊園區已配置</span></div></td>
+                                <td class="sa-detail-cell sa-twm" style="--progress: 0%"><span class="sa-empty">-</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">佈建5GC</th>
+                                <td class="sa-reason-cell">SA服務必須依賴於5G核網(5GC)，而不再是EPC。相應的網路單元都必須佈建妥當。</td>
+                                <td class="sa-detail-cell sa-cht" style="--progress: 0%"><div><span>AMF未佈建或是未開放一般用戶 (N1 mode not allowed)</span></div></td>
+                                <td class="sa-detail-cell sa-fet" style="--progress: 0%"><div><span>AMF未佈建或是未開放一般用戶 (N1 mode not allowed)</span></div></td>
+                                <td class="sa-detail-cell sa-twm" style="--progress: 0%"><div><span>AMF未佈建或是未開放一般用戶 (N1 mode not allowed)</span></div></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">釋照n79頻段</th>
+                                <td class="sa-reason-cell">隨著5G用戶增多，NCC預計將進行下一波5G釋照，初步規劃在n79(TD 4700MHz)頻段</td>
+                                <td class="sa-detail-cell sa-cht" style="--progress: 0%"><div><span>尚無進一步消息，目前只有用在企業專網</span></div></td>
+                                <td class="sa-detail-cell sa-fet" style="--progress: 0%"><div><span>尚無進一步消息，目前只有用在企業專網</span></div></td>
+                                <td class="sa-detail-cell sa-twm" style="--progress: 0%"><div><span>尚無進一步消息，目前只有用在企業專網</span></div></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">新聞稿</th>
+                                <td class="sa-reason-cell">業者若發布對5G SA的佈建願景，便能看出預計的開台季度和運行模式。</td>
+                                <td class="sa-detail-cell sa-cht" style="--progress: 80%"><div><a class="sa-evidence-link" href="https://www.cht.com.tw/zh-tw/home/cht/messages/2021/1019-1440" target="_blank" rel="noopener noreferrer">2021Q4 中華電信推出5G 獨立式組網(SA)服務 提供更多元的垂直場域應用 加速產業升級</a></div><div><a class="sa-evidence-link" href="https://www.cht.com.tw/home/enterprise/news/latest-news/2024/0226-1000" target="_blank" rel="noopener noreferrer">2024Q1中華電信應用5G智慧網路切片啟發創新價值 中華電信攜手諾基亞導入智慧網路切片技術 助力企業客戶AI應用</a></div><div><a class="sa-evidence-link" href="https://www.cht.com.tw/home/enterprise/news/latest-news/2026/0416-1030" target="_blank" rel="noopener noreferrer">2026Q2 AI、5G SA、低軌衛星齊上陣　中華電信科技相伴大甲媽祖遶境 近千站點擴容、行動基地台與低軌衛星支援　沿線打卡、分享、直播穩定不中斷</a></div><div><a class="sa-evidence-link" href="https://www.cht.com.tw/home/enterprise/news/latest-news/2026/0312-1330" target="_blank" rel="noopener noreferrer">2026Q1 中華電信2026「智慧韌性贏信賴、AI乘光展未來」</a></div></td>
+                                <td class="sa-detail-cell sa-fet" style="--progress: 60%"><div><a class="sa-evidence-link" href="https://www.fetnet.net/content/cbu/tw/lifecircle/tech/2023/02/MWC2023.html" target="_blank" rel="noopener noreferrer">2023Q1 遠傳前進MWC 2023 展台灣5G實力！攜手愛立信秀全台第一個5G SA網路切片商用案例</a></div><div><a class="sa-evidence-link" href="https://www.fetnet.net/content/cbu/tw/lifecircle/tech/2024/02/FET5GMWC2024.html" target="_blank" rel="noopener noreferrer">2024Q1 遠傳展5G研發力！前進MWC 2024秀肌肉   救援者應用「SA網路切片5G救護車」獲好評</a></div><div><a class="sa-evidence-link" href="https://www.ericsson.com/zh-tw/press-releases/2/2026/ericsson-far-eastone-oppo-demonstrate-ai-driven-5g-standalone-ecosystem-differentiated-connectivity" target="_blank" rel="noopener noreferrer">2026Q1 遠傳電信攜手愛立信、OPPO完成首創5G SA差異化連接服務 台北大巨蛋合作案例將於MWC 2026登場</a></div></td>
+                                <td class="sa-detail-cell sa-twm" style="--progress: 50%"><div><a class="sa-evidence-link" href="https://corp.taiwanmobile.com/press-release/news/press_20211022_882781.html" target="_blank" rel="noopener noreferrer">2021Q4 技術領先 台灣大率先通過5G SA技術官方驗證 SA解鎖5G強大功能 企用專屬基地台與核心網路服務同步推出</a></div><div><a class="sa-evidence-link" href="https://corp.taiwanmobile.com/press-release/news/press_20220505_738955.html" target="_blank" rel="noopener noreferrer">2022Q2 全台首次！ 台灣大以5G SA真實網路環境展出智慧應用 NCC高雄亞灣5G垂直場域體驗活動 台灣大展身手</a></div><div><a class="sa-evidence-link" href="https://corp.taiwanmobile.com/press-release/news/press_20251002_375189.html" target="_blank" rel="noopener noreferrer">2025Q4 5G Advanced「上行能效」跨大步！台灣大完成全台首例「上行發射切換」技術驗證5G上傳速率提升30% AI、AR/VR即時互動超低延遲 釋放上行應用潛能</a></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+        <footer class="site-footer" aria-label="網站資訊">
+            <div class="footer-main">
+                <div class="footer-brand-block">
+                    <a class="footer-brand" href="../home.html" aria-label="回到首頁">
+                        <img class="footer-logo" src="../pic/profile.png" alt="">
+                        <span>愛蓁電信工作室 - 頻譜資訊網</span>
+                    </a>
+                                        <p class="footer-tagline">蓁心為您做最好～</p>
+                    <div class="footer-actions" aria-label="相關連結">
+                        <a class="footer-button" href="https://www.youtube.com/@Aizhen-Telecom" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/YT_icon.png" alt="" aria-hidden="true">測速頻道</a>
+                        <a class="footer-button" href="https://www.google.com/maps/d/u/0/edit?hl=zh-TW&amp;mid=1HE5K8MR2R2k8cFB9wTmYHE9hJ0NP0zo" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/google_maps.png" alt="" aria-hidden="true">測速地圖</a>
+                        <a class="footer-button" href="mailto:2010magnitude@gmail.com"><img class="footer-button-icon" src="../pic/gmail_icon.png" alt="" aria-hidden="true">聯絡愛蓁</a>
+                    </div>
+                </div>
+                <div class="footer-notes">
+                    <p>建議使用電腦瀏覽體驗較佳，手機等行動裝置建議以電腦版模式或橫向瀏覽。</p>
+                    <p>本網站資料由個人長期測試數據及網友回報所整理，僅供參考。若要引用或截圖分享請務必註明來源出處，感謝您。</p>
+                    <p>聲明: 本工作室僅在本網站和YouTube平台經營，任何在其他平台(包含但不限於IG、Threads、PTT、Dcard、bilibili等)皆為冒名使用，請勿受騙上當。<br>所有電信相關資訊皆為免費提供，不會向您收取任何費用，若您想表達感謝，可以在這裡 <a class="footer-inline-link" href="https://reurl.cc/rxeGN4" target="_blank" rel="noopener noreferrer">贊助愛蓁</a>。</p>
+                </div>
+            </div>
+            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.0.0</span><a href="../changelog.txt">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 (C)2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
+        </footer>
+    </div>
+</body>
+</html>

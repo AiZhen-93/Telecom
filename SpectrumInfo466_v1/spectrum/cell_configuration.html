@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>站台配置</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="brand">
+                <a href="../home.html" aria-label="回到首頁">
+                    <img class="brand-icon" src="../pic/profile.png" alt="">
+                    <span class="brand-text">愛蓁電信工作室 - 頻譜資訊網</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="主要選單">
+                <ul>
+                    <li class="nav-item"><a href="../home.html">首頁</a></li>
+                    <li class="nav-item has-submenu active">
+                        <button class="nav-trigger" type="button" aria-expanded="false">頻譜與站台資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../spectrum/allocation_diagram.html">頻譜核配圖</a></li>
+                            <li><a href="../spectrum/allocation_table.html">頻譜核配表</a></li>
+                            <li><a href="../spectrum/cell_tac_enb.html">TAC&eNB表</a></li>
+                            <li><a href="../spectrum/cell_sector_cid.html">CID與優先級</a></li>
+                            <li><a class="current" href="../spectrum/cell_configuration.html">站台配置</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">監測專區</button>
+                        <ul class="submenu">
+                            <li><a href="../monitoring/merge.html">合併進度監測</a></li>
+                            <li><a href="../monitoring/sa_rollout.html">5G SA開台監測</a></li>
+                            <li><a href="../monitoring/unknown_frequency.html">不明頻點監測</a></li>
+                            <li><a href="../monitoring/cell_power_saving.html">夜間休眠監測</a></li>
+                            <li><a href="../monitoring/frequency refarming.html">頻率改配監測</a></li>
+                            <li><a href="../monitoring/maintenance.html">基地台維護公告</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">測速資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../speedtest/projects.html">測速專案</a></li>
+                            <li><a href="../speedtest/test_maps.html">測速地圖</a></li>
+                            <li><a href="../speedtest/sample_database.html">測速資料庫</a></li>
+                            <li><a href="../speedtest/peak_throughput_calculator.html">最高網速試算</a></li>
+                            <li><a href="../speedtest/tools.html">測速 & 路測相關工具</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">專題發表</button>
+                        <ul class="submenu">
+                            <li><a href="../Topics/videos.html">專題影片</a></li>
+                            <li><a href="../Topics/article.html">專題文章</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="content-area scanning-center-page cell-configuration-page" aria-label="站台配置">
+            <section class="spectrum-toolbar table-toolbar" aria-label="站台配置資訊">
+                <div>
+                    <p class="section-kicker">Cell Configuration</p>
+                    <h1 id="cellConfigurationTitle">站台配置</h1>
+                    <p class="spectrum-updated">更新於: 2026/07/27</p>
+                </div>
+                <div class="scan-banner" aria-hidden="true">
+                    <img src="../pic/CellTower_Banner.jpg" alt="">
+                </div>
+            </section>
+            <section class="signal-panel" aria-labelledby="cellConfigurationTitle">
+                <div class="signal-legend" aria-label="配置開台情形等級">
+                    <span><i class="legend-swatch legend-level-1" aria-hidden="true"></i>大多數</span>
+                    <span><i class="legend-swatch legend-level-2" aria-hidden="true"></i>部分</span>
+                    <span><i class="legend-swatch legend-level-3" aria-hidden="true"></i>少數</span>
+                    <span><i class="legend-swatch legend-level-4" aria-hidden="true"></i>極少</span>
+                    <span><i class="legend-swatch legend-level-5" aria-hidden="true"></i>未測得</span>
+                </div>
+                <div class="signal-table-scroll">
+                    <table class="signal-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">類別</th>
+                                <th scope="col">配置</th>
+                                <th scope="col" class="operator-heading operator-cht">中華電信</th>
+                                <th scope="col" class="operator-heading operator-fet">遠傳電信</th>
+                                <th scope="col" class="operator-heading operator-twm">台灣大哥大</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="rowgroup" rowspan="4" class="signal-category">Carrier Aggregation</th>
+                                <th scope="row" class="signal-config">LTE DL CA</th>
+                                <td class="signal-cell signal-cht signal-level-1" data-level="1">最大5CA，大多數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-1" data-level="1">有買5CA License<br>多數裝置最大4CA，大多數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-1" data-level="1">有買5CA License<br>多數裝置最大4CA，大多數站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">LTE UL CA</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-3" data-level="3">2CA (B38+B38)，部分站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">2CA (B7+B1/B3/28)，極少數站台曾經開過</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">NR DL CA</th>
+                                <td class="signal-cell signal-cht signal-level-2" data-level="2">2CA(n78+n1)，部分數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-4" data-level="4">2CA(n78+n38/n41)，極少數站台已開<br>2CA(n78+n28)，極少數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-3" data-level="3">2CA(n28+n78)，大多數站台已開<br>2CA(n78+n78)，部分站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">NR UL CA</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-4" data-level="4">2CA(n257+n257)，極少數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-4" data-level="4">2CA(n257+n257)，極少數站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="4" class="signal-category">Modulation</th>
+                                <th scope="row" class="signal-config">LTE DL 256QAM</th>
+                                <td class="signal-cell signal-cht signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-1" data-level="1">大多數站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">LTE UL 256QAM</th>
+                                <td class="signal-cell signal-cht signal-level-2" data-level="2">部分站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">極少數B38站台曾開過</td>
+                                <td class="signal-cell signal-twm signal-level-2" data-level="2">部分站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">NR DL 256QAM</th>
+                                <td class="signal-cell signal-cht signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-1" data-level="1">大多數站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">NR UL 256QAM</th>
+                                <td class="signal-cell signal-cht signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-2" data-level="2">部分站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="3" class="signal-category">MIMO</th>
+                                <th scope="row" class="signal-config">LTE DL 4x4 MIMO</th>
+                                <td class="signal-cell signal-cht signal-level-3" data-level="3">少數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-3" data-level="3">少數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-2" data-level="2">部分站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">NR DL 4x4 MIMO</th>
+                                <td class="signal-cell signal-cht signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-1" data-level="1">大多數站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">NR UL 2x2 MIMO</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-4" data-level="4">極少數站台已開 (n257)</td>
+                                <td class="signal-cell signal-twm signal-level-4" data-level="4">極少數站台已開 (n257)</td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="3" class="signal-category">Transmission Modes</th>
+                                <th scope="row" class="signal-config">LTE TM3</th>
+                                <td class="signal-cell signal-cht signal-level-4" data-level="4">極少數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-1" data-level="1">大多數B38站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">LTE TM8</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-2" data-level="2">部分B38站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">LTE TM9</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-2" data-level="2">部分B38站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="3" class="signal-category">Unlicensed</th>
+                                <th scope="row" class="signal-config">LWA</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">LAA</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">曾經開過，已關台</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">U6G (n104)</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="2" class="signal-category">DSS</th>
+                                <th scope="row" class="signal-config">NR/LTE 等頻寬DSS</th>
+                                <td class="signal-cell signal-cht signal-level-4" data-level="4">n8/B8 DSS</td>
+                                <td class="signal-cell signal-fet signal-level-2" data-level="2">n28/B28 DSS</td>
+                                <td class="signal-cell signal-twm signal-level-2" data-level="2">n28/B28 DSS</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">NR/LTE 非等頻寬DSS</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="2" class="signal-category">NSA</th>
+                                <th scope="row" class="signal-config">EN-DC</th>
+                                <td class="signal-cell signal-cht signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-1" data-level="1">大多數站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">FR2 N257</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">極少數站台已配置，但未測得</td>
+                                <td class="signal-cell signal-fet signal-level-4" data-level="4">極少數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-4" data-level="4">極少數站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="2" class="signal-category">SA</th>
+                                <th scope="row" class="signal-config">NR SA</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">少數站台已測得，但不可連接</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">部分站台已測得，但不可連接</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">極少數站台已測得，但不可連接</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">SUL</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="2" class="signal-category">HPUE</th>
+                                <th scope="row" class="signal-config">NR PC2 (26dBm)</th>
+                                <td class="signal-cell signal-cht signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-fet signal-level-1" data-level="1">大多數站台已開</td>
+                                <td class="signal-cell signal-twm signal-level-2" data-level="2">部分站台已開</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">NR PC1.5 (29dBm)</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="rowgroup" rowspan="2" class="signal-category">NTN</th>
+                                <th scope="row" class="signal-config">NR-NTN</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="signal-config">IoT-NTN</th>
+                                <td class="signal-cell signal-cht signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-fet signal-level-5" data-level="5">尚未測得</td>
+                                <td class="signal-cell signal-twm signal-level-5" data-level="5">尚未測得</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer" aria-label="網站資訊">
+            <div class="footer-main">
+                <div class="footer-brand-block">
+                    <a class="footer-brand" href="../home.html" aria-label="回到首頁">
+                        <img class="footer-logo" src="../pic/profile.png" alt="">
+                        <span>愛蓁電信工作室 - 頻譜資訊網</span>
+                    </a>
+                                        <p class="footer-tagline">蓁心為您做最好～</p>
+                    <div class="footer-actions" aria-label="相關連結">
+                        <a class="footer-button" href="https://www.youtube.com/@Aizhen-Telecom" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/YT_icon.png" alt="" aria-hidden="true">測速頻道</a>
+                        <a class="footer-button" href="https://www.google.com/maps/d/u/0/edit?hl=zh-TW&amp;mid=1HE5K8MR2R2k8cFB9wTmYHE9hJ0NP0zo" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/google_maps.png" alt="" aria-hidden="true">測速地圖</a>
+                        <a class="footer-button" href="mailto:2010magnitude@gmail.com"><img class="footer-button-icon" src="../pic/gmail_icon.png" alt="" aria-hidden="true">聯絡愛蓁</a>
+                    </div>
+                </div>
+                <div class="footer-notes">
+                    <p>建議使用電腦瀏覽體驗較佳，手機等行動裝置建議以電腦版模式或橫向瀏覽。</p>
+                    <p>本網站資料由個人長期測試數據及網友回報所整理，僅供參考。若要引用或截圖分享請務必註明來源出處，感謝您。</p>
+                    <p>聲明: 本工作室僅在本網站和YouTube平台經營，任何在其他平台(包含但不限於IG、Threads、PTT、Dcard、bilibili等)皆為冒名使用，請勿受騙上當。<br>所有電信相關資訊皆為免費提供，不會向您收取任何費用，若您想表達感謝，可以在這裡 <a class="footer-inline-link" href="https://reurl.cc/rxeGN4" target="_blank" rel="noopener noreferrer">贊助愛蓁</a>。</p>
+                </div>
+            </div>
+            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.0.0</span><a href="../changelog.txt">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 (C)2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
+        </footer>
+    </div>
+</body>
+</html>
