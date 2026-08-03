@@ -1,3 +1,0 @@
-CHT_status: 0
-FET_status: 0
-TWM_status: 0
