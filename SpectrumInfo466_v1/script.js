@@ -174,8 +174,8 @@ if (homePage) {
         { id: "twm", name: "台灣大哥大", flagKey: "TWM_status" },
     ];
     const statusRefreshIntervalMs = 120000;
-    const statusFlagUrl = "../flags.txt";
-    const networkStatusUrl = "../network-status.json";
+    const statusFlagUrls = ["../flags.txt", "flags.txt"];
+    const networkStatusUrls = ["../network-status.json", "network-status.json"];
     const statusLabels = {
         green: "連線正常",
         yellow: "局部異常",
@@ -232,12 +232,30 @@ if (homePage) {
             return flags;
         }, {});
 
+    const fetchFirstAvailable = async (urls, options = {}) => {
+        let lastError;
+
+        for (const url of urls) {
+            try {
+                const response = await fetch(`${url}?t=${Date.now()}`, {
+                    cache: "no-store",
+                    ...options,
+                });
+                if (response.ok) {
+                    return response;
+                }
+                lastError = new Error(`${url} 回應 ${response.status}`);
+            } catch (error) {
+                lastError = error;
+            }
+        }
+
+        throw lastError || new Error("狀態檔案無法讀取。");
+    };
+
     const fetchStatusFlags = async () => {
         try {
-            const response = await fetch(`${statusFlagUrl}?t=${Date.now()}`, { cache: "no-store" });
-            if (!response.ok) {
-                throw new Error("flags.txt 無法讀取。");
-            }
+            const response = await fetchFirstAvailable(statusFlagUrls);
             return { flags: parseStatusFlags(await response.text()), readable: true };
         } catch (error) {
             console.warn("Status flags check failed", error);
@@ -247,10 +265,7 @@ if (homePage) {
 
     const fetchNetworkStatus = async () => {
         try {
-            const response = await fetch(`${networkStatusUrl}?t=${Date.now()}`, { cache: "no-store" });
-            if (!response.ok) {
-                throw new Error("network-status.json 無法讀取。");
-            }
+            const response = await fetchFirstAvailable(networkStatusUrls);
             return { data: await response.json(), readable: true };
         } catch (error) {
             console.warn("Network status check failed", error);
