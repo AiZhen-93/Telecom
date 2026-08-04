@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "check:downdetector": "node scripts/check-downdetector.js"
+  },
+  "dependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}
