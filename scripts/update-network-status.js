@@ -53,6 +53,16 @@ function decideLevel({ normalTextFound, reports, topProblem }) {
   return "green";
 }
 
+function isBlockedPage(text) {
+  return (
+    text.includes("Performing security verification") ||
+    text.includes("This website uses a security service") ||
+    text.includes("Cloudflare") ||
+    text.includes("Just a moment") ||
+    text.includes("Enable JavaScript and cookies")
+  );
+}
+
 async function scrapeOperator(page, key, operator) {
   await page.goto(operator.url, {
     waitUntil: "networkidle2",
