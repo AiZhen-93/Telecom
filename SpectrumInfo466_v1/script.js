@@ -169,35 +169,20 @@ if (homePage) {
     playMarquee();
 
     const detectorOperators = [
-        {
-            id: "cht",
-            name: "中華電信",
-            flagKey: "CHT_status",
-            url: "https://downdetector.tw/status/chunghwa-telecom-zhong-hua-dian-xin/",
-        },
-        {
-            id: "fet",
-            name: "遠傳電信",
-            flagKey: "FET_status",
-            url: "https://downdetector.tw/status/far-eastone-telecommunications-fet-yuan-chuan-dian-xin/",
-        },
-        {
-            id: "twm",
-            name: "台灣大哥大",
-            flagKey: "TWM_status",
-            url: "https://downdetector.tw/status/taiwan-mobile-tai-wan-da-ge-da/",
-        },
+        { id: "cht", name: "中華電信", flagKey: "CHT_status" },
+        { id: "fet", name: "遠傳電信", flagKey: "FET_status" },
+        { id: "twm", name: "台灣大哥大", flagKey: "TWM_status" },
     ];
-    const detectorIntervalMs = 120000;
-    const statusFlagUrl = "flags.txt";
-    const detectorProxyUrl = "https://api.allorigins.win/raw?url=";
+    const statusRefreshIntervalMs = 120000;
+    const statusFlagUrl = "../flags.txt";
+    const networkStatusUrl = "../network-status.json";
     const statusLabels = {
         green: "連線正常",
         yellow: "局部異常",
         red: "重大異常",
     };
 
-    const setOperatorStatus = (operatorId, level, details = "", reportCount = null) => {
+    const setOperatorStatus = (operatorId, level, details = "", reportCount = undefined) => {
         const cell = homePage.querySelector(`[data-operator-status="${operatorId}"]`);
         if (!cell) {
             return;
@@ -212,7 +197,7 @@ if (homePage) {
         if (label) {
             label.textContent = statusLabels[level] || statusLabels.green;
         }
-        if (countLabel) {
+        if (countLabel && reportCount !== undefined) {
             const hasNumericCount = Number.isFinite(reportCount);
             const hasTextCount = typeof reportCount === "string" && reportCount.trim();
             countLabel.textContent = hasNumericCount || hasTextCount ? `${reportCount}` : "--";
@@ -222,91 +207,19 @@ if (homePage) {
         cell.setAttribute("aria-label", details || label?.textContent || "");
     };
 
-    const normalizeDetectorText = (html) => {
-        const template = document.createElement("template");
-        template.innerHTML = html;
-        return template.content.textContent.replace(/\s+/g, " ").trim();
-    };
-
-    const getReportedProblemShares = (pageText) => {
-        const section = pageText.split(/Most reported problems|最多回報/i)[1]?.split(/Your feedback|How would you rate|您的意見|你會如何評價/i)[0] || "";
-        const pattern = /(\d{1,3})%\s+(.+?)(?=\s+\d{1,3}%|$)/g;
-        const shares = [];
-        let match;
-
-        while ((match = pattern.exec(section))) {
-            shares.push({
-                share: Number(match[1]),
-                label: match[2].trim().replace(/\s{2,}/g, " "),
-            });
+    const updateStatusReportCount = (operatorId, details = "", reportCount = null) => {
+        const cell = homePage.querySelector(`[data-operator-status="${operatorId}"]`);
+        if (!cell) {
+            return;
         }
 
-        return shares;
-    };
-
-    const getTopReportedProblem = (pageText) => getReportedProblemShares(pageText)[0] || { share: 0, label: "" };
-
-    const extractReportPoints = (html) => {
-        const points = [];
-        const now = Date.now();
-        const numericPairPattern = /\[\s*(\d{10,13})\s*,\s*(\d{1,6})\s*\]/g;
-        const objectPointPattern = /["']?(?:x|date|time|timestamp)["']?\s*:\s*(\d{10,13})\s*,\s*["']?(?:y|value|count|reports)["']?\s*:\s*(\d{1,6})/g;
-        let match;
-
-        while ((match = numericPairPattern.exec(html))) {
-            const timestamp = Number(match[1]);
-            const count = Number(match[2]);
-            points.push({ timestamp: timestamp < 1000000000000 ? timestamp * 1000 : timestamp, count });
+        const countLabel = cell.querySelector(".status-report-count");
+        if (countLabel) {
+            const hasNumericCount = Number.isFinite(reportCount);
+            const hasTextCount = typeof reportCount === "string" && reportCount.trim();
+            countLabel.textContent = hasNumericCount || hasTextCount ? `${reportCount}` : "--";
+            countLabel.setAttribute("aria-label", hasNumericCount ? `最近5分鐘回報 ${reportCount}` : details || "回報數讀取中");
         }
-
-        while ((match = objectPointPattern.exec(html))) {
-            const timestamp = Number(match[1]);
-            const count = Number(match[2]);
-            points.push({ timestamp: timestamp < 1000000000000 ? timestamp * 1000 : timestamp, count });
-        }
-
-        return points
-            .filter((point) => point.timestamp > now - 25 * 60 * 60 * 1000 && point.timestamp < now + 10 * 60 * 1000)
-            .sort((a, b) => a.timestamp - b.timestamp);
-    };
-
-    const getRecentReportCount = (html, pageText) => {
-        if (/show no current problems|no current problems|沒有目前問題|未偵測到問題/i.test(pageText)) {
-            return 0;
-        }
-
-        const points = extractReportPoints(html);
-        if (!points.length) {
-            return 0;
-        }
-
-        const newestTime = points[points.length - 1].timestamp;
-        return points
-            .filter((point) => newestTime - point.timestamp <= 5 * 60 * 1000)
-            .reduce((total, point) => total + point.count, 0);
-    };
-
-    const fetchDetectorPage = async (url) => {
-        const urls = [
-            url,
-            `${detectorProxyUrl}${encodeURIComponent(url)}`,
-        ];
-
-        for (const targetUrl of urls) {
-            try {
-                const response = await fetch(`${targetUrl}${targetUrl.includes("?") ? "&" : "?"}t=${Date.now()}`, {
-                    cache: "no-store",
-                    headers: { Accept: "text/html" },
-                });
-                if (response.ok) {
-                    return response.text();
-                }
-            } catch (error) {
-                // DownDetector can reject cross-origin or automated reads; try the next route.
-            }
-        }
-
-        throw new Error("無法讀取 DownDetector 狀態頁。");
     };
 
     const parseStatusFlags = (text) => text
@@ -332,79 +245,89 @@ if (homePage) {
         }
     };
 
+    const fetchNetworkStatus = async () => {
+        try {
+            const response = await fetch(`${networkStatusUrl}?t=${Date.now()}`, { cache: "no-store" });
+            if (!response.ok) {
+                throw new Error("network-status.json 無法讀取。");
+            }
+            return { data: await response.json(), readable: true };
+        } catch (error) {
+            console.warn("Network status check failed", error);
+            return { data: {}, readable: false };
+        }
+    };
+
     const applyManualStatusFlag = (operator, flagValue) => {
         if (flagValue === 1) {
-            setOperatorStatus(operator.id, "yellow", `${operator.name}: flags.txt 手動指定局部異常`, "手動");
+            setOperatorStatus(operator.id, "yellow", `${operator.name}: flags.txt 手動指定局部異常`);
             return true;
         }
 
         if (flagValue === 2) {
-            setOperatorStatus(operator.id, "red", `${operator.name}: flags.txt 手動指定重大異常`, "手動");
+            setOperatorStatus(operator.id, "red", `${operator.name}: flags.txt 手動指定重大異常`);
             return true;
         }
 
         return false;
     };
 
-    const evaluateDetectorStatus = (html) => {
-        const pageText = normalizeDetectorText(html);
-        const recentReports = getRecentReportCount(html, pageText);
-        const topProblem = getTopReportedProblem(pageText);
-        const isBroadbandOnlyLikely = /Broadband Internet|寬頻網路/i.test(topProblem.label) && topProblem.share > 30;
+    const normalizeStatusLevel = (level) => (
+        ["green", "yellow", "red"].includes(level) ? level : "green"
+    );
 
-        if (isBroadbandOnlyLikely) {
-            return { level: "green", recentReports, topProblem };
+    const getNetworkStatusDetails = (operator, operatorStatus, networkStatusData) => {
+        if (!networkStatusData) {
+            return `${operator.name}: network-status.json 讀取失敗`;
         }
 
-        if (recentReports > 100) {
-            return { level: "red", recentReports, topProblem };
+        if (!operatorStatus) {
+            return `${operator.name}: network-status.json 沒有此業者資料`;
         }
 
-        if (recentReports > 10) {
-            return { level: "yellow", recentReports, topProblem };
+        if (operatorStatus.error) {
+            return `${operator.name}: ${operatorStatus.error}`;
         }
 
-        return { level: "green", recentReports, topProblem };
+        return operatorStatus.message || `${operator.name}: Actions 狀態更新於 ${networkStatusData.updated || "未知時間"}`;
     };
 
-    const checkDetectorStatuses = async () => {
+    const checkNetworkStatuses = async () => {
         if (document.visibilityState === "hidden") {
             return;
         }
 
-        const statusFlagsResult = await fetchStatusFlags();
+        const [statusFlagsResult, networkStatusResult] = await Promise.all([
+            fetchStatusFlags(),
+            fetchNetworkStatus(),
+        ]);
+
         const statusFlags = statusFlagsResult.flags;
+        const networkStatusData = networkStatusResult.data || {};
 
-        await Promise.all(detectorOperators.map(async (operator) => {
-            const flagValue = statusFlags[operator.flagKey] ?? 0;
-            if (applyManualStatusFlag(operator, flagValue)) {
-                return;
-            }
-
+        detectorOperators.forEach((operator) => {
             if (!statusFlagsResult.readable) {
                 setOperatorStatus(operator.id, "green", `${operator.name}: flags.txt 讀取失敗，請用 HTTP 伺服器開啟頁面`, "F!");
                 return;
             }
 
-            try {
-                const html = await fetchDetectorPage(operator.url);
-                const result = evaluateDetectorStatus(html);
-                setOperatorStatus(
-                    operator.id,
-                    result.level,
-                    `${operator.name}: 最近5分鐘回報 ${result.recentReports}，最多回報 ${result.topProblem.label || "未知"} ${result.topProblem.share || 0}%`,
-                    result.recentReports,
-                );
-            } catch (error) {
-                setOperatorStatus(operator.id, "green", `${operator.name}: 無法讀取 DownDetector，暫以連線正常顯示`, null);
-                console.warn(`${operator.name} DownDetector check failed`, error);
+            const operatorStatus = networkStatusData[operator.id];
+            const details = getNetworkStatusDetails(operator, operatorStatus, networkStatusResult.readable ? networkStatusData : null);
+            const reportCount = Number.isFinite(operatorStatus?.reports) ? operatorStatus.reports : null;
+            const flagValue = statusFlags[operator.flagKey] ?? 0;
+
+            if (applyManualStatusFlag(operator, flagValue)) {
+                updateStatusReportCount(operator.id, details, reportCount);
+                return;
             }
-        }));
+
+            setOperatorStatus(operator.id, normalizeStatusLevel(operatorStatus?.level), details, reportCount);
+        });
     };
 
-    checkDetectorStatuses();
-    setInterval(checkDetectorStatuses, detectorIntervalMs);
-    document.addEventListener("visibilitychange", checkDetectorStatuses);
+    checkNetworkStatuses();
+    setInterval(checkNetworkStatuses, statusRefreshIntervalMs);
+    document.addEventListener("visibilitychange", checkNetworkStatuses);
 
     const operatorColors = [
         { match: "中華", color: "#8fd0ff" },

@@ -703,6 +703,13 @@ a {
     filter: drop-shadow(0 0 8px rgba(255, 95, 95, 0.28));
 }
 
+.refarming-map-note {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.84rem;
+    line-height: 1.7;
+}
+
 .refarming-map-stage {
     position: relative;
     display: grid;
