@@ -463,6 +463,34 @@ a {
     min-height: clamp(32rem, calc(100vh - 8rem), 52rem);
 }
 
+.unavailable-page {
+    display: grid;
+    place-items: center;
+    min-height: clamp(22rem, calc(100vh - 20rem), 34rem);
+}
+
+.unavailable-message {
+    display: grid;
+    place-items: center;
+    width: min(100%, 36rem);
+    min-height: 10rem;
+    padding: 2rem;
+    border: 1px solid rgba(139, 232, 255, 0.18);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(39, 225, 187, 0.1), transparent 42%),
+        rgba(6, 17, 23, 0.58);
+    text-align: center;
+}
+
+.unavailable-message p {
+    margin: 0;
+    color: var(--accent);
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+    font-weight: 900;
+    letter-spacing: 0;
+}
+
 .speed-map-toolbar {
     flex: 0 0 auto;
 }
@@ -591,6 +619,195 @@ a {
     min-height: 42rem;
     border: 0;
     border-radius: 6px;
+}
+
+.refarming-page {
+    gap: 1rem;
+}
+
+.refarming-page .refarming-toolbar {
+    margin-bottom: 0;
+}
+
+.refarming-map-section {
+    display: grid;
+    gap: 1rem;
+}
+
+.refarming-template {
+    display: none;
+}
+
+.refarming-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.85rem;
+    padding: 0.78rem 0.9rem;
+    border: 1px solid rgba(139, 232, 255, 0.16);
+    border-radius: 8px;
+    background: rgba(8, 23, 31, 0.72);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.refarming-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+    min-height: 1.45rem;
+}
+
+.refarming-legend i {
+    width: 0.9rem;
+    height: 0.9rem;
+    border: 1px solid rgba(237, 250, 255, 0.45);
+    border-radius: 3px;
+}
+
+.refarming-map-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.85rem, 1.6vw, 1.1rem);
+}
+
+.refarming-map-card {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 0.75rem;
+    min-width: 0;
+    padding: clamp(0.8rem, 1.5vw, 1rem);
+    border: 1px solid rgba(139, 232, 255, 0.16);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(255, 69, 69, 0.1), transparent 36%),
+        rgba(8, 23, 31, 0.76);
+}
+
+.refarming-map-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(1rem, 1.5vw, 1.22rem);
+    line-height: 1.35;
+    letter-spacing: 0;
+}
+
+.refarming-map-card h2 img {
+    width: 1.35rem;
+    height: 1.35rem;
+    flex: 0 0 auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(255, 95, 95, 0.28));
+}
+
+.refarming-map-stage {
+    position: relative;
+    display: grid;
+    min-height: clamp(14.5rem, 22vw, 20rem);
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(139, 232, 255, 0.12);
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(82, 169, 255, 0.08), rgba(255, 69, 69, 0.035)),
+        rgba(5, 15, 21, 0.58);
+}
+
+.refarming-map {
+    width: min(100%, 13.5rem);
+    min-height: 14.5rem;
+}
+
+.refarming-map .refarming-county {
+    fill: transparent;
+    cursor: default;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.refarming-map .refarming-county.status-wide,
+.refarming-legend .level-wide {
+    fill: #ff1f1f;
+    background: #ff1f1f;
+}
+
+.refarming-map .refarming-county.status-partial,
+.refarming-legend .level-partial {
+    fill: #e03232;
+    background: #e03232;
+}
+
+.refarming-map .refarming-county.status-limited,
+.refarming-legend .level-limited {
+    fill: #ad2d2d;
+    background: #ad2d2d;
+}
+
+.refarming-map .refarming-county.status-spot,
+.refarming-legend .level-spot {
+    fill: #732727;
+    background: #732727;
+}
+
+.refarming-map .refarming-county.status-closed,
+.refarming-legend .level-closed {
+    fill: #8f989d;
+    background: #8f989d;
+}
+
+.refarming-map .refarming-county.status-none,
+.refarming-legend .level-none {
+    fill: #3d454a;
+    background: #3d454a;
+}
+
+.refarming-map .refarming-county:hover,
+.refarming-map .refarming-county:focus {
+    stroke: #f7fdff;
+    filter: drop-shadow(0 0 9px rgba(255, 75, 75, 0.36));
+    outline: none;
+    animation: refarming-county-pulse 1.8s ease-in-out infinite;
+}
+
+.refarming-map-tooltip {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    max-width: min(13rem, calc(100% - 1.5rem));
+    padding: 0.42rem 0.58rem;
+    border: 1px solid rgba(237, 250, 255, 0.45);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 0.82rem;
+    font-weight: 800;
+    line-height: 1.35;
+    background: rgba(7, 17, 23, 0.92);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.34);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(0.7rem, -120%);
+    transition: opacity 180ms ease;
+}
+
+.refarming-map-tooltip.is-visible {
+    opacity: 1;
+}
+
+@keyframes refarming-county-pulse {
+    0%,
+    100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 6px rgba(255, 75, 75, 0.24));
+    }
+
+    50% {
+        opacity: 0.58;
+        filter: drop-shadow(0 0 15px rgba(255, 75, 75, 0.72));
+    }
 }
 
 .spectrum-page {
@@ -723,6 +940,28 @@ a {
     font-size: 0.78rem;
     overflow-wrap: normal;
     word-break: keep-all;
+}
+
+.horizon-view-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.16rem 0.28rem;
+    border: 1px solid rgba(39, 225, 187, 0.42);
+    border-radius: 4px;
+    color: var(--accent);
+    background: rgba(39, 225, 187, 0.08);
+    font-size: 0.62rem;
+    font-weight: 800;
+    line-height: 1.15;
+    text-decoration: none;
+}
+
+.horizon-view-link:hover,
+.horizon-view-link:focus-visible {
+    outline: none;
+    border-color: rgba(39, 225, 187, 0.78);
+    background: rgba(39, 225, 187, 0.16);
 }
 
 .spectrum-cell.axis-note {
@@ -5060,6 +5299,10 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .refarming-map-grid {
+        grid-template-columns: 1fr;
+    }
+
     .regional-map-info {
         border-top: 1px solid rgba(139, 232, 255, 0.15);
         border-left: 0;
@@ -5227,6 +5470,14 @@ a {
 
     .taiwan-region-map {
         min-height: 15rem;
+    }
+
+    .refarming-map-stage {
+        min-height: 15rem;
+    }
+
+    .refarming-map {
+        width: min(100%, 12.5rem);
     }
 
     .region-map-link {

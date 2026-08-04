@@ -37,6 +37,17 @@ const updateVisitCount = async () => {
 
 updateVisitCount();
 
+document.querySelectorAll(".footer-back-top").forEach((button) => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        });
+    });
+});
+
 document.querySelectorAll(".has-submenu > .nav-trigger").forEach((button) => {
     button.addEventListener("click", () => {
         const item = button.closest(".has-submenu");
