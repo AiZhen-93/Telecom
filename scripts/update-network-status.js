@@ -24,6 +24,16 @@ function parseNormalText(text) {
   );
 }
 
+function isBlockedPage(text) {
+  return (
+    text.includes("Performing security verification") ||
+    text.includes("This website uses a security service") ||
+    text.includes("Cloudflare") ||
+    text.includes("Just a moment") ||
+    text.includes("Enable JavaScript and cookies")
+  );
+}
+
 function parseReportCount(text) {
   const match = text.match(/problems reported in the last 24 hours[\s\S]*?\n([\d,]+)\n/i);
   if (!match) return 0;
@@ -53,16 +63,6 @@ function decideLevel({ normalTextFound, reports, topProblem }) {
   return "green";
 }
 
-function isBlockedPage(text) {
-  return (
-    text.includes("Performing security verification") ||
-    text.includes("This website uses a security service") ||
-    text.includes("Cloudflare") ||
-    text.includes("Just a moment") ||
-    text.includes("Enable JavaScript and cookies")
-  );
-}
-
 async function scrapeOperator(page, key, operator) {
   await page.goto(operator.url, {
     waitUntil: "networkidle2",
@@ -70,7 +70,20 @@ async function scrapeOperator(page, key, operator) {
   });
 
   const text = await page.evaluate(() => document.body.innerText);
-
+  if (isBlockedPage(text)) {
+    return {
+      name: operator.name,
+      reachable: false,
+      blocked: true,
+      normalTextFound: false,
+      reports: null,
+      topProblem: { label: "", share: 0 },
+      level: "green",
+      message: "",
+      error: "Blocked by Cloudflare verification",
+      sample: text.slice(0, 600),
+    };
+  }
   const normalTextFound = parseNormalText(text);
   const reports = parseReportCount(text);
   const topProblem = parseTopProblem(text);
