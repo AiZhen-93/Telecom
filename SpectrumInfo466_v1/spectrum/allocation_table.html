@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>頻譜核配表</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="brand">
+                <a href="../home.html" aria-label="回到首頁">
+                    <img class="brand-icon" src="../pic/profile.png" alt="">
+                    <span class="brand-text">愛蓁電信工作室 - 頻譜資訊網</span>
+                </a>
+            </div>
+            <nav class="main-nav" aria-label="主要選單">
+                <ul>
+                    <li class="nav-item"><a href="../home.html">首頁</a></li>
+                    <li class="nav-item has-submenu active">
+                        <button class="nav-trigger" type="button" aria-expanded="false">頻譜與站台資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../spectrum/allocation_diagram.html">頻譜核配圖</a></li>
+                            <li><a class="current" href="../spectrum/allocation_table.html">頻譜核配表</a></li>
+                            <li><a href="../spectrum/cell_tac_enb.html">TAC&eNB表</a></li>
+                            <li><a href="../spectrum/cell_sector_cid.html">CID與優先級</a></li>
+                            <li><a href="../spectrum/cell_configuration.html">站台配置</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">監測專區</button>
+                        <ul class="submenu">
+                            <li><a href="../monitoring/merge.html">合併進度監測</a></li>
+                            <li><a href="../monitoring/sa_rollout.html">5G SA開台監測</a></li>
+                            <li><a href="../monitoring/unknown_frequency.html">不明頻點監測</a></li>
+                            <li><a href="../monitoring/cell_power_saving.html">夜間休眠監測</a></li>
+                            <li><a href="../monitoring/frequency_refarming.html">頻率改配監測</a></li>
+                            <li><a href="../monitoring/maintenance.html">基地台維護公告</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">測速資訊</button>
+                        <ul class="submenu">
+                            <li><a href="../speedtest/projects.html">測速專案</a></li>
+                            <li><a href="../speedtest/test_maps.html">測速地圖</a></li>
+                            <li><a href="../speedtest/sample_database.html">測速資料庫</a></li>
+                            <li><a href="../speedtest/peak_throughput_calculator.html">最高網速試算</a></li>
+                            <li><a href="../speedtest/tools.html">測速 & 路測相關工具</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <button class="nav-trigger" type="button" aria-expanded="false">專題發表</button>
+                        <ul class="submenu">
+                            <li><a href="../Topics/videos.html">專題影片</a></li>
+                            <li><a href="../Topics/article.html">專題文章</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="content-area spectrum-table-page" aria-label="頻譜核配表">
+            <section class="spectrum-toolbar table-toolbar" aria-label="頻譜核配表資訊">
+                <div>
+                    <p class="section-kicker">Spectrum Allocation Table</p>
+                    <h1>台灣各電信業者頻譜核配與開台配置情形(表)</h1>
+                    <p class="spectrum-updated">更新於: 2026/08/01</p>
+                </div>
+            </section>
+            <section class="allocation-table-board" aria-label="台灣各電信業者頻譜核配與開台配置情形(表)">
+                <div class="allocation-table-scroll">
+                    <table class="allocation-table">
+                        <colgroup>
+                    <col style="width:117.78px">
+                    <col style="width:101.34px">
+                    <col style="width:95.86px">
+                    <col style="width:120.51px">
+                    <col style="width:106.83px">
+                    <col style="width:62.98px">
+                    <col style="width:62.98px">
+                    <col style="width:62.98px">
+                    <col style="width:62.98px">
+                    <col style="width:84.91px">
+                    <col style="width:48px">
+                    <col style="width:136.95px">
+                    <col style="width:95.86px">
+                    <col style="width:60.25px">
+                    <col style="width:83.08px">
+                    <col style="width:109.56px">
+                    <col style="width:106.83px">
+                    <col style="width:709.48px">
+                        </colgroup>
+                        <tbody>
+                    <tr>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th class="table-cell table-head top-row-no-border"></th>
+                        <th colspan="5" class="table-cell table-head outdoor-config-title">多數室外站台開台配置</th>
+                        <th rowspan="2" class="table-cell table-head special-note-title note-col">特例配置或備註</th>
+                    </tr>
+                    <tr>
+                        <th class="table-cell table-head">3GPP頻段</th>
+                        <th class="table-cell table-head">NCC頻位</th>
+                        <th class="table-cell table-head">核配業者</th>
+                        <th class="table-cell table-head">下行頻率(MHz)</th>
+                        <th class="table-cell table-head">上行頻率(MHz)</th>
+                        <th colspan="2" class="table-cell table-head">下行頻點</th>
+                        <th colspan="2" class="table-cell table-head">上行頻點</th>
+                        <th class="table-cell table-head">可用頻寬</th>
+                        <th class="table-cell table-head">RBs</th>
+                        <th class="table-cell table-head">開台狀態</th>
+                        <th class="table-cell table-head">RS Pwr</th>
+                        <th class="table-cell table-head">MIMO</th>
+                        <th class="table-cell table-head">傳輸模式</th>
+                        <th class="table-cell table-head">下行調變</th>
+                        <th class="table-cell table-head">上行調變</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" class="table-cell">Band 28<br>700MHz</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">A1~A2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">758~778</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">703~723</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[9310]<br>[152670]</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[27310]<br>[142600]</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">20MHz*2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">100<br>106</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">已開台4G<br>/5G DSS</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">20(17~22)</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill">5G DSS除了在隧道、地下捷運等室內場所開出，2026年3月起亦逐步規劃於各地室外站台開啟</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">A3</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">778~783</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">723~728</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[9435]<br>[156010]</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[27435]<br>-</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">5MHz*2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">25</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">已開台4G<br>/試開台5G</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">17</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill">2026年5月起4G作為CA頻負載平衡用，原則上不會連到主頻；2026年6月下旬開始改試開5G</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">A4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">台灣大哥大</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">783~803</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">728~748</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[9560]<br>[158690]</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[27560]<br>[147600]</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">20MHz*2</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">100<br>106</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">已開台4G<br>/5G DSS</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">15~20</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">16/64QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell note-col has-fill">少數開UL 256QAM；n28可與n78組NR CA</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="table-cell">Band 20<br>800MHz</td>
+                        <td class="table-cell">Chartered</td>
+                        <td class="table-cell">PPDR</td>
+                        <td class="table-cell">806~816</td>
+                        <td class="table-cell">847~857</td>
+                        <td colspan="2" class="table-cell">N/A*</td>
+                        <td colspan="2" class="table-cell">N/A*</td>
+                        <td class="table-cell">10MHz*2</td>
+                        <td class="table-cell">-</td>
+                        <td class="table-cell">規劃中</td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell note-col">公共安全與救難應變專用頻帶</td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell">Chartered</td>
+                        <td class="table-cell">Civil IoT</td>
+                        <td class="table-cell">816~821</td>
+                        <td class="table-cell">857~862</td>
+                        <td colspan="2" class="table-cell">N/A*</td>
+                        <td colspan="2" class="table-cell">N/A*</td>
+                        <td class="table-cell">5MHz*2</td>
+                        <td class="table-cell">-</td>
+                        <td class="table-cell">已開台4G/4G NB</td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell note-col">民生公共物聯網專用頻帶</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" class="table-cell">Band 8<br>900MHz</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">B1</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">台灣大哥大</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">930~935</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">885~890</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[3525]</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[21525]</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">5MHz*2</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">25</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">18</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">16/64QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell note-col has-fill">少數開UL 256QAM</td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell">NCC</td>
+                        <td class="table-cell">935~940</td>
+                        <td class="table-cell">890~895</td>
+                        <td colspan="2" class="table-cell">-</td>
+                        <td colspan="2" class="table-cell">-</td>
+                        <td class="table-cell">5MHz*2</td>
+                        <td class="table-cell">-</td>
+                        <td class="table-cell">已關台4G</td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell note-col">台哥大低頻超標已於2024/09/02完成繳回5MHz*2</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">B2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">940~950</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">895~905</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[3650]</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[21650]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">10MHz*2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">50</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">18(15~25)</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill"></td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">B3</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">950~960</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">905~915</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[3750]<br>[191090]</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[21750]<br>[182000]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">10MHz*2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">50<br>52</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">已開台4G /<br>試開台5G DSS</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">15</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill">部分地區開台；5G僅在局部區域測試</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="table-cell">Band 3<br>1800MHz</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">C1</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">台灣大哥大</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">1805~1820</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">1710~1725</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[1275]</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[19275]</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">15MHz*2</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">75</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">24(16~25)</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell note-col has-fill">部分為4x4；少數開UL 256QAM</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">C2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">1820~1830</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">1725~1735</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[1400]</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[19400]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">10MHz*2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">50</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">15~18</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill">極少數為4x4</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">C3~C4</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">1830~1850</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">1735~1755</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[1550]</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[19550]</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">20MHz*2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">100</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">18(14~20)</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill">極少數為4x4</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">C5~C6-1</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">1850~1870</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">1755~1775</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[1750]</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[19750]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">20MHz*2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">100</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">15(12~20)</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill">極少數為4x4</td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell">C6-2~C6-3</td>
+                        <td class="table-cell">愛蓁電信</td>
+                        <td class="table-cell">1870~1880</td>
+                        <td class="table-cell">1775~1785</td>
+                        <td colspan="2" class="table-cell">[1900]</td>
+                        <td colspan="2" class="table-cell">[19900]</td>
+                        <td class="table-cell">10MHz*2</td>
+                        <td class="table-cell">-</td>
+                        <td class="table-cell">無業者競標</td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell note-col"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="table-cell">Band 1<br>2100MHz</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">E1~E3</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">2110~2125</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">1920~1935</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[75]<br>[423507]</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[18075]<br>[385500]</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">15MHz*2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">75<br>79</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">已開台4G/<br>已關台5G DSS</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">21(17~21)</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill">少數為1x1、4x4</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">E4~E7</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">台灣大哥大</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">2125~2145</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">1935~1955</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[250]</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[18250]</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">20MHz*2</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">100</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">17~20</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell note-col has-fill">極少數為4x4；少數開UL 256QAM</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">E8</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">台灣大哥大</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">2145~2150</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">1955~1960</td>
+                        <td colspan="2" style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">[375]</td>
+                        <td colspan="2" style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">[18375]</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">5MHz*2</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">25</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">已開台4G</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">14</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">2x2</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">TM4</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">256QAM</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell has-fill light-rule-cell">256QAM</td>
+                        <td style="--cell-bg:#F5B75D" class="table-cell note-col has-fill light-rule-cell">2024/10/14 3G訊號已全數關閉；2025年中開始於少數室內場館開出4G作為負載分流使用</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">E9</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2150~2155</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">1960~1965</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill frequency-compact">[10762]</td>
+                        <td rowspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill frequency-micro">[500]<br>[432030]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">[9812]</td>
+                        <td rowspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill frequency-micro">[18491]/<br>[18500]<br>[394000]</td>
+                        <td rowspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">5MHz*2<br>15MHz*2<br>20MHz*2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">75<br>79</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">已開台3G</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">1x1</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">QPSK</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill">桃園機場仍作為3G訊號使用；部分地區已重耕給4G/5G使用</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">E10~E12</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2155~2170</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">1965~1980</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">[525]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill frequency-micro">[18525]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">100<br>106</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">已開台4G/5G</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">12~15</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">4x4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill">部分地區開台；少數為2x2</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" class="table-cell">Band 7<br>2600MHz</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">D1</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">台灣大哥大</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">2620~2640</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">2500~2520</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[2850]</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[20850]</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">20MHz*2</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">100</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">18~20</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">4x4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell note-col has-fill">少數開UL 256QAM；大多只跑2 Layers</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">D2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2640~2660</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2520~2540</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[3050]</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[21050]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">20MHz*2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">100</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">15~17</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill">極少數為4x4</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">D3</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">2660~2680</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">2540~2560</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[3250]</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[21250]</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">20MHz*2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">100</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">15(14~20)</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill">極少數為4x4</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">D4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2680~2690</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2560~2570</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[3400]</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[21400]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">10MHz*2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">50</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">已開台4G</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">15~18</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">TM4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill">極少數為4x4</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="table-cell">Band 38/41<br>TD 2600MHz</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">D5</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">2570~2795</td>
+                        <td colspan="3" style="--cell-bg:#E71A0F" class="table-cell has-fill">[37900 / 40540]</td>
+                        <td rowspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill frequency-micro">[517230]</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">20MHz</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">100</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill table-text-compact">已開台4G / 測試中5G</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">15</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill table-text-compact">2x2/4x4</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">TM3/8/9</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill">TDD配置: LTE {SA2/SSP7(DL:UL=8:2)} / NR {2.5ms雙週期，DL:UL=7:3}；與FDD保護間隔5MHz</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">D6</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">2595~2620</td>
+                        <td colspan="3" style="--cell-bg:#E71A0F" class="table-cell has-fill">[38098 / 40738]</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">20MHz</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">100</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill table-text-compact">已開台4G / 測試中5G</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">15~20</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill table-text-compact">2x2/4x4</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">TM3/8/9</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill">TDD配置: LTE {SA2/SSP7(DL:UL=8:2)} / NR {2.5ms雙週期，DL:UL=7:3}；與FDD保護間隔5MHz</td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell">Band 46<br>TD 5200MHz</td>
+                        <td class="table-cell">Unlicensed</td>
+                        <td class="table-cell">中華電信</td>
+                        <td colspan="2" class="table-cell">5150~5925</td>
+                        <td colspan="4" class="table-cell">[47090]<br>[47291]<br>[47489]</td>
+                        <td class="table-cell">20MHz<br>20MHz<br>20MHz</td>
+                        <td class="table-cell">-</td>
+                        <td class="table-cell">已關台4G LAA</td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell">2x2</td>
+                        <td class="table-cell">TM3</td>
+                        <td class="table-cell">256QAM</td>
+                        <td class="table-cell">-</td>
+                        <td class="table-cell note-col">主頻須為LTE Licensed Band (B3或B7)；TDD配置: Unknown</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="table-cell">NR FR1<br>Band 78<br>TD 3500MHz</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">F1~F4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">台灣大哥大</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">3300~3340</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[620736]</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[621334]</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">40MHz</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">106</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">已開台5G</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">20</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">4x4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">Scheme 1</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell note-col has-fill">SCS: 30KHz；TDD配置: 2.5ms雙週期，DL:UL=7:3</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">F5~F12</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">3340~3420</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[623328]</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[625334]</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">80MHz</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">217</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">已開台5G</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">22</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">4x4</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">Scheme 1</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill">SCS: 30KHz；TDD配置: 2.5ms雙週期，DL:UL=7:3</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">F13~F21</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">3420~3510</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[630912]</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[631000]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">90MHz</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">245</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">已開台5G</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">20</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">4x4</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">Scheme 1</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill">SCS: 30KHz；TDD配置: 2.5ms雙週期，DL:UL=7:3</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">F22~F27</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">台灣大哥大</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">3510~3570</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[634752]</td>
+                        <td colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[636000]</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">60MHz</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">162</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">已開台5G</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">21</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">4x4</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">Scheme 1</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#F29F27" class="table-cell note-col has-fill">SCS: 30KHz；TDD配置: 2.5ms雙週期，DL:UL=7:3</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill">Chartered</td>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill">實驗專網</td>
+                        <td colspan="2" style="--cell-bg:#B25E25" class="table-cell has-fill">3700~3800</td>
+                        <td colspan="2" style="--cell-bg:#B25E25" class="table-cell has-fill">[649920]</td>
+                        <td colspan="2" style="--cell-bg:#B25E25" class="table-cell has-fill">[646724]</td>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill">100MHz</td>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill">273</td>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill">試驗中5G SA</td>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill">4x4</td>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill">Scheme 1</td>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill">256QAM</td>
+                        <td style="--cell-bg:#B25E25" class="table-cell has-fill">64/256QAM</td>
+                        <td style="--cell-bg:#B25E25" class="table-cell note-col has-fill">SCS: 30KHz；TDD配置: 2.5ms雙週期，DL:UL=7:3</td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell">NR FR1<br>Band 79<br>TD 4700MHz</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">Chartered</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">企業專網</td>
+                        <td colspan="2" style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">4800~4900</td>
+                        <td colspan="2" style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">[721824]</td>
+                        <td colspan="2" style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">[723332]</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">100MHz</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">273</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">試驗中5G SA</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell"></td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">4x4</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">Scheme 1</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">256QAM</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell has-fill light-rule-cell">64QAM</td>
+                        <td style="--cell-bg:#C6AFEB" class="table-cell note-col has-fill light-rule-cell">SCS: 30KHz；TDD配置: 2.5ms雙週期，DL:UL=7:3；開雙發上行</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="7" class="table-cell">NR FR2<br>Band 257<br>TD 28GHz</td>
+                        <td class="table-cell">G1~G9</td>
+                        <td class="table-cell">愛蓁電信</td>
+                        <td colspan="2" class="table-cell">27000~27900</td>
+                        <td colspan="4" class="table-cell">-</td>
+                        <td class="table-cell">900MHz</td>
+                        <td class="table-cell">-</td>
+                        <td class="table-cell">無業者競標</td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell note-col"></td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">G10~G15</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">中華電信</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">27900~28500</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[2078011]<br>[2079451]<br>[2081179]<br>[2082907]<br>[2084635]<br>[2086363]</td>
+                        <td colspan="2" style="--cell-bg:#0065AC" class="table-cell has-fill">[2078333]<br>[2079999]</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">600MHz</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">66<br>66<br>66<br>66<br>66<br>66</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">未正式開台</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill">N/A*</td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#0065AC" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#0065AC" class="table-cell note-col has-fill">SCS: 120KHz</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">G16~G19</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">28500~28900</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[2087803]<br>[2089531]<br>[2091259]<br>[2092987]</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">[2088333]<br>[2089999]</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">400MHz</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">66<br>66<br>66<br>66</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">零星試開台5G</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">10</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">2x2</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">Scheme 1</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">64QAM</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill">SCS: 120KHz；TDD配置: 0.625ms，DL:UL=3:1；上行200MHz，SPDL雙發</td>
+                    </tr>
+                    <tr>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">G20~G22</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">遠傳電信</td>
+                        <td colspan="2" style="--cell-bg:#E71A0F" class="table-cell has-fill">28900~29200</td>
+                        <td colspan="4" style="--cell-bg:#E71A0F" class="table-cell has-fill">N/A*</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">300MHz</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">-</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill">未開台</td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell has-fill"></td>
+                        <td style="--cell-bg:#E71A0F" class="table-cell note-col has-fill"></td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell">G23</td>
+                        <td class="table-cell">NCC</td>
+                        <td colspan="2" class="table-cell">29200~29300</td>
+                        <td colspan="4" class="table-cell">-</td>
+                        <td class="table-cell">100MHz</td>
+                        <td class="table-cell">-</td>
+                        <td class="table-cell">未開台</td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell"></td>
+                        <td class="table-cell note-col">遠傳28GHz頻譜超標，已於2024/05/08完成繳回100MHz</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">G24~G25</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">台灣大哥大</td>
+                        <td rowspan="2" colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">29300~29500</td>
+                        <td rowspan="2" colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[2101915]<br>[2103067]</td>
+                        <td rowspan="2" colspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">[2101667]<br>[2103331]</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">200MHz</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">66<br>66</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">零星試開台5G</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">5~8<br>-18</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">2x2</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">Scheme 1</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">64QAM</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell has-fill">64QAM</td>
+                        <td rowspan="2" style="--cell-bg:#F29F27" class="table-cell note-col has-fill">SCS: 120KHz；TDD配置: 0.625ms，DL:UL=3:1；上行200MHz；SMDL雙發</td>
+                    </tr>
+                    <tr>
+                    </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer" aria-label="網站資訊">
+            <div class="footer-main">
+                <div class="footer-brand-block">
+                    <a class="footer-brand" href="../home.html" aria-label="回到首頁">
+                        <img class="footer-logo" src="../pic/profile.png" alt="">
+                        <span>愛蓁電信工作室 - 頻譜資訊網</span>
+                    </a>
+                                        <p class="footer-tagline">蓁心為您做最好～</p>
+                    <div class="footer-actions" aria-label="相關連結">
+                        <a class="footer-button" href="https://www.youtube.com/@Aizhen-Telecom" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/YT_icon.png" alt="" aria-hidden="true">測速頻道</a>
+                        <a class="footer-button" href="https://www.google.com/maps/d/u/0/edit?hl=zh-TW&amp;mid=1HE5K8MR2R2k8cFB9wTmYHE9hJ0NP0zo" target="_blank" rel="noopener noreferrer"><img class="footer-button-icon" src="../pic/google_maps.png" alt="" aria-hidden="true">測速地圖</a>
+                        <a class="footer-button" href="mailto:2010magnitude@gmail.com"><img class="footer-button-icon" src="../pic/gmail_icon.png" alt="" aria-hidden="true">聯絡愛蓁</a>
+                    </div>
+                </div>
+                <div class="footer-notes">
+                    <p>使用電腦瀏覽體驗較佳。手機等行動裝置建議以橫向瀏覽或以電腦版模式檢視。</p>
+                    <p>本網站資料由個人長期測試數據及網友回報所整理，僅供參考。若要引用或截圖分享請務必註明來源出處，感謝您。</p>
+                    <p>聲明：本工作室僅在本網站和YouTube平台經營，於其他任何平台(包含但不限於IG、Threads、PTT、Dcard、bilibili等)<br>若有發現本方發文或留言皆為冒名使用，請勿受騙上當。<br>本網站所有電信相關資訊皆為免費提供，不會向您收取任何費用，若您想表達感謝或鼓勵我，可以在這裡 <a class="footer-inline-link" href="https://reurl.cc/rxeGN4" target="_blank" rel="noopener noreferrer">贊助愛蓁</a>。</p>
+                </div>
+            </div>
+            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.0.0</span><a href="../changelog.txt">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 Ⓒ2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
+        </footer>
+    </div>
+</body>
+</html>
