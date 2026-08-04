@@ -1,0 +1,42 @@
+{
+  "updated": "2026-08-04T14:21:19.767Z",
+  "cht": {
+    "name": "中華電信",
+    "reachable": true,
+    "normalTextFound": false,
+    "reports": 0,
+    "topProblem": {
+      "label": "",
+      "share": 0
+    },
+    "level": "green",
+    "message": "",
+    "sample": "downdetector.tw\nPerforming security verification\n\nThis website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.\n\nRay ID: a25e3536cc3e99a0\nPerformance and Security by Cloudflare\nPrivacy"
+  },
+  "fet": {
+    "name": "遠傳電信",
+    "reachable": true,
+    "normalTextFound": true,
+    "reports": 0,
+    "topProblem": {
+      "label": "",
+      "share": 0
+    },
+    "level": "green",
+    "message": "User reports show no current problems with Far EasTone Telecommunications (FET) 遠傳電信",
+    "sample": "Skip to main content\nBack to home\n/\nFar EasTone Telecommunications (FET) 遠傳電信\nUser reports show no current problems with Far EasTone Telecommunications (FET) 遠傳電信\n\nFar EasTone Telecommunications (FET) offers mobile network services, 5G and 4G connectivity, broadband internet, IoT solutions and enterprise cloud services with real-time network performance monitoring.\n\nReport a problem\n\nSelect which issue applies\n\nBilling\nMobile Internet\nMobile Signal\nTexting / SMS\nVoice Calls\nWebsite\nJump to comments\nFar EasTone Telecommunications (FET) 遠傳電信 problems reported in the last 24 hours\n3 PM\n6 PM\n9 PM\n"
+  },
+  "twm": {
+    "name": "台灣大哥大",
+    "reachable": true,
+    "normalTextFound": true,
+    "reports": 0,
+    "topProblem": {
+      "share": 55,
+      "label": "Mobile Internet"
+    },
+    "level": "green",
+    "message": "User reports show no current problems with Taiwan Mobile 台灣大哥大",
+    "sample": "Skip to main content\nBack to home\n/\nTaiwan Mobile 台灣大哥大\nUser reports show no current problems with Taiwan Mobile 台灣大哥大\n\nTaiwan Mobile provides 4G and 5G mobile network services, broadband internet, digital television, cloud solutions and IoT connectivity across its wireless and fixed-line telecommunications infrastructure.\n\nReport a problem\n\nSelect which issue applies\n\nBilling\nBroadband Internet\nMobile Internet\nMobile Signal\nTexting / SMS\nTV\nVoice Calls\nWiFi\nJump to comments\nTaiwan Mobile 台灣大哥大 problems reported in the last 24 hours\n3 PM\n6 PM\n9 PM\n12 AM\n3 AM\n6 AM\n9 AM\n12 PM\n0\n10\n20\n30\n40\nLearn"
+  }
+}
