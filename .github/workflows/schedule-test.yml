@@ -3,7 +3,7 @@ name: Schedule Test
 on:
   workflow_dispatch:
   schedule:
-    - cron: "3-59/5 * * * *"
+    - cron: "17 * * * *"
 
 jobs:
   ping:
