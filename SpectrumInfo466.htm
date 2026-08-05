@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愛蓁電信工作室 - 頻譜資訊網</title>
+    <style>
+        :root {
+            --bg: #061117;
+            --panel: rgba(6, 17, 23, 0.8);
+            --panel-border: rgba(139, 232, 255, 0.22);
+            --text: #edfaff;
+            --muted: #a9bdc7;
+            --accent: #27e1bb;
+            --accent-blue: #52a9ff;
+            --warning: #ffc857;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text);
+            font-family: "Microsoft JhengHei", "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                linear-gradient(rgba(139, 232, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 232, 255, 0.06) 1px, transparent 1px),
+                radial-gradient(circle at 18% 20%, rgba(39, 225, 187, 0.13), transparent 28rem),
+                radial-gradient(circle at 82% 18%, rgba(82, 169, 255, 0.16), transparent 30rem),
+                var(--bg);
+            background-size: 64px 64px, 64px 64px, auto, auto, auto;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            right: max(4vw, 2rem);
+            bottom: -2rem;
+            width: min(34vw, 28rem);
+            height: min(72vh, 42rem);
+            pointer-events: none;
+            opacity: 0.2;
+            background:
+                linear-gradient(70deg, transparent 45%, rgba(39, 225, 187, 0.7) 46%, rgba(39, 225, 187, 0.7) 49%, transparent 50%) center / 100% 100% no-repeat,
+                linear-gradient(110deg, transparent 45%, rgba(82, 169, 255, 0.62) 46%, rgba(82, 169, 255, 0.62) 49%, transparent 50%) center / 100% 100% no-repeat,
+                linear-gradient(rgba(139, 232, 255, 0.75), rgba(139, 232, 255, 0.08)) center / 0.55rem 100% no-repeat;
+            clip-path: polygon(48% 0, 56% 0, 100% 100%, 82% 100%, 52% 22%, 22% 100%, 4% 100%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(115deg, transparent 0 56%, rgba(39, 225, 187, 0.08) 57%, transparent 60%),
+                linear-gradient(245deg, transparent 0 61%, rgba(82, 169, 255, 0.08) 62%, transparent 65%);
+            opacity: 0.8;
+        }
+
+        .page-shell {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: clamp(1.2rem, 3vw, 2.4rem);
+            width: min(100% - 2rem, 1420px);
+            min-height: 100vh;
+            margin: 0 auto;
+            padding: clamp(1.2rem, 3vw, 2.4rem) 0;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 5.6rem;
+            padding: 1rem 1.4rem;
+            border: 1px solid rgba(139, 232, 255, 0.22);
+            border-radius: 8px;
+            background: rgba(6, 17, 23, 0.74);
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            display: grid;
+            grid-template-columns: repeat(4, 0.26rem);
+            align-items: end;
+            gap: 0.18rem;
+            width: 3rem;
+            height: 3rem;
+            padding: 0.7rem;
+            border: 1px solid rgba(39, 225, 187, 0.36);
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(39, 225, 187, 0.18), transparent),
+                rgba(10, 27, 36, 0.78);
+            box-shadow: 0 0 20px rgba(39, 225, 187, 0.14);
+        }
+
+        .brand-icon span {
+            display: block;
+            width: 100%;
+            border-radius: 999px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-blue));
+        }
+
+        .brand-icon span:nth-child(1) { height: 0.55rem; }
+        .brand-icon span:nth-child(2) { height: 0.9rem; }
+        .brand-icon span:nth-child(3) { height: 1.25rem; }
+        .brand-icon span:nth-child(4) { height: 1.6rem; }
+
+        .brand-text {
+            font-size: clamp(1.45rem, 3vw, 2.25rem);
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+
+        .redirect-page {
+            display: grid;
+            place-items: center;
+            padding-bottom: 2rem;
+        }
+
+        .redirect-card {
+            width: min(100%, 760px);
+            padding: clamp(1.4rem, 4vw, 2.2rem);
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(39, 225, 187, 0.13), transparent 38%),
+                linear-gradient(225deg, rgba(255, 200, 87, 0.08), transparent 42%),
+                var(--panel);
+            box-shadow: 0 24px 68px rgba(0, 0, 0, 0.34);
+            text-align: center;
+        }
+
+        .section-kicker {
+            margin: 0;
+            color: var(--accent);
+            font-size: 0.86rem;
+            font-weight: 900;
+            letter-spacing: 0.06em;
+        }
+
+        h1 {
+            margin: 0.4rem 0 1rem;
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            line-height: 1.16;
+            letter-spacing: 0;
+        }
+
+        .redirect-message {
+            max-width: 40rem;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: clamp(1rem, 2.3vw, 1.18rem);
+            font-weight: 700;
+            line-height: 1.85;
+        }
+
+        #redirectCountdown {
+            display: inline-block;
+            min-width: 2.1em;
+            color: var(--accent);
+            font-size: 1.35em;
+            font-weight: 900;
+            text-align: center;
+            text-shadow: 0 0 18px rgba(39, 225, 187, 0.34);
+        }
+
+        .redirect-meter {
+            height: 0.55rem;
+            margin: 1.45rem auto 1.55rem;
+            overflow: hidden;
+            border: 1px solid rgba(139, 232, 255, 0.24);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .redirect-meter span {
+            display: block;
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--accent), var(--accent-blue));
+            box-shadow: 0 0 18px rgba(39, 225, 187, 0.36);
+            transition: width 260ms ease;
+        }
+
+        .redirect-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .primary-button,
+        .legacy-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.85rem;
+            padding: 0.72rem 1.1rem;
+            border-radius: 6px;
+            font-weight: 900;
+            text-decoration: none;
+            transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        }
+
+        .primary-button {
+            border: 1px solid rgba(39, 225, 187, 0.62);
+            color: #03110f;
+            background: var(--accent);
+        }
+
+        .legacy-button {
+            border: 1px solid rgba(139, 232, 255, 0.3);
+            color: var(--text);
+            background: rgba(10, 27, 36, 0.82);
+        }
+
+        .primary-button:hover,
+        .primary-button:focus-visible,
+        .legacy-button:hover,
+        .legacy-button:focus-visible {
+            outline: none;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 640px) {
+            .top-bar {
+                justify-content: flex-start;
+            }
+
+            .brand {
+                gap: 0.75rem;
+            }
+
+            .brand-icon {
+                width: 2.65rem;
+                height: 2.65rem;
+                padding: 0.62rem;
+            }
+
+            .redirect-actions {
+                flex-direction: column;
+            }
+
+            .primary-button,
+            .legacy-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="top-bar">
+            <a class="brand" href="https://aizhen-93.github.io/Telecom/SpectrumInfo466_v1/home.html" aria-label="前往新版網站">
+                <span class="brand-icon" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+                <span class="brand-text">愛蓁電信工作室 - 頻譜資訊網</span>
+            </a>
+        </header>
+
+        <main class="redirect-page" aria-label="新版網站跳轉提示">
+            <section class="redirect-card">
+                <p class="section-kicker">SpectrumInfo466 v1</p>
+                <h1>新版網站正式上線</h1>
+                <p class="redirect-message">
+                    感謝您的長期支持，「愛蓁電信工作室 - 頻譜資訊網」正式版已經上線！<br>
+                    頁面將於<span id="redirectCountdown">15</span>秒後自動跳轉...
+                </p>
+                <div class="redirect-meter" aria-hidden="true">
+                    <span id="redirectProgress"></span>
+                </div>
+                <div class="redirect-actions">
+                    <a class="primary-button" href="https://aizhen-93.github.io/Telecom/SpectrumInfo466_v1/home.html">立即前往新版</a>
+                    <a class="legacy-button" href="https://aizhen-93.github.io/Telecom/SpectrumInfo466_old/SpectrumInfo466.htm">繼續使用舊版</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        (() => {
+            const targetUrl = "https://aizhen-93.github.io/Telecom/SpectrumInfo466_v1/home.html";
+            const countdown = document.querySelector("#redirectCountdown");
+            const progress = document.querySelector("#redirectProgress");
+            const totalSeconds = 15;
+            let remaining = totalSeconds;
+
+            const tick = () => {
+                if (countdown) {
+                    countdown.textContent = String(remaining);
+                }
+                if (progress) {
+                    progress.style.width = `${((totalSeconds - remaining) / totalSeconds) * 100}%`;
+                }
+                if (remaining <= 0) {
+                    window.location.href = targetUrl;
+                    return;
+                }
+                remaining -= 1;
+                window.setTimeout(tick, 1000);
+            };
+
+            tick();
+        })();
+    </script>
+</body>
+</html>
