@@ -41,6 +41,16 @@ window.homeNewsData = [
   },
   {
     "source": "實測",
+    "date": "2026/5/20",
+    "category": "參數調整",
+    "operator": "遠傳",
+    "area": "全區",
+    "site": "部分",
+    "content": "開始配置B28[9435]測量，做為CA頻接入，用於站台負載平衡",
+    "link": "pic/46601LTE_9435.jpg"
+  },
+  {
+    "source": "實測",
     "date": "2026/5/15",
     "category": "參數調整",
     "operator": "遠傳",
@@ -876,7 +886,7 @@ window.homeNewsData = [
     "operator": "遠傳",
     "area": "全區",
     "site": "多數",
-    "content": "遠傳電信 整合後5G N28新頻點[152670] ",
+    "content": "遠傳電信 整合後5G N28新頻點[152670]",
     "link": "https://youtu.be/2jQkTR-ng7M"
   },
   {
@@ -896,7 +906,7 @@ window.homeNewsData = [
     "operator": "台哥大",
     "area": "板橋",
     "site": "少許",
-    "content": "台灣大哥大5G測速 高鐵板橋站(停靠) 已導入室內型NR CA (n28+n78) ",
+    "content": "台灣大哥大5G測速 高鐵板橋站(停靠) 已導入室內型NR CA (n28+n78)",
     "link": "https://youtu.be/3rZxO1iHYVw"
   },
   {
