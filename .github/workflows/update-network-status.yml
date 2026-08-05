@@ -3,6 +3,10 @@ name: Update Network Status
 on:
   workflow_dispatch:
 
+concurrency:
+  group: network-status
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
