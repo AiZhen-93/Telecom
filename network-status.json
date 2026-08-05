@@ -1,30 +1,34 @@
 {
-  "updated": "2026-08-05T04:16:47.581Z",
+  "updated": "2026-08-05T04:32:58.971Z",
   "cht": {
     "name": "中華電信",
-    "reachable": true,
-    "normalTextFound": true,
-    "reports": 0,
-    "topProblem": {
-      "share": 45,
-      "label": "Broadband Internet"
-    },
-    "level": "green",
-    "message": "User reports show no current problems with Chunghwa Telecom 中華電信",
-    "sample": "Skip to main content\nBack to home\n/\nChunghwa Telecom 中華電信\nUser reports show no current problems with Chunghwa Telecom 中華電信\n\nChunghwa Telecom provides broadband internet, mobile network services, fiber optic connections, HiNet ISP access, MOD digital TV streaming and cloud solutions across Taiwan for residential and enterprise customers.\n\nReport a problem\n\nSelect which issue applies\n\nBilling\nBroadband Internet\nMobile Internet\nMobile Signal\nTexting / SMS\nTV\nVoice Calls\nWiFi\nJump to comments\nChunghwa Telecom 中華電信 problems reported in the last 24 hours\n6 AM\n9 AM\n12 PM\n3 PM\n6 PM\n9 PM\n12 AM\n3 AM\n0\n1"
-  },
-  "fet": {
-    "name": "遠傳電信",
-    "reachable": true,
-    "normalTextFound": true,
-    "reports": 0,
+    "reachable": false,
+    "blocked": true,
+    "normalTextFound": false,
+    "reports": null,
     "topProblem": {
       "label": "",
       "share": 0
     },
     "level": "green",
-    "message": "User reports show no current problems with Far EasTone Telecommunications (FET) 遠傳電信",
-    "sample": "Skip to main content\nBack to home\n/\nFar EasTone Telecommunications (FET) 遠傳電信\nUser reports show no current problems with Far EasTone Telecommunications (FET) 遠傳電信\n\nFar EasTone Telecommunications (FET) offers mobile network services, 5G and 4G connectivity, broadband internet, IoT solutions and enterprise cloud services with real-time network performance monitoring.\n\nReport a problem\n\nSelect which issue applies\n\nBilling\nMobile Internet\nMobile Signal\nTexting / SMS\nVoice Calls\nWebsite\nJump to comments\nFar EasTone Telecommunications (FET) 遠傳電信 problems reported in the last 24 hours\n6 AM\n9 AM\n12 PM"
+    "message": "",
+    "error": "Blocked by Cloudflare verification",
+    "sample": "downdetector.tw\nPerforming security verification\n\nThis website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.\n\nRay ID: a26314c10aa9c8ce\nPerformance and Security by Cloudflare\nPrivacy"
+  },
+  "fet": {
+    "name": "遠傳電信",
+    "reachable": false,
+    "blocked": true,
+    "normalTextFound": false,
+    "reports": null,
+    "topProblem": {
+      "label": "",
+      "share": 0
+    },
+    "level": "green",
+    "message": "",
+    "error": "Blocked by Cloudflare verification",
+    "sample": "downdetector.tw\nPerforming security verification\n\nThis website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.\n\nRay ID: a26314cb8ae2c8ce\nPerformance and Security by Cloudflare\nPrivacy"
   },
   "twm": {
     "name": "台灣大哥大",
