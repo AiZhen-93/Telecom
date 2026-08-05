@@ -174,8 +174,16 @@ if (homePage) {
         { id: "twm", name: "台灣大哥大", flagKey: "TWM_status" },
     ];
     const statusRefreshIntervalMs = 120000;
-    const statusFlagUrls = ["../flags.txt", "flags.txt"];
-    const networkStatusUrls = ["../network-status.json", "network-status.json"];
+    const statusFlagUrls = [
+        "https://raw.githubusercontent.com/AiZhen-93/Telecom-status/main/flags.txt",
+        "../flags.txt",
+        "flags.txt",
+    ];
+    const networkStatusUrls = [
+        "https://raw.githubusercontent.com/AiZhen-93/Telecom-status/main/network-status.json",
+        "../network-status.json",
+        "network-status.json",
+    ];
     const statusLabels = {
         green: "連線正常",
         yellow: "局部異常",

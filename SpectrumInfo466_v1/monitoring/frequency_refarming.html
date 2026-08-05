@@ -90,18 +90,22 @@
                     <article class="refarming-map-card">
                         <h2><img src="../pic/CellTower_FET.svg" alt="" aria-hidden="true">室外型N28[152670]開台情形</h2>
                         <div class="refarming-map-stage" data-refarming-map="fet-n28-152670"></div>
+                        <p class="refarming-map-note">開出5G n28 DSS訊號雖然不會增加傳輸速率，但有助於延伸5G的涵蓋率，低頻也是未來邁向SA獨立組網作為涵蓋「打底」必不可少的頻段。</p>
                     </article>
                     <article class="refarming-map-card">
                         <h2><img src="../pic/CellTower_FET.svg" alt="" aria-hidden="true">室外型N28[156010]開台情形</h2>
                         <div class="refarming-map-stage" data-refarming-map="fet-n28-156010"></div>
+                        <p class="refarming-map-note">由原本亞太電信俗稱的「可憐頻」轉變而來，雖然頻寬只有5MHz*2，但相比DSS訊號需與4G共享資源，在訊務量高的場域也能跑出一定的網速。</p>
                     </article>
                     <article class="refarming-map-card">
                         <h2><img src="../pic/CellTower_FET.svg" alt="" aria-hidden="true">B38/B41[37900/38098][40540/40738]開台情形</h2>
                         <div class="refarming-map-stage" data-refarming-map="fet-b38-b41"></div>
+                        <p class="refarming-map-note">4G TDD2600訊號，可開出20MHz+20MHz，提供高訊務場域充足的連接和傳輸量能，目前預計將規劃陸續改開5G N38/N41訊號。</p>
                     </article>
                     <article class="refarming-map-card">
                         <h2><img src="../pic/CellTower_FET.svg" alt="" aria-hidden="true">N38/N41[517230]開台情形</h2>
                         <div class="refarming-map-stage" data-refarming-map="fet-n38-n41"></div>
+                        <p class="refarming-map-note">可一次開出40MHz頻寬，並與其他5G頻段組NR CA。由於和現有的4G B38/B41採用不同的上下行配比，因此兩者訊號容易有干擾情形，遠傳正在反覆調整優化。</p>
                     </article>
                 </div>
             </section>
@@ -157,7 +161,7 @@
                         tooltip.setAttribute("role", "status");
                         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                         svg.setAttribute("class", "taiwan-region-map refarming-map");
-                        svg.setAttribute("viewBox", template.getAttribute("viewBox"));
+                        svg.setAttribute("viewBox", "470 285 540 1045");
                         svg.setAttribute("role", "img");
                         svg.setAttribute("aria-label", stage.closest(".refarming-map-card")?.querySelector("h2")?.textContent || "改配情形地圖");
 
@@ -223,7 +227,7 @@
                     <p>聲明：本工作室僅在本網站和YouTube平台經營，於其他任何平台(包含但不限於IG、Threads、PTT、Dcard、bilibili等)<br>若有發現本方發文或留言皆為冒名使用，請勿受騙上當。<br>本網站所有電信相關資訊皆為免費提供，不會向您收取任何費用，若您想表達感謝或鼓勵我，可以在這裡 <a class="footer-inline-link" href="https://reurl.cc/rxeGN4" target="_blank" rel="noopener noreferrer">贊助愛蓁</a>。</p>
                 </div>
             </div>
-            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.0.0</span><a href="../changelog.txt">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 Ⓒ2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
+            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.1.0</span><a href="../changelog.txt">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 Ⓒ2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
         </footer>
     </div>
 </body>
