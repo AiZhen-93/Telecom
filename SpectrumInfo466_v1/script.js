@@ -701,12 +701,12 @@ if (mergeZonePage) {
         return note;
     };
 
-    const createVideos = (videos) => {
+    const createVideos = (videos, headingText = "實測參考影片") => {
         const list = document.createElement("div");
         list.className = "merge-video-list";
 
         const title = document.createElement("h4");
-        title.textContent = "實測參考影片";
+        title.textContent = headingText;
         list.append(title);
 
         const items = Array.isArray(videos) ? videos : [];
@@ -800,7 +800,8 @@ if (mergeZonePage) {
         notes.append(createNote("主要調整內容", phase.adjustment));
         notes.append(createNote("主要影響", phase.impact));
         body.append(notes);
-        body.append(createVideos(phase.videos));
+        const videoHeading = phase.phase === "M0" ? "聽證會影片" : "實測參考影片";
+        body.append(createVideos(phase.videos, videoHeading));
 
         item.append(marker, body);
         return item;
@@ -1401,14 +1402,14 @@ if (maxSpeedPage) {
             ...lteUploadOperatorBands.cht.map((band) => ({ ...band, category: "4g" })),
         ],
         fet: [
-            { id: "ul-fet-n28-dss-142600", label: "N28 DSS[142600]", speed: 50, category: "5g" },
+            { id: "ul-fet-n28-dss-142600", label: "N28 DSS[142600]", speed: 85, category: "5g" },
             { id: "ul-fet-n28-145100", label: "N28[145100]", speed: 0, category: "5g", disabledAlways: true },
             { id: "ul-fet-n38-n41-517230", label: "N38/N41[517230]", speed: 0, category: "5g", disabledAlways: true },
             { id: "ul-fet-n78-625334", label: "N78[625334]", speed: 140, category: "5g" },
             ...lteUploadOperatorBands.fet.map((band) => ({ ...band, category: "4g" })),
         ],
         twm: [
-            { id: "ul-twm-n28-dss-147600", label: "N28 DSS[147600]", speed: 50, category: "5g" },
+            { id: "ul-twm-n28-dss-147600", label: "N28 DSS[147600]", speed: 75, category: "5g" },
             { id: "ul-twm-n78-621334", label: "N78[621334]", speed: 70, category: "5g" },
             { id: "ul-twm-n78-636000", label: "N78[636000]", speed: 110, category: "5g" },
             ...lteUploadOperatorBands.twm.map((band) => ({ ...band, category: "4g" })),
@@ -1649,9 +1650,18 @@ if (maxSpeedPage) {
             indoorInput.disabled = false;
             outdoorInput.disabled = false;
             macroInput.disabled = false;
+            const shouldDisableIndoor = operatorSelect.value === "fet" && hasFetUploadTddSelected();
             const shouldForceIndoor = operatorSelect.value === "twm" && hasTwmUploadIndoorOnlyBandSelected();
+            indoorInput.disabled = shouldDisableIndoor;
             outdoorInput.disabled = shouldForceIndoor;
             macroInput.disabled = shouldForceIndoor;
+            if (shouldDisableIndoor && indoorInput.checked) {
+                outdoorInput.checked = true;
+                if (showMessage) {
+                    hint.textContent = "勾選 B38/B41 時，站台類型不可選擇室內站。";
+                    hint.classList.add("is-warning");
+                }
+            }
             if (shouldForceIndoor && !indoorInput.checked) {
                 indoorInput.checked = true;
                 if (showMessage) {
