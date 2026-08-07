@@ -2804,12 +2804,14 @@ a {
 
 .external-link-icon {
     position: relative;
+    display: inline-block;
     flex: 0 0 auto;
     width: 1.05rem;
     height: 1.05rem;
     border: 2px solid currentColor;
     border-top: 0;
     border-right: 0;
+    vertical-align: -0.12em;
 }
 
 .external-link-icon::before {
@@ -4659,6 +4661,11 @@ a {
     text-decoration: none;
 }
 
+.project-video-content h2 a .external-link-icon,
+.hsr-project-body h3 a .external-link-icon {
+    margin-left: 0.38rem;
+}
+
 .project-video-content h2 a:hover,
 .project-video-content h2 a:focus-visible {
     outline: none;
@@ -4715,6 +4722,221 @@ a {
     color: #bfd3dc;
     font-size: 0.95rem;
     line-height: 1.72;
+}
+
+.hsr-project-page {
+    display: grid;
+    gap: 1.15rem;
+    width: min(var(--page-width), 100%);
+    padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.hsr-project-toolbar {
+    align-items: stretch;
+}
+
+.hsr-project-toolbar > div:first-child {
+    min-width: 0;
+    max-width: 58rem;
+}
+
+.hsr-project-section {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.hsr-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 0.2rem;
+}
+
+.hsr-section-heading h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    line-height: 1.25;
+    letter-spacing: 0;
+}
+
+.hsr-section-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    text-align: right;
+}
+
+.hsr-project-list {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.hsr-project-card {
+    display: grid;
+    grid-template-columns: minmax(13rem, 18rem) minmax(0, 1fr);
+    gap: clamp(0.9rem, 1.8vw, 1.25rem);
+    min-height: 10.6rem;
+    padding: clamp(0.82rem, 1.8vw, 1rem);
+    border: 1px solid rgba(139, 232, 255, 0.16);
+    border-radius: 8px;
+    background:
+        linear-gradient(145deg, rgba(82, 169, 255, 0.08), transparent 48%),
+        rgba(3, 12, 17, 0.54);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
+}
+
+.hsr-project-thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    align-self: start;
+    overflow: hidden;
+    border: 1px solid rgba(139, 232, 255, 0.16);
+    border-radius: 6px;
+    background: rgba(7, 17, 23, 0.9);
+}
+
+.hsr-project-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hsr-project-thumb:hover,
+.hsr-project-thumb:focus-visible {
+    outline: none;
+    border-color: rgba(39, 225, 187, 0.62);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+.hsr-project-body {
+    display: grid;
+    align-content: start;
+    gap: 0.85rem;
+    min-width: 0;
+}
+
+.hsr-project-body h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(1.02rem, 1.8vw, 1.22rem);
+    line-height: 1.45;
+    letter-spacing: 0;
+}
+
+.hsr-project-body h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hsr-project-body h3 a:hover,
+.hsr-project-body h3 a:focus-visible {
+    outline: none;
+    color: var(--accent);
+}
+
+.hsr-project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.hsr-project-operator {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.55rem;
+    padding: 0.12rem 0.55rem;
+    border: 1px solid color-mix(in srgb, var(--route-color) 50%, transparent);
+    border-radius: 999px;
+    color: var(--route-color);
+    background: color-mix(in srgb, var(--route-color) 14%, transparent);
+    font-weight: 700;
+}
+
+.hsr-route {
+    position: relative;
+    display: grid;
+    gap: 0.45rem;
+    padding: 0.35rem 0.1rem 0;
+    min-width: 0;
+    --route-color: #edfaff;
+    --route-start: 0%;
+    --route-end: 100%;
+}
+
+.hsr-route-track {
+    position: relative;
+    height: 0.36rem;
+    margin: 0 0.55rem;
+    border-radius: 999px;
+    background: rgba(139, 232, 255, 0.18);
+}
+
+.hsr-route-segment {
+    position: absolute;
+    top: 50%;
+    left: var(--route-start);
+    width: max(calc(var(--route-end) - var(--route-start)), 0.36rem);
+    height: 0.36rem;
+    border-radius: 999px;
+    background: var(--route-color);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--route-color) 42%, transparent);
+    transform: translateY(-50%);
+}
+
+.hsr-route-stations {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    align-items: start;
+}
+
+.hsr-route-station {
+    display: grid;
+    justify-items: center;
+    gap: 0.32rem;
+    min-width: 0;
+    color: #8ca8b6;
+}
+
+.hsr-route-dot {
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 50%;
+    background: rgba(139, 232, 255, 0.42);
+    box-shadow: 0 0 0 0.16rem rgba(7, 17, 23, 0.95);
+}
+
+.hsr-route-station.is-active {
+    color: #f4fbff;
+}
+
+.hsr-route-station.is-active .hsr-route-dot {
+    background: var(--route-color);
+    box-shadow:
+        0 0 0 0.16rem rgba(7, 17, 23, 0.95),
+        0 0 14px color-mix(in srgb, var(--route-color) 54%, transparent);
+}
+
+.hsr-route-label {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.hsr-toggle-button {
+    justify-self: center;
+    min-width: 10rem;
 }
 
 .merge-zone-list {
@@ -5422,6 +5644,10 @@ a {
         grid-template-columns: minmax(12rem, 17rem) minmax(0, 1fr);
     }
 
+    .hsr-project-card {
+        grid-template-columns: minmax(11.5rem, 16rem) minmax(0, 1fr);
+    }
+
     .speed-visual-panel {
         min-height: 28rem;
     }
@@ -5528,6 +5754,29 @@ a {
 
     .project-video-thumb {
         max-width: none;
+    }
+
+    .hsr-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hsr-section-heading p {
+        text-align: left;
+    }
+
+    .hsr-project-card {
+        grid-template-columns: 1fr;
+    }
+
+    .hsr-route {
+        overflow-x: auto;
+        padding-bottom: 0.35rem;
+    }
+
+    .hsr-route-track,
+    .hsr-route-stations {
+        min-width: 28rem;
     }
 
     .speedtest-results {

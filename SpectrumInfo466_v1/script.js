@@ -146,7 +146,7 @@ if (homePage) {
                 const windowWidth = windowElement?.clientWidth || 0;
                 const textWidth = marqueeText.scrollWidth;
                 const distance = windowWidth + textWidth;
-                const duration = Math.max(5200, distance * 18);
+                const duration = Math.max(4800, distance * 16);
 
                 marqueeText.getAnimations().forEach((animation) => animation.cancel());
                 const animation = marqueeText.animate([
@@ -592,6 +592,189 @@ if (projectVideosPage) {
     if (list) {
         list.replaceChildren(...videos.map(createCard));
     }
+}
+
+const hsrProjectPage = document.querySelector(".hsr-project-page");
+if (hsrProjectPage) {
+    const source = window.hsrProjectData || {};
+    const items = Array.isArray(source.items) ? source.items : [];
+    const stations = source.stations || {};
+    const northList = hsrProjectPage.querySelector("#hsrNorthList");
+    const southList = hsrProjectPage.querySelector("#hsrSouthList");
+    const sectionTargets = {
+        north: {
+            list: northList,
+            toggle: hsrProjectPage.querySelector("#hsrNorthToggle"),
+            expanded: false,
+        },
+        south: {
+            list: southList,
+            toggle: hsrProjectPage.querySelector("#hsrSouthToggle"),
+            expanded: false,
+        },
+    };
+    const previewCount = 10;
+
+    const routeColors = {
+        cht: "#52a9ff",
+        fet: "#ff5f65",
+        twm: "#ffc857",
+        apt: "#48d676",
+        tstar: "#bb7cff",
+        multi: "#ffffff",
+        unknown: "#edfaff",
+    };
+
+    const operatorLabels = {
+        cht: "中華電信",
+        fet: "遠傳電信",
+        twm: "台灣大哥大",
+        apt: "亞太電信",
+        tstar: "台灣之星",
+        multi: "多業者",
+        unknown: "其他業者",
+    };
+
+    const createVideoTitle = (item) => {
+        const title = document.createElement("h3");
+        const link = document.createElement("a");
+        link.href = item.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = item.title || "";
+
+        const icon = document.createElement("span");
+        icon.className = "external-link-icon";
+        icon.setAttribute("aria-hidden", "true");
+        link.append(icon);
+
+        title.append(link);
+        return title;
+    };
+
+    const createRouteLine = (item) => {
+        const sectionStations = stations[item.segment] || [];
+        const startIndex = sectionStations.indexOf(item.start);
+        const endIndex = sectionStations.indexOf(item.end);
+        const low = Math.min(startIndex, endIndex);
+        const high = Math.max(startIndex, endIndex);
+        const divisor = Math.max(sectionStations.length - 1, 1);
+        const isSinglePoint = startIndex === endIndex;
+        const startPosition = isSinglePoint
+            ? Math.max(startIndex - 0.5, 0)
+            : low;
+        const endPosition = isSinglePoint
+            ? Math.min(startIndex + 0.5, divisor)
+            : high;
+        const startPercent = startPosition >= 0 ? (startPosition / divisor) * 100 : 0;
+        const endPercent = endPosition >= 0 ? (endPosition / divisor) * 100 : 0;
+
+        const route = document.createElement("div");
+        route.className = `hsr-route hsr-route-${item.operatorKey || "unknown"}`;
+        route.style.setProperty("--route-color", routeColors[item.operatorKey] || routeColors.unknown);
+        route.style.setProperty("--route-start", `${startPercent}%`);
+        route.style.setProperty("--route-end", `${endPercent}%`);
+
+        const track = document.createElement("div");
+        track.className = "hsr-route-track";
+        const segment = document.createElement("div");
+        segment.className = "hsr-route-segment";
+        track.append(segment);
+        route.append(track);
+
+        const stationWrap = document.createElement("div");
+        stationWrap.className = "hsr-route-stations";
+        sectionStations.forEach((station, index) => {
+            const stationNode = document.createElement("div");
+            stationNode.className = "hsr-route-station";
+            if (index >= low && index <= high) {
+                stationNode.classList.add("is-active");
+            }
+
+            const dot = document.createElement("span");
+            dot.className = "hsr-route-dot";
+            const label = document.createElement("span");
+            label.className = "hsr-route-label";
+            label.textContent = station;
+            stationNode.append(dot, label);
+            stationWrap.append(stationNode);
+        });
+        route.append(stationWrap);
+        return route;
+    };
+
+    const createHsrCard = (item, index) => {
+        const article = document.createElement("article");
+        article.className = "hsr-project-card";
+
+        const thumb = document.createElement("a");
+        thumb.className = "hsr-project-thumb";
+        thumb.href = item.url;
+        thumb.target = "_blank";
+        thumb.rel = "noopener noreferrer";
+        thumb.setAttribute("aria-label", `觀看影片：${item.title}`);
+
+        const image = document.createElement("img");
+        image.src = assetPath(item.thumbnail || "pic/YT_icon.png");
+        image.alt = `${item.title || `高鐵測試 ${index + 1}`} 縮圖`;
+        image.loading = index < 4 ? "eager" : "lazy";
+        thumb.append(image);
+
+        const body = document.createElement("div");
+        body.className = "hsr-project-body";
+        body.append(createVideoTitle(item));
+
+        const meta = document.createElement("div");
+        meta.className = "hsr-project-meta";
+
+        const date = document.createElement("time");
+        date.textContent = item.date || "";
+        meta.append(date);
+
+        const operator = document.createElement("span");
+        operator.className = "hsr-project-operator";
+        operator.textContent = operatorLabels[item.operatorKey] || item.operator || "";
+        operator.style.setProperty("--route-color", routeColors[item.operatorKey] || routeColors.unknown);
+        meta.append(operator);
+
+        const routeText = document.createElement("span");
+        routeText.textContent = item.start === item.end ? item.start : `${item.start}-${item.end}`;
+        meta.append(routeText);
+        body.append(meta, createRouteLine(item));
+
+        article.append(thumb, body);
+        return article;
+    };
+
+    const renderSection = (segment) => {
+        const target = sectionTargets[segment];
+        if (!target?.list) {
+            return 0;
+        }
+        const sectionItems = items.filter((item) => item.segment === segment);
+        const visibleItems = target.expanded ? sectionItems : sectionItems.slice(0, previewCount);
+        target.list.replaceChildren(...visibleItems.map(createHsrCard));
+
+        if (target.toggle) {
+            const shouldShowToggle = sectionItems.length > previewCount;
+            target.toggle.hidden = !shouldShowToggle;
+            target.toggle.setAttribute("aria-expanded", String(target.expanded));
+            target.toggle.textContent = target.expanded ? "收合" : "展開全部";
+        }
+        return sectionItems.length;
+    };
+
+    Object.entries(sectionTargets).forEach(([segment, target]) => {
+        if (target.toggle) {
+            target.toggle.addEventListener("click", () => {
+                target.expanded = !target.expanded;
+                renderSection(segment);
+            });
+        }
+    });
+
+    renderSection("north");
+    renderSection("south");
 }
 
 const mergeZonePage = document.querySelector(".merge-zone-page");
@@ -1080,6 +1263,7 @@ if (speedDatabasePage) {
     const columnLabels = {
         影片: "測試影片(點選可觀看)",
     };
+    const searchableColumns = displayColumns.filter((column) => column !== "所屬播放清單");
     const rows = Array.isArray(source.rows) ? source.rows : [];
     const operatorSelect = speedDatabasePage.querySelector("#databaseOperator");
     const contentSelect = speedDatabasePage.querySelector("#databaseContent");
@@ -1228,7 +1412,7 @@ if (speedDatabasePage) {
         const contentRule = contentRules[contentSelect.value] || contentRules.all;
         const cityValue = playlistSelect.value;
         const projectValue = projectSelect.value;
-        const rowMatchesKeyword = !activeKeyword || displayColumns
+        const rowMatchesKeyword = !activeKeyword || searchableColumns
             .some((column) => String(row[column] || "").toLowerCase().includes(activeKeyword));
 
         return operatorRule(String(row["測試電信"] || ""))
