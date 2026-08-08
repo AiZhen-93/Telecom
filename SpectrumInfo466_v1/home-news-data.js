@@ -1,6 +1,26 @@
 window.homeNewsData = [
   {
     "source": "回報",
+    "date": "2026/8/8",
+    "category": "頻率改配",
+    "operator": "中華",
+    "area": "高雄鹽埕",
+    "site": "調查中",
+    "content": "調整5G n78 SSB頻點[630912]→[628704]",
+    "link": null
+  },
+  {
+    "source": "回報",
+    "date": "2026/8/8",
+    "category": "授權升級",
+    "operator": "遠傳",
+    "area": "高捷橘線",
+    "site": "調查中",
+    "content": "捷運地下段開出B3+B7 UL CA",
+    "link": null
+  },
+  {
+    "source": "回報",
     "date": "2026/7/27",
     "category": "核網異常",
     "operator": "遠傳",

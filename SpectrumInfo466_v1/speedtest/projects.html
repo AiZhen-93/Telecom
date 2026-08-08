@@ -6,6 +6,7 @@
     <title>測速專案</title>
     <link rel="icon" href="../favicon.ico">
     <link rel="stylesheet" href="../style.css">
+    <script src="../hsr-project-data.js" defer></script>
     <script src="../script.js" defer></script>
 </head>
 <body>
@@ -61,9 +62,38 @@
                 </ul>
             </nav>
         </header>
-        <main class="content-area unavailable-page" aria-label="測速專案">
-            <section class="unavailable-message" aria-label="頁面狀態">
-                <p>尚未開放，蓁心期待</p>
+        <main class="content-area hsr-project-page" aria-label="測速專案">
+            <section class="spectrum-toolbar hsr-project-toolbar" aria-label="高鐵測試">
+                <div>
+                    <p class="section-kicker">Taiwan High Speed Rail</p>
+                    <h1>高鐵測試</h1>
+                    <p class="spectrum-updated">更新於:2026/08/07</p>
+                </div>
+                <div class="scan-banner hsr-banner" aria-hidden="true">
+                    <img src="../pic/HSR.jpg" alt="">
+                </div>
+            </section>
+
+            <section class="hsr-project-section" aria-labelledby="hsrNorthTitle">
+                <div class="hsr-section-heading">
+                    <h2 id="hsrNorthTitle">高鐵北段</h2>
+                    <p>台中、苗栗、新竹、桃園、板橋、台北、南港</p>
+                </div>
+                <div class="hsr-project-list" id="hsrNorthList"></div>
+                <button class="news-toggle-button hsr-toggle-button" id="hsrNorthToggle" type="button" aria-expanded="false">
+                    展開全部
+                </button>
+            </section>
+
+            <section class="hsr-project-section" aria-labelledby="hsrSouthTitle">
+                <div class="hsr-section-heading">
+                    <h2 id="hsrSouthTitle">高鐵南段</h2>
+                    <p>左營、台南、嘉義、雲林、彰化、台中</p>
+                </div>
+                <div class="hsr-project-list" id="hsrSouthList"></div>
+                <button class="news-toggle-button hsr-toggle-button" id="hsrSouthToggle" type="button" aria-expanded="false">
+                    展開全部
+                </button>
             </section>
         </main>
         <footer class="site-footer" aria-label="網站資訊">
