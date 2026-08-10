@@ -556,6 +556,139 @@ a {
     opacity: 0.34;
 }
 
+.drill-countdown-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: grid;
+    place-items: center;
+    padding: clamp(0.75rem, 2.2vw, 1.4rem);
+    background: rgba(2, 8, 12, 0.72);
+    backdrop-filter: blur(8px);
+}
+
+.drill-countdown-modal[hidden] {
+    display: none;
+}
+
+.drill-countdown-card {
+    width: min(100%, 50rem);
+    padding: clamp(0.8rem, 1.9vw, 1.15rem);
+    border: 1px solid rgba(139, 232, 255, 0.28);
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(255, 200, 87, 0.1), transparent 34%),
+        linear-gradient(225deg, rgba(39, 225, 187, 0.08), transparent 42%),
+        rgba(7, 18, 24, 0.96);
+    box-shadow: 0 28px 72px rgba(0, 0, 0, 0.45);
+}
+
+.drill-countdown-card h2 {
+    margin: 0 0 0.7rem;
+    color: var(--text);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.35;
+    letter-spacing: 0;
+}
+
+.drill-countdown-body {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.68fr) minmax(16rem, 1fr);
+    gap: clamp(0.7rem, 1.5vw, 1rem);
+    align-items: stretch;
+}
+
+.drill-map-stage {
+    display: grid;
+    min-height: clamp(13rem, 26vw, 18rem);
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(139, 232, 255, 0.14);
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(82, 169, 255, 0.08), rgba(255, 200, 87, 0.04)),
+        rgba(5, 15, 21, 0.62);
+}
+
+.drill-countdown-map {
+    width: min(100%, 12.5rem);
+    min-height: 13rem;
+}
+
+.drill-countdown-map .taiwan-county {
+    cursor: default;
+    pointer-events: none;
+}
+
+.drill-countdown-map .taiwan-county.is-drill-area {
+    fill: #ffc857;
+    stroke: #fff8d8;
+    filter: drop-shadow(0 0 10px rgba(255, 200, 87, 0.48));
+}
+
+.drill-countdown-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 100%;
+    padding: clamp(0.75rem, 1.5vw, 1rem);
+    border: 1px solid rgba(139, 232, 255, 0.14);
+    border-radius: 8px;
+    background: rgba(5, 15, 21, 0.58);
+}
+
+.drill-countdown-note {
+    margin: 0 0 0.1rem;
+    color: var(--muted);
+    font-size: clamp(0.8rem, 1.45vw, 0.9rem);
+    line-height: 1.7;
+}
+
+.drill-countdown-note a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+.drill-countdown-label {
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
+.drill-countdown-time {
+    color: var(--accent);
+    font-family: "DS-Digital", "Digital-7", "Share Tech Mono", "Orbitron", "Courier New", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(2.15rem, 5.8vw, 4.1rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0;
+    text-shadow:
+        0 0 8px rgba(39, 225, 187, 0.52),
+        0 0 18px rgba(39, 225, 187, 0.26);
+}
+
+.drill-countdown-close {
+    display: block;
+    min-width: 8rem;
+    margin: 0.75rem auto 0;
+    padding: 0.58rem 1.25rem;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #041017;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.drill-countdown-close:hover,
+.drill-countdown-close:focus-visible {
+    background: #8be8ff;
+    outline: none;
+}
+
 .regional-map-info {
     display: flex;
     flex-direction: column;
@@ -5536,6 +5669,19 @@ a {
 
     .regional-map-panel {
         grid-template-columns: 1fr;
+    }
+
+    .drill-countdown-body {
+        grid-template-columns: 1fr;
+    }
+
+    .drill-map-stage {
+        min-height: 12.5rem;
+    }
+
+    .drill-countdown-info {
+        align-items: center;
+        text-align: center;
     }
 
     .refarming-map-grid {
