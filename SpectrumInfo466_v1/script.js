@@ -103,8 +103,15 @@ if (homePage) {
         currentTime.dateTime = now.toISOString();
     };
 
-    updateCurrentTime();
-    setInterval(updateCurrentTime, 30000);
+    const scheduleCurrentTimeUpdate = () => {
+        updateCurrentTime();
+        const now = new Date();
+        const nextMinuteDelay = ((60 - now.getSeconds()) * 1000) - now.getMilliseconds() + 50;
+        window.setTimeout(scheduleCurrentTimeUpdate, Math.max(250, nextMinuteDelay));
+    };
+
+    scheduleCurrentTimeUpdate();
+    document.addEventListener("visibilitychange", updateCurrentTime);
 
     const marqueeText = homePage.querySelector("#homeMarqueeText");
     const marqueeFallbackMessage = "歡迎來到愛蓁電信工作室 - 頻譜資訊網~";
