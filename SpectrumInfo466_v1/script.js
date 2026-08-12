@@ -1213,18 +1213,23 @@ if (speedMapPage) {
 
 const drillCountdownModal = document.querySelector("#drillCountdownModal");
 if (drillCountdownModal) {
-    const drillCountdownTarget = new Date("2026-08-10T14:30:00+08:00").getTime();
+    const drillCountdownTarget = new Date("2026-08-13T14:30:00+08:00").getTime();
     const countdownTime = drillCountdownModal.querySelector("#drillCountdownTime");
     const countdownClose = drillCountdownModal.querySelector("#drillCountdownClose");
     const countdownMap = drillCountdownModal.querySelector("#drillCountdownMap");
-    const drillCounties = new Set(["台中市", "苗栗縣", "南投縣", "彰化縣", "雲林縣", "嘉義縣", "嘉義市"]);
+    const drillCounties = new Set(["台北市", "新北市", "桃園市", "新竹縣", "新竹市", "宜蘭縣", "基隆市"]);
     let countdownTimer = null;
+    let countdownCloseTimer = null;
 
     const closeDrillCountdown = () => {
         drillCountdownModal.hidden = true;
         if (countdownTimer) {
             window.clearInterval(countdownTimer);
             countdownTimer = null;
+        }
+        if (countdownCloseTimer) {
+            window.clearTimeout(countdownCloseTimer);
+            countdownCloseTimer = null;
         }
         document.removeEventListener("keydown", handleDrillCountdownKeydown);
     };
@@ -1237,10 +1242,23 @@ if (drillCountdownModal) {
 
     const formatCountdownValue = (value) => String(value).padStart(2, "0");
 
+    const scheduleDrillCountdownClose = () => {
+        if (countdownTime) {
+            countdownTime.textContent = "00:00:00";
+        }
+        if (countdownTimer) {
+            window.clearInterval(countdownTimer);
+            countdownTimer = null;
+        }
+        if (!countdownCloseTimer) {
+            countdownCloseTimer = window.setTimeout(closeDrillCountdown, 3000);
+        }
+    };
+
     const updateDrillCountdown = () => {
         const remaining = drillCountdownTarget - Date.now();
         if (remaining <= 0) {
-            closeDrillCountdown();
+            scheduleDrillCountdownClose();
             return;
         }
 
