@@ -1,6 +1,16 @@
 window.homeNewsData = [
   {
     "source": "回報",
+    "date": "2026/8/13",
+    "category": "站台異常",
+    "operator": "遠傳",
+    "area": "宜蘭",
+    "site": "部分",
+    "content": "因光纜故障造成宜蘭三星、大同、東山、南澳、蘇澳等部分基地台無法正常運作",
+    "link": null
+  },
+  {
+    "source": "回報",
     "date": "2026/8/8",
     "category": "頻率改配",
     "operator": "中華",
