@@ -6,7 +6,7 @@ window.homeNewsData = [
     "operator": "遠傳",
     "area": "宜蘭",
     "site": "部分",
-    "content": "因光纜故障造成宜蘭三星、大同、東山、南澳、蘇澳等部分基地台無法正常運作",
+    "content": "因光纜故障造成宜蘭三星、大同、冬山、南澳、蘇澳等部分基地台無法正常運作",
     "link": null
   },
   {
