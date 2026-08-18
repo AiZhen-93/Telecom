@@ -553,9 +553,10 @@ if (projectVideosPage) {
     const createCard = (item, index) => {
         const article = document.createElement("article");
         article.className = "project-video-card";
+        const typeClass = typeClasses[item.type] || "";
 
         const thumbWrap = document.createElement(item.url ? "a" : "div");
-        thumbWrap.className = "project-video-thumb";
+        thumbWrap.className = `project-video-thumb ${typeClass}`.trim();
         if (item.url) {
             thumbWrap.href = item.url;
             thumbWrap.target = "_blank";
@@ -578,7 +579,7 @@ if (projectVideosPage) {
 
         if (item.type) {
             const badge = document.createElement("span");
-            badge.className = `project-video-badge ${typeClasses[item.type] || ""}`.trim();
+            badge.className = `project-video-badge ${typeClass}`.trim();
             badge.textContent = item.type;
             meta.append(badge);
         }
