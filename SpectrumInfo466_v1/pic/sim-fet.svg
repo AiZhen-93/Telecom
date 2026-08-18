@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 84" role="img" aria-label="FET SIM icon">
+  <defs>
+    <linearGradient id="simFet" x1="10" y1="8" x2="58" y2="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff9aa0"/>
+      <stop offset="0.55" stop-color="#ff4242"/>
+      <stop offset="1" stop-color="#a60f1c"/>
+    </linearGradient>
+  </defs>
+  <path d="M12 4h34l10 10v62a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4Z" fill="url(#simFet)" stroke="#ffd2d5" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="18" y="27" width="28" height="25" rx="3.5" fill="#2a070b" opacity="0.92"/>
+  <path d="M25 27v25M39 27v25M18 39.5h28" stroke="#ffb8bd" stroke-width="2" opacity="0.85"/>
+  <circle cx="22" cy="66" r="2.6" fill="#ffd2d5"/>
+  <circle cx="32" cy="66" r="2.6" fill="#ffd2d5"/>
+  <circle cx="42" cy="66" r="2.6" fill="#ffd2d5"/>
+</svg>
