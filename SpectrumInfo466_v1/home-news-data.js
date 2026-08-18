@@ -15,7 +15,7 @@ window.homeNewsData = [
     "category": "頻率改配",
     "operator": "中華",
     "area": "高雄鹽埕",
-    "site": "調查中",
+    "site": "少數",
     "content": "調整5G n78 SSB頻點[630912]→[628704]",
     "link": null
   },
@@ -25,7 +25,7 @@ window.homeNewsData = [
     "category": "授權升級",
     "operator": "遠傳",
     "area": "高捷橘線",
-    "site": "調查中",
+    "site": "少數",
     "content": "捷運地下段開出B3+B7 UL CA",
     "link": null
   },
@@ -231,7 +231,7 @@ window.homeNewsData = [
   },
   {
     "source": "業者+實測",
-    "date": "2025/1/8",
+    "date": "2026/1/8",
     "category": "頻率改配",
     "operator": "原亞太",
     "area": "全區",
@@ -241,7 +241,7 @@ window.homeNewsData = [
   },
   {
     "source": "實測",
-    "date": "2024/12/24",
+    "date": "2025/12/24",
     "category": "頻率改配",
     "operator": "遠傳",
     "area": "淡水",
@@ -861,7 +861,7 @@ window.homeNewsData = [
   },
   {
     "source": "實測",
-    "date": "2026/1/14",
+    "date": "2024/3/19",
     "category": "授權升級",
     "operator": "台哥大/原台星",
     "area": "台中東區",

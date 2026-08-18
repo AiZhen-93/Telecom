@@ -1,5 +1,29 @@
 window.projectVideosData = [
     {
+        "date": "2026/8/16",
+        "type": "彙報",
+        "title": "愛蓁電信工作室 - 頻譜資訊網正式版終於上線啦！聊聊最近各電信的頻率調整情形～",
+        "intro": "為了瞭解各電信頻段的分配與運用情形，愛蓁於2020年開始整理各電信頻譜及站台資料，並於2022年8月正式發布「頻譜資訊網」Beta版於Github Page上，如今有了AI技術的加持，加上愛蓁多年來持續地整理資料，終於可以將那Excel表單式的枯燥版面，轉變為煥然一新的正式版網頁！藉由這25分鐘的閒聊，一同瞭解正式版頻譜資訊網的各項頁面，和近兩年各電信的演變、調整吧！",
+        "url": "https://www.youtube.com/watch?v=gJD8Qtltso0",
+        "thumbnail": "pic/project-video-01-gJD8Qtltso0.jpg"
+    },
+    {
+        "date": "2026/8/11",
+        "type": "實測",
+        "title": "中華5G／遠傳5G／台哥大5G 2026城鎮韌性演習結束 - 中部地區警報接收情形 | 行動網路提前於14:51左右恢復 2026/08/10",
+        "intro": "配合城鎮韌性(防空)演習，115年8月10日14時30分至15時中部地區（臺中市、苗栗縣、南投縣、彰化縣、雲林縣、嘉義縣、嘉義市）將實施行動通訊網路降速演練。相關演練事宜可至NCC通傳會官網查詢：https://gov.tw/KxS",
+        "url": "https://www.youtube.com/watch?v=6GCyPWeZ9fg",
+        "thumbnail": "pic/project-video-02-6GCyPWeZ9fg.jpg"
+    },
+    {
+        "date": "2026/8/11",
+        "type": "實測",
+        "title": "中華5G／遠傳5G／台哥大5G 2026城鎮韌性演習開始 - 中部地區警報接收情形 | 行動網路降速監測 2026/08/10",
+        "intro": "配合城鎮韌性(防空)演習，115年8月10日14時30分至15時中部地區（臺中市、苗栗縣、南投縣、彰化縣、雲林縣、嘉義縣、嘉義市）將實施行動通訊網路降速演練。相關演練事宜可至NCC通傳會官網查詢：https://gov.tw/KxS",
+        "url": "https://www.youtube.com/watch?v=a-HhqVih4QQ",
+        "thumbnail": "pic/project-video-03-a-HhqVih4QQ.jpg"
+    },
+    {
         "date": "2026/6/12",
         "type": "軟體",
         "title": "網路信號大師(Network Signal Guru)教學 [3/3集] - 其他分頁功能 | 信令與事件 | 5G介面概覽",
