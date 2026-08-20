@@ -83,11 +83,38 @@ document.addEventListener("click", (event) => {
 const homePage = document.querySelector(".home-page");
 if (homePage) {
     const currentTime = homePage.querySelector("#homeCurrentTime");
+    const statusLineLink = homePage.querySelector(".status-line-link");
     const newsBody = homePage.querySelector("#homeNewsBody");
     const newsToggle = homePage.querySelector("#homeNewsToggle");
     const newsData = Array.isArray(window.homeNewsData) ? window.homeNewsData : [];
     const previewCount = 30;
     let isExpanded = false;
+
+    if (statusLineLink) {
+        statusLineLink.addEventListener("click", (event) => {
+            if (!statusLineLink.classList.contains("is-tooltip-open")) {
+                event.preventDefault();
+                statusLineLink.classList.add("is-tooltip-open");
+                statusLineLink.setAttribute("aria-expanded", "true");
+            }
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".status-line-link")) {
+                statusLineLink.classList.remove("is-tooltip-open");
+                statusLineLink.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        statusLineLink.addEventListener("blur", () => {
+            window.setTimeout(() => {
+                if (!statusLineLink.matches(":focus")) {
+                    statusLineLink.classList.remove("is-tooltip-open");
+                    statusLineLink.setAttribute("aria-expanded", "false");
+                }
+            }, 120);
+        });
+    }
 
     const updateCurrentTime = () => {
         if (!currentTime) {
@@ -1592,6 +1619,7 @@ if (maxSpeedPage) {
     const ulCaFieldset = maxSpeedPage.querySelector("#ulCaFieldset");
     const output = maxSpeedPage.querySelector("#maxSpeedOutput");
     const outputLabel = maxSpeedPage.querySelector("#maxSpeedLabel");
+    const caCombination = maxSpeedPage.querySelector("#caCombination");
     const speedLimitNote = maxSpeedPage.querySelector("#speedLimitNote");
     const hint = maxSpeedPage.querySelector("#bandHint");
     const qam256 = maxSpeedPage.querySelector("#qam256");
@@ -1915,6 +1943,71 @@ if (maxSpeedPage) {
     const selectedTechnology = () => technologySelect.value;
     const isUplink = () => selectedDirection() === "uplink";
     const activeBands = () => operatorBandsByDirection[selectedDirection()]?.[selectedTechnology()]?.[operatorSelect.value] || [];
+
+    const lteFrequencyMap = {
+        B28: { label: "700MHz", order: 700 },
+        B8: { label: "900MHz", order: 900 },
+        B3: { label: "1800MHz", order: 1800 },
+        B1: { label: "2100MHz", order: 2100 },
+        B7: { label: "2600MHz", order: 2600 },
+        B38: { label: "TD2600MHz", order: 2600 },
+        B41: { label: "TD2600MHz", order: 2600 },
+    };
+
+    const lteBandKey = (label) => {
+        if (label.startsWith("B38/B41")) {
+            return "B38";
+        }
+        const match = label.match(/^B\d+/);
+        return match ? match[0] : "";
+    };
+
+    const formatLteCombination = (bands) => {
+        const frequencies = bands
+            .map((band, index) => {
+                const frequency = lteFrequencyMap[lteBandKey(band.label)];
+                return frequency ? { ...frequency, index } : null;
+            })
+            .filter(Boolean)
+            .sort((a, b) => a.order - b.order || a.index - b.index)
+            .map((frequency) => frequency.label);
+
+        if (!frequencies.length) {
+            return "";
+        }
+
+        const caText = frequencies.length > 1 ? ` ${frequencies.length}CA，` : " ";
+        return `LTE${caText}${frequencies.join("+")}`;
+    };
+
+    const formatNsaCombination = (bands) => {
+        const nrCount = bands.filter((band) => band.category === "5g").length;
+        const lteCount = bands.filter((band) => band.category === "4g").length;
+        if (!nrCount) {
+            return "";
+        }
+
+        const parts = [nrCount > 1 ? `NR ${nrCount}CA` : "NR"];
+        if (lteCount) {
+            parts.push(lteCount > 1 ? `LTE ${lteCount}CA` : "LTE");
+        }
+        return parts.join(" + ");
+    };
+
+    const updateCaCombination = (bands) => {
+        if (!caCombination) {
+            return;
+        }
+
+        const text = !isUplink()
+            ? selectedTechnology() === "nsa"
+                ? formatNsaCombination(bands)
+                : formatLteCombination(bands)
+            : "";
+
+        caCombination.textContent = text;
+        caCombination.hidden = !text;
+    };
     const activeHint = () => defaultHints[selectedDirection()]?.[selectedTechnology()]?.[operatorSelect.value] || "";
     const selectedQuickConfig = () => form.querySelector('input[name="quickConfig"]:checked')?.value || "manual";
     const hasFetTddSelected = () => Boolean(
@@ -2711,6 +2804,7 @@ if (maxSpeedPage) {
 
     const calculateSpeed = () => {
         const selectedBands = getSelectedBands();
+        updateCaCombination(selectedBands);
         updateBandAvailability();
         updateUploadExtras();
         if (!activeBands().length) {
@@ -3312,6 +3406,7 @@ const liveSpeedPage = document.querySelector(".live-speed-page");
 if (liveSpeedPage) {
     const clientIp = liveSpeedPage.querySelector("#speedtestClientIp");
     const clientIsp = liveSpeedPage.querySelector("#speedtestClientIsp");
+    const clientLocation = liveSpeedPage.querySelector("#speedtestClientLocation");
     const endpoint = "https://speed.cloudflare.com";
 
     const fetchWithCacheBust = (url, options = {}) => {
@@ -3340,9 +3435,24 @@ if (liveSpeedPage) {
         return response.json();
     };
 
-    const applyClientInfo = (ip, isp) => {
+    const formatClientLocation = (...parts) => {
+        const uniqueParts = [];
+        parts.forEach((part) => {
+            if (typeof part !== "string" || !part.trim()) {
+                return;
+            }
+            const value = part.trim();
+            if (!uniqueParts.some((item) => item.toLocaleLowerCase() === value.toLocaleLowerCase())) {
+                uniqueParts.push(value);
+            }
+        });
+        return uniqueParts.join("，");
+    };
+
+    const applyClientInfo = (ip, isp, location) => {
         clientIp.textContent = ip || "無法取得";
         clientIsp.textContent = isp || "無法取得";
+        clientLocation.textContent = location || "無法取得";
     };
 
     const loadClientInfo = async () => {
@@ -3354,15 +3464,24 @@ if (liveSpeedPage) {
             applyClientInfo(
                 data.ip,
                 data.connection?.isp || data.connection?.org || data.connection?.asn || data.org,
+                formatClientLocation(data.country, data.region, data.city),
             );
         } catch (error) {
             try {
                 const data = await loadJson("https://ipwhois.app/json/");
-                applyClientInfo(data.ip, data.isp || data.org || data.asn);
+                applyClientInfo(
+                    data.ip,
+                    data.isp || data.org || data.asn,
+                    formatClientLocation(data.country, data.region, data.city),
+                );
             } catch (secondaryError) {
                 try {
                     const data = await loadJson("https://ipapi.co/json/");
-                    applyClientInfo(data.ip, data.org || data.asn);
+                    applyClientInfo(
+                        data.ip,
+                        data.org || data.asn,
+                        formatClientLocation(data.country_name, data.region, data.city),
+                    );
                 } catch (thirdError) {
                     try {
                         const response = await fetchWithCacheBust(`${endpoint}/cdn-cgi/trace`);
@@ -3370,9 +3489,9 @@ if (liveSpeedPage) {
                             throw new Error("Cloudflare trace 沒有回應。");
                         }
                         const trace = parseCloudflareTrace(await response.text());
-                        applyClientInfo(trace.ip, "");
+                        applyClientInfo(trace.ip, "", "");
                     } catch (fallbackError) {
-                        applyClientInfo("", "");
+                        applyClientInfo("", "", "");
                     }
                 }
             }

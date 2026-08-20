@@ -1856,6 +1856,14 @@ a {
     text-shadow: 0 0 28px color-mix(in srgb, var(--operator-color), transparent 45%);
 }
 
+.ca-combination {
+    color: var(--accent);
+    font-size: 1.05rem;
+    font-weight: 900;
+    line-height: 1.35;
+    text-align: center;
+}
+
 .speed-limit-note {
     max-width: 18rem;
     margin-top: 0.45rem;
@@ -3089,7 +3097,7 @@ a {
 
 .speedtest-client-info {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.8rem;
     margin-top: 1.1rem;
 }
@@ -3519,8 +3527,22 @@ a {
     text-align: center;
     color: #dff8ff;
     background: rgba(10, 27, 36, 0.97);
-    font-size: 0.8rem;
+    font-size: 1rem;
     white-space: nowrap;
+}
+
+.sa-carrier-heading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.sa-carrier-heading img {
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 4px;
+    object-fit: contain;
 }
 
 .sa-rollout-table th:nth-child(1) {
@@ -3541,6 +3563,7 @@ a {
     vertical-align: middle;
     text-align: center;
     color: var(--accent);
+    font-size: 1.08rem;
     font-weight: 850;
     line-height: 1.45;
 }
@@ -4060,11 +4083,35 @@ a {
     cursor: help;
 }
 
+.status-line-link {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 1.28rem;
+    height: 1.28rem;
+    border-radius: 50%;
+    color: inherit;
+    line-height: 1;
+}
+
+.status-line-link img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.status-info:hover,
+.status-info:focus-visible,
+.status-line-link:hover,
+.status-line-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(39, 225, 187, 0.12);
+}
+
 .status-info:hover,
 .status-info:focus-visible {
-    outline: none;
     border-color: rgba(39, 225, 187, 0.72);
-    box-shadow: 0 0 0 3px rgba(39, 225, 187, 0.12);
 }
 
 .status-tooltip {
@@ -4106,7 +4153,10 @@ a {
 }
 
 .status-info:hover .status-tooltip,
-.status-info:focus-visible .status-tooltip {
+.status-info:focus-visible .status-tooltip,
+.status-line-link:hover .status-tooltip,
+.status-line-link:focus-visible .status-tooltip,
+.status-line-link.is-tooltip-open .status-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0);
