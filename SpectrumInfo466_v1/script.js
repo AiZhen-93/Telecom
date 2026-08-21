@@ -3500,6 +3500,7 @@ if (liveSpeedPage) {
 
     const ispDisplayNames = {
         "Data Communication Business Group": "中華電信數據通信分公司",
+        "Mobile Business Group": "中華電信行動通信分公司",
         "Far EastTone Telecommunication Co., Ltd.": "遠傳電信股份有限公司",
         "taiwanmobile-as - Taiwan Mobile Co., Ltd.": "台灣大哥大股份有限公司",
     };
