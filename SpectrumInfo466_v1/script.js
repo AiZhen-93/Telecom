@@ -37,6 +37,61 @@ const updateVisitCount = async () => {
 
 updateVisitCount();
 
+const closeOpenSubmenus = () => {
+    document.querySelectorAll(".has-submenu.open").forEach((item) => {
+        item.classList.remove("open");
+        const button = item.querySelector(".nav-trigger");
+        if (button) {
+            button.setAttribute("aria-expanded", "false");
+        }
+    });
+};
+
+const siteHeader = document.querySelector(".site-header");
+const mainNav = siteHeader?.querySelector(".main-nav");
+if (siteHeader && mainNav) {
+    if (!mainNav.id) {
+        mainNav.id = "mainNavigation";
+    }
+
+    const menuButton = document.createElement("button");
+    menuButton.className = "mobile-menu-button";
+    menuButton.type = "button";
+    menuButton.setAttribute("aria-label", "開啟主選單");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-controls", mainNav.id);
+    menuButton.innerHTML = "<span></span><span></span><span></span>";
+    siteHeader.insertBefore(menuButton, mainNav);
+    siteHeader.classList.add("has-mobile-menu");
+
+    menuButton.addEventListener("click", () => {
+        const isOpen = siteHeader.classList.toggle("menu-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "關閉主選單" : "開啟主選單");
+        if (!isOpen) {
+            closeOpenSubmenus();
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!siteHeader.contains(event.target)) {
+            siteHeader.classList.remove("menu-open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "開啟主選單");
+            closeOpenSubmenus();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            siteHeader.classList.remove("menu-open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "開啟主選單");
+            closeOpenSubmenus();
+        }
+    });
+}
+
 document.querySelectorAll(".footer-back-top").forEach((button) => {
     button.addEventListener("click", (event) => {
         event.preventDefault();
@@ -71,13 +126,7 @@ document.addEventListener("click", (event) => {
         return;
     }
 
-    document.querySelectorAll(".has-submenu.open").forEach((item) => {
-        item.classList.remove("open");
-        const button = item.querySelector(".nav-trigger");
-        if (button) {
-            button.setAttribute("aria-expanded", "false");
-        }
-    });
+    closeOpenSubmenus();
 });
 
 const homePage = document.querySelector(".home-page");
@@ -3449,9 +3498,23 @@ if (liveSpeedPage) {
         return uniqueParts.join("，");
     };
 
+    const ispDisplayNames = {
+        "Data Communication Business Group": "中華電信數據通信分公司",
+        "Far EastTone Telecommunication Co., Ltd.": "遠傳電信股份有限公司",
+        "taiwanmobile-as - Taiwan Mobile Co., Ltd.": "台灣大哥大股份有限公司",
+    };
+
+    const formatIspName = (isp) => {
+        if (typeof isp !== "string" || !isp.trim()) {
+            return "";
+        }
+        const value = isp.trim();
+        return ispDisplayNames[value] || value;
+    };
+
     const applyClientInfo = (ip, isp, location) => {
         clientIp.textContent = ip || "無法取得";
-        clientIsp.textContent = isp || "無法取得";
+        clientIsp.textContent = formatIspName(isp) || "無法取得";
         clientLocation.textContent = location || "無法取得";
     };
 
