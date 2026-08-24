@@ -1,6 +1,16 @@
 window.homeNewsData = [
   {
     "source": "回報",
+    "date": "2026/8/23",
+    "category": "核網異常",
+    "operator": "台哥大/原台星",
+    "area": "雙北、高雄",
+    "site": "少數",
+    "content": "15:05發布PWS警訊「甲仙和安里土石流警戒」，因設定異常導致部分非警戒區外亦收到訊息",
+    "link": "https://cbs.tw/26083cdd52e9"
+  },
+  {
+    "source": "回報",
     "date": "2026/8/13",
     "category": "站台異常",
     "operator": "遠傳",
