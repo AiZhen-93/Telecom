@@ -2105,15 +2105,17 @@ if (maxSpeedPage) {
         return match ? match[0] : "";
     };
 
+    const sortByLteFrequency = (bands) => bands
+        .map((band, index) => {
+            const frequency = lteFrequencyMap[lteBandKey(band.label)];
+            return frequency ? { ...band, frequencyOrder: frequency.order, originalIndex: index } : null;
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.frequencyOrder - b.frequencyOrder || a.originalIndex - b.originalIndex);
+
     const formatLteCombination = (bands) => {
-        const frequencies = bands
-            .map((band, index) => {
-                const frequency = lteFrequencyMap[lteBandKey(band.label)];
-                return frequency ? { ...frequency, index } : null;
-            })
-            .filter(Boolean)
-            .sort((a, b) => a.order - b.order || a.index - b.index)
-            .map((frequency) => frequency.label);
+        const frequencies = sortByLteFrequency(bands)
+            .map((band) => lteFrequencyMap[lteBandKey(band.label)].label);
 
         if (!frequencies.length) {
             return "";
@@ -2183,18 +2185,25 @@ if (maxSpeedPage) {
         }
 
         const totalBandwidth = bandWidths.reduce((sum, band) => sum + band.bandwidth, 0);
-        const detail = selectedTechnology() === "nsa"
-            ? [
-                bandWidths
-                    .filter((band) => band.category === "5g")
-                    .reduce((sum, band) => sum + band.bandwidth, 0),
-                bandWidths
-                    .filter((band) => band.category === "4g")
-                    .reduce((sum, band) => sum + band.bandwidth, 0),
-            ].join("+")
-            : bandWidths.map((band) => band.bandwidth).join("+");
+        let detail = "";
+        if (selectedTechnology() === "nsa") {
+            const nrBandwidth = bandWidths
+                .filter((band) => band.category === "5g")
+                .reduce((sum, band) => sum + band.bandwidth, 0);
+            const lteBandwidth = bandWidths
+                .filter((band) => band.category === "4g")
+                .reduce((sum, band) => sum + band.bandwidth, 0);
+            detail = lteBandwidth > 0 ? `${nrBandwidth}+${lteBandwidth}` : "";
+        } else if (bandWidths.length > 1) {
+            detail = sortByLteFrequency(bands)
+                .map((band) => downlinkBandwidths[band.id] || 0)
+                .filter((bandwidth) => bandwidth > 0)
+                .join("+");
+        }
 
-        bandwidthSummary.textContent = `總頻寬${totalBandwidth}MHz (${detail})`;
+        bandwidthSummary.textContent = detail
+            ? `總頻寬${totalBandwidth}MHz (${detail})`
+            : `總頻寬${totalBandwidth}MHz`;
         bandwidthSummary.hidden = false;
     };
     const activeHint = () => defaultHints[selectedDirection()]?.[selectedTechnology()]?.[operatorSelect.value] || "";
