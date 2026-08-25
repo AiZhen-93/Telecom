@@ -1522,6 +1522,90 @@ a {
     min-width: 1650px;
 }
 
+.tac-search-panel {
+    display: grid;
+    grid-template-columns: max-content minmax(20rem, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+    margin-bottom: 1rem;
+}
+
+.tac-search-form,
+.tac-search-result {
+    min-height: 4.2rem;
+    border: 1px solid rgba(139, 232, 255, 0.18);
+    border-radius: 8px;
+    background: rgba(6, 17, 23, 0.56);
+}
+
+.tac-search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.9rem;
+}
+
+.tac-search-form label {
+    color: var(--text);
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.tac-search-form input {
+    flex: 0 0 7.2rem;
+    width: 7.2rem;
+    min-width: 7.2rem;
+    height: 2.35rem;
+    padding: 0 0.75rem;
+    border: 1px solid rgba(139, 232, 255, 0.28);
+    border-radius: 6px;
+    color: var(--text);
+    background: rgba(3, 11, 16, 0.72);
+}
+
+.tac-search-form button {
+    height: 2.35rem;
+    padding: 0 0.95rem;
+    border: 1px solid rgba(43, 226, 201, 0.42);
+    border-radius: 6px;
+    color: #021414;
+    background: var(--accent);
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.tac-search-form button:hover,
+.tac-search-form button:focus {
+    filter: brightness(1.08);
+}
+
+.tac-search-result {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.1rem;
+    padding: 0.85rem 1rem;
+    color: var(--muted);
+    font-weight: 700;
+    line-height: 1.7;
+}
+
+.tac-search-result.has-result {
+    color: var(--text);
+}
+
+.tac-search-carrier.carrier-cht {
+    color: #56a8ff;
+}
+
+.tac-search-carrier.carrier-fet {
+    color: #ff5b5b;
+}
+
+.tac-search-carrier.carrier-twm {
+    color: #ffb347;
+}
+
 .tac-table .empty-cell {
     background: transparent;
     border-color: rgba(255, 255, 255, 0.08);
@@ -1860,10 +1944,23 @@ a {
     text-shadow: 0 0 28px color-mix(in srgb, var(--operator-color), transparent 45%);
 }
 
+#maxSpeedLabel {
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+    line-height: 1.25;
+}
+
 .ca-combination {
     color: var(--accent);
     font-size: 1.05rem;
     font-weight: 900;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.bandwidth-summary {
+    color: #c9f7ff;
+    font-size: 1rem;
+    font-weight: 850;
     line-height: 1.35;
     text-align: center;
 }
@@ -3031,6 +3128,10 @@ a {
     color: var(--muted);
     font-size: 0.82rem;
     line-height: 1.45;
+}
+
+.band-option-spacer {
+    min-height: 2.85rem;
 }
 
 .band-option,
@@ -5923,6 +6024,18 @@ a {
         text-align: left;
     }
 
+    .tac-search-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .tac-search-form {
+        flex-wrap: wrap;
+    }
+
+    .tac-search-form label {
+        width: 100%;
+    }
+
     .home-top-grid {
         grid-template-columns: 1fr;
     }
@@ -6160,9 +6273,38 @@ a {
     }
 
     .quick-config-options,
-    .segmented-options,
-    .band-grid {
+    .segmented-options {
         grid-template-columns: 1fr;
+    }
+
+    .band-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.48rem;
+    }
+
+    .band-option {
+        min-height: 2.55rem;
+        padding: 0.48rem 0.52rem;
+        gap: 0.38rem;
+        font-size: 0.78rem;
+    }
+
+    .band-option input {
+        width: 0.92rem;
+        height: 0.92rem;
+    }
+
+    .band-option-spacer {
+        min-height: 2.55rem;
+    }
+
+    .speed-visual-panel {
+        min-height: 20rem;
+        padding: 1rem;
+    }
+
+    .base-station-hero {
+        width: min(100%, 12rem);
     }
 
     .maintenance-source-links {

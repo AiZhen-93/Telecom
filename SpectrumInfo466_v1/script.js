@@ -129,6 +129,65 @@ document.addEventListener("click", (event) => {
     closeOpenSubmenus();
 });
 
+const tacEnbPage = document.querySelector(".tac-enb-page");
+if (tacEnbPage) {
+    const tacSearchForm = tacEnbPage.querySelector("#tacSearchForm");
+    const tacSearchInput = tacEnbPage.querySelector("#tacSearchInput");
+    const tacSearchResult = tacEnbPage.querySelector("#tacSearchResult");
+    const tacCarrierColumns = [
+        { name: "中華電信", index: 2, className: "carrier-cht" },
+        { name: "遠傳電信", index: 3, className: "carrier-fet" },
+        { name: "台灣大哥大", index: 4, className: "carrier-twm" },
+    ];
+
+    const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const includesTrackingArea = (cellText, keyword) => {
+        const pattern = new RegExp(`(^|\\D)${escapeRegExp(keyword)}(?=\\D|$)`);
+        return pattern.test(cellText);
+    };
+
+    const tacRows = Array.from(tacEnbPage.querySelectorAll(".tac-table tbody tr"))
+        .map((row) => Array.from(row.children).map((cell) => cell.textContent.replace(/\s+/g, "")))
+        .filter((cells) => /^\d{3}$/.test(cells[0] || "") && cells[1]);
+
+    tacSearchForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const keyword = tacSearchInput.value.trim();
+        tacSearchResult.classList.remove("has-result");
+        tacSearchResult.replaceChildren();
+
+        if (!keyword) {
+            tacSearchResult.textContent = "請輸入 Tracking Area 後搜尋。";
+            return;
+        }
+
+        const matchesByCarrier = tacCarrierColumns
+            .map((carrier) => {
+                const areas = tacRows
+                    .filter((cells) => includesTrackingArea(cells[carrier.index] || "", keyword))
+                    .map((cells) => `${cells[0]}${cells[1]}`);
+                return areas.length ? { ...carrier, text: `${carrier.name}。${areas.join("、")}` } : null;
+            })
+            .filter(Boolean);
+
+        if (!matchesByCarrier.length) {
+            tacSearchResult.textContent = "查無相符資料。";
+            return;
+        }
+
+        tacSearchResult.classList.add("has-result");
+        matchesByCarrier.forEach((match, index) => {
+            if (index) {
+                tacSearchResult.append(document.createTextNode("；"));
+            }
+            const resultItem = document.createElement("span");
+            resultItem.className = `tac-search-carrier ${match.className}`;
+            resultItem.textContent = match.text;
+            tacSearchResult.append(resultItem);
+        });
+    });
+}
+
 const homePage = document.querySelector(".home-page");
 if (homePage) {
     const currentTime = homePage.querySelector("#homeCurrentTime");
@@ -1669,6 +1728,7 @@ if (maxSpeedPage) {
     const output = maxSpeedPage.querySelector("#maxSpeedOutput");
     const outputLabel = maxSpeedPage.querySelector("#maxSpeedLabel");
     const caCombination = maxSpeedPage.querySelector("#caCombination");
+    const bandwidthSummary = maxSpeedPage.querySelector("#bandwidthSummary");
     const speedLimitNote = maxSpeedPage.querySelector("#speedLimitNote");
     const hint = maxSpeedPage.querySelector("#bandHint");
     const qam256 = maxSpeedPage.querySelector("#qam256");
@@ -1992,6 +2052,40 @@ if (maxSpeedPage) {
     const selectedTechnology = () => technologySelect.value;
     const isUplink = () => selectedDirection() === "uplink";
     const activeBands = () => operatorBandsByDirection[selectedDirection()]?.[selectedTechnology()]?.[operatorSelect.value] || [];
+    const lteDownloadRowBreakAfter = new Set(["b1-500", "fet-b7-3250"]);
+
+    const downlinkBandwidths = {
+        "b1-500": 20,
+        "b3-1400": 10,
+        "b3-1750": 20,
+        "b7-3050": 20,
+        "b7-3400": 10,
+        "b8-3650": 10,
+        "b8-3750": 10,
+        "fet-b1-75": 15,
+        "fet-b3-1550": 20,
+        "fet-b7-3250": 20,
+        "fet-b28-9310": 20,
+        "fet-b28-9435": 5,
+        "fet-tdd-37900": 20,
+        "fet-tdd-38098": 20,
+        "twm-b1-250": 20,
+        "twm-b1-375": 5,
+        "twm-b3-1275": 15,
+        "twm-b7-2850": 20,
+        "twm-b8-3525": 5,
+        "twm-b28-9560": 20,
+        "n1-432030": 20,
+        "n8-191090": 10,
+        "n78-630912": 90,
+        "fet-n28-dss-152670": 20,
+        "fet-n28-156010": 20,
+        "fet-n38-n41-517230": 40,
+        "fet-n78-623328": 80,
+        "twm-n28-dss-158690": 20,
+        "twm-n78-620736": 40,
+        "twm-n78-634752": 60,
+    };
 
     const lteFrequencyMap = {
         B28: { label: "700MHz", order: 700 },
@@ -2056,6 +2150,52 @@ if (maxSpeedPage) {
 
         caCombination.textContent = text;
         caCombination.hidden = !text;
+    };
+
+    const updateBandwidthSummary = (bands) => {
+        if (!bandwidthSummary) {
+            return;
+        }
+
+        if (isUplink()) {
+            bandwidthSummary.textContent = "";
+            bandwidthSummary.hidden = true;
+            return;
+        }
+
+        const bandWidths = bands
+            .map((band) => ({
+                category: band.category,
+                bandwidth: downlinkBandwidths[band.id] || 0,
+            }))
+            .filter((band) => band.bandwidth > 0);
+
+        if (selectedTechnology() === "nsa" && !bandWidths.some((band) => band.category === "5g")) {
+            bandwidthSummary.textContent = "";
+            bandwidthSummary.hidden = true;
+            return;
+        }
+
+        if (!bandWidths.length) {
+            bandwidthSummary.textContent = "";
+            bandwidthSummary.hidden = true;
+            return;
+        }
+
+        const totalBandwidth = bandWidths.reduce((sum, band) => sum + band.bandwidth, 0);
+        const detail = selectedTechnology() === "nsa"
+            ? [
+                bandWidths
+                    .filter((band) => band.category === "5g")
+                    .reduce((sum, band) => sum + band.bandwidth, 0),
+                bandWidths
+                    .filter((band) => band.category === "4g")
+                    .reduce((sum, band) => sum + band.bandwidth, 0),
+            ].join("+")
+            : bandWidths.map((band) => band.bandwidth).join("+");
+
+        bandwidthSummary.textContent = `總頻寬${totalBandwidth}MHz (${detail})`;
+        bandwidthSummary.hidden = false;
     };
     const activeHint = () => defaultHints[selectedDirection()]?.[selectedTechnology()]?.[operatorSelect.value] || "";
     const selectedQuickConfig = () => form.querySelector('input[name="quickConfig"]:checked')?.value || "manual";
@@ -2260,6 +2400,13 @@ if (maxSpeedPage) {
                 <span>${band.label}</span>
             `;
             bandOptions.append(label);
+
+            if (!isUplink() && lteDownloadRowBreakAfter.has(band.id)) {
+                const spacer = document.createElement("div");
+                spacer.className = "band-option-spacer";
+                spacer.setAttribute("aria-hidden", "true");
+                bandOptions.append(spacer);
+            }
         });
 
         if (lastCategory === "5g") {
@@ -2854,6 +3001,7 @@ if (maxSpeedPage) {
     const calculateSpeed = () => {
         const selectedBands = getSelectedBands();
         updateCaCombination(selectedBands);
+        updateBandwidthSummary(selectedBands);
         updateBandAvailability();
         updateUploadExtras();
         if (!activeBands().length) {
@@ -3247,7 +3395,7 @@ if (maintenancePage) {
 
 const nightSleepPage = document.querySelector(".night-sleep-page");
 if (nightSleepPage) {
-    const sleepData = {"times":["00:00","00:15","00:30","00:45","01:00","01:15","01:30","01:45","02:00","02:15","02:30","02:45","03:00","03:15","03:30","03:45","04:00","04:15","04:30","04:45","05:00","05:15","05:30","05:45","06:00","06:15","06:30","06:45","07:00","07:15","07:30","07:45","08:00"],"operators":[{"key":"cht","label":"中華電信","bands":[{"label":"4G 900MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2600MHz","values":[100,60,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,60,100,100,100,100,100,100,100,100]},{"label":"5G 2100MHz","values":[100,90,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,90,100,100,100,100,100,100,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]}]},{"key":"fet","label":"遠傳電信","bands":[{"label":"4G 700MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,100,70,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,60,80,90,100,100,100,100]},{"label":"4G 2600MHz","values":[100,100,100,100,40,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,40,70,90,100,100,100,100]},{"label":"4G TD2600MHz","values":[100,100,100,100,80,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,70,100,100,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]}]},{"key":"twm","label":"台灣大哥大","bands":[{"label":"4G 700MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 900MHz","values":[100,100,100,100,100,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,80,80]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,60,50,40,40,40,40,40,40,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,100,100]},{"label":"4G 2600MHz","values":[100,100,100,100,100,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,100,100]}]}]};
+    const sleepData = {"times":["00:00","00:15","00:30","00:45","01:00","01:15","01:30","01:45","02:00","02:15","02:30","02:45","03:00","03:15","03:30","03:45","04:00","04:15","04:30","04:45","05:00","05:15","05:30","05:45","06:00","06:15","06:30","06:45","07:00","07:15","07:30","07:45","08:00"],"operators":[{"key":"cht","label":"中華電信","bands":[{"label":"4G 900MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2600MHz","values":[100,60,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,60,100,100,100,100,100,100,100,100]},{"label":"5G 2100MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"5G 3500MHz","values":[100,90,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,90,100,100,100,100,100,100,100,100]}]},{"key":"fet","label":"遠傳電信","bands":[{"label":"4G 700MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,100,70,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,60,80,90,100,100,100,100]},{"label":"4G 2600MHz","values":[100,100,100,100,40,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,40,70,90,100,100,100,100]},{"label":"4G TD2600MHz","values":[100,100,100,100,80,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,70,100,100,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]}]},{"key":"twm","label":"台灣大哥大","bands":[{"label":"4G 700MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 900MHz","values":[100,100,100,100,100,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,80,80]},{"label":"4G 1800MHz","values":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]},{"label":"4G 2100MHz","values":[100,100,100,60,50,40,40,40,40,40,40,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,100,100]},{"label":"4G 2600MHz","values":[100,100,100,100,100,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,100,100]},{"label":"5G 3500MHz","values":[100,100,100,100,100,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,100,100]}]}]};
     const slider = nightSleepPage.querySelector("#sleepTimeSlider");
     const playButton = nightSleepPage.querySelector("#sleepPlayButton");
     const clockLabel = nightSleepPage.querySelector("#sleepClockLabel");
@@ -3258,7 +3406,7 @@ if (nightSleepPage) {
     const ticks = nightSleepPage.querySelector(".sleep-time-ticks");
     let playbackTimer = null;
     const operatorNotes = {
-        cht: "2025年上半年開始實施些許站台2600MHz頻段夜間0時至6時休眠措施，並逐步提高比例，至2026年5月達到高峰，6月後又些許下調休眠站台比例。此外，部分5G n1頻段亦會實施休眠。",
+        cht: "2025年上半年開始實施些許站台2600MHz頻段夜間0時至6時休眠措施，並逐步提高比例，至2026年5月達到高峰，6月後又些許下調休眠站台比例。此外，部分5G n78頻段近期亦開始實施休眠。",
         fet: "最早開始實施夜間休眠的業者，於1時至6時30分關閉大多數2600MHz站台，後續再加入2100MHz頻段。合併亞太電信後，其TDD2600頻段也納入夜間休眠行列，恢復間多在上午6時30分或7時。",
         twm: "主要進行2100MHz的夜間休眠措施，開始時間視站台訊務量而定，從0時45分至3時45分不等，並於上午7時45分左右恢復。合併台灣之星後，其900MHz和2600MHz亦會實施夜間休眠。此外，5G n78頻段也會視情況頻實施休眠，可能僅休眠[620736]頻點或是[620736]和[634752]皆關閉。",
     };

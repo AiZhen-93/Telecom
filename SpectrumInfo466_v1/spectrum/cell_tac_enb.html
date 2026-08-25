@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAC&eNB表</title>
+    <title>基地台站號及追蹤區碼對照表</title>
     <link rel="icon" href="../favicon.ico">
     <link rel="stylesheet" href="../style.css">
     <script src="../script.js" defer></script>
@@ -61,15 +61,23 @@
                 </ul>
             </nav>
         </header>
-        <main class="content-area tac-enb-page" aria-label="TAC及eNB表">
-            <section class="spectrum-toolbar table-toolbar" aria-label="TAC及eNB表資訊">
+        <main class="content-area tac-enb-page" aria-label="基地台站號及追蹤區碼對照表">
+            <section class="spectrum-toolbar table-toolbar" aria-label="基地台站號及追蹤區碼對照表資訊">
                 <div>
                     <p class="section-kicker">TAC / eNB / gNB</p>
-                    <h1>TAC及eNB表</h1>
+                    <h1>基地台站號及追蹤區碼對照表</h1>
                     <p class="spectrum-updated">更新於: 2026/08/09</p>
                 </div>
             </section>
-            <section class="allocation-table-board tac-table-board" aria-label="TAC及eNB表">
+            <section class="tac-search-panel" aria-label="搜尋Tracking Area">
+                <form class="tac-search-form" id="tacSearchForm">
+                    <label for="tacSearchInput">搜尋Tracking Area</label>
+                    <input id="tacSearchInput" name="trackingArea" type="search" inputmode="numeric" autocomplete="off" placeholder="例如 19442">
+                    <button type="submit">搜尋</button>
+                </form>
+                <div class="tac-search-result" id="tacSearchResult" aria-live="polite">請輸入 Tracking Area 後搜尋。</div>
+            </section>
+            <section class="allocation-table-board tac-table-board" aria-label="基地台站號及追蹤區碼對照表">
                 <div class="allocation-table-scroll">
                     <table class="allocation-table tac-table">
                         <colgroup>
@@ -5754,7 +5762,7 @@
                     <p>聲明：本工作室僅在本網站和YouTube平台經營，於其他任何平台(包含但不限於IG、Threads、PTT、Dcard、bilibili等)<br>若有發現本方發文或留言皆為冒名使用，請勿受騙上當。<br>本網站所有電信相關資訊皆為免費提供，頁面中亦無插入任何廣告，若您想表達感謝或鼓勵我，可以在這裡 <a class="footer-inline-link" href="https://reurl.cc/rxeGN4" target="_blank" rel="noopener noreferrer">贊助愛蓁</a>。</p>
                 </div>
             </div>
-            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.1.5</span><a href="../changelog.txt" target="_blank" rel="noopener noreferrer">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 Ⓒ2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
+            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.1.6</span><a href="../changelog.txt" target="_blank" rel="noopener noreferrer">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 Ⓒ2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
         </footer>
     </div>
 </body>
