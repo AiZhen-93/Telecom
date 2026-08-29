@@ -4068,7 +4068,56 @@ if (phoneComboPage) {
         sourceText.textContent = `資料更新：${data.updated}`;
     }
 
-    const normalizeSearch = (value) => String(value || "").trim().toLocaleLowerCase("en-US");
+    const normalizeSearch = (value) => String(value || "")
+        .trim()
+        .toLocaleLowerCase("en-US")
+        .replace(/\s+/g, " ");
+    const normalizeCompactSearch = (value) => normalizeSearch(value).replace(/[\s()-]+/g, "");
+    const getPhoneSearchTargets = (row) => {
+        const brand = String(row.brand || "").trim();
+        const model = String(row.model || "").trim();
+        const targets = [
+            model,
+            brand,
+            `${brand} ${model}`,
+        ];
+        if (brand === "Xiaomi" && /^MI\s+/i.test(model)) {
+            const miLessModel = model.replace(/^MI\s+/i, "");
+            targets.push(miLessModel, `${brand} ${miLessModel}`);
+        }
+        return targets;
+    };
+    const matchesPhoneSearch = (row, query, compactQuery) => {
+        if (!query) {
+            return true;
+        }
+
+        if (getPhoneSearchTargets(row).some((target) => (
+            normalizeSearch(target).includes(query)
+            || normalizeCompactSearch(target).includes(compactQuery)
+        ))) {
+            return true;
+        }
+
+        const parts = query.split(" ").filter(Boolean);
+        if (parts.length < 2) {
+            return false;
+        }
+
+        const brandQuery = parts[0];
+        const modelQuery = parts.slice(1).join(" ");
+        if (!normalizeSearch(row.brand).includes(brandQuery)) {
+            return false;
+        }
+
+        const compactModelQuery = normalizeCompactSearch(modelQuery);
+        return getPhoneSearchTargets(row)
+            .filter((target) => normalizeSearch(target) !== normalizeSearch(row.brand))
+            .some((target) => (
+                normalizeSearch(target).includes(modelQuery)
+                || normalizeCompactSearch(target).includes(compactModelQuery)
+            ));
+    };
     const isUnknownValue = (value) => !value || value === "待確認";
 
     const makeIcon = (kind, label) => {
@@ -4219,9 +4268,10 @@ if (phoneComboPage) {
 
     const renderRows = () => {
         const query = normalizeSearch(searchTerm);
+        const compactQuery = normalizeCompactSearch(searchTerm);
         const filteredRows = phoneRows.filter((row) => {
             const matchesBrand = !selectedBrand || row.brand === selectedBrand;
-            const matchesSearch = !query || normalizeSearch(row.model).includes(query);
+            const matchesSearch = matchesPhoneSearch(row, query, compactQuery);
             return matchesBrand && matchesSearch;
         });
 
