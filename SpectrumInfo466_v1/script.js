@@ -1347,25 +1347,82 @@ if (speedMapPage) {
     setActiveRegion("north");
 }
 
-const drillCountdownModal = document.querySelector("#drillCountdownModal");
+const createEmergencyAlertModal = () => {
+    const modal = document.createElement("div");
+    modal.className = "drill-countdown-modal emergency-alert-modal";
+    modal.id = "drillCountdownModal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "drillCountdownTitle");
+    modal.hidden = true;
+
+    const card = document.createElement("div");
+    card.className = "drill-countdown-card emergency-alert-card";
+
+    const title = document.createElement("h2");
+    title.className = "emergency-alert-title";
+    title.id = "drillCountdownTitle";
+
+    const icon = document.createElement("img");
+    icon.className = "emergency-alert-icon";
+    icon.src = assetPath("pic/alert.png");
+    icon.alt = "";
+    icon.setAttribute("aria-hidden", "true");
+
+    title.append(icon, document.createTextNode("緊急地震速報(中央氣象署)"));
+
+    const content = document.createElement("div");
+    content.className = "emergency-alert-content";
+
+    const message = document.createElement("p");
+    message.id = "emergencyAlertMessage";
+    content.append(message);
+
+    const audio = document.createElement("audio");
+    audio.id = "emergencyAlertAudio";
+    audio.src = assetPath("PWS_alert.mp3");
+    audio.preload = "auto";
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "drill-countdown-close";
+    closeButton.id = "drillCountdownClose";
+    closeButton.type = "button";
+    closeButton.textContent = "關閉";
+
+    card.append(title, content, audio, closeButton);
+    modal.append(card);
+    document.body.append(modal);
+
+    return modal;
+};
+
+let drillCountdownModal = document.querySelector("#drillCountdownModal");
+if (!drillCountdownModal && document.body) {
+    drillCountdownModal = createEmergencyAlertModal();
+}
+
 if (drillCountdownModal) {
-    const drillCountdownTarget = new Date("2026-08-13T14:30:00+08:00").getTime();
-    const countdownTime = drillCountdownModal.querySelector("#drillCountdownTime");
     const countdownClose = drillCountdownModal.querySelector("#drillCountdownClose");
-    const countdownMap = drillCountdownModal.querySelector("#drillCountdownMap");
-    const drillCounties = new Set(["台北市", "新北市", "桃園市", "新竹縣", "新竹市", "宜蘭縣", "基隆市"]);
-    let countdownTimer = null;
-    let countdownCloseTimer = null;
+    const emergencyAlertAudio = drillCountdownModal.querySelector("#emergencyAlertAudio");
+    const emergencyAlertMessage = drillCountdownModal.querySelector("#emergencyAlertMessage");
+    const emergencyAlertFeedEndpoint = "https://aizhen-earthquake-alert.2010magnitude.workers.dev/";
+    const emergencyAlertFreshnessWindow = 3 * 60 * 1000;
+    const emergencyAlertPollInterval = 30 * 1000;
+    const emergencyAlertStorageKey = "aizhenLastEarthquakeAlertId";
+    let isCheckingEmergencyAlert = false;
+    let lastShownEmergencyAlertId = "";
+
+    try {
+        lastShownEmergencyAlertId = sessionStorage.getItem(emergencyAlertStorageKey) || "";
+    } catch (_error) {
+        lastShownEmergencyAlertId = "";
+    }
 
     const closeDrillCountdown = () => {
         drillCountdownModal.hidden = true;
-        if (countdownTimer) {
-            window.clearInterval(countdownTimer);
-            countdownTimer = null;
-        }
-        if (countdownCloseTimer) {
-            window.clearTimeout(countdownCloseTimer);
-            countdownCloseTimer = null;
+        if (emergencyAlertAudio) {
+            emergencyAlertAudio.pause();
+            emergencyAlertAudio.currentTime = 0;
         }
         document.removeEventListener("keydown", handleDrillCountdownKeydown);
     };
@@ -1376,59 +1433,120 @@ if (drillCountdownModal) {
         }
     }
 
-    const formatCountdownValue = (value) => String(value).padStart(2, "0");
-
-    const scheduleDrillCountdownClose = () => {
-        if (countdownTime) {
-            countdownTime.textContent = "00:00:00";
-        }
-        if (countdownTimer) {
-            window.clearInterval(countdownTimer);
-            countdownTimer = null;
-        }
-        if (!countdownCloseTimer) {
-            countdownCloseTimer = window.setTimeout(closeDrillCountdown, 3000);
-        }
-    };
-
-    const updateDrillCountdown = () => {
-        const remaining = drillCountdownTarget - Date.now();
-        if (remaining <= 0) {
-            scheduleDrillCountdownClose();
+    const renderAlertMessage = (message) => {
+        if (!emergencyAlertMessage) {
             return;
         }
 
-        const totalSeconds = Math.floor(remaining / 1000);
-        const hours = Math.floor(totalSeconds / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
+        emergencyAlertMessage.textContent = "";
+        const urlPattern = /(https?:\/\/[^\s，。；、]+)/g;
+        const lines = message.split(/\r?\n/);
+        lines.forEach((line, lineIndex) => {
+            if (lineIndex > 0) {
+                emergencyAlertMessage.append(document.createElement("br"));
+            }
 
-        if (countdownTime) {
-            countdownTime.textContent = `${formatCountdownValue(hours)}:${formatCountdownValue(minutes)}:${formatCountdownValue(seconds)}`;
+            let lastIndex = 0;
+            line.replace(urlPattern, (url, _match, offset) => {
+                emergencyAlertMessage.append(document.createTextNode(line.slice(lastIndex, offset)));
+                const link = document.createElement("a");
+                link.href = url;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.textContent = url;
+                emergencyAlertMessage.append(link);
+                lastIndex = offset + url.length;
+                return url;
+            });
+            emergencyAlertMessage.append(document.createTextNode(line.slice(lastIndex)));
+        });
+    };
+
+    const getEmergencyAlertId = (alert) => alert.id || `${alert.sent || ""}-${alert.text || ""}`;
+
+    const isFreshEmergencyAlert = (alert) => {
+        if (!alert?.isActive || !alert.text) {
+            return false;
+        }
+
+        if (!alert.sent) {
+            return true;
+        }
+
+        const sentTime = Date.parse(alert.sent);
+        if (!Number.isFinite(sentTime)) {
+            return false;
+        }
+
+        const alertAge = Date.now() - sentTime;
+        return alertAge >= 0 && alertAge <= emergencyAlertFreshnessWindow;
+    };
+
+    const rememberShownEmergencyAlert = (alertId) => {
+        lastShownEmergencyAlertId = alertId;
+        try {
+            sessionStorage.setItem(emergencyAlertStorageKey, alertId);
+        } catch (_error) {
+            // Storage may be unavailable in restrictive browser modes.
         }
     };
 
-    if (countdownMap && Array.isArray(taiwanMapCountyPaths)) {
-        taiwanMapCountyPaths.forEach((county) => {
-            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-            const isDrillArea = drillCounties.has(county.name);
-            path.setAttribute("d", county.path);
-            path.setAttribute("id", `drill-${county.id}`);
-            path.setAttribute("class", `taiwan-county${isDrillArea ? " is-drill-area" : ""}`);
-            path.setAttribute("aria-label", isDrillArea ? `${county.name}，演練區域` : county.name);
-            countdownMap.append(path);
-        });
-    }
+    const showEmergencyAlert = (alert) => {
+        const alertId = getEmergencyAlertId(alert);
+        if (!alertId || alertId === lastShownEmergencyAlertId) {
+            return;
+        }
 
-    if (Date.now() < drillCountdownTarget) {
-        updateDrillCountdown();
+        rememberShownEmergencyAlert(alertId);
+        renderAlertMessage(alert.text);
         drillCountdownModal.hidden = false;
-        countdownTimer = window.setInterval(updateDrillCountdown, 1000);
         document.addEventListener("keydown", handleDrillCountdownKeydown);
+        if (emergencyAlertAudio) {
+            emergencyAlertAudio.currentTime = 0;
+            const playPromise = emergencyAlertAudio.play();
+            if (playPromise) {
+                playPromise.catch(() => {});
+            }
+        }
         if (countdownClose) {
             countdownClose.focus();
         }
-    }
+    };
+
+    const checkLatestEarthquakeAlert = async () => {
+        if (isCheckingEmergencyAlert) {
+            return;
+        }
+
+        isCheckingEmergencyAlert = true;
+        try {
+            const response = await fetch(emergencyAlertFeedEndpoint, { cache: "no-store" });
+            if (!response.ok || response.type === "opaque") {
+                return;
+            }
+
+            const latestAlert = await response.json();
+            if (isFreshEmergencyAlert(latestAlert)) {
+                showEmergencyAlert(latestAlert);
+            }
+        } catch (_error) {
+            // Network failures should leave the homepage unchanged.
+        } finally {
+            isCheckingEmergencyAlert = false;
+        }
+    };
+
+    checkLatestEarthquakeAlert();
+    window.setInterval(() => {
+        if (!document.hidden) {
+            checkLatestEarthquakeAlert();
+        }
+    }, emergencyAlertPollInterval);
+    document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) {
+            checkLatestEarthquakeAlert();
+        }
+    });
 
     if (countdownClose) {
         countdownClose.addEventListener("click", closeDrillCountdown);
@@ -3887,4 +4005,324 @@ if (arfcnCalculator) {
             setResult("請輸入 ARFCN");
         }
     });
+}
+
+const phoneComboPage = document.querySelector(".phone-combo-page");
+if (phoneComboPage) {
+    const brandGrid = phoneComboPage.querySelector("#phoneBrandGrid");
+    const clearBrandButton = phoneComboPage.querySelector("#phoneBrandClear");
+    const searchForm = phoneComboPage.querySelector("#phoneSearchForm");
+    const searchInput = phoneComboPage.querySelector("#phoneSearchInput");
+    const socToggle = phoneComboPage.querySelector("#phoneSocToggle");
+    const n257Toggle = phoneComboPage.querySelector("#phoneN257Toggle");
+    const resultCount = phoneComboPage.querySelector("#phoneResultCount");
+    const tableBody = phoneComboPage.querySelector("#phoneComboBody");
+    const sourceText = phoneComboPage.querySelector("#phoneComboSource");
+    const data = window.phoneComboData || {};
+    const phoneRows = Array.isArray(data.rows) ? data.rows : [];
+    const brandOptions = [
+        { name: "Apple", logo: "pic/logo_apple.png" },
+        { name: "SAMSUNG", logo: "pic/logo_samsung.png" },
+        { name: "Xiaomi", logo: "pic/logo_xiaomi.png" },
+        { name: "POCO", logo: "pic/logo_poco.png" },
+        { name: "Google", logo: "pic/logo_google.png" },
+        { name: "SONY", logo: "pic/logo_sony.png" },
+        { name: "VIVO", logo: "pic/logo_vivo.png" },
+        { name: "OPPO", logo: "pic/logo_oppo.png" },
+        { name: "Realme", logo: "pic/logo_realme.png" },
+        { name: "ASUS", logo: "pic/logo_asus.png" },
+        { name: "HTC", logo: "pic/logo_htc.png" },
+        { name: "Motorola", logo: "pic/logo_motorola.png" },
+        { name: "NOKIA", logo: "pic/logo_nokia.png" },
+        { name: "SHARP", logo: "pic/logo_sharp.png" },
+        { name: "Lenovo", logo: "pic/logo_lenovo.png" },
+        { name: "LG", logo: "pic/logo_lg.png" },
+        { name: "Black Shark", logo: "pic/logo_blackshark.png" },
+        { name: "Nothing", logo: "pic/logo_nothing.png" },
+        { name: "HONOR", logo: "pic/logo_honor.png" },
+        { name: "TCL", logo: "pic/logo_tcl.png" },
+        { name: "HUAWEI", logo: "pic/logo_huawei.png" },
+    ];
+    let selectedBrand = "";
+    let searchTerm = "";
+
+    const updateColumnVisibility = () => {
+        phoneComboPage.classList.toggle("hide-soc", !socToggle?.checked);
+        phoneComboPage.classList.toggle("hide-n257", !n257Toggle?.checked);
+    };
+
+    const getVisibleColumnCount = () => {
+        let count = 14;
+        if (!socToggle?.checked) {
+            count -= 1;
+        }
+        if (!n257Toggle?.checked) {
+            count -= 1;
+        }
+        return count;
+    };
+
+    updateColumnVisibility();
+
+    if (sourceText && data.updated) {
+        sourceText.textContent = `資料更新：${data.updated}`;
+    }
+
+    const normalizeSearch = (value) => String(value || "").trim().toLocaleLowerCase("en-US");
+    const isUnknownValue = (value) => !value || value === "待確認";
+
+    const makeIcon = (kind, label) => {
+        const icon = document.createElement("span");
+        icon.className = `combo-icon is-${kind}`;
+        icon.setAttribute("aria-label", label);
+        icon.textContent = kind === "good" ? "✓" : kind === "bad" ? "✕" : kind === "unknown" ? "?" : "!";
+        return icon;
+    };
+
+    const appendValue = (container, text) => {
+        const label = document.createElement("span");
+        label.textContent = text;
+        container.append(label);
+    };
+
+    const getLteStatus = (carrier, value) => {
+        if (isUnknownValue(value)) {
+            return { kind: "unknown", label: "未知" };
+        }
+        if (value === "不支援") {
+            return { kind: "bad", label: "不支援" };
+        }
+        if (value === "半支援") {
+            return { kind: "mixed", label: "半支援" };
+        }
+        if ((carrier === "cht" && value === "5CA") || ((carrier === "fet" || carrier === "twm") && value === "4CA")) {
+            return { kind: "good", label: "完整支援" };
+        }
+        if ((carrier === "cht" && value === "4CA") || ((carrier === "fet" || carrier === "twm") && value === "3CA")) {
+            return { kind: "warn", label: "部分支援" };
+        }
+        if (carrier === "cht" && (value === "3CA" || value === "2CA")) {
+            return { kind: "mixed", label: "較低支援" };
+        }
+        if ((carrier === "fet" || carrier === "twm") && value === "2CA") {
+            return { kind: "mixed", label: "較低支援" };
+        }
+        return null;
+    };
+
+    const getNrStatus = (value) => {
+        if (isUnknownValue(value)) {
+            return { kind: "unknown", label: "未知" };
+        }
+        if (value === "支援") {
+            return { kind: "good", label: "支援" };
+        }
+        if (value === "不支援") {
+            return { kind: "bad", label: "不支援" };
+        }
+        if (value === "半支援") {
+            return { kind: "mixed", label: "半支援" };
+        }
+        return null;
+    };
+
+    const endcGoodCombos = {
+        cht: new Set([
+            "n78+LTE 5CA",
+            "n1+LTE 5CA",
+            "n8+LTE 5CA",
+            "n78+n1+LTE 5CA",
+            "n8+LTE 4CA",
+            "n78+n1+LTE 4CA",
+        ]),
+        fet: new Set([
+            "n78+LTE 4CA",
+            "n78+n38/41+LTE 2CA",
+            "n78+n41+LTE 2CA",
+            "n78+n38+LTE 2CA",
+            "n28+LTE 3CA",
+            "n78+n28+LTE 3CA",
+            "n78+n38+LTE 3CA",
+        ]),
+        twm: new Set([
+            "n78+LTE 4CA",
+            "n78+n78+LTE 4CA",
+            "n78+n28+LTE 3CA",
+            "n28+n78+LTE 3CA",
+            "n28+LTE 3CA",
+        ]),
+    };
+
+    const getEndcStatus = (carrier, value) => {
+        if (isUnknownValue(value)) {
+            return { kind: "unknown", label: "未知" };
+        }
+        if (value.startsWith("不支援")) {
+            return { kind: "bad", label: "不支援" };
+        }
+        if (endcGoodCombos[carrier]?.has(value)) {
+            return { kind: "good", label: "支援" };
+        }
+        return { kind: "mixed", label: "其他支援組合" };
+    };
+
+    const createSingleValue = (value, status) => {
+        const wrapper = document.createElement("span");
+        wrapper.className = "combo-value";
+        const text = value || "";
+        const displayStatus = status || (isUnknownValue(text) ? { kind: "unknown", label: "未知" } : text === "不支援" ? { kind: "bad", label: "不支援" } : text === "半支援" ? { kind: "mixed", label: "半支援" } : null);
+        if (displayStatus) {
+            wrapper.append(makeIcon(displayStatus.kind, displayStatus.label));
+        }
+        appendValue(wrapper, isUnknownValue(text) ? "未知" : text);
+        return wrapper;
+    };
+
+    const createEndcValue = (carrier, value) => {
+        if (!value) {
+            return createSingleValue("", null);
+        }
+        const wrapper = document.createElement("span");
+        wrapper.className = "combo-value is-multiline";
+        value.split(/[、\n]+/).map((line) => line.trim()).filter(Boolean).forEach((line) => {
+            const item = document.createElement("span");
+            item.className = "combo-line";
+            const status = getEndcStatus(carrier, line);
+            item.append(makeIcon(status.kind, status.label));
+            appendValue(item, isUnknownValue(line) ? "未知" : line);
+            wrapper.append(item);
+        });
+        return wrapper;
+    };
+
+    const createTextCell = (value, options = {}) => {
+        const cell = document.createElement("td");
+        if (options.className) {
+            cell.className = options.className;
+        }
+        if (isUnknownValue(value) && !options.blankWhenEmpty) {
+            cell.append(createSingleValue("", null));
+        } else {
+            cell.textContent = value || "";
+        }
+        return cell;
+    };
+
+    const createValueCell = (content, options = {}) => {
+        const cell = document.createElement("td");
+        if (options.className) {
+            cell.className = options.className;
+        }
+        cell.append(content);
+        return cell;
+    };
+
+    const renderRows = () => {
+        const query = normalizeSearch(searchTerm);
+        const filteredRows = phoneRows.filter((row) => {
+            const matchesBrand = !selectedBrand || row.brand === selectedBrand;
+            const matchesSearch = !query || normalizeSearch(row.model).includes(query);
+            return matchesBrand && matchesSearch;
+        });
+
+        tableBody.replaceChildren();
+        if (!filteredRows.length) {
+            const emptyRow = document.createElement("tr");
+            const emptyCell = document.createElement("td");
+            emptyCell.className = "phone-empty-state";
+            emptyCell.colSpan = getVisibleColumnCount();
+            emptyCell.textContent = "查無符合條件的手機型號。";
+            emptyRow.append(emptyCell);
+            tableBody.append(emptyRow);
+        } else {
+            const fragment = document.createDocumentFragment();
+            filteredRows.forEach((row) => {
+                const tableRow = document.createElement("tr");
+                tableRow.append(createTextCell(row.brand));
+                tableRow.append(createTextCell(row.model, { className: "model-column" }));
+                tableRow.append(createTextCell(row.soc, { className: "soc-column" }));
+                tableRow.append(createValueCell(createSingleValue(row.lte?.cht, getLteStatus("cht", row.lte?.cht))));
+                tableRow.append(createValueCell(createSingleValue(row.lte?.fet, getLteStatus("fet", row.lte?.fet))));
+                tableRow.append(createValueCell(createSingleValue(row.lte?.twm, getLteStatus("twm", row.lte?.twm))));
+                tableRow.append(createValueCell(createSingleValue(row.nrNsa?.cht, getNrStatus(row.nrNsa?.cht))));
+                tableRow.append(createValueCell(createSingleValue(row.nrNsa?.fet, getNrStatus(row.nrNsa?.fet))));
+                tableRow.append(createValueCell(createSingleValue(row.nrNsa?.twm, getNrStatus(row.nrNsa?.twm))));
+                tableRow.append(createValueCell(createEndcValue("cht", row.endc?.cht)));
+                tableRow.append(createValueCell(createEndcValue("fet", row.endc?.fet)));
+                tableRow.append(createValueCell(createEndcValue("twm", row.endc?.twm)));
+                tableRow.append(createValueCell(createSingleValue(row.nrFr2, getNrStatus(row.nrFr2)), { className: "n257-column" }));
+                tableRow.append(createTextCell(row.note, { blankWhenEmpty: true, className: "note-column" }));
+                fragment.append(tableRow);
+            });
+            tableBody.append(fragment);
+        }
+
+        resultCount.textContent = `共 ${filteredRows.length} 筆`;
+        brandGrid.querySelectorAll(".phone-brand-button").forEach((button) => {
+            const isActive = button.dataset.brand === selectedBrand;
+            button.classList.toggle("is-active", isActive);
+            button.setAttribute("aria-pressed", String(isActive));
+        });
+    };
+
+    brandOptions.forEach((brand) => {
+        const button = document.createElement("button");
+        button.className = "phone-brand-button";
+        button.type = "button";
+        button.dataset.brand = brand.name;
+        button.setAttribute("aria-pressed", "false");
+        if (brand.logo) {
+            const image = document.createElement("img");
+            image.className = "phone-brand-logo";
+            image.src = assetPath(brand.logo);
+            image.alt = "";
+            button.append(image);
+        } else {
+            const fallback = document.createElement("span");
+            fallback.className = "phone-brand-fallback";
+            fallback.textContent = brand.name.slice(0, 2).toUpperCase();
+            button.append(fallback);
+        }
+        const label = document.createElement("span");
+        label.className = "phone-brand-name";
+        label.textContent = brand.name;
+        button.append(label);
+        button.addEventListener("click", () => {
+            selectedBrand = selectedBrand === brand.name ? "" : brand.name;
+            renderRows();
+        });
+        brandGrid.append(button);
+    });
+
+    clearBrandButton?.addEventListener("click", () => {
+        selectedBrand = "";
+        searchTerm = "";
+        searchInput.value = "";
+        renderRows();
+    });
+
+    searchForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        searchTerm = searchInput.value;
+        renderRows();
+    });
+
+    searchInput?.addEventListener("input", () => {
+        if (!searchInput.value.trim() && searchTerm) {
+            searchTerm = "";
+            renderRows();
+        }
+    });
+
+    socToggle?.addEventListener("change", () => {
+        updateColumnVisibility();
+        renderRows();
+    });
+
+    n257Toggle?.addEventListener("change", () => {
+        updateColumnVisibility();
+        renderRows();
+    });
+
+    renderRows();
 }
