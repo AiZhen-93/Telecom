@@ -6750,9 +6750,28 @@ td.n257-column .combo-value {
         flex-direction: column;
     }
 
-    .phone-brand-grid,
+    .phone-brand-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .phone-search-form {
         grid-template-columns: 1fr;
+    }
+
+    .phone-combo-table {
+        min-width: 82rem;
+    }
+
+    .phone-results-actions {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        row-gap: 0.55rem;
+    }
+
+    .phone-symbol-legend {
+        flex-basis: 100%;
+        margin-right: 0;
     }
 
     .phone-result-count {
