@@ -49,6 +49,7 @@
                             <li><a href="speedtest/test_maps.html">測速地圖</a></li>
                             <li><a href="speedtest/sample_database.html">測速資料庫</a></li>
                             <li><a href="speedtest/peak_throughput_calculator.html">最高網速試算</a></li>
+                            <li><a href="speedtest/phone_combo.html">手機CA組合查詢</a></li>
                             <li><a href="speedtest/tools.html">測速 & 路測相關工具</a></li>
                         </ul>
                     </li>
@@ -228,19 +229,13 @@
                 </div>
             </section>
         </main>
-        <div class="drill-countdown-modal" id="drillCountdownModal" role="dialog" aria-modal="true" aria-labelledby="drillCountdownTitle" hidden>
-            <div class="drill-countdown-card">
-                <h2 id="drillCountdownTitle">2026城鎮韌性(防空)演習-行動網路降速演練倒數</h2>
-                <div class="drill-countdown-body">
-                    <div class="drill-map-stage" aria-label="演練縣市地圖">
-                        <svg id="drillCountdownMap" class="taiwan-region-map drill-countdown-map" viewBox="285 330 725 955" role="img" aria-label="台北市、新北市、桃園市、新竹縣、新竹市、宜蘭縣、基隆市演練區域"></svg>
-                    </div>
-                    <div class="drill-countdown-info">
-                        <p class="drill-countdown-note">配合城鎮韌性(防空)演習，115年8月13日14時30分至15時北部地區（台北市、新北市、桃園市、新竹縣、新竹市、宜蘭縣、基隆市）將實施行動通訊網路降速演練。<br>演練事宜可至NCC通傳會官網查詢：<a href="https://gov.tw/KxS" target="_blank" rel="noopener noreferrer">https://gov.tw/KxS</a></p>
-                        <span class="drill-countdown-label">距離演練開始</span>
-                        <time class="drill-countdown-time" id="drillCountdownTime" datetime="2026-08-13T14:30:00+08:00">--:--:--</time>
-                    </div>
+        <div class="drill-countdown-modal emergency-alert-modal" id="drillCountdownModal" role="dialog" aria-modal="true" aria-labelledby="drillCountdownTitle" hidden>
+            <div class="drill-countdown-card emergency-alert-card">
+                <h2 class="emergency-alert-title" id="drillCountdownTitle"><img class="emergency-alert-icon" src="pic/alert.png" alt="" aria-hidden="true">緊急地震速報(中央氣象署)</h2>
+                <div class="emergency-alert-content">
+                    <p id="emergencyAlertMessage"></p>
                 </div>
+                <audio id="emergencyAlertAudio" src="PWS_alert.mp3" preload="auto"></audio>
                 <button class="drill-countdown-close" id="drillCountdownClose" type="button">關閉</button>
             </div>
         </div>
@@ -264,7 +259,7 @@
                     <p>聲明：本工作室僅在本網站和YouTube平台經營，於其他任何平台(包含但不限於IG、Threads、PTT、Dcard、bilibili等)<br>若有發現本方發文或留言皆為冒名使用，請勿受騙上當。<br>本網站所有電信相關資訊皆為免費提供，頁面中亦無插入任何廣告，若您想表達感謝或鼓勵我，可以在這裡 <a class="footer-inline-link" href="https://reurl.cc/rxeGN4" target="_blank" rel="noopener noreferrer">贊助愛蓁</a>。</p>
                 </div>
             </div>
-            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.1.6</span><a href="changelog.txt" target="_blank" rel="noopener noreferrer">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 Ⓒ2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
+            <div class="footer-bottom"><div class="footer-version"><span>版本: v1.2.0</span><a href="changelog.txt" target="_blank" rel="noopener noreferrer">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 Ⓒ2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
         </footer>
     </div>
 </body>
