@@ -2221,6 +2221,35 @@ a {
     border-radius: 8px;
 }
 
+.phone-more-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.85rem;
+}
+
+.phone-show-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.35rem;
+    padding: 0 1rem;
+    border: 1px solid rgba(82, 169, 255, 0.4);
+    border-radius: 8px;
+    background: rgba(82, 169, 255, 0.12);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.86rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.phone-show-more:hover,
+.phone-show-more:focus-visible {
+    outline: none;
+    border-color: rgba(39, 225, 187, 0.72);
+    background: rgba(39, 225, 187, 0.18);
+}
+
 @media (min-width: 981px) {
     .phone-combo-page .phone-table-wrap {
         overflow: visible;

@@ -4778,7 +4778,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X8 Pro Max",
+      "model": "X8 Pro Max",
       "soc": "MTK Dimensity 9500s",
       "lte": {
         "cht": "3CA",
@@ -4800,7 +4800,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X8 Pro",
+      "model": "X8 Pro",
       "soc": "MTK Dimensity 8500-Ultra",
       "lte": {
         "cht": "3CA",
@@ -4822,7 +4822,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO M8s",
+      "model": "M8s",
       "soc": "高通 Snapdragon 6s Gen 3",
       "lte": {
         "cht": "",
@@ -4844,7 +4844,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO M8",
+      "model": "M8",
       "soc": "高通 Snapdragon 6 Gen 3",
       "lte": {
         "cht": "",
@@ -4932,7 +4932,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F8 Ultra",
+      "model": "F8 Ultra",
       "soc": "高通 Snapdragon 8 Elite Gen 5",
       "lte": {
         "cht": "3CA",
@@ -4954,7 +4954,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F8 Pro",
+      "model": "F8 Pro",
       "soc": "高通 Snapdragon 8 Elite",
       "lte": {
         "cht": "3CA",
@@ -5086,7 +5086,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO M7 Pro",
+      "model": "M7 Pro",
       "soc": "高通 Snapdragon 8 Gen 3",
       "lte": {
         "cht": "2CA",
@@ -5108,7 +5108,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F7",
+      "model": "F7",
       "soc": "高通 Snapdragon 8s Gen 4",
       "lte": {
         "cht": "3CA",
@@ -5130,7 +5130,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F7 Ultra",
+      "model": "F7 Ultra",
       "soc": "高通 Snapdragon 8 Elite",
       "lte": {
         "cht": "3CA",
@@ -5152,7 +5152,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F7 Pro",
+      "model": "F7 Pro",
       "soc": "高通 Snapdragon 8 Gen 3",
       "lte": {
         "cht": "3CA",
@@ -5218,7 +5218,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X7 Pro",
+      "model": "X7 Pro",
       "soc": "MTK Dimensity 8400 Ultra",
       "lte": {
         "cht": "3CA",
@@ -5240,7 +5240,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X7",
+      "model": "X7",
       "soc": "MTK Dimensity 7300 Ultra",
       "lte": {
         "cht": "3CA",
@@ -5416,7 +5416,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F6 Pro",
+      "model": "F6 Pro",
       "soc": "高通 Snapdragon 8 Gen 2",
       "lte": {
         "cht": "3CA",
@@ -5438,7 +5438,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F6",
+      "model": "F6",
       "soc": "高通 Snapdragon 8s Gen 3",
       "lte": {
         "cht": "3CA",
@@ -5504,7 +5504,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X6 Pro",
+      "model": "X6 Pro",
       "soc": "MTK Dimensity 8300 Ultra",
       "lte": {
         "cht": "4CA",
@@ -5526,7 +5526,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X6",
+      "model": "X6",
       "soc": "高通 Snapdragon 7s Gen 2",
       "lte": {
         "cht": "4CA",
@@ -5702,7 +5702,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F5 Pro",
+      "model": "F5 Pro",
       "soc": "高通 Snapdragon 8+ Gen 1",
       "lte": {
         "cht": "3CA",
@@ -5724,7 +5724,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F5",
+      "model": "F5",
       "soc": "高通 Snapdragon 7+ Gen 2",
       "lte": {
         "cht": "3CA",
@@ -5878,7 +5878,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X5 Pro",
+      "model": "X5 Pro",
       "soc": "高通 Snapdragon 778G",
       "lte": {
         "cht": "3CA",
@@ -5900,7 +5900,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X5",
+      "model": "X5",
       "soc": "高通 Snapdragon 695",
       "lte": {
         "cht": "3CA",
@@ -5988,7 +5988,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X4 GT",
+      "model": "X4 GT",
       "soc": "MTK Dimensity 8100",
       "lte": {
         "cht": "3CA",
@@ -6010,7 +6010,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F4",
+      "model": "F4",
       "soc": "高通 Snapdragon 870",
       "lte": {
         "cht": "3CA",
@@ -6076,7 +6076,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F4 GT",
+      "model": "F4 GT",
       "soc": "高通 Snapdragon 8 Gen 1",
       "lte": {
         "cht": "5CA",
@@ -6208,7 +6208,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO X4 Pro 5G",
+      "model": "X4 Pro 5G",
       "soc": "高通 Snapdragon 695",
       "lte": {
         "cht": "3CA",
@@ -6230,7 +6230,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO M4 Pro 5G",
+      "model": "M4 Pro 5G",
       "soc": "MTK Dimensity 810",
       "lte": {
         "cht": "2CA",
@@ -6296,7 +6296,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO M3 Pro 5G",
+      "model": "M3 Pro 5G",
       "soc": "MTK Dimensity 700",
       "lte": {
         "cht": "2CA",
@@ -6340,7 +6340,7 @@ window.phoneComboData = {
     },
     {
       "brand": "POCO",
-      "model": "POCO F3",
+      "model": "F3",
       "soc": "高通 Snapdragon 870",
       "lte": {
         "cht": "5CA",

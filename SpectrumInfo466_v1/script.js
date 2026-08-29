@@ -4018,8 +4018,10 @@ if (phoneComboPage) {
     const resultCount = phoneComboPage.querySelector("#phoneResultCount");
     const tableBody = phoneComboPage.querySelector("#phoneComboBody");
     const sourceText = phoneComboPage.querySelector("#phoneComboSource");
+    const showMoreButton = phoneComboPage.querySelector("#phoneShowMore");
     const data = window.phoneComboData || {};
     const phoneRows = Array.isArray(data.rows) ? data.rows : [];
+    const initialResultLimit = 30;
     const brandOptions = [
         { name: "Apple", logo: "pic/logo_apple.png" },
         { name: "SAMSUNG", logo: "pic/logo_samsung.png" },
@@ -4045,6 +4047,7 @@ if (phoneComboPage) {
     ];
     let selectedBrand = "";
     let searchTerm = "";
+    let resultsExpanded = false;
 
     const updateColumnVisibility = () => {
         phoneComboPage.classList.toggle("hide-soc", !socToggle?.checked);
@@ -4286,7 +4289,8 @@ if (phoneComboPage) {
             tableBody.append(emptyRow);
         } else {
             const fragment = document.createDocumentFragment();
-            filteredRows.forEach((row) => {
+            const visibleRows = resultsExpanded ? filteredRows : filteredRows.slice(0, initialResultLimit);
+            visibleRows.forEach((row) => {
                 const tableRow = document.createElement("tr");
                 tableRow.append(createTextCell(row.brand));
                 tableRow.append(createTextCell(row.model, { className: "model-column" }));
@@ -4307,7 +4311,14 @@ if (phoneComboPage) {
             tableBody.append(fragment);
         }
 
-        resultCount.textContent = `共 ${filteredRows.length} 筆`;
+        if (showMoreButton) {
+            const hasHiddenRows = filteredRows.length > initialResultLimit && !resultsExpanded;
+            showMoreButton.hidden = !hasHiddenRows;
+            showMoreButton.textContent = `顯示更多（尚有 ${(filteredRows.length - initialResultLimit).toLocaleString("zh-TW")} 筆）`;
+        }
+        resultCount.textContent = resultsExpanded || filteredRows.length <= initialResultLimit
+            ? `共 ${filteredRows.length} 筆`
+            : `顯示 ${initialResultLimit} / ${filteredRows.length} 筆`;
         brandGrid.querySelectorAll(".phone-brand-button").forEach((button) => {
             const isActive = button.dataset.brand === selectedBrand;
             button.classList.toggle("is-active", isActive);
@@ -4339,6 +4350,7 @@ if (phoneComboPage) {
         button.append(label);
         button.addEventListener("click", () => {
             selectedBrand = selectedBrand === brand.name ? "" : brand.name;
+            resultsExpanded = false;
             renderRows();
         });
         brandGrid.append(button);
@@ -4347,6 +4359,7 @@ if (phoneComboPage) {
     clearBrandButton?.addEventListener("click", () => {
         selectedBrand = "";
         searchTerm = "";
+        resultsExpanded = false;
         searchInput.value = "";
         renderRows();
     });
@@ -4354,6 +4367,12 @@ if (phoneComboPage) {
     searchForm?.addEventListener("submit", (event) => {
         event.preventDefault();
         searchTerm = searchInput.value;
+        resultsExpanded = false;
+        renderRows();
+    });
+
+    showMoreButton?.addEventListener("click", () => {
+        resultsExpanded = true;
         renderRows();
     });
 
