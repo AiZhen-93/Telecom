@@ -4193,6 +4193,7 @@ if (phoneComboPage) {
             "n78+n41+LTE 2CA",
             "n78+n38+LTE 2CA",
             "n28+LTE 3CA",
+            "n28+LTE 4CA",
             "n78+n28+LTE 3CA",
             "n78+n38+LTE 3CA",
         ]),

@@ -2250,6 +2250,58 @@ a {
     background: rgba(39, 225, 187, 0.18);
 }
 
+.phone-help-notes {
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(139, 232, 255, 0.14);
+}
+
+.phone-help-notes h3 {
+    margin: 0 0 0.55rem;
+    color: var(--text);
+    font-size: 0.98rem;
+    letter-spacing: 0;
+}
+
+.phone-help-notes ul {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding-left: 1.15rem;
+}
+
+.phone-help-notes li {
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+
+.phone-help-notes a {
+    color: var(--accent);
+    font-weight: 900;
+}
+
+.phone-help-notes a:hover,
+.phone-help-notes a:focus-visible {
+    color: var(--accent-strong);
+}
+
+.phone-help-icon-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    line-height: 1;
+    vertical-align: -0.04em;
+    white-space: nowrap;
+}
+
+.phone-help-icon-label .combo-icon {
+    flex-basis: 0.92rem;
+    width: 0.92rem;
+    height: 0.92rem;
+    font-size: 0.58rem;
+}
+
 @media (min-width: 981px) {
     .phone-combo-page .phone-table-wrap {
         overflow: visible;
