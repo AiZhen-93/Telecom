@@ -4272,6 +4272,9 @@ if (phoneComboPage) {
         if (isUnknownValue(value)) {
             return { kind: "unknown", label: "未知" };
         }
+        if (value.includes("?CA")) {
+            return { kind: "unknown", label: "待確認" };
+        }
         if (value.startsWith("不支援")) {
             return { kind: "bad", label: "不支援" };
         }
