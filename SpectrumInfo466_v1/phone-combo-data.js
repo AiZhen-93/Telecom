@@ -4,7 +4,7 @@ window.phoneComboData = {
   "rows": [
     {
       "brand": "Apple",
-      "model": "iPhone air",
+      "model": "iPhone Air",
       "soc": "Apple A19 Pro",
       "lte": {
         "cht": "5CA",
@@ -71,28 +71,6 @@ window.phoneComboData = {
     {
       "brand": "Apple",
       "model": "iPhone 17 Pro",
-      "soc": "Apple A19 Pro",
-      "lte": {
-        "cht": "5CA",
-        "fet": "4CA",
-        "twm": "4CA"
-      },
-      "nrNsa": {
-        "cht": "支援",
-        "fet": "支援",
-        "twm": "支援"
-      },
-      "endc": {
-        "cht": "n78+LTE 5CA\nn1+LTE 5CA",
-        "fet": "",
-        "twm": "n78+n78+LTE 4CA"
-      },
-      "nrFr2": "不支援",
-      "note": ""
-    },
-    {
-      "brand": "Apple",
-      "model": "iPhone 17 air",
       "soc": "Apple A19 Pro",
       "lte": {
         "cht": "5CA",
@@ -2168,14 +2146,14 @@ window.phoneComboData = {
         "twm": "2CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "不支援",
+        "fet": "不支援",
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
-        "fet": "不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
-        "twm": "不支援n78+n78+LTE、不支援n28+n78+LTE"
+        "fet": "n78+LTE 2CA、n28+LTE 2CA、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
+        "twm": "n78+LTE 2CA、n28+LTE 2CA、不支援n78+n78+LTE、不支援n28+n78+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
