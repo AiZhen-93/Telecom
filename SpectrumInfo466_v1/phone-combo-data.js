@@ -634,7 +634,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 4CA、n78+n28 LTE 4CA、n78+n38 LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 4CA、n78+n28+LTE 4CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "支援",
@@ -656,7 +656,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 4CA、n78+n28 LTE 4CA、n78+n38 LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 4CA、n78+n28+LTE 4CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -678,7 +678,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 4CA、n78+n28 LTE 4CA、n78+n38 LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 4CA、n78+n28+LTE 4CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -700,7 +700,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 4CA、n78+n28 LTE 4CA、n78+n38 LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 4CA、n78+n28+LTE 4CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -2240,7 +2240,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 2CA、n78+n28+LTE 2CA、n78+n38 LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 2CA、n78+n28+LTE 2CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 2CA、n78+n78+LTE 4CA、n28+n78+LTE 2CA"
       },
       "nrFr2": "不支援",
