@@ -2243,6 +2243,10 @@ a {
     cursor: pointer;
 }
 
+.phone-show-more[hidden] {
+    display: none;
+}
+
 .phone-show-more:hover,
 .phone-show-more:focus-visible {
     outline: none;

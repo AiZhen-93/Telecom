@@ -4315,7 +4315,9 @@ if (phoneComboPage) {
         if (showMoreButton) {
             const hasHiddenRows = filteredRows.length > initialResultLimit && !resultsExpanded;
             showMoreButton.hidden = !hasHiddenRows;
-            showMoreButton.textContent = `顯示更多（尚有 ${(filteredRows.length - initialResultLimit).toLocaleString("zh-TW")} 筆）`;
+            showMoreButton.textContent = hasHiddenRows
+                ? `顯示更多（尚有 ${(filteredRows.length - initialResultLimit).toLocaleString("zh-TW")} 筆）`
+                : "";
         }
         resultCount.textContent = resultsExpanded || filteredRows.length <= initialResultLimit
             ? `共 ${filteredRows.length} 筆`
