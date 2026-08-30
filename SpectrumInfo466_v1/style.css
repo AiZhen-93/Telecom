@@ -2070,9 +2070,13 @@ a {
     flex: 0 0 auto;
     width: 2.15rem;
     height: 2.15rem;
-    border-radius: 6px;
-    object-fit: contain;
+    border-radius: 0;
     background: rgba(255, 255, 255, 0.95);
+}
+
+.phone-brand-logo {
+    object-fit: cover;
+    object-position: center;
 }
 
 .phone-brand-fallback {
