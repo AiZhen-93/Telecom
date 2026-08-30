@@ -4806,22 +4806,41 @@ td.n257-column .combo-value {
     min-width: 0;
 }
 
-.status-info {
+.earthquake-status-button {
     position: relative;
     display: inline-grid;
     place-items: center;
     width: 1.2rem;
     height: 1.2rem;
     padding: 0;
-    border: 1px solid rgba(139, 232, 255, 0.5);
+    border: 1px solid rgba(139, 232, 255, 0.24);
     border-radius: 50%;
-    color: #dff8ff;
-    background: rgba(82, 169, 255, 0.12);
-    font: inherit;
-    font-size: 0.76rem;
-    font-weight: 900;
+    background: rgba(156, 170, 184, 0.1);
     line-height: 1;
     cursor: help;
+}
+
+.earthquake-status-dot {
+    display: block;
+    width: 0.62rem;
+    height: 0.62rem;
+    border-radius: 50%;
+    background: #8e9ba7;
+    box-shadow: 0 0 0 3px rgba(156, 170, 184, 0.11), 0 0 12px rgba(156, 170, 184, 0.4);
+}
+
+.earthquake-status-button.is-online {
+    border-color: rgba(34, 224, 128, 0.42);
+    background: rgba(34, 224, 128, 0.1);
+}
+
+.earthquake-status-button.is-online .earthquake-status-dot {
+    background: #22e080;
+    box-shadow: 0 0 0 3px rgba(34, 224, 128, 0.13), 0 0 15px rgba(34, 224, 128, 0.58);
+}
+
+.earthquake-status-button.is-offline {
+    border-color: rgba(156, 170, 184, 0.3);
 }
 
 .status-line-link {
@@ -4842,17 +4861,12 @@ td.n257-column .combo-value {
     object-fit: contain;
 }
 
-.status-info:hover,
-.status-info:focus-visible,
+.earthquake-status-button:hover,
+.earthquake-status-button:focus-visible,
 .status-line-link:hover,
 .status-line-link:focus-visible {
     outline: none;
     box-shadow: 0 0 0 3px rgba(39, 225, 187, 0.12);
-}
-
-.status-info:hover,
-.status-info:focus-visible {
-    border-color: rgba(39, 225, 187, 0.72);
 }
 
 .status-tooltip {
@@ -4893,8 +4907,9 @@ td.n257-column .combo-value {
     transform: translateX(-50%) rotate(45deg);
 }
 
-.status-info:hover .status-tooltip,
-.status-info:focus-visible .status-tooltip,
+.earthquake-status-button:hover .status-tooltip,
+.earthquake-status-button:focus-visible .status-tooltip,
+.earthquake-status-button.is-tooltip-open .status-tooltip,
 .status-line-link:hover .status-tooltip,
 .status-line-link:focus-visible .status-tooltip,
 .status-line-link.is-tooltip-open .status-tooltip {

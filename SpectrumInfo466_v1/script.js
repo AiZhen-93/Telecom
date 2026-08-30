@@ -191,12 +191,72 @@ if (tacEnbPage) {
 const homePage = document.querySelector(".home-page");
 if (homePage) {
     const currentTime = homePage.querySelector("#homeCurrentTime");
+    const earthquakeStatusButton = homePage.querySelector(".earthquake-status-button");
     const statusLineLink = homePage.querySelector(".status-line-link");
     const newsBody = homePage.querySelector("#homeNewsBody");
     const newsToggle = homePage.querySelector("#homeNewsToggle");
     const newsData = Array.isArray(window.homeNewsData) ? window.homeNewsData : [];
     const previewCount = 30;
     let isExpanded = false;
+
+    const closeInlineTooltip = (target) => {
+        if (!target) {
+            return;
+        }
+        target.classList.remove("is-tooltip-open");
+        target.setAttribute("aria-expanded", "false");
+    };
+
+    if (earthquakeStatusButton) {
+        const earthquakeStatusEndpoint = "https://aizhen-earthquake-alert.2010magnitude.workers.dev/";
+        const earthquakeStatusTooltip = earthquakeStatusButton.querySelector(".status-tooltip");
+        const setEarthquakeStatus = (isOnline) => {
+            earthquakeStatusButton.classList.toggle("is-online", isOnline);
+            earthquakeStatusButton.classList.toggle("is-offline", !isOnline);
+            const label = isOnline ? "強震即時警報已連線。" : "強震即時警報未連線。";
+            earthquakeStatusButton.setAttribute("aria-label", label);
+            if (earthquakeStatusTooltip) {
+                earthquakeStatusTooltip.textContent = label;
+            }
+        };
+        const checkEarthquakeStatus = async () => {
+            try {
+                const response = await fetch(earthquakeStatusEndpoint, { cache: "no-store" });
+                if (!response.ok || response.type === "opaque") {
+                    throw new Error("Earthquake alert status is unreachable.");
+                }
+                await response.json();
+                setEarthquakeStatus(true);
+            } catch (_error) {
+                setEarthquakeStatus(false);
+            }
+        };
+
+        earthquakeStatusButton.addEventListener("click", () => {
+            const isOpen = earthquakeStatusButton.classList.toggle("is-tooltip-open");
+            earthquakeStatusButton.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        earthquakeStatusButton.addEventListener("blur", () => {
+            window.setTimeout(() => {
+                if (!earthquakeStatusButton.matches(":focus")) {
+                    closeInlineTooltip(earthquakeStatusButton);
+                }
+            }, 120);
+        });
+
+        checkEarthquakeStatus();
+        window.setInterval(() => {
+            if (!document.hidden) {
+                checkEarthquakeStatus();
+            }
+        }, 30 * 1000);
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) {
+                checkEarthquakeStatus();
+            }
+        });
+    }
 
     if (statusLineLink) {
         statusLineLink.addEventListener("click", (event) => {
@@ -209,16 +269,17 @@ if (homePage) {
 
         document.addEventListener("click", (event) => {
             if (!event.target.closest(".status-line-link")) {
-                statusLineLink.classList.remove("is-tooltip-open");
-                statusLineLink.setAttribute("aria-expanded", "false");
+                closeInlineTooltip(statusLineLink);
+            }
+            if (!event.target.closest(".earthquake-status-button")) {
+                closeInlineTooltip(earthquakeStatusButton);
             }
         });
 
         statusLineLink.addEventListener("blur", () => {
             window.setTimeout(() => {
                 if (!statusLineLink.matches(":focus")) {
-                    statusLineLink.classList.remove("is-tooltip-open");
-                    statusLineLink.setAttribute("aria-expanded", "false");
+                    closeInlineTooltip(statusLineLink);
                 }
             }, 120);
         });
