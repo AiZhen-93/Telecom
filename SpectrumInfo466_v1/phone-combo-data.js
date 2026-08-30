@@ -18,7 +18,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -62,7 +62,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -128,7 +128,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -238,7 +238,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -722,7 +722,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 4CA\nn78+n1+LTE 2CA",
-        "fet": "n78+LTE 2CA、n28+LTE 2CA、n78+n28 LTE 1CC、n78+n38 LTE 1CC、n78+n41 LTE 1CC",
+        "fet": "n78+LTE 2CA、n28+LTE 2CA、n78+n28+LTE 1CC、n78+n38+LTE 1CC、n78+n41+LTE 1CC",
         "twm": "n78+LTE 2CA、n28+LTE 2CA、n78+n78+LTE 2CA、n28+n78+LTE 1CC"
       },
       "nrFr2": "不支援",
@@ -744,7 +744,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "支援",
@@ -766,7 +766,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -788,7 +788,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -810,7 +810,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 3CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -832,7 +832,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 4CA\nn78+n1+LTE 2CA",
-        "fet": "n78+LTE 2CA、n28+LTE 2CA、n78+n28 LTE 1CC、n78+n38 LTE 1CC、n78+n41 LTE 1CC",
+        "fet": "n78+LTE 2CA、n28+LTE 2CA、n78+n28+LTE 1CC、n78+n38+LTE 1CC、n78+n41+LTE 1CC",
         "twm": "n78+LTE 2CA、n28+LTE 2CA、n78+n78+LTE 2CA、n28+n78+LTE 1CC"
       },
       "nrFr2": "不支援",
@@ -854,7 +854,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "支援",
@@ -876,7 +876,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -898,7 +898,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -920,7 +920,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、n78+n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -942,7 +942,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 4CA\nn78+n1+LTE 2CA",
-        "fet": "n78+LTE 2CA、n28+LTE 2CA、n78+n28 LTE 1CC、n78+n38 LTE 1CC、n78+n41 LTE 1CC",
+        "fet": "n78+LTE 2CA、n28+LTE 2CA、n78+n28+LTE 1CC、n78+n38+LTE 1CC、n78+n41+LTE 1CC",
         "twm": "n78+LTE 2CA、n28+LTE 2CA、n78+n78+LTE 2CA、n28+n78+LTE 1CC"
       },
       "nrFr2": "不支援",
@@ -964,7 +964,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 3CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -986,7 +986,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 3CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -1008,7 +1008,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 4CA\nn78+n1+LTE 2CA",
-        "fet": "n78+LTE 2CA、n28+LTE 2CA、n78+n28 LTE 1CC、n78+n38 LTE 1CC、n78+n41 LTE 1CC",
+        "fet": "n78+LTE 2CA、n28+LTE 2CA、n78+n28+LTE 1CC、n78+n38+LTE 1CC、n78+n41+LTE 1CC",
         "twm": "n78+LTE 2CA、n28+LTE 2CA、n78+n78+LTE 2CA、n28+n78+LTE 1CC"
       },
       "nrFr2": "不支援",
@@ -1030,7 +1030,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 3CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -1052,7 +1052,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28 LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 3CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -1448,7 +1448,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -1470,7 +1470,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -1492,7 +1492,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -1514,7 +1514,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -1536,7 +1536,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -1558,7 +1558,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -1580,7 +1580,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -2108,7 +2108,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -2130,7 +2130,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -2152,7 +2152,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA\nn78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -2482,7 +2482,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA\nn78+n1+LTE 2CA",
-        "fet": "n78+LTE 3CA、n28+LTE 3CA、n78+n28+LTE 2CA、n78+n38 LTE 2CA、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 3CA、n28+LTE 3CA、n78+n28+LTE 2CA、n78+n38+LTE 2CA、n78+n41+LTE 2CA",
         "twm": "n78+LTE 3CA、n28+LTE 3CA、n78+n78+LTE 2CA、n28+n78+LTE 2CA"
       },
       "nrFr2": "不支援",
