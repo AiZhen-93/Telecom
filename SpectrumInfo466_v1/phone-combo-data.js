@@ -1,6 +1,6 @@
 window.phoneComboData = {
   "source": "ENDC及CA組合清單.xlsx",
-  "updated": "2026/08/30",
+  "updated": "2026/08/31",
   "rows": [
     {
       "brand": "Apple",
@@ -1134,9 +1134,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "不支援",
+        "fet": "不支援",
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -2280,7 +2280,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 3CA、不支援n78+n1+LTE",
@@ -2425,7 +2425,7 @@ window.phoneComboData = {
     {
       "brand": "SAMSUNG",
       "model": "Galaxy S25 edge",
-      "soc": "高通 Snapdragon 8 Gen 4",
+      "soc": "高通 Snapdragon 8 Elite",
       "lte": {
         "cht": "5CA",
         "fet": "4CA",
@@ -2535,7 +2535,7 @@ window.phoneComboData = {
     {
       "brand": "SAMSUNG",
       "model": "Galaxy S25 Ultra",
-      "soc": "高通 Snapdragon 8 Gen 4",
+      "soc": "高通 Snapdragon 8 Elite",
       "lte": {
         "cht": "5CA",
         "fet": "4CA",
@@ -2557,7 +2557,7 @@ window.phoneComboData = {
     {
       "brand": "SAMSUNG",
       "model": "Galaxy S25+",
-      "soc": "高通 Snapdragon 8 Gen 4",
+      "soc": "高通 Snapdragon 8 Elite",
       "lte": {
         "cht": "5CA",
         "fet": "4CA",
@@ -2896,7 +2896,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA",
@@ -3116,7 +3116,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA",
@@ -3138,7 +3138,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA",
@@ -3160,7 +3160,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA",
@@ -3336,7 +3336,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA",
@@ -3358,7 +3358,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA",
@@ -3424,7 +3424,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA",
@@ -3468,7 +3468,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA",
@@ -3490,7 +3490,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA",
@@ -3820,7 +3820,7 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "",
         "fet": "",
-        "twm": ""
+        "twm": "不支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA",
@@ -5979,7 +5979,7 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "n78+LTE 5CA、n1+LTE 4CA、n1+n78+LTE 4CA\n(訊號差才觸發組合)",
+        "cht": "n78+LTE 5CA、n1+LTE 4CA、n1+n78+LTE 4CA",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
