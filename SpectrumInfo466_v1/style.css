@@ -4810,37 +4810,41 @@ td.n257-column .combo-value {
     position: relative;
     display: inline-grid;
     place-items: center;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.34rem;
+    height: 1.34rem;
     padding: 0;
-    border: 1px solid rgba(139, 232, 255, 0.24);
-    border-radius: 50%;
-    background: rgba(156, 170, 184, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 6px;
+    background: #687684;
     line-height: 1;
     cursor: help;
+    box-shadow: 0 0 0 2px rgba(156, 170, 184, 0.08), 0 0 12px rgba(156, 170, 184, 0.32);
 }
 
-.earthquake-status-dot {
+.earthquake-status-wave {
     display: block;
-    width: 0.62rem;
-    height: 0.62rem;
-    border-radius: 50%;
-    background: #8e9ba7;
-    box-shadow: 0 0 0 3px rgba(156, 170, 184, 0.11), 0 0 12px rgba(156, 170, 184, 0.4);
+    width: 1.04rem;
+    height: 0.82rem;
+    overflow: visible;
+}
+
+.earthquake-status-wave path {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .earthquake-status-button.is-online {
-    border-color: rgba(34, 224, 128, 0.42);
-    background: rgba(34, 224, 128, 0.1);
-}
-
-.earthquake-status-button.is-online .earthquake-status-dot {
-    background: #22e080;
-    box-shadow: 0 0 0 3px rgba(34, 224, 128, 0.13), 0 0 15px rgba(34, 224, 128, 0.58);
+    border-color: rgba(255, 255, 255, 0.18);
+    background: #18b966;
+    box-shadow: 0 0 0 2px rgba(34, 224, 128, 0.11), 0 0 15px rgba(34, 224, 128, 0.5);
 }
 
 .earthquake-status-button.is-offline {
-    border-color: rgba(156, 170, 184, 0.3);
+    background: #687684;
+    box-shadow: 0 0 0 2px rgba(156, 170, 184, 0.08), 0 0 12px rgba(156, 170, 184, 0.32);
 }
 
 .status-line-link {
