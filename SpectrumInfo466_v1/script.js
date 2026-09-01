@@ -522,7 +522,7 @@ if (homePage) {
     const weatherIcon = homePage.querySelector("#homeWeatherIcon");
     const weatherSummary = homePage.querySelector("#homeWeatherSummary");
     const weatherLocation = homePage.querySelector("#homeWeatherLocation");
-    const desktopWeatherQuery = window.matchMedia("(min-width: 981px)");
+    const desktopWeatherQuery = window.matchMedia("(min-width: 761px)");
     let hasLoadedWeather = false;
 
     const getWeatherInfo = (code) => {

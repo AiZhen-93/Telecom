@@ -6572,6 +6572,24 @@ td.n257-column .combo-value {
 }
 
 @media (max-width: 760px) {
+    .home-top-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .status-weather-row {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-panel {
+        display: none;
+    }
+
+    .status-text {
+        flex-direction: column;
+        line-height: 1.35;
+        white-space: normal;
+    }
+
     .coverage-heading {
         align-items: stretch;
         flex-direction: column;
@@ -6817,24 +6835,6 @@ td.n257-column .combo-value {
 
     .tac-search-form label {
         width: 100%;
-    }
-
-    .home-top-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .status-weather-row {
-        grid-template-columns: 1fr;
-    }
-
-    .weather-panel {
-        display: none;
-    }
-
-    .status-text {
-        flex-direction: column;
-        line-height: 1.35;
-        white-space: normal;
     }
 
     .marquee-panel {
