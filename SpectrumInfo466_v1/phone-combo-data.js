@@ -1,6 +1,6 @@
 window.phoneComboData = {
   "source": "ENDC及CA組合清單.xlsx",
-  "updated": "2026/08/31",
+  "updated": "2026/09/01",
   "rows": [
     {
       "brand": "Apple",
@@ -1405,7 +1405,7 @@ window.phoneComboData = {
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、不支援n78+n1+LTE",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 1CC、不支援n78+n38+LTE、n78+n41+LTE 2CA",
-        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 1CC"
+        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "支援",
       "note": ""
@@ -1694,7 +1694,7 @@ window.phoneComboData = {
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 3CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
-      "note": ""
+      "note": "不支援B38/B41 4x4"
     },
     {
       "brand": "ASUS",
@@ -1822,11 +1822,11 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA",
-        "fet": "",
-        "twm": ""
+        "fet": "n78 + LTE 4CA、n28+LTE 3CA",
+        "twm": "n28+LTE 3CA"
       },
       "nrFr2": "不支援",
-      "note": ""
+      "note": "不支援B38/B41 4x4"
     },
     {
       "brand": "ASUS",
@@ -2548,7 +2548,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA",
-        "fet": "",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
         "twm": "n78+n78+LTE ?CA"
       },
       "nrFr2": "不支援",
@@ -2570,7 +2570,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA",
-        "fet": "",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
         "twm": "n78+n78+LTE ?CA"
       },
       "nrFr2": "不支援",
@@ -2592,7 +2592,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA",
-        "fet": "",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
         "twm": "n78+n78+LTE ?CA"
       },
       "nrFr2": "不支援",
@@ -2812,11 +2812,11 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、\nn1+LTE 5CA、n78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA",
-        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE ?CA、n28+n78+LTE 3CA"
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
+        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
-      "note": ""
+      "note": "台哥大站台若有報n28，只能連到n78+n78+LTE 3CA"
     },
     {
       "brand": "SAMSUNG",
@@ -2834,11 +2834,11 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、\nn1+LTE 5CA、n78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA",
-        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE ?CA、n28+n78+LTE 3CA"
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
+        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
-      "note": ""
+      "note": "台哥大站台若有報n28，只能連到n78+n78+LTE 3CA"
     },
     {
       "brand": "SAMSUNG",
@@ -2856,11 +2856,11 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、\nn1+LTE 5CA、n78+n1+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA",
-        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE ?CA、n28+n78+LTE 3CA"
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
+        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
-      "note": ""
+      "note": "台哥大站台若有報n28，只能連到n78+n78+LTE 3CA"
     },
     {
       "brand": "SAMSUNG",
