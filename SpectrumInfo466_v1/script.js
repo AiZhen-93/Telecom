@@ -713,9 +713,23 @@ if (homePage) {
         "network-status.json",
     ];
     const statusLabels = {
-        green: "連線正常",
-        yellow: "局部異常",
-        red: "重大異常",
+        green: ["連線", "正常"],
+        yellow: ["局部", "異常"],
+        red: ["重大", "異常"],
+    };
+
+    const getStatusLabelText = (level) => (statusLabels[level] || statusLabels.green).join("");
+
+    const setStatusLabel = (label, level) => {
+        if (!label) {
+            return;
+        }
+        const parts = statusLabels[level] || statusLabels.green;
+        label.replaceChildren(...parts.map((part) => {
+            const item = document.createElement("span");
+            item.textContent = part;
+            return item;
+        }));
     };
 
     const setOperatorStatus = (operatorId, level, details = "", reportCount = undefined) => {
@@ -730,9 +744,7 @@ if (homePage) {
         if (light) {
             light.className = `status-light status-${level}`;
         }
-        if (label) {
-            label.textContent = statusLabels[level] || statusLabels.green;
-        }
+        setStatusLabel(label, level);
         if (countLabel && reportCount !== undefined) {
             const hasNumericCount = Number.isFinite(reportCount);
             const hasTextCount = typeof reportCount === "string" && reportCount.trim();
@@ -740,7 +752,7 @@ if (homePage) {
             countLabel.setAttribute("aria-label", hasNumericCount ? `最近5分鐘回報 ${reportCount}` : details || "回報數讀取中");
         }
         cell.title = details;
-        cell.setAttribute("aria-label", details || label?.textContent || "");
+        cell.setAttribute("aria-label", details || getStatusLabelText(level));
     };
 
     const updateStatusReportCount = (operatorId, details = "", reportCount = null) => {

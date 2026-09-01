@@ -5042,6 +5042,13 @@ td.n257-column .combo-value {
     font-weight: 700;
 }
 
+.status-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
 .status-report-count {
     display: inline-flex;
     align-items: center;
@@ -6822,6 +6829,12 @@ td.n257-column .combo-value {
 
     .weather-panel {
         display: none;
+    }
+
+    .status-text {
+        flex-direction: column;
+        line-height: 1.35;
+        white-space: normal;
     }
 
     .marquee-panel {
