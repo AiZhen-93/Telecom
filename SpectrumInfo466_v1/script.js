@@ -6,6 +6,15 @@ const assetPath = (path) => {
     return new URL(path, siteAssetBase).toString();
 };
 
+const siteVersion = "v1.2.1";
+const updateSiteVersion = () => {
+    document.querySelectorAll("[data-site-version]").forEach((versionElement) => {
+        versionElement.textContent = siteVersion;
+    });
+};
+
+updateSiteVersion();
+
 const visitCounterEndpoint = "https://aizhen-visit-counter.2010magnitude.workers.dev/hit";
 const updateVisitCount = async () => {
     const counters = document.querySelectorAll("[data-visit-count]");
@@ -36,6 +45,205 @@ const updateVisitCount = async () => {
 };
 
 updateVisitCount();
+
+const fetchWithCacheBust = (url, options = {}) => {
+    const separator = url.includes("?") ? "&" : "?";
+    return fetch(`${url}${separator}cacheBust=${Date.now()}-${Math.random().toString(16).slice(2)}`, {
+        cache: "no-store",
+        ...options,
+    });
+};
+
+const parseCloudflareTrace = (text) => text
+    .split("\n")
+    .reduce((items, line) => {
+        const [key, value] = line.split("=");
+        if (key && value) {
+            items[key.trim()] = value.trim();
+        }
+        return items;
+    }, {});
+
+const loadJson = async (url) => {
+    const response = await fetchWithCacheBust(url);
+    if (!response.ok) {
+        throw new Error("資料服務沒有回應。");
+    }
+    return response.json();
+};
+
+const formatClientLocation = (...parts) => {
+    const uniqueParts = [];
+    parts.forEach((part) => {
+        if (typeof part !== "string" || !part.trim()) {
+            return;
+        }
+        const value = part.trim();
+        if (!uniqueParts.some((item) => item.toLocaleLowerCase() === value.toLocaleLowerCase())) {
+            uniqueParts.push(value);
+        }
+    });
+    return uniqueParts.join("，");
+};
+
+const ispDisplayNames = {
+    "Data Communication Business Group": "中華電信數據通信分公司",
+    "Mobile Business Group": "中華電信行動通信分公司",
+    "Far EastTone Telecommunication Co., Ltd.": "遠傳電信股份有限公司",
+    "taiwanmobile-as - Taiwan Mobile Co., Ltd.": "台灣大哥大股份有限公司",
+};
+
+const formatIspName = (isp) => {
+    if (typeof isp !== "string" || !isp.trim()) {
+        return "";
+    }
+    const value = isp.trim();
+    return ispDisplayNames[value] || value;
+};
+
+const normalizeCoordinate = (value) => {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
+};
+
+const taiwanLocationNames = {
+    "Taipei": "台北",
+    "Taipei City": "台北",
+    "New Taipei": "新北",
+    "New Taipei City": "新北",
+    "Taoyuan": "桃園",
+    "Taoyuan City": "桃園",
+    "Taichung": "台中",
+    "Taichung City": "台中",
+    "Tainan": "台南",
+    "Tainan City": "台南",
+    "Kaohsiung": "高雄",
+    "Kaohsiung City": "高雄",
+    "Keelung": "基隆",
+    "Keelung City": "基隆",
+    "Hsinchu": "新竹",
+    "Hsinchu City": "新竹",
+    "Hsinchu County": "新竹",
+    "Miaoli": "苗栗",
+    "Miaoli County": "苗栗",
+    "Changhua": "彰化",
+    "Changhua County": "彰化",
+    "Nantou": "南投",
+    "Nantou County": "南投",
+    "Yunlin": "雲林",
+    "Yunlin County": "雲林",
+    "Chiayi": "嘉義",
+    "Chiayi City": "嘉義",
+    "Chiayi County": "嘉義",
+    "Pingtung": "屏東",
+    "Pingtung County": "屏東",
+    "Yilan": "宜蘭",
+    "Yilan County": "宜蘭",
+    "Hualien": "花蓮",
+    "Hualien County": "花蓮",
+    "Taitung": "台東",
+    "Taitung County": "台東",
+    "Penghu": "澎湖",
+    "Penghu County": "澎湖",
+    "Kinmen": "金門",
+    "Kinmen County": "金門",
+    "Lienchiang": "連江",
+    "Lienchiang County": "連江",
+};
+
+const formatWeatherPlaceName = (clientInfo) => {
+    const rawName = clientInfo.city || clientInfo.region || clientInfo.location || "";
+    if (!rawName) {
+        return "";
+    }
+    const firstPart = rawName.split("，").map((part) => part.trim()).filter(Boolean).pop() || rawName.trim();
+    return taiwanLocationNames[firstPart] || firstPart.replace(/\s+(City|County)$/i, "");
+};
+
+let clientNetworkInfoPromise;
+const loadClientNetworkInfo = async () => {
+    if (clientNetworkInfoPromise) {
+        return clientNetworkInfoPromise;
+    }
+
+    clientNetworkInfoPromise = (async () => {
+        try {
+            const data = await loadJson("https://ipwho.is/");
+            if (data.success === false) {
+                throw new Error("ipwho.is 無法辨識此 IP。");
+            }
+            return {
+                ip: data.ip || "",
+                isp: data.connection?.isp || data.connection?.org || data.connection?.asn || data.org || "",
+                location: formatClientLocation(data.country, data.region, data.city),
+                country: data.country || "",
+                region: data.region || "",
+                city: data.city || "",
+                latitude: normalizeCoordinate(data.latitude),
+                longitude: normalizeCoordinate(data.longitude),
+            };
+        } catch (_error) {
+            try {
+                const data = await loadJson("https://ipwhois.app/json/");
+                return {
+                    ip: data.ip || "",
+                    isp: data.isp || data.org || data.asn || "",
+                    location: formatClientLocation(data.country, data.region, data.city),
+                    country: data.country || "",
+                    region: data.region || "",
+                    city: data.city || "",
+                    latitude: normalizeCoordinate(data.latitude),
+                    longitude: normalizeCoordinate(data.longitude),
+                };
+            } catch (_secondaryError) {
+                try {
+                    const data = await loadJson("https://ipapi.co/json/");
+                    return {
+                        ip: data.ip || "",
+                        isp: data.org || data.asn || "",
+                        location: formatClientLocation(data.country_name, data.region, data.city),
+                        country: data.country_name || "",
+                        region: data.region || "",
+                        city: data.city || "",
+                        latitude: normalizeCoordinate(data.latitude),
+                        longitude: normalizeCoordinate(data.longitude),
+                    };
+                } catch (_thirdError) {
+                    try {
+                        const response = await fetchWithCacheBust("https://speed.cloudflare.com/cdn-cgi/trace");
+                        if (!response.ok) {
+                            throw new Error("Cloudflare trace 沒有回應。");
+                        }
+                        const trace = parseCloudflareTrace(await response.text());
+                        return {
+                            ip: trace.ip || "",
+                            isp: "",
+                            location: "",
+                            country: "",
+                            region: "",
+                            city: "",
+                            latitude: null,
+                            longitude: null,
+                        };
+                    } catch (_fallbackError) {
+                        return {
+                            ip: "",
+                            isp: "",
+                            location: "",
+                            country: "",
+                            region: "",
+                            city: "",
+                            latitude: null,
+                            longitude: null,
+                        };
+                    }
+                }
+            }
+        }
+    })();
+
+    return clientNetworkInfoPromise;
+};
 
 const closeOpenSubmenus = () => {
     document.querySelectorAll(".has-submenu.open").forEach((item) => {
@@ -308,6 +516,123 @@ if (homePage) {
 
     scheduleCurrentTimeUpdate();
     document.addEventListener("visibilitychange", updateCurrentTime);
+
+    const weatherPanel = homePage.querySelector(".weather-panel");
+    const weatherTitle = homePage.querySelector("#homeWeatherTitle");
+    const weatherIcon = homePage.querySelector("#homeWeatherIcon");
+    const weatherSummary = homePage.querySelector("#homeWeatherSummary");
+    const weatherLocation = homePage.querySelector("#homeWeatherLocation");
+    const desktopWeatherQuery = window.matchMedia("(min-width: 981px)");
+    let hasLoadedWeather = false;
+
+    const getWeatherInfo = (code) => {
+        const weatherCode = Number(code);
+        if (weatherCode === 0) {
+            return { label: "晴天", icon: "sun" };
+        }
+        if ([1, 2].includes(weatherCode)) {
+            return { label: "晴時多雲", icon: "cloud" };
+        }
+        if (weatherCode === 3) {
+            return { label: "多雲", icon: "cloud" };
+        }
+        if ([45, 48].includes(weatherCode)) {
+            return { label: "有霧", icon: "fog" };
+        }
+        if ([51, 53, 55, 56, 57].includes(weatherCode)) {
+            return { label: "毛毛雨", icon: "rain" };
+        }
+        if ([61, 63, 65, 66, 67].includes(weatherCode)) {
+            return { label: "下雨", icon: "rain" };
+        }
+        if ([71, 73, 75, 77, 85, 86].includes(weatherCode)) {
+            return { label: "降雪", icon: "snow" };
+        }
+        if ([80, 81, 82].includes(weatherCode)) {
+            return { label: "陣雨", icon: "rain" };
+        }
+        if ([95, 96, 99].includes(weatherCode)) {
+            return { label: "雷雨", icon: "thunder" };
+        }
+        return { label: "天氣狀態未知", icon: "unknown" };
+    };
+
+    const getNearestPrecipitationProbability = (weatherData) => {
+        const times = weatherData?.hourly?.time;
+        const values = weatherData?.hourly?.precipitation_probability;
+        if (!Array.isArray(times) || !Array.isArray(values) || !times.length) {
+            return null;
+        }
+
+        const now = Date.now();
+        let nearestValue = null;
+        let nearestDistance = Infinity;
+        times.forEach((time, index) => {
+            const timeValue = new Date(time).getTime();
+            const probability = Number(values[index]);
+            if (!Number.isFinite(timeValue) || !Number.isFinite(probability)) {
+                return;
+            }
+            const distance = Math.abs(timeValue - now);
+            if (distance < nearestDistance) {
+                nearestDistance = distance;
+                nearestValue = probability;
+            }
+        });
+        return nearestValue;
+    };
+
+    const setWeatherError = () => {
+        if (weatherPanel) {
+            weatherPanel.classList.add("is-error");
+        }
+        if (weatherSummary) {
+            weatherSummary.textContent = "天氣資訊暫時無法取得";
+        }
+        if (weatherLocation) {
+            weatherLocation.textContent = "請稍後再試";
+        }
+    };
+
+    const loadHomeWeather = async () => {
+        if (!weatherPanel || !weatherSummary || !weatherLocation || hasLoadedWeather || !desktopWeatherQuery.matches) {
+            return;
+        }
+        hasLoadedWeather = true;
+
+        try {
+            const clientInfo = await loadClientNetworkInfo();
+            if (!Number.isFinite(clientInfo.latitude) || !Number.isFinite(clientInfo.longitude)) {
+                throw new Error("IP 位置沒有經緯度。");
+            }
+
+            const weatherData = await loadJson(`https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(clientInfo.latitude)}&longitude=${encodeURIComponent(clientInfo.longitude)}&current=temperature_2m,weather_code&hourly=precipitation_probability&forecast_days=1&timezone=auto`);
+            const temperature = Number(weatherData?.current?.temperature_2m);
+            const weatherCode = weatherData?.current?.weather_code;
+            const precipitation = getNearestPrecipitationProbability(weatherData);
+            if (!Number.isFinite(temperature)) {
+                throw new Error("天氣資料沒有氣溫。");
+            }
+
+            weatherPanel.classList.remove("is-error");
+            const weatherInfo = getWeatherInfo(weatherCode);
+            if (weatherIcon) {
+                weatherIcon.className = `weather-icon weather-icon-${weatherInfo.icon}`;
+            }
+            const placeName = formatWeatherPlaceName(clientInfo);
+            if (weatherTitle) {
+                weatherTitle.textContent = placeName ? `${placeName}天氣` : "所在地天氣";
+            }
+            weatherSummary.textContent = `${weatherInfo.label}，${Math.round(temperature)}℃，降雨機率${Number.isFinite(precipitation) ? Math.round(precipitation) : "--"}%`;
+            weatherLocation.textContent = "";
+        } catch (error) {
+            console.warn("Home weather check failed", error);
+            setWeatherError();
+        }
+    };
+
+    loadHomeWeather();
+    desktopWeatherQuery.addEventListener?.("change", loadHomeWeather);
 
     const marqueeText = homePage.querySelector("#homeMarqueeText");
     const marqueeFallbackMessage = "歡迎來到愛蓁電信工作室 - 頻譜資訊網~";
@@ -3792,62 +4117,6 @@ if (liveSpeedPage) {
     const clientIp = liveSpeedPage.querySelector("#speedtestClientIp");
     const clientIsp = liveSpeedPage.querySelector("#speedtestClientIsp");
     const clientLocation = liveSpeedPage.querySelector("#speedtestClientLocation");
-    const endpoint = "https://speed.cloudflare.com";
-
-    const fetchWithCacheBust = (url, options = {}) => {
-        const separator = url.includes("?") ? "&" : "?";
-        return fetch(`${url}${separator}cacheBust=${Date.now()}-${Math.random().toString(16).slice(2)}`, {
-            cache: "no-store",
-            ...options,
-        });
-    };
-
-    const parseCloudflareTrace = (text) => text
-        .split("\n")
-        .reduce((items, line) => {
-            const [key, value] = line.split("=");
-            if (key && value) {
-                items[key.trim()] = value.trim();
-            }
-            return items;
-        }, {});
-
-    const loadJson = async (url) => {
-        const response = await fetchWithCacheBust(url);
-        if (!response.ok) {
-            throw new Error("IP 資訊服務沒有回應。");
-        }
-        return response.json();
-    };
-
-    const formatClientLocation = (...parts) => {
-        const uniqueParts = [];
-        parts.forEach((part) => {
-            if (typeof part !== "string" || !part.trim()) {
-                return;
-            }
-            const value = part.trim();
-            if (!uniqueParts.some((item) => item.toLocaleLowerCase() === value.toLocaleLowerCase())) {
-                uniqueParts.push(value);
-            }
-        });
-        return uniqueParts.join("，");
-    };
-
-    const ispDisplayNames = {
-        "Data Communication Business Group": "中華電信數據通信分公司",
-        "Mobile Business Group": "中華電信行動通信分公司",
-        "Far EastTone Telecommunication Co., Ltd.": "遠傳電信股份有限公司",
-        "taiwanmobile-as - Taiwan Mobile Co., Ltd.": "台灣大哥大股份有限公司",
-    };
-
-    const formatIspName = (isp) => {
-        if (typeof isp !== "string" || !isp.trim()) {
-            return "";
-        }
-        const value = isp.trim();
-        return ispDisplayNames[value] || value;
-    };
 
     const applyClientInfo = (ip, isp, location) => {
         clientIp.textContent = ip || "無法取得";
@@ -3856,46 +4125,8 @@ if (liveSpeedPage) {
     };
 
     const loadClientInfo = async () => {
-        try {
-            const data = await loadJson("https://ipwho.is/");
-            if (data.success === false) {
-                throw new Error("ipwho.is 無法辨識此 IP。");
-            }
-            applyClientInfo(
-                data.ip,
-                data.connection?.isp || data.connection?.org || data.connection?.asn || data.org,
-                formatClientLocation(data.country, data.region, data.city),
-            );
-        } catch (error) {
-            try {
-                const data = await loadJson("https://ipwhois.app/json/");
-                applyClientInfo(
-                    data.ip,
-                    data.isp || data.org || data.asn,
-                    formatClientLocation(data.country, data.region, data.city),
-                );
-            } catch (secondaryError) {
-                try {
-                    const data = await loadJson("https://ipapi.co/json/");
-                    applyClientInfo(
-                        data.ip,
-                        data.org || data.asn,
-                        formatClientLocation(data.country_name, data.region, data.city),
-                    );
-                } catch (thirdError) {
-                    try {
-                        const response = await fetchWithCacheBust(`${endpoint}/cdn-cgi/trace`);
-                        if (!response.ok) {
-                            throw new Error("Cloudflare trace 沒有回應。");
-                        }
-                        const trace = parseCloudflareTrace(await response.text());
-                        applyClientInfo(trace.ip, "", "");
-                    } catch (fallbackError) {
-                        applyClientInfo("", "", "");
-                    }
-                }
-            }
-        }
+        const clientInfo = await loadClientNetworkInfo();
+        applyClientInfo(clientInfo.ip, clientInfo.isp, clientInfo.location);
     };
     loadClientInfo();
 }
