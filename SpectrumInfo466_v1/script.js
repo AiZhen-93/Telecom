@@ -425,7 +425,7 @@ if (homePage) {
                 return;
             }
 
-            const latency = Number(latencyMs);
+            const latency = typeof latencyMs === "number" ? latencyMs : NaN;
             let level = 0;
             if (Number.isFinite(latency)) {
                 if (latency < 250) {
