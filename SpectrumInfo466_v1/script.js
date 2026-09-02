@@ -400,6 +400,8 @@ const homePage = document.querySelector(".home-page");
 if (homePage) {
     const currentTime = homePage.querySelector("#homeCurrentTime");
     const earthquakeStatusButton = homePage.querySelector(".earthquake-status-button");
+    const telecomCarrier = homePage.querySelector(".telecom-carrier");
+    const telecomCarrierName = homePage.querySelector(".telecom-carrier-name");
     const statusLineLink = homePage.querySelector(".status-line-link");
     const newsBody = homePage.querySelector("#homeNewsBody");
     const newsToggle = homePage.querySelector("#homeNewsToggle");
@@ -418,6 +420,29 @@ if (homePage) {
     if (earthquakeStatusButton) {
         const earthquakeStatusEndpoint = "https://aizhen-earthquake-alert.2010magnitude.workers.dev/";
         const earthquakeStatusTooltip = earthquakeStatusButton.querySelector(".status-tooltip");
+        const updateCarrierSignal = (latencyMs) => {
+            if (!telecomCarrier || !telecomCarrierName) {
+                return;
+            }
+
+            const latency = Number(latencyMs);
+            let level = 0;
+            if (Number.isFinite(latency)) {
+                if (latency < 250) {
+                    level = 4;
+                } else if (latency <= 1000) {
+                    level = 3;
+                } else if (latency <= 2000) {
+                    level = 2;
+                } else {
+                    level = 1;
+                }
+            }
+
+            telecomCarrier.dataset.signalLevel = String(level);
+            telecomCarrierName.textContent = level > 0 ? "愛蓁電信" : "沒有服務";
+            telecomCarrier.setAttribute("aria-label", level > 0 ? `強震即時警報延遲 ${Math.round(latency)}ms` : "強震即時警報無法連線");
+        };
         const setEarthquakeStatus = (isOnline) => {
             earthquakeStatusButton.classList.toggle("is-online", isOnline);
             earthquakeStatusButton.classList.toggle("is-offline", !isOnline);
@@ -429,13 +454,16 @@ if (homePage) {
         };
         const checkEarthquakeStatus = async () => {
             try {
+                const startedAt = performance.now();
                 const response = await fetch(earthquakeStatusEndpoint, { cache: "no-store" });
                 if (!response.ok || response.type === "opaque") {
                     throw new Error("Earthquake alert status is unreachable.");
                 }
                 await response.json();
+                updateCarrierSignal(performance.now() - startedAt);
                 setEarthquakeStatus(true);
             } catch (_error) {
+                updateCarrierSignal(null);
                 setEarthquakeStatus(false);
             }
         };
@@ -458,7 +486,7 @@ if (homePage) {
             if (!document.hidden) {
                 checkEarthquakeStatus();
             }
-        }, 30 * 1000);
+        }, 20 * 1000);
         document.addEventListener("visibilitychange", () => {
             if (!document.hidden) {
                 checkEarthquakeStatus();
@@ -1805,7 +1833,7 @@ if (drillCountdownModal) {
     const emergencyAlertMessage = drillCountdownModal.querySelector("#emergencyAlertMessage");
     const emergencyAlertFeedEndpoint = "https://aizhen-earthquake-alert.2010magnitude.workers.dev/";
     const emergencyAlertFreshnessWindow = 3 * 60 * 1000;
-    const emergencyAlertPollInterval = 30 * 1000;
+    const emergencyAlertPollInterval = 20 * 1000;
     const emergencyAlertStorageKey = "aizhenLastEarthquakeAlertId";
     let isCheckingEmergencyAlert = false;
     let lastShownEmergencyAlertId = "";

@@ -4961,6 +4961,17 @@ td.n257-column .combo-value {
     height: 0.86rem;
 }
 
+.telecom-carrier[data-signal-level="3"] .signal-bars i:nth-child(4),
+.telecom-carrier[data-signal-level="2"] .signal-bars i:nth-child(n+3),
+.telecom-carrier[data-signal-level="1"] .signal-bars i:nth-child(n+2) {
+    background: #43515c;
+    box-shadow: inset 0 0 0 1px rgba(223, 248, 255, 0.05);
+}
+
+.telecom-carrier[data-signal-level="0"] .signal-bars {
+    display: none;
+}
+
 .home-panel-heading {
     padding: 1rem 1rem 0;
 }
