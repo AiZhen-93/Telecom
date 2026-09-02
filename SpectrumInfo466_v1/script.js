@@ -428,7 +428,7 @@ if (homePage) {
             const latency = typeof latencyMs === "number" ? latencyMs : NaN;
             let level = 0;
             if (Number.isFinite(latency)) {
-                if (latency < 250) {
+                if (latency < 500) {
                     level = 4;
                 } else if (latency <= 1000) {
                     level = 3;
