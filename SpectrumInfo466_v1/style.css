@@ -10,8 +10,26 @@
     --accent: #27e1bb;
     --accent-2: #52a9ff;
     --accent-3: #ffc857;
+    --accent-strong: #8bf4df;
     --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
     --page-width: 1420px;
+}
+
+:root[data-theme="light"] {
+    --bg: #eaf4f7;
+    --bg-soft: #d7e9ef;
+    --panel: rgba(255, 255, 255, 0.74);
+    --panel-solid: #f7fbfd;
+    --line: rgba(24, 120, 138, 0.24);
+    --line-bright: rgba(0, 129, 150, 0.46);
+    --text: #102733;
+    --muted: #536b78;
+    --accent: #008b7a;
+    --accent-2: #1d68b3;
+    --accent-3: #b36b00;
+    --accent-strong: #005f54;
+    --shadow: 0 22px 56px rgba(31, 83, 100, 0.16);
+    color-scheme: light;
 }
 
 * {
@@ -4818,7 +4836,7 @@ td.n257-column .combo-value {
     background: #687684;
     line-height: 1;
     cursor: help;
-    box-shadow: 0 0 0 2px rgba(156, 170, 184, 0.08), 0 0 12px rgba(156, 170, 184, 0.32);
+    box-shadow: none;
 }
 
 .earthquake-status-wave {
@@ -4839,12 +4857,12 @@ td.n257-column .combo-value {
 .earthquake-status-button.is-online {
     border-color: rgba(255, 255, 255, 0.18);
     background: #18b966;
-    box-shadow: 0 0 0 2px rgba(34, 224, 128, 0.11), 0 0 15px rgba(34, 224, 128, 0.5);
+    box-shadow: none;
 }
 
 .earthquake-status-button.is-offline {
     background: #687684;
-    box-shadow: 0 0 0 2px rgba(156, 170, 184, 0.08), 0 0 12px rgba(156, 170, 184, 0.32);
+    box-shadow: none;
 }
 
 .status-line-link {
@@ -4866,7 +4884,10 @@ td.n257-column .combo-value {
 }
 
 .earthquake-status-button:hover,
-.earthquake-status-button:focus-visible,
+.earthquake-status-button:focus-visible {
+    outline: none;
+}
+
 .status-line-link:hover,
 .status-line-link:focus-visible {
     outline: none;
@@ -5120,11 +5141,12 @@ td.n257-column .combo-value {
     overflow: hidden;
     padding: 0 0.9rem;
     background:
-        linear-gradient(rgba(39, 225, 187, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(39, 225, 187, 0.06) 1px, transparent 1px),
+        linear-gradient(rgba(39, 225, 187, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(39, 225, 187, 0.035) 1px, transparent 1px),
         radial-gradient(circle at 12% 28%, rgba(39, 225, 187, 0.13), transparent 18rem),
         rgba(1, 8, 10, 0.72);
     background-size: 12px 12px, 12px 12px, auto, auto;
+    contain: paint;
 }
 
 .marquee-window::before,
@@ -5162,6 +5184,9 @@ td.n257-column .combo-value {
     text-shadow:
         0 0 8px rgba(39, 225, 187, 0.76),
         0 0 18px rgba(39, 225, 187, 0.42);
+}
+
+.marquee-text.is-animating {
     will-change: transform;
 }
 
@@ -5188,7 +5213,7 @@ td.n257-column .combo-value {
 
 .status-weather-row {
     display: grid;
-    grid-template-columns: minmax(24rem, 1fr) minmax(15.5rem, 0.72fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(11.5rem, 1fr);
     align-items: stretch;
     gap: 0.75rem;
     min-width: 0;
@@ -6582,6 +6607,91 @@ td.n257-column .combo-value {
     -webkit-box-orient: vertical;
 }
 
+@media (min-width: 761px) and (max-width: 1180px) {
+    .status-weather-row {
+        grid-template-columns: minmax(0, 1.4fr) minmax(9.8rem, 1fr);
+        gap: 0.55rem;
+    }
+
+    .telecom-statusbar,
+    .home-panel-heading {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .home-panel-heading h1,
+    .home-panel-heading h2 {
+        font-size: clamp(1.12rem, 2.6vw, 1.55rem);
+    }
+
+    .status-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.65rem;
+    }
+
+    .status-report-link {
+        min-height: 2.15rem;
+        padding: 0 0.62rem;
+        font-size: 0.78rem;
+    }
+
+    .status-board {
+        margin: 0.75rem 0.55rem 0.65rem;
+    }
+
+    .status-row > span {
+        min-height: 2.75rem;
+        padding: 0.36rem 0.28rem;
+    }
+
+    .status-header > span {
+        gap: 0.24rem;
+        font-size: 0.74rem;
+    }
+
+    .operator-icon {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .status-cell {
+        gap: 0.24rem;
+        font-size: 0.74rem;
+    }
+
+    .status-report-count {
+        min-width: 1.35rem;
+        min-height: 1.12rem;
+        padding: 0 0.25rem;
+        font-size: 0.64rem;
+    }
+
+    .weather-heading {
+        padding-bottom: 0.55rem;
+    }
+
+    .weather-content {
+        min-height: 4.8rem;
+        padding: 0 0.7rem 0.8rem;
+    }
+
+    .weather-main {
+        gap: 0.45rem;
+    }
+
+    .weather-icon {
+        width: 1.62rem;
+        height: 1.62rem;
+    }
+
+    .weather-summary {
+        font-size: 0.8rem;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+    }
+}
+
 @media (max-width: 760px) {
     .home-top-grid {
         grid-template-columns: 1fr;
@@ -6673,6 +6783,442 @@ td.n257-column .combo-value {
 
     .merge-video-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.site-settings-item {
+    position: relative;
+}
+
+.site-settings-trigger {
+    display: inline-grid;
+    place-items: center;
+    width: 2.55rem;
+    min-width: 2.55rem;
+    height: 2.55rem;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: var(--text);
+    background: transparent;
+    cursor: pointer;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.site-settings-icon {
+    display: block;
+    width: 1.12rem;
+    height: 1.12rem;
+    object-fit: contain;
+    pointer-events: none;
+    filter: invert(1) brightness(1.15);
+}
+
+.site-settings-trigger:hover,
+.site-settings-trigger:focus-visible,
+.site-settings-item.open .site-settings-trigger {
+    border-color: transparent;
+    color: var(--text);
+    background: rgba(39, 225, 187, 0.14);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(39, 225, 187, 0.11);
+}
+
+.site-settings-panel {
+    position: absolute;
+    top: calc(100% + 0.55rem);
+    left: 50%;
+    z-index: 2200;
+    display: grid;
+    gap: 0.72rem;
+    width: min(19rem, 82vw);
+    padding: 0.85rem;
+    border: 1px solid var(--line-bright);
+    border-radius: 8px;
+    color: var(--text);
+    background: rgba(8, 21, 29, 0.98);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.36);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -0.35rem);
+    transition: opacity 150ms ease, transform 150ms ease, visibility 150ms ease;
+}
+
+.site-settings-panel::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -0.36rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-left: 1px solid var(--line-bright);
+    border-top: 1px solid var(--line-bright);
+    background: rgba(8, 21, 29, 0.98);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.site-settings-item.open .site-settings-panel,
+.site-settings-item:focus-within .site-settings-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.site-settings-title {
+    color: var(--accent);
+    font-size: 0.88rem;
+    letter-spacing: 0;
+}
+
+.settings-switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    min-height: 2.5rem;
+    padding: 0.55rem 0.62rem;
+    border: 1px solid rgba(139, 232, 255, 0.14);
+    border-radius: 8px;
+    background: rgba(3, 12, 17, 0.38);
+    cursor: pointer;
+}
+
+.settings-switch-text {
+    min-width: 0;
+    color: var(--text);
+    font-size: 0.86rem;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.settings-switch input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.settings-switch-track {
+    position: relative;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 3.9rem;
+    height: 1.72rem;
+    padding: 0 0.32rem;
+    border: 1px solid rgba(139, 232, 255, 0.28);
+    border-radius: 999px;
+    background: rgba(104, 118, 132, 0.34);
+    transition: border-color 160ms ease, background 160ms ease;
+}
+
+.settings-switch input:checked + .settings-switch-track {
+    border-color: rgba(39, 225, 187, 0.56);
+    background: linear-gradient(90deg, rgba(39, 225, 187, 0.34), rgba(82, 169, 255, 0.24));
+}
+
+.settings-switch-thumb {
+    position: absolute;
+    left: 0.2rem;
+    top: 50%;
+    z-index: 2;
+    width: 1.28rem;
+    height: 1.28rem;
+    border-radius: 50%;
+    background: #edfaff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
+    transform: translateY(-50%);
+    transition: transform 160ms ease, background 160ms ease;
+}
+
+.settings-switch input:checked + .settings-switch-track .settings-switch-thumb {
+    transform: translate(2.18rem, -50%);
+}
+
+.settings-switch-icon {
+    position: relative;
+    z-index: 1;
+    display: inline-grid;
+    place-items: center;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: rgba(237, 250, 255, 0.82);
+}
+
+.settings-switch-icon svg {
+    width: 0.92rem;
+    height: 0.92rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.settings-switch input:focus-visible + .settings-switch-track {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+body.is-earthquake-alert-disabled .earthquake-status-button,
+body.is-line-invite-disabled .status-line-link {
+    display: none;
+}
+
+:root[data-theme="light"] body {
+    background:
+        radial-gradient(circle at 18% 10%, rgba(0, 139, 122, 0.18), transparent 28rem),
+        radial-gradient(circle at 82% 4%, rgba(29, 104, 179, 0.16), transparent 26rem),
+        linear-gradient(135deg, #eaf4f7 0%, #f6fbfd 47%, #dcecf1 100%);
+}
+
+:root[data-theme="light"] body::before {
+    background-image:
+        linear-gradient(rgba(0, 129, 150, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 129, 150, 0.08) 1px, transparent 1px);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.16));
+}
+
+:root[data-theme="light"] body::after,
+:root[data-theme="light"] .site-shell::before {
+    opacity: 0.46;
+    filter: saturate(0.9);
+}
+
+:root[data-theme="light"] .site-header,
+:root[data-theme="light"] .content-area {
+    border-color: rgba(24, 120, 138, 0.22);
+    background:
+        linear-gradient(135deg, rgba(0, 139, 122, 0.08), transparent 34%),
+        linear-gradient(225deg, rgba(29, 104, 179, 0.08), transparent 42%),
+        rgba(255, 255, 255, 0.72);
+    box-shadow: var(--shadow);
+}
+
+:root[data-theme="light"] .submenu,
+:root[data-theme="light"] .site-settings-panel,
+:root[data-theme="light"] .status-tooltip {
+    border-color: rgba(0, 129, 150, 0.36);
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 18px 45px rgba(31, 83, 100, 0.18);
+}
+
+:root[data-theme="light"] .submenu::before,
+:root[data-theme="light"] .site-settings-panel::before,
+:root[data-theme="light"] .status-tooltip::before {
+    border-color: rgba(0, 129, 150, 0.36);
+    background: rgba(255, 255, 255, 0.97);
+}
+
+:root[data-theme="light"] .nav-item:hover > a,
+:root[data-theme="light"] .nav-item:hover > .nav-trigger,
+:root[data-theme="light"] .nav-item:focus-within > a,
+:root[data-theme="light"] .nav-item:focus-within > .nav-trigger,
+:root[data-theme="light"] .nav-item.active > a,
+:root[data-theme="light"] .nav-item.active > .nav-trigger,
+:root[data-theme="light"] .submenu a:hover,
+:root[data-theme="light"] .submenu a:focus,
+:root[data-theme="light"] .submenu a.current {
+    color: var(--text);
+    background: linear-gradient(90deg, rgba(0, 139, 122, 0.12), rgba(29, 104, 179, 0.08));
+    box-shadow: inset 0 0 0 1px rgba(29, 104, 179, 0.14);
+}
+
+:root[data-theme="light"] .site-settings-trigger,
+:root[data-theme="light"] .mobile-menu-button {
+    border-color: rgba(0, 129, 150, 0.24);
+    background: rgba(29, 104, 179, 0.08);
+}
+
+:root[data-theme="light"] .mobile-menu-button span {
+    background: var(--text);
+}
+
+:root[data-theme="light"] .settings-switch {
+    border-color: rgba(24, 120, 138, 0.16);
+    background: rgba(232, 244, 247, 0.7);
+}
+
+:root[data-theme="light"] .settings-switch-track {
+    border-color: rgba(24, 120, 138, 0.28);
+    background: rgba(154, 177, 188, 0.26);
+}
+
+:root[data-theme="light"] .settings-switch input:checked + .settings-switch-track {
+    border-color: rgba(0, 139, 122, 0.5);
+    background: linear-gradient(90deg, rgba(0, 139, 122, 0.24), rgba(29, 104, 179, 0.17));
+}
+
+:root[data-theme="light"] .settings-switch-thumb {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(31, 83, 100, 0.22);
+}
+
+:root[data-theme="light"] .settings-switch-icon {
+    color: #25424f;
+}
+
+:root[data-theme="light"] :is(
+    .footer-main,
+    .footer-bottom,
+    .home-panel,
+    .telecom-statusbar,
+    .status-board,
+    .weather-panel,
+    .coverage-card,
+    .coverage-link,
+    .impact-panel,
+    .publicity-card,
+    .regional-map-panel,
+    .spectrum-toolbar,
+    .spectrum-grid,
+    .spectrum-card,
+    .spectrum-table-wrapper,
+    .tac-search-card,
+    .cid-notes,
+    .cid-table-wrap,
+    .calculator-panel,
+    .speed-visual-panel,
+    .speed-card,
+    .external-speed-card,
+    .tool-card,
+    .phone-combo-search,
+    .phone-combo-card,
+    .combo-result-card,
+    .database-toolbar,
+    .database-table-wrap,
+    .unknown-frequency-table-wrap,
+    .sa-rollout-table-wrap,
+    .maintenance-calendar-shell,
+    .maintenance-detail-panel,
+    .sleep-time-panel,
+    .sleep-operator-card,
+    .sleep-video-card,
+    .merge-zone-card,
+    .merge-phase-card,
+    .merge-tower-card,
+    .merge-video-card,
+    .article-card,
+    .project-video-card,
+    .drill-countdown-card
+) {
+    border-color: rgba(24, 120, 138, 0.18);
+    color: var(--text);
+    background:
+        linear-gradient(145deg, rgba(0, 139, 122, 0.055), transparent 42%),
+        linear-gradient(225deg, rgba(29, 104, 179, 0.055), transparent 46%),
+        rgba(255, 255, 255, 0.7);
+    box-shadow: 0 14px 34px rgba(31, 83, 100, 0.11);
+}
+
+:root[data-theme="light"] :is(
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td,
+    .status-row > span,
+    .status-header > span,
+    .maintenance-day,
+    .merge-phase-content,
+    .combo-value,
+    .combo-line,
+    .ambr-rate,
+    .ambr-plan
+) {
+    border-color: rgba(24, 120, 138, 0.16);
+}
+
+:root[data-theme="light"] :is(
+    .home-panel-heading h1,
+    .home-panel-heading h2,
+    .section-heading h1,
+    .section-heading h2,
+    .card-title,
+    .status-text,
+    .telecom-statusbar,
+    .combo-value,
+    .combo-line,
+    .merge-phase-period,
+    .footer-brand,
+    .footer-back-top,
+    .footer-button
+) {
+    color: var(--text);
+}
+
+:root[data-theme="light"] :is(
+    .status-text,
+    .footer-notes,
+    .footer-tagline,
+    .footer-visits,
+    .card-meta,
+    .section-kicker,
+    .weather-summary,
+    .combo-meta,
+    .merge-phase-meta
+) {
+    color: var(--muted);
+}
+
+:root[data-theme="light"] :is(.footer-button, .footer-back-top, .status-report-link, .coverage-link) {
+    border-color: rgba(0, 139, 122, 0.28);
+    background: rgba(0, 139, 122, 0.08);
+}
+
+:root[data-theme="light"] :is(.footer-button:hover, .footer-button:focus-visible, .footer-back-top:hover, .footer-back-top:focus-visible) {
+    border-color: rgba(0, 139, 122, 0.52);
+    background: rgba(0, 139, 122, 0.14);
+}
+
+:root[data-theme="light"] .status-tooltip {
+    color: var(--text);
+}
+
+:root[data-theme="light"] .earthquake-status-button.is-offline {
+    background: #7b8f9b;
+}
+
+:root[data-theme="light"] .earthquake-status-button.is-online {
+    background: #148a55;
+}
+
+@media (max-width: 980px) {
+    .site-settings-item {
+        order: -1;
+    }
+
+    .site-settings-trigger {
+        width: 100%;
+        padding: 0 0.9rem;
+        justify-content: flex-start;
+    }
+
+    .site-settings-panel {
+        position: static;
+        width: 100%;
+        margin-top: 0.35rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: none;
+        display: none;
+    }
+
+    .site-settings-panel::before {
+        display: none;
+    }
+
+    .site-settings-item.open .site-settings-panel,
+    .site-settings-item:focus-within .site-settings-panel {
+        display: grid;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
     }
 }
 
@@ -7217,4 +7763,1912 @@ td.n257-column .combo-value {
     .merge-video-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+}
+
+/* Light theme final contrast pass. Keep this after responsive rules. */
+:root[data-theme="light"] body {
+    color: var(--text);
+    background:
+        radial-gradient(circle at 14% 8%, rgba(0, 139, 122, 0.2), transparent 26rem),
+        radial-gradient(circle at 86% 6%, rgba(29, 104, 179, 0.17), transparent 28rem),
+        linear-gradient(135deg, #e6f1f5 0%, #f8fcfd 46%, #dcebf0 100%);
+}
+
+:root[data-theme="light"] body::before {
+    background-image:
+        linear-gradient(rgba(0, 129, 150, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 129, 150, 0.08) 1px, transparent 1px);
+}
+
+:root[data-theme="light"] .site-header,
+:root[data-theme="light"] .content-area,
+:root[data-theme="light"] .site-footer,
+:root[data-theme="light"] .submenu,
+:root[data-theme="light"] .site-settings-panel,
+:root[data-theme="light"] .status-tooltip,
+:root[data-theme="light"] .drill-countdown-modal,
+:root[data-theme="light"] .emergency-alert-card,
+:root[data-theme="light"] :is(
+    .home-panel,
+    .news-panel,
+    .marquee-panel,
+    .telecom-statusbar,
+    .status-board,
+    .status-panel,
+    .weather-panel,
+    .coverage-panel,
+    .coverage-card,
+    .impact-panel,
+    .publicity-panel,
+    .publicity-card,
+    .regional-map-panel,
+    .regional-map-info,
+    .spectrum-card,
+    .spectrum-board,
+    .spectrum-toolbar,
+    .spectrum-table-wrapper,
+    .spectrum-table-page,
+    .allocation-table-board,
+    .tac-search-panel,
+    .tac-search-card,
+    .tac-search-result,
+    .cid-notes,
+    .cid-table-wrap,
+    .calculator-panel,
+    .quick-config-panel,
+    .speed-control-panel,
+    .speed-visual-panel,
+    .speed-card,
+    .speed-fieldset,
+    .speedtest-gauge,
+    .speedtest-metric,
+    .external-speed-card,
+    .tool-card,
+    .youtube-panel,
+    .phone-brand-panel,
+    .phone-combo-search,
+    .phone-combo-card,
+    .phone-results-panel,
+    .combo-result-card,
+    .ambr-card,
+    .ambr-extra-notes,
+    .database-toolbar,
+    .database-table-wrap,
+    .speed-database-board,
+    .unknown-frequency-panel,
+    .unknown-frequency-table-wrap,
+    .sa-rollout-panel,
+    .sa-rollout-table-wrap,
+    .maintenance-toolbar,
+    .maintenance-calendar-shell,
+    .maintenance-detail,
+    .maintenance-detail-panel,
+    .maintenance-source-links,
+    .maintenance-notice,
+    .sleep-time-panel,
+    .sleep-operator-card,
+    .sleep-video-card,
+    .merge-zone-card,
+    .merge-phase-card,
+    .merge-tower-card,
+    .merge-video-card,
+    .article-card,
+    .project-video-card,
+    .hsr-project-card,
+    .hsr-project-toolbar,
+    .drill-countdown-card
+) {
+    border-color: rgba(24, 120, 138, 0.2);
+    color: var(--text);
+    background:
+        linear-gradient(145deg, rgba(0, 139, 122, 0.06), transparent 40%),
+        linear-gradient(225deg, rgba(29, 104, 179, 0.055), transparent 45%),
+        rgba(255, 255, 255, 0.76);
+    box-shadow: 0 14px 34px rgba(31, 83, 100, 0.12);
+}
+
+:root[data-theme="light"] .submenu::before,
+:root[data-theme="light"] .site-settings-panel::before,
+:root[data-theme="light"] .status-tooltip::before {
+    border-color: rgba(0, 129, 150, 0.34);
+    background: rgba(255, 255, 255, 0.97);
+}
+
+:root[data-theme="light"] .site-settings-trigger {
+    border-color: transparent;
+    color: var(--text);
+    background: transparent;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] .site-settings-icon {
+    filter: none;
+}
+
+:root[data-theme="light"] .site-settings-trigger:hover,
+:root[data-theme="light"] .site-settings-trigger:focus-visible,
+:root[data-theme="light"] .site-settings-item.open .site-settings-trigger {
+    border-color: transparent;
+    color: var(--text);
+    background: rgba(0, 139, 122, 0.12);
+    box-shadow: 0 0 0 3px rgba(0, 139, 122, 0.12);
+}
+
+:root[data-theme="light"] .mobile-menu-button {
+    border-color: rgba(0, 129, 150, 0.24);
+    background: rgba(29, 104, 179, 0.08);
+}
+
+:root[data-theme="light"] .mobile-menu-button span {
+    background: var(--text);
+}
+
+:root[data-theme="light"] :is(
+    h1,
+    h2,
+    h3,
+    h4,
+    label,
+    strong,
+    .brand-text,
+    .nav-trigger,
+    .nav-item > a,
+    .submenu a,
+    .site-settings-title,
+    .settings-switch-text,
+    .home-panel-heading h1,
+    .home-panel-heading h2,
+    .section-heading h1,
+    .section-heading h2,
+    .section-heading h3,
+    .news-heading,
+    .card-title,
+    .coverage-heading,
+    .weather-heading,
+    .weather-location,
+    .status-heading,
+    .status-text,
+    .status-report-count,
+    .impact-value,
+    .operator-heading,
+    .sa-carrier-heading,
+    .cid-section-heading,
+    .tac-search-carrier,
+    .combo-value,
+    .combo-line,
+    .combo-result-card,
+    .ambr-heading,
+    .ambr-plan,
+    .ambr-rate,
+    .phone-brand-name,
+    .phone-combo-heading,
+    .project-video-badge,
+    .project-video-title,
+    .merge-zone-heading,
+    .merge-phase-period,
+    .merge-video-title,
+    .maintenance-day-number,
+    .maintenance-detail-heading,
+    .sleep-count,
+    .drill-countdown-label,
+    .emergency-alert-title,
+    .footer-brand,
+    .footer-copyright,
+    .footer-version,
+    .footer-back-top,
+    .footer-button
+) {
+    color: var(--text);
+}
+
+:root[data-theme="light"] :is(
+    p,
+    li,
+    small,
+    .section-kicker,
+    .section-heading p,
+    .card-meta,
+    .coverage-note,
+    .weather-summary,
+    .axis-note,
+    .band-group-note,
+    .speed-hint,
+    .speed-limit-note,
+    .external-speed-text,
+    .phone-help-notes,
+    .phone-combo-source,
+    .combo-meta,
+    .ambr-backend-note,
+    .maintenance-detail-empty,
+    .maintenance-legend,
+    .sleep-monitor-note,
+    .sleep-operator-note,
+    .project-video-meta,
+    .hsr-project-meta,
+    .merge-phase-meta,
+    .merge-phase-note,
+    .merge-zone-copy,
+    .footer-notes,
+    .footer-tagline,
+    .footer-visits
+) {
+    color: var(--muted);
+}
+
+:root[data-theme="light"] :is(
+    input,
+    select,
+    textarea,
+    .phone-brand-button,
+    .phone-brand-clear,
+    .phone-column-toggle-label,
+    .operator-filter,
+    .month-control,
+    .month-picker-label,
+    .year-picker-label,
+    .speed-database-search,
+    .speed-database-controls select,
+    .speed-database-controls input,
+    .tac-search-form input,
+    .speed-select-group select,
+    .speed-select-group input,
+    .arfcn-calculator-controls input,
+    .arfcn-calculator-controls select,
+    .settings-switch
+) {
+    border-color: rgba(24, 120, 138, 0.24);
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.74);
+}
+
+:root[data-theme="light"] :is(input, select, textarea)::placeholder {
+    color: rgba(83, 107, 120, 0.82);
+}
+
+:root[data-theme="light"] :is(input, select, textarea):focus,
+:root[data-theme="light"] :is(.phone-brand-button, .phone-brand-clear, .month-control, .speed-database-search):focus-visible {
+    border-color: rgba(0, 139, 122, 0.54);
+    box-shadow: 0 0 0 3px rgba(0, 139, 122, 0.12);
+    outline: none;
+}
+
+:root[data-theme="light"] :is(
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td,
+    .table-head,
+    .table-cell,
+    .status-header > span,
+    .status-row > span,
+    .allocation-table,
+    .cid-table,
+    .tac-table,
+    .signal-table,
+    .home-news-table,
+    .sa-rollout-table,
+    .unknown-frequency-table,
+    .speed-database-table,
+    .phone-combo-table,
+    .maintenance-weekdays,
+    .maintenance-calendar,
+    .maintenance-day,
+    .ambr-table,
+    .ambr-table-head,
+    .ambr-row
+) {
+    border-color: rgba(24, 120, 138, 0.17);
+    color: var(--text);
+}
+
+:root[data-theme="light"] :is(
+    thead,
+    th,
+    .table-head,
+    .status-header > span,
+    .ambr-table-head,
+    .maintenance-weekdays,
+    .home-news-table th,
+    .speed-database-table th,
+    .phone-combo-table th,
+    .cid-table th,
+    .tac-table th,
+    .allocation-table th,
+    .sa-rollout-table th,
+    .unknown-frequency-table th
+) {
+    background: rgba(218, 237, 243, 0.9);
+}
+
+:root[data-theme="light"] :is(
+    td,
+    .table-cell,
+    .status-row > span,
+    .home-news-table td,
+    .speed-database-table td,
+    .phone-combo-table td,
+    .cid-table td,
+    .tac-table td,
+    .allocation-table td,
+    .sa-rollout-table td,
+    .unknown-frequency-table td,
+    .ambr-row,
+    .maintenance-day
+) {
+    background-color: rgba(255, 255, 255, 0.58);
+}
+
+:root[data-theme="light"] tbody tr:nth-child(even) :is(td, .table-cell) {
+    background-color: rgba(232, 244, 247, 0.62);
+}
+
+:root[data-theme="light"] :is(
+    .nav-item:hover > a,
+    .nav-item:hover > .nav-trigger,
+    .nav-item:focus-within > a,
+    .nav-item:focus-within > .nav-trigger,
+    .nav-item.active > a,
+    .nav-item.active > .nav-trigger,
+    .submenu a:hover,
+    .submenu a:focus,
+    .submenu a.current,
+    .footer-button,
+    .footer-back-top,
+    .status-report-link,
+    .coverage-link,
+    .home-news-link,
+    .source-link,
+    .speed-database-link,
+    .tool-main-link,
+    .tool-video-link,
+    .ambr-video-link,
+    .youtube-link-label,
+    .horizon-view-link,
+    .region-map-link
+) {
+    border-color: rgba(0, 139, 122, 0.28);
+    color: var(--text);
+    background: rgba(0, 139, 122, 0.09);
+}
+
+:root[data-theme="light"] :is(
+    .footer-button:hover,
+    .footer-button:focus-visible,
+    .footer-back-top:hover,
+    .footer-back-top:focus-visible,
+    .status-report-link:hover,
+    .coverage-link:hover,
+    .home-news-link:hover,
+    .source-link:hover,
+    .tool-main-link:hover,
+    .tool-video-link:hover,
+    .region-map-link:hover
+) {
+    border-color: rgba(0, 139, 122, 0.5);
+    color: var(--text);
+    background: rgba(0, 139, 122, 0.15);
+}
+
+:root[data-theme="light"] :is(
+    .news-badge,
+    .frequency-status,
+    .project-video-badge,
+    .merge-band,
+    .maintenance-dot-button,
+    .status-green,
+    .status-yellow,
+    .status-gray,
+    .status-red,
+    .status-partial,
+    .status-none,
+    .status-limited,
+    .status-closed
+) {
+    color: #102733;
+}
+
+:root[data-theme="light"] :is(
+    .spectrum-cell,
+    .signal-cell,
+    .cid-data-cell,
+    .cid-meta-cell,
+    .cid-operator-cell,
+    .cid-sa-cell,
+    .cid-former-tstar-cell,
+    .empty-cell,
+    .light-rule-cell,
+    .dense-number-cell,
+    .note-col,
+    .note-column,
+    .band-option,
+    .quick-config-options,
+    .segmented-options,
+    .sleep-band-row,
+    .sleep-slider-track,
+    .merge-phase-content,
+    .merge-phase-overview-step,
+    .merge-band-list,
+    .maintenance-notice-list
+) {
+    border-color: rgba(24, 120, 138, 0.16);
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.58);
+}
+
+:root[data-theme="light"] :is(
+    .frequency-row-cht,
+    .frequency-row-fet,
+    .frequency-row-twm,
+    .carrier-heading-cht,
+    .carrier-heading-fet,
+    .carrier-heading-twm,
+    .sa-cht,
+    .sa-fet,
+    .sa-twm,
+    .ambr-cht,
+    .ambr-fet,
+    .ambr-twm,
+    .coverage-cht,
+    .coverage-fet,
+    .coverage-twm
+) {
+    color: var(--text);
+}
+
+:root[data-theme="light"] :is(
+    .refarming-map-card,
+    .refarming-map-stage,
+    .refarming-map-tooltip,
+    .regional-map-stage,
+    .drill-map-stage,
+    .drill-countdown-map,
+    .speed-map-frame,
+    .hsr-route,
+    .hsr-route-label,
+    .sleep-tower-wrap,
+    .merge-tower-visual,
+    .project-video-thumb,
+    .hsr-project-thumb
+) {
+    border-color: rgba(24, 120, 138, 0.18);
+    color: var(--text);
+    background: rgba(241, 248, 250, 0.72);
+}
+
+:root[data-theme="light"] :is(
+    .settings-switch-track,
+    .speedtest-ring,
+    .speedtest-progress,
+    .sleep-bar,
+    .merge-phase-overview-track
+) {
+    border-color: rgba(24, 120, 138, 0.2);
+    background: rgba(154, 177, 188, 0.24);
+}
+
+:root[data-theme="light"] .settings-switch input:checked + .settings-switch-track {
+    border-color: rgba(0, 139, 122, 0.5);
+    background: linear-gradient(90deg, rgba(0, 139, 122, 0.24), rgba(29, 104, 179, 0.17));
+}
+
+:root[data-theme="light"] .settings-switch-thumb {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(31, 83, 100, 0.22);
+}
+
+:root[data-theme="light"] .settings-switch-icon {
+    color: #25424f;
+}
+
+:root[data-theme="light"] :is(
+    .combo-value,
+    .combo-line,
+    .status-text,
+    .table-text-compact,
+    .compact-text,
+    .external-speed-text,
+    .drill-countdown-note,
+    .emergency-alert-content
+) {
+    color: var(--text);
+}
+
+:root[data-theme="light"] :is(
+    .combo-value,
+    .combo-line,
+    .cid-data-cell,
+    .cid-meta-cell,
+    .cid-operator-cell,
+    .cid-sa-cell,
+    .cid-former-tstar-cell,
+    .frequency-status,
+    .phone-combo-table td,
+    .speed-database-table td,
+    .unknown-frequency-table td,
+    .sa-rollout-table td,
+    .signal-table td
+) {
+    background: rgba(255, 255, 255, 0.62) !important;
+}
+
+:root[data-theme="light"] .earthquake-status-button.is-offline {
+    background: #7b8f9b;
+}
+
+:root[data-theme="light"] .earthquake-status-button.is-online {
+    background: #148a55;
+}
+
+:root[data-theme="light"] .spectrum-page .spectrum-cell {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .spectrum-page :is(
+    .operator-block,
+    .spectrum-cell.unassigned,
+    .spectrum-cell.guard,
+    .spectrum-cell[style*="--cell-bg"]
+) {
+    color: var(--cell-color, #fff);
+    background: var(--cell-bg, rgba(120, 128, 136, 0.55)) !important;
+}
+
+:root[data-theme="light"] .spectrum-page .spectrum-cell.guard {
+    background: #ff9b9b !important;
+}
+
+:root[data-theme="light"] .spectrum-page .spectrum-cell:is(.label, .axis-note, .no-fill) {
+    color: var(--text);
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .spectrum-page .operator-block.op-twm {
+    color: #05090c;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) :is(th, td) {
+    border-color: rgba(255, 255, 255, 0.55);
+    color: var(--cell-color, var(--text));
+    background: var(--cell-bg, rgba(10, 27, 36, 0.72)) !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .has-fill {
+    color: var(--cell-color, #fff);
+    background: var(--cell-bg) !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table) .light-rule-cell {
+    color: #111820;
+    background: var(--cell-bg) !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table) .table-head:not(.light-rule-cell) {
+    color: #f2fbff;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table) :is(.top-row-no-border, .empty-cell),
+:root[data-theme="light"] .cid-table :is(.empty-cell, .cid-spacer-cell),
+:root[data-theme="light"] .cid-table .cid-separator-row td {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .cid-table .cid-carrier-meta-row > :not(.empty-cell):not(.cid-spacer-cell) {
+    color: var(--cell-color, #fff);
+    background: var(--carrier-row-bg) !important;
+}
+
+:root[data-theme="light"] .cid-table .cid-sa-cell:not(.has-fill):not(.empty-cell) {
+    color: var(--accent);
+}
+
+/* Light theme semantic color restoration. */
+:root[data-theme="light"] .marquee-window {
+    background:
+        linear-gradient(rgba(0, 139, 122, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 139, 122, 0.06) 1px, transparent 1px),
+        radial-gradient(circle at 12% 28%, rgba(0, 139, 122, 0.14), transparent 18rem),
+        rgba(238, 248, 250, 0.88);
+    background-size: 12px 12px, 12px 12px, auto, auto;
+}
+
+:root[data-theme="light"] .marquee-window::before {
+    background: linear-gradient(90deg, rgba(238, 248, 250, 0.96), transparent);
+}
+
+:root[data-theme="light"] .marquee-window::after {
+    background: linear-gradient(270deg, rgba(238, 248, 250, 0.96), transparent);
+}
+
+:root[data-theme="light"] .marquee-text {
+    color: #006f5f;
+}
+
+:root[data-theme="light"] .weather-icon-cloud::before,
+:root[data-theme="light"] .weather-icon-rain::before,
+:root[data-theme="light"] .weather-icon-thunder::before,
+:root[data-theme="light"] .weather-icon-fog::before,
+:root[data-theme="light"] .weather-icon-snow::before,
+:root[data-theme="light"] .weather-icon-unknown::before {
+    background: #7f98a6;
+    box-shadow:
+        0.4rem -0.46rem 0 -0.08rem #7f98a6,
+        0.92rem -0.66rem 0 0.02rem #7f98a6;
+}
+
+:root[data-theme="light"] .weather-icon-fog::after {
+    border-top-color: rgba(88, 111, 125, 0.88);
+    border-bottom-color: rgba(88, 111, 125, 0.62);
+}
+
+:root[data-theme="light"] .weather-icon-snow::after {
+    background: #7f98a6;
+    box-shadow: 0.52rem 0.09rem 0 #7f98a6, 1rem -0.02rem 0 #7f98a6;
+}
+
+:root[data-theme="light"] .youtube-links a,
+:root[data-theme="light"] .youtube-link-label,
+:root[data-theme="light"] .home-news-link {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .youtube-links a {
+    color: #9f1d24;
+    border-color: rgba(220, 38, 38, 0.28);
+}
+
+:root[data-theme="light"] .home-news-table tbody tr {
+    color: var(--operator-row-color, var(--text));
+}
+
+:root[data-theme="light"] .home-news-table tbody tr[data-news-operator="cht"] {
+    color: #0b61a4;
+}
+
+:root[data-theme="light"] .home-news-table tbody tr[data-news-operator="fet"] {
+    color: #c40000;
+}
+
+:root[data-theme="light"] .home-news-table tbody tr[data-news-operator="twm"] {
+    color: #9a5d00;
+}
+
+:root[data-theme="light"] .home-news-table tbody tr[data-news-operator="aptg"] {
+    color: #0a7c42;
+}
+
+:root[data-theme="light"] .home-news-table tbody tr[data-news-operator="tstartel"] {
+    color: #7b35aa;
+}
+
+:root[data-theme="light"] .home-news-table tbody td {
+    color: inherit !important;
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .home-news-table tbody tr:hover td {
+    background: rgba(0, 139, 122, 0.06) !important;
+}
+
+:root[data-theme="light"] .home-news-link {
+    color: inherit !important;
+    text-decoration-color: currentColor;
+}
+
+:root[data-theme="light"] .news-badge {
+    color: #102733;
+    background: var(--badge-bg, rgba(29, 104, 179, 0.14)) !important;
+}
+
+:root[data-theme="light"] .publicity-card img {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] .operator-filter,
+:root[data-theme="light"] .operator-filter label,
+:root[data-theme="light"] .spectrum-notes,
+:root[data-theme="light"] .signal-legend,
+:root[data-theme="light"] .arfcn-calculator {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .operator-filter {
+    border-color: rgba(24, 120, 138, 0.2);
+}
+
+:root[data-theme="light"] .operator-filter legend,
+:root[data-theme="light"] .operator-filter label,
+:root[data-theme="light"] .spectrum-notes,
+:root[data-theme="light"] .signal-legend,
+:root[data-theme="light"] .arfcn-calculator label {
+    color: var(--text);
+}
+
+:root[data-theme="light"] .spectrum-page .operator-block,
+:root[data-theme="light"] .spectrum-page .spectrum-cell.unassigned,
+:root[data-theme="light"] .spectrum-page .spectrum-cell.guard {
+    border: 2px solid rgba(255, 255, 255, 0.92) !important;
+    box-shadow: inset 0 0 0 1px rgba(9, 22, 28, 0.26);
+}
+
+:root[data-theme="light"] .spectrum-page .spectrum-cell.guard {
+    color: #111820;
+}
+
+:root[data-theme="light"] .allocation-table :is(th, td),
+:root[data-theme="light"] .tac-table :is(th, td),
+:root[data-theme="light"] .cid-table :is(th, td) {
+    border-color: rgba(255, 255, 255, 0.72);
+}
+
+:root[data-theme="light"] .allocation-table .table-head:not(.has-fill),
+:root[data-theme="light"] .allocation-table td:first-child:not(.has-fill),
+:root[data-theme="light"] .allocation-table td[rowspan]:not(.has-fill) {
+    color: #111820;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .allocation-table td:not(.has-fill):not(:first-child) {
+    color: #111820;
+    background: #edf1f3 !important;
+}
+
+:root[data-theme="light"] .allocation-table tr:not(:has(.has-fill)) td:not([rowspan]):not(.empty-cell):not(.top-row-no-border) {
+    color: #111820;
+    background: #edf1f3 !important;
+}
+
+:root[data-theme="light"] .allocation-table :is(.top-row-no-border, .empty-cell) {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .allocation-table .has-fill {
+    background: var(--cell-bg) !important;
+}
+
+:root[data-theme="light"] .allocation-table .light-rule-cell {
+    color: #111820 !important;
+}
+
+:root[data-theme="light"] .allocation-table .has-fill:not(.light-rule-cell) {
+    color: var(--cell-color, #fff);
+}
+
+:root[data-theme="light"] .tac-table :is(th, td):not(.has-fill):not(.empty-cell) {
+    color: #111820;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .tac-table .has-fill {
+    background: var(--cell-bg) !important;
+}
+
+:root[data-theme="light"] .tac-table .table-head.has-fill:not(.light-rule-cell) {
+    color: #ffffff;
+}
+
+:root[data-theme="light"] .tac-table .light-rule-cell {
+    color: #111820 !important;
+}
+
+:root[data-theme="light"] .cid-table .cid-sa-cell:not(.has-fill):not(.empty-cell) {
+    color: #111820;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .cid-table .has-fill {
+    background: var(--cell-bg) !important;
+}
+
+:root[data-theme="light"] .cid-table .cid-carrier-meta-row > :not(.empty-cell):not(.cid-spacer-cell) {
+    color: var(--cell-color, #fff);
+    background: var(--carrier-row-bg) !important;
+}
+
+:root[data-theme="light"] .cid-table :is(.empty-cell, .cid-spacer-cell),
+:root[data-theme="light"] .cid-table .cid-separator-row td {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .signal-table thead th {
+    color: #111820;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .signal-table thead th.operator-cht {
+    color: #0b61a4;
+    background: rgba(0, 112, 192, 0.1) !important;
+}
+
+:root[data-theme="light"] .signal-table thead th.operator-fet {
+    color: #c40000;
+    background: rgba(255, 0, 0, 0.08) !important;
+}
+
+:root[data-theme="light"] .signal-table thead th.operator-twm {
+    color: #9a5d00;
+    background: rgba(242, 159, 39, 0.14) !important;
+}
+
+:root[data-theme="light"] .signal-category,
+:root[data-theme="light"] .signal-config {
+    color: #102733;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .signal-table tbody tr:hover .signal-category,
+:root[data-theme="light"] .signal-table tbody tr:hover .signal-config {
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .signal-table tbody tr:hover .signal-cell {
+    filter: none;
+}
+
+:root[data-theme="light"] .signal-cell.signal-level-1 {
+    color: #f4fff8;
+    background: #007a3f !important;
+}
+
+:root[data-theme="light"] .signal-cell.signal-level-2 {
+    color: #f4fff8;
+    background: #0f5f35 !important;
+}
+
+:root[data-theme="light"] .signal-cell.signal-level-3 {
+    color: #f4fff8;
+    background: #174429 !important;
+}
+
+:root[data-theme="light"] .signal-cell.signal-level-4 {
+    color: #f4fff8;
+    background: #203427 !important;
+}
+
+:root[data-theme="light"] .signal-cell.signal-level-5 {
+    color: rgba(244, 250, 252, 0.86);
+    background: #4b5358 !important;
+}
+
+:root[data-theme="light"] .merge-zone-switch,
+:root[data-theme="light"] .merge-zone-switch span,
+:root[data-theme="light"] .merge-phase-overview-track,
+:root[data-theme="light"] .merge-tower-card,
+:root[data-theme="light"] .merge-band-list,
+:root[data-theme="light"] .merge-phase-note,
+:root[data-theme="light"] .merge-video-list {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .merge-zone-switch input:checked + span {
+    color: #7a4b00;
+    border-color: rgba(181, 110, 10, 0.42);
+    background: rgba(255, 181, 71, 0.18) !important;
+}
+
+:root[data-theme="light"] .merge-zone-switch label:nth-child(2) input:checked + span {
+    color: #9f252b;
+    border-color: rgba(220, 38, 38, 0.42);
+    background: rgba(255, 95, 101, 0.14) !important;
+}
+
+:root[data-theme="light"] .merge-zone-card {
+    background:
+        linear-gradient(135deg, var(--merge-glow), transparent 48%),
+        rgba(255, 255, 255, 0.74) !important;
+}
+
+:root[data-theme="light"] .merge-phase-code {
+    background: #ffffff;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8), 0 0 18px var(--merge-glow);
+}
+
+:root[data-theme="light"] .merge-band {
+    color: #102733;
+    border-color: color-mix(in srgb, var(--band-color, #008b7a), transparent 54%);
+    background: color-mix(in srgb, var(--band-color, #6abaff), transparent 88%) !important;
+}
+
+:root[data-theme="light"] .merge-phase-note p,
+:root[data-theme="light"] .merge-video-empty,
+:root[data-theme="light"] .merge-zone-copy p:last-child {
+    color: var(--muted);
+}
+
+:root[data-theme="light"] .sa-detail-cell {
+    color: #102733;
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--operator-color), transparent 76%) var(--progress),
+        rgba(255, 255, 255, 0.72) var(--progress)
+    ) !important;
+}
+
+:root[data-theme="light"] .sa-reason-cell {
+    color: #102733;
+    background: rgba(255, 255, 255, 0.64) !important;
+}
+
+:root[data-theme="light"] .sa-empty {
+    color: rgba(16, 39, 51, 0.5);
+}
+
+:root[data-theme="light"] .scanning-center-page .sa-rollout-table .sa-detail-cell {
+    color: #102733;
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--operator-color), transparent 76%) var(--progress),
+        rgba(255, 255, 255, 0.72) var(--progress)
+    ) !important;
+}
+
+:root[data-theme="light"] .scanning-center-page .sa-rollout-table .sa-reason-cell {
+    color: #102733;
+    background: rgba(255, 255, 255, 0.72) !important;
+}
+
+:root[data-theme="light"] .unknown-frequency-panel .arfcn-calculator {
+    border-bottom-color: rgba(24, 120, 138, 0.18);
+}
+
+:root[data-theme="light"] .sleep-time-panel,
+:root[data-theme="light"] .sleep-video-section,
+:root[data-theme="light"] .sleep-operator-note {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .clock-face {
+    border-color: rgba(0, 139, 122, 0.42);
+    background:
+        radial-gradient(circle at center, rgba(0, 139, 122, 0.14), transparent 34%),
+        rgba(255, 255, 255, 0.78);
+}
+
+:root[data-theme="light"] .clock-hour {
+    background: #102733;
+}
+
+:root[data-theme="light"] .sleep-play-button {
+    color: var(--accent);
+    background:
+        radial-gradient(circle at 50% 50%, rgba(0, 139, 122, 0.16), transparent 58%),
+        rgba(255, 255, 255, 0.82);
+}
+
+:root[data-theme="light"] .sleep-band-label,
+:root[data-theme="light"] .sleep-video-card strong {
+    color: #102733;
+}
+
+:root[data-theme="light"] .sleep-video-card {
+    background: rgba(255, 255, 255, 0.62) !important;
+}
+
+:root[data-theme="light"] .sleep-video-card:hover,
+:root[data-theme="light"] .sleep-video-card:focus-visible {
+    background: rgba(236, 248, 250, 0.82) !important;
+}
+
+:root[data-theme="light"] .refarming-legend {
+    color: var(--text);
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .refarming-map .refarming-county {
+    stroke: #8a99a3;
+    stroke-width: 0.85;
+}
+
+:root[data-theme="light"] .refarming-map .refarming-county:hover,
+:root[data-theme="light"] .refarming-map .refarming-county:focus {
+    stroke: #53636d;
+}
+
+:root[data-theme="light"] .maintenance-dot.dot-cht,
+:root[data-theme="light"] .maintenance-dot-button.dot-cht,
+:root[data-theme="light"] .source-link.source-cht {
+    color: #1f8fff !important;
+    background: #1f8fff !important;
+}
+
+:root[data-theme="light"] .maintenance-dot.dot-fet,
+:root[data-theme="light"] .maintenance-dot-button.dot-fet,
+:root[data-theme="light"] .source-link.source-fet {
+    color: #ff4242 !important;
+    background: #ff4242 !important;
+}
+
+:root[data-theme="light"] .maintenance-dot.dot-twm,
+:root[data-theme="light"] .maintenance-dot-button.dot-twm,
+:root[data-theme="light"] .source-link.source-twm {
+    color: #f29f27 !important;
+    background: #f29f27 !important;
+}
+
+:root[data-theme="light"] .source-link.source-cht,
+:root[data-theme="light"] .source-link.source-fet,
+:root[data-theme="light"] .source-link.source-twm {
+    color: #ffffff !important;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] .maintenance-detail.is-cht .maintenance-detail-heading h2,
+:root[data-theme="light"] .maintenance-detail.is-cht .maintenance-notice {
+    color: #0b61a4;
+}
+
+:root[data-theme="light"] .maintenance-detail.is-fet .maintenance-detail-heading h2,
+:root[data-theme="light"] .maintenance-detail.is-fet .maintenance-notice {
+    color: #c40000;
+}
+
+:root[data-theme="light"] .maintenance-detail.is-twm .maintenance-detail-heading h2,
+:root[data-theme="light"] .maintenance-detail.is-twm .maintenance-notice {
+    color: #9a5d00;
+}
+
+:root[data-theme="light"] .maintenance-detail.is-cht .maintenance-notice {
+    border-color: rgba(31, 143, 255, 0.26);
+    background: rgba(31, 143, 255, 0.08) !important;
+}
+
+:root[data-theme="light"] .maintenance-detail.is-fet .maintenance-notice {
+    border-color: rgba(255, 66, 66, 0.26);
+    background: rgba(255, 66, 66, 0.08) !important;
+}
+
+:root[data-theme="light"] .maintenance-detail.is-twm .maintenance-notice {
+    border-color: rgba(242, 159, 39, 0.3);
+    background: rgba(242, 159, 39, 0.1) !important;
+}
+
+:root[data-theme="light"] *,
+:root[data-theme="light"] *::before,
+:root[data-theme="light"] *::after {
+    text-shadow: none !important;
+}
+
+/* Light theme global polish pass. Keep this at the end. */
+:root[data-theme="light"] :is(
+    .spectrum-toolbar,
+    .table-toolbar,
+    .speed-toolbar,
+    .phone-combo-toolbar,
+    .refarming-page .refarming-toolbar,
+    .speed-map-toolbar,
+    .google-map-toolbar,
+    .database-toolbar,
+    .hsr-project-toolbar,
+    .maintenance-toolbar,
+    .section-heading,
+    .cid-section-heading,
+    .scan-banner,
+    .scan-intro
+) {
+    border-color: rgba(24, 120, 138, 0.18);
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] :is(
+    .spectrum-toolbar h1,
+    .spectrum-toolbar h2,
+    .table-toolbar h1,
+    .table-toolbar h2,
+    .speed-toolbar h1,
+    .speed-toolbar h2,
+    .phone-combo-toolbar h1,
+    .phone-combo-toolbar h2,
+    .section-heading h1,
+    .section-heading h2,
+    .cid-section-heading h2
+) {
+    color: #102733;
+}
+
+:root[data-theme="light"] :is(.submenu, .site-settings-panel) {
+    border-color: rgba(24, 120, 138, 0.28);
+    background: rgba(255, 255, 255, 0.995) !important;
+    box-shadow: 0 18px 46px rgba(31, 83, 100, 0.18);
+}
+
+:root[data-theme="light"] :is(.submenu::before, .site-settings-panel::before) {
+    border-color: rgba(24, 120, 138, 0.28);
+    background: rgba(255, 255, 255, 0.995) !important;
+}
+
+:root[data-theme="light"] .signal-bars i {
+    background: #102733;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] .telecom-carrier[data-signal-level="3"] .signal-bars i:nth-child(4),
+:root[data-theme="light"] .telecom-carrier[data-signal-level="2"] .signal-bars i:nth-child(n+3),
+:root[data-theme="light"] .telecom-carrier[data-signal-level="1"] .signal-bars i:nth-child(n+2) {
+    background: rgba(145, 165, 176, 0.46);
+    box-shadow: inset 0 0 0 1px rgba(16, 39, 51, 0.18);
+}
+
+:root[data-theme="light"] :is(
+    .allocation-table,
+    .tac-table,
+    .cid-table,
+    .signal-table,
+    .speed-database-table,
+    .phone-combo-table,
+    .sa-rollout-table,
+    .unknown-frequency-table,
+    .ambr-table
+) :is(th, td, .table-cell) {
+    border-color: rgba(0, 0, 0, 0.45) !important;
+}
+
+:root[data-theme="light"] .spectrum-page :is(
+    .operator-block,
+    .spectrum-cell.unassigned,
+    .spectrum-cell.guard,
+    .spectrum-cell[style*="--cell-bg"]
+) {
+    border-color: rgba(0, 0, 0, 0.78) !important;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] .signal-panel,
+:root[data-theme="light"] .signal-table-scroll {
+    background: rgba(255, 255, 255, 0.72) !important;
+}
+
+:root[data-theme="light"] .signal-legend {
+    border-color: rgba(0, 0, 0, 0.28);
+    color: #102733;
+    background: rgba(255, 255, 255, 0.84) !important;
+}
+
+:root[data-theme="light"] .signal-legend span {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .legend-swatch {
+    border-color: rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme="light"] .merge-zone-switch {
+    border-color: rgba(24, 120, 138, 0.18);
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .merge-zone-switch span {
+    color: #536b78;
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .merge-zone-switch input:checked + span {
+    color: #8a4c00;
+    border-color: rgba(197, 108, 0, 0.45);
+    background: rgba(255, 166, 57, 0.18) !important;
+}
+
+:root[data-theme="light"] .merge-zone-switch label:nth-child(2) input:checked + span {
+    color: #b3202a;
+    border-color: rgba(207, 33, 48, 0.45);
+    background: rgba(255, 75, 88, 0.14) !important;
+}
+
+:root[data-theme="light"] .merge-phase-code,
+:root[data-theme="light"] .merge-phase-overview-dot {
+    color: var(--merge-accent);
+    background: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.86);
+}
+
+:root[data-theme="light"] .merge-zone-card-twm {
+    --merge-accent: #d97900;
+    --merge-glow: rgba(255, 166, 57, 0.18);
+}
+
+:root[data-theme="light"] .merge-zone-card-fet {
+    --merge-accent: #d72531;
+    --merge-glow: rgba(255, 75, 88, 0.16);
+}
+
+:root[data-theme="light"] .merge-zone-card-twm :is(.merge-phase-code, .merge-phase-overview-dot) {
+    color: #d97900 !important;
+    border-color: #d97900 !important;
+}
+
+:root[data-theme="light"] .merge-zone-card-fet :is(.merge-phase-code, .merge-phase-overview-dot) {
+    color: #d72531 !important;
+    border-color: #d72531 !important;
+}
+
+:root[data-theme="light"] .refarming-map .refarming-county {
+    stroke: rgba(0, 0, 0, 0.72) !important;
+    stroke-width: 0.9;
+    filter: none !important;
+}
+
+:root[data-theme="light"] .refarming-map .refarming-county:hover,
+:root[data-theme="light"] .refarming-map .refarming-county:focus {
+    stroke: #000000 !important;
+    filter: none !important;
+}
+
+:root[data-theme="light"] .refarming-map .refarming-county:is(
+    .status-wide,
+    .status-partial,
+    .status-limited,
+    .status-spot,
+    .status-closed,
+    .status-none
+) {
+    filter: none !important;
+}
+
+:root[data-theme="light"] .speed-database-controls,
+:root[data-theme="light"] .speed-database-board,
+:root[data-theme="light"] .speed-database-summary,
+:root[data-theme="light"] .speed-database-scroll {
+    border-color: rgba(24, 120, 138, 0.2);
+    background: rgba(255, 255, 255, 0.76) !important;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] :is(.operator-select, .speed-database-search input, #databaseKeyword, .phone-search-form input) {
+    border-color: rgba(24, 120, 138, 0.28);
+    color: #102733;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .speed-database-table th {
+    color: #102733;
+    background: #ffffff !important;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.45);
+}
+
+:root[data-theme="light"] .speed-database-table tbody td {
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .speed-database-table tbody tr:nth-child(even) td {
+    background: #f4f8fa !important;
+}
+
+:root[data-theme="light"] .speed-database-table tbody tr:hover td {
+    background: #e9f7f8 !important;
+}
+
+:root[data-theme="light"] .speed-database-table tbody tr.operator-cht td,
+:root[data-theme="light"] .speed-database-table tbody tr.operator-cht .speed-database-link {
+    color: #0b61a4 !important;
+}
+
+:root[data-theme="light"] .speed-database-table tbody tr.operator-fet td,
+:root[data-theme="light"] .speed-database-table tbody tr.operator-fet .speed-database-link {
+    color: #c40000 !important;
+}
+
+:root[data-theme="light"] .speed-database-table tbody tr.operator-twm td,
+:root[data-theme="light"] .speed-database-table tbody tr.operator-twm .speed-database-link {
+    color: #9a5d00 !important;
+}
+
+:root[data-theme="light"] .speed-database-table tbody tr.operator-apt td,
+:root[data-theme="light"] .speed-database-table tbody tr.operator-apt .speed-database-link {
+    color: #0a7c42 !important;
+}
+
+:root[data-theme="light"] .speed-database-table tbody tr.operator-tstar td,
+:root[data-theme="light"] .speed-database-table tbody tr.operator-tstar .speed-database-link {
+    color: #7b35aa !important;
+}
+
+:root[data-theme="light"] :is(.quick-config-options, .segmented-options, .band-option) {
+    border-color: rgba(24, 120, 138, 0.18);
+    color: #102733;
+    background: rgba(255, 255, 255, 0.78) !important;
+}
+
+:root[data-theme="light"] :is(.quick-config-options label, .segmented-options label, .band-option label),
+:root[data-theme="light"] :is(.quick-config-options span, .segmented-options span, .band-option span) {
+    color: #102733;
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .speed-control-panel,
+:root[data-theme="light"] .speed-visual-panel,
+:root[data-theme="light"] .speed-notes,
+:root[data-theme="light"] .ambr-section,
+:root[data-theme="light"] .ambr-card,
+:root[data-theme="light"] .ambr-extra-notes {
+    border-color: rgba(24, 120, 138, 0.2);
+    color: #102733;
+    background:
+        linear-gradient(145deg, color-mix(in srgb, var(--operator-color, #008b7a), transparent 91%), transparent 48%),
+        rgba(255, 255, 255, 0.76) !important;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] .ambr-table-head span,
+:root[data-theme="light"] .ambr-row,
+:root[data-theme="light"] .ambr-rate,
+:root[data-theme="light"] .ambr-plan {
+    color: #102733;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .ambr-table h4 {
+    color: #102733;
+    background: color-mix(in srgb, var(--ambr-color), transparent 84%) !important;
+}
+
+:root[data-theme="light"] :is(.speed-notes li, .ambr-extra-notes p, .ambr-note-columns li, .ambr-intro, .ambr-plan, .speed-limit-note, .ambr-backend-note) {
+    color: #536b78 !important;
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .phone-search-panel,
+:root[data-theme="light"] .phone-brand-panel,
+:root[data-theme="light"] .phone-results-panel,
+:root[data-theme="light"] .phone-combo-search {
+    border-color: rgba(24, 120, 138, 0.2);
+    background: rgba(255, 255, 255, 0.76) !important;
+    box-shadow: none;
+}
+
+:root[data-theme="light"] .phone-brand-button {
+    border-color: rgba(24, 120, 138, 0.18);
+    color: #102733;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .phone-brand-button:hover,
+:root[data-theme="light"] .phone-brand-button:focus-visible,
+:root[data-theme="light"] .phone-brand-button.is-active {
+    background: #eaf7fa !important;
+}
+
+:root[data-theme="light"] .live-speed-page :is(.external-speed-card, .network-info-card, .network-info-item, .speedtest-client-card),
+:root[data-theme="light"] :is(.external-speed-card, .tool-card) :is(output, .external-speed-text, .network-info-value),
+:root[data-theme="light"] :is(#speedtestClientIp, #speedtestClientIsp, #speedtestClientLocation, #speedtestResult) {
+    color: #102733;
+    background: transparent !important;
+}
+
+:root[data-theme="light"] :is(.speed-database-link, .tool-main-link, .tool-video-link, .ambr-video-link) {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] *,
+:root[data-theme="light"] *::before,
+:root[data-theme="light"] *::after {
+    text-shadow: none !important;
+}
+
+/* Light theme refinement pass: component-wide contrast and Excel-faithful tables. */
+:root[data-theme="light"] {
+    --muted: #334b57;
+}
+
+:root[data-theme="light"] .site-footer,
+:root[data-theme="light"] .footer-main,
+:root[data-theme="light"] .footer-bottom {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] :is(
+    small,
+    .section-kicker,
+    .spectrum-updated,
+    .card-meta,
+    .coverage-note,
+    .axis-note,
+    .band-group-note,
+    .speed-hint,
+    .speed-limit-note,
+    .external-speed-text,
+    .phone-help-notes,
+    .phone-combo-source,
+    .combo-meta,
+    .ambr-backend-note,
+    .maintenance-detail-empty,
+    .maintenance-legend,
+    .sleep-monitor-note,
+    .sleep-operator-note,
+    .project-video-meta,
+    .hsr-project-meta,
+    .merge-phase-meta,
+    .merge-zone-copy,
+    .footer-notes,
+    .footer-tagline,
+    .footer-visits
+) {
+    color: #334b57 !important;
+}
+
+:root[data-theme="light"] .spectrum-page :is(
+    .operator-block,
+    .spectrum-cell.unassigned,
+    .spectrum-cell.guard,
+    .spectrum-cell[style*="--cell-bg"]
+) {
+    border-width: 1px !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) :is(th, td) {
+    border-style: solid !important;
+    border-color: rgba(0, 0, 0, 0.68) !important;
+    border-width: 0 !important;
+    color: #111820;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .has-fill {
+    color: var(--cell-color, #ffffff);
+    background: var(--cell-bg) !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table) .light-rule-cell,
+:root[data-theme="light"] .cid-table .cid-sa-cell:not(.has-fill):not(.empty-cell) {
+    color: #111820;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) :is(.empty-cell, .top-row-no-border, .cid-spacer-cell) {
+    background: transparent !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bt-thin {
+    border-top-width: 1px !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-br-thin {
+    border-right-width: 1px !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bb-thin {
+    border-bottom-width: 1px !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bl-thin {
+    border-left-width: 1px !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bt-medium,
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bt-thick {
+    border-top-width: 2px !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-br-medium,
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-br-thick {
+    border-right-width: 2px !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bb-medium,
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bb-thick {
+    border-bottom-width: 2px !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bl-medium,
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bl-thick {
+    border-left-width: 2px !important;
+}
+
+:root[data-theme="light"] .tac-search-form button,
+:root[data-theme="light"] .speed-database-search-button {
+    color: #ffffff !important;
+    border-color: rgba(0, 111, 95, 0.72);
+    background: #008b7a !important;
+}
+
+:root[data-theme="light"] .signal-table tbody tr:hover .signal-category,
+:root[data-theme="light"] .signal-table tbody tr:hover .signal-config,
+:root[data-theme="light"] .signal-table tbody tr:hover .signal-cell {
+    animation: table-row-pulse-light 1.45s ease-in-out infinite alternate;
+}
+
+@keyframes table-row-pulse-light {
+    from {
+        filter: brightness(1);
+        box-shadow: inset 0 0 0 rgba(0, 139, 122, 0);
+    }
+
+    to {
+        filter: brightness(1.06) saturate(1.05);
+        box-shadow: inset 0 0 0 2px rgba(0, 139, 122, 0.18);
+    }
+}
+
+:root[data-theme="light"] .merge-phase-overview-dot,
+:root[data-theme="light"] .merge-phase-code {
+    color: #ffffff !important;
+    background: var(--merge-accent) !important;
+    border-color: var(--merge-accent) !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] .merge-zone-card-twm :is(.merge-phase-code, .merge-phase-overview-dot) {
+    --merge-accent: #d97900;
+    background: #d97900 !important;
+    border-color: #d97900 !important;
+}
+
+:root[data-theme="light"] .merge-zone-card-fet :is(.merge-phase-code, .merge-phase-overview-dot) {
+    --merge-accent: #d72531;
+    background: #d72531 !important;
+    border-color: #d72531 !important;
+}
+
+:root[data-theme="light"] .merge-band {
+    border-color: color-mix(in srgb, var(--band-color, #102733), black 12%);
+    background: color-mix(in srgb, var(--band-color, #102733), white 76%) !important;
+}
+
+:root[data-theme="light"] .unknown-frequency-table tbody tr.frequency-row-cht > td {
+    color: #0b61a4 !important;
+}
+
+:root[data-theme="light"] .unknown-frequency-table tbody tr.frequency-row-fet > td {
+    color: #c40000 !important;
+}
+
+:root[data-theme="light"] .unknown-frequency-table tbody tr.frequency-row-twm > td {
+    color: #9a5d00 !important;
+}
+
+:root[data-theme="light"] .maintenance-month-controls :is(.month-control, select) {
+    color: #102733;
+    border-color: rgba(24, 120, 138, 0.26);
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .bandwidth-summary {
+    color: #102733 !important;
+}
+
+:root[data-theme="light"] .ambr-cht .ambr-table-head span {
+    color: #0b61a4;
+    background: rgba(31, 143, 255, 0.16) !important;
+}
+
+:root[data-theme="light"] .ambr-fet .ambr-table-head span {
+    color: #c40000;
+    background: rgba(255, 66, 66, 0.14) !important;
+}
+
+:root[data-theme="light"] .ambr-twm .ambr-table-head span {
+    color: #8a5200;
+    background: rgba(242, 159, 39, 0.18) !important;
+}
+
+:root[data-theme="light"] .phone-column-toggle-label,
+:root[data-theme="light"] .phone-column-toggle {
+    color: #102733 !important;
+}
+
+:root[data-theme="light"] .phone-column-toggle span::before {
+    border-color: rgba(16, 39, 51, 0.44);
+    background: rgba(51, 75, 87, 0.22);
+}
+
+:root[data-theme="light"] .phone-column-toggle span::after {
+    background: #102733;
+}
+
+:root[data-theme="light"] .phone-column-toggle input:checked + span::before {
+    border-color: rgba(0, 139, 122, 0.74);
+    background: rgba(0, 139, 122, 0.42);
+}
+
+:root[data-theme="light"] .phone-column-toggle input:checked + span::after {
+    background: #ffffff;
+}
+
+:root[data-theme="light"] .phone-combo-table,
+:root[data-theme="light"] .phone-combo-table tbody td {
+    color: #102733;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .phone-combo-table tbody tr:hover td {
+    background: #eaf7fa !important;
+}
+
+:root[data-theme="light"] .phone-combo-table th {
+    color: #102733;
+    background: #ffffff !important;
+}
+
+:root[data-theme="light"] .phone-combo-table .carrier-heading-cht {
+    color: #0b61a4 !important;
+}
+
+:root[data-theme="light"] .phone-combo-table .carrier-heading-fet {
+    color: #c40000 !important;
+}
+
+:root[data-theme="light"] .phone-combo-table .carrier-heading-twm {
+    color: #9a5d00 !important;
+}
+
+:root[data-theme="light"] .combo-value,
+:root[data-theme="light"] .combo-line,
+:root[data-theme="light"] .combo-value > span,
+:root[data-theme="light"] .combo-line > span {
+    color: inherit;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] .combo-icon.is-unknown {
+    color: #ffffff;
+    background: #6b7b86;
+}
+
+:root[data-theme="light"] .tac-search-form,
+:root[data-theme="light"] .tac-search-result,
+:root[data-theme="light"] .unavailable-message {
+    color: #102733;
+    border-color: rgba(24, 120, 138, 0.22);
+    background: rgba(255, 255, 255, 0.78) !important;
+}
+
+:root[data-theme="light"] .tac-search-form input {
+    color: #102733;
+    border-color: rgba(24, 120, 138, 0.3);
+    background: #fff !important;
+}
+
+:root[data-theme="light"] .tac-search-result {
+    color: rgba(16, 39, 51, 0.72);
+}
+
+:root[data-theme="light"] .merge-video-card {
+    color: #102733;
+}
+
+:root[data-theme="light"] .merge-video-thumb {
+    border-color: rgba(24, 120, 138, 0.22);
+    background: rgba(255, 255, 255, 0.74) !important;
+}
+
+:root[data-theme="light"] .phone-search-form input,
+:root[data-theme="light"] #phoneSearchInput {
+    color: #102733;
+    border-color: rgba(24, 120, 138, 0.3);
+    background: #fff !important;
+}
+
+:root[data-theme="light"] .speed-control-panel.is-quick-mode .band-option,
+:root[data-theme="light"] .speed-control-panel.is-quick-mode .segmented-options label,
+:root[data-theme="light"] .speed-control-panel.is-quick-mode .qam-toggle,
+:root[data-theme="light"] .segmented-options label:has(input:disabled),
+:root[data-theme="light"] .band-option.is-disabled {
+    color: rgba(16, 39, 51, 0.62);
+    border-color: rgba(24, 120, 138, 0.18);
+    background: rgba(255, 255, 255, 0.58) !important;
+    filter: none;
+}
+
+:root[data-theme="light"] .speedtest-client-info,
+:root[data-theme="light"] .external-speed-tools,
+:root[data-theme="light"] .speedtest-results {
+    color: #102733;
+    border-color: rgba(24, 120, 138, 0.18);
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .speedtest-client-info article,
+:root[data-theme="light"] .external-speed-card {
+    color: #102733;
+    border-color: rgba(24, 120, 138, 0.2);
+    background: rgba(255, 255, 255, 0.74) !important;
+}
+
+:root[data-theme="light"] .speedtest-client-info strong,
+:root[data-theme="light"] .speedtest-client-info span,
+:root[data-theme="light"] .external-speed-card span,
+:root[data-theme="light"] .external-speed-card strong {
+    color: #102733;
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .external-speed-card .tool-warning {
+    color: #9a4b00;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) :is(.empty-cell, .top-row-no-border, .cid-spacer-cell) {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+:root[data-theme="light"] .merge-zone-card-twm :is(.merge-phase-code, .merge-phase-overview-dot),
+:root[data-theme="light"] .merge-zone-card-fet :is(.merge-phase-code, .merge-phase-overview-dot) {
+    color: #ffffff !important;
+}
+
+:root[data-theme="light"] .phone-combo-table :is(.combo-value, .combo-line, .combo-value > span, .combo-line > span) {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+/* Light theme follow-up: remove unintended white chips and keep source styling visible. */
+:root[data-theme="light"] .publicity-highlight {
+    color: #006d5e !important;
+    background: transparent !important;
+}
+
+:root[data-theme="light"] .spectrum-page :is(.operator-block, .spectrum-cell.unassigned, .spectrum-cell.guard) {
+    border: 1px solid rgba(0, 0, 0, 0.88) !important;
+    border-width: 1px !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] .spectrum-page.hide-cht .op-cht,
+:root[data-theme="light"] .spectrum-page.hide-fet .op-fet,
+:root[data-theme="light"] .spectrum-page.hide-twm .op-twm {
+    color: #566872 !important;
+    background: #dce5e9 !important;
+    border-color: #9cabb3 !important;
+    filter: grayscale(0.35) brightness(1) !important;
+    opacity: 0.9 !important;
+    text-shadow: none !important;
+}
+
+:root[data-theme="light"] .spectrum-page.hide-cht .op-cht:hover,
+:root[data-theme="light"] .spectrum-page.hide-fet .op-fet:hover,
+:root[data-theme="light"] .spectrum-page.hide-twm .op-twm:hover {
+    filter: grayscale(0.35) brightness(1.04) !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bt-none {
+    border-top-width: 0 !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-br-none {
+    border-right-width: 0 !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bb-none {
+    border-bottom-width: 0 !important;
+}
+
+:root[data-theme="light"] :is(.allocation-table, .tac-table, .cid-table) .excel-bl-none {
+    border-left-width: 0 !important;
+}
+
+:root[data-theme="light"] .merge-phase-overview-arrow,
+:root[data-theme="light"] .merge-phase-period span {
+    color: #111820 !important;
+    background: transparent !important;
+    text-shadow: none !important;
+}
+
+:root[data-theme="light"] .merge-zone-card-twm :is(.merge-phase-code, .merge-phase-overview-dot) {
+    color: #ffffff !important;
+    background: #d97900 !important;
+    border-color: #d97900 !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] .merge-zone-card-fet :is(.merge-phase-code, .merge-phase-overview-dot) {
+    color: #ffffff !important;
+    background: #d72531 !important;
+    border-color: #d72531 !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] :is(.merge-video-list, .merge-video-card, .merge-video-title, .merge-video-thumb) {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] .merge-video-thumb {
+    border-color: rgba(16, 39, 51, 0.26) !important;
+}
+
+:root[data-theme="light"] .sleep-slider-labels,
+:root[data-theme="light"] .sleep-time-ticks,
+:root[data-theme="light"] .sleep-time-ticks span,
+:root[data-theme="light"] .sleep-band-list,
+:root[data-theme="light"] .sleep-band-row,
+:root[data-theme="light"] .sleep-band-label,
+:root[data-theme="light"] .sleep-zzz {
+    color: #102733 !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] .sleep-time-ticks span {
+    background-color: rgba(16, 39, 51, 0.5) !important;
+}
+
+:root[data-theme="light"] .sleep-time-ticks span:nth-child(4n + 1) {
+    background-color: rgba(16, 39, 51, 0.8) !important;
+}
+
+:root[data-theme="light"] .sleep-bar {
+    border-color: color-mix(in srgb, var(--operator-color, #008b7a), transparent 48%) !important;
+    background: color-mix(in srgb, var(--operator-color, #008b7a), transparent 86%) !important;
+}
+
+:root[data-theme="light"] .sleep-bar-fill {
+    background: linear-gradient(90deg, var(--operator-color), color-mix(in srgb, var(--operator-color), black 8%)) !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] .maintenance-month-controls :is(.month-picker-label, .month-picker-label span, .month-control, select),
+:root[data-theme="light"] .maintenance-legend,
+:root[data-theme="light"] .maintenance-legend span {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] .maintenance-month-controls :is(.month-picker-label, .month-picker-label span) {
+    color: #102733 !important;
+}
+
+:root[data-theme="light"] .combo-icon {
+    box-shadow: none !important;
+}
+
+:root[data-theme="light"] .combo-icon.is-good {
+    color: #081015 !important;
+    background: #27e16e !important;
+}
+
+:root[data-theme="light"] .combo-icon.is-warn,
+:root[data-theme="light"] .combo-icon.is-mixed {
+    color: #081015 !important;
+    background: #ffc857 !important;
+}
+
+:root[data-theme="light"] .combo-icon.is-bad {
+    color: #ffffff !important;
+    background: #ff5151 !important;
+}
+
+:root[data-theme="light"] .combo-icon.is-unknown {
+    color: #ffffff !important;
+    background: #6b7b86 !important;
+}
+
+/* Phone combo light theme: keep status symbols as filled circular badges. */
+:root[data-theme="light"] .phone-combo-page .combo-icon {
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+:root[data-theme="light"] .phone-combo-page .combo-icon.is-good {
+    color: #081015 !important;
+    background: #27e16e !important;
+}
+
+:root[data-theme="light"] .phone-combo-page .combo-icon.is-warn {
+    color: #081015 !important;
+    background: #ffc857 !important;
+}
+
+:root[data-theme="light"] .phone-combo-page .combo-icon.is-mixed {
+    color: #d61f2c !important;
+    background: #ffc857 !important;
+}
+
+:root[data-theme="light"] .phone-combo-page .combo-icon.is-bad {
+    color: #ffffff !important;
+    background: #ff5151 !important;
+}
+
+:root[data-theme="light"] .phone-combo-page .combo-icon.is-unknown {
+    color: #ffffff !important;
+    background: #6b7b86 !important;
 }

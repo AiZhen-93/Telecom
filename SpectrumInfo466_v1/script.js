@@ -6,7 +6,69 @@ const assetPath = (path) => {
     return new URL(path, siteAssetBase).toString();
 };
 
-const siteVersion = "v1.2.1";
+const sitePreferenceStorageKey = "aizhenSitePreferences";
+const sitePreferenceChangeEvent = "aizhen-site-preferences-change";
+const defaultSitePreferences = {
+    theme: "dark",
+    earthquakeAlert: true,
+    lineInvite: true,
+};
+
+const readSitePreferences = () => {
+    try {
+        const saved = JSON.parse(localStorage.getItem(sitePreferenceStorageKey) || "{}");
+        return {
+            ...defaultSitePreferences,
+            ...saved,
+            theme: saved.theme === "light" ? "light" : "dark",
+            earthquakeAlert: saved.earthquakeAlert !== false,
+            lineInvite: saved.lineInvite !== false,
+        };
+    } catch (_error) {
+        return { ...defaultSitePreferences };
+    }
+};
+
+let sitePreferences = readSitePreferences();
+
+const writeSitePreferences = () => {
+    try {
+        localStorage.setItem(sitePreferenceStorageKey, JSON.stringify(sitePreferences));
+    } catch (_error) {
+        // Preference storage may be unavailable in private or restrictive browser modes.
+    }
+};
+
+const applySitePreferences = () => {
+    document.documentElement.dataset.theme = sitePreferences.theme;
+    if (document.body) {
+        document.body.classList.toggle("is-earthquake-alert-disabled", !sitePreferences.earthquakeAlert);
+        document.body.classList.toggle("is-line-invite-disabled", !sitePreferences.lineInvite);
+    }
+};
+
+const setSitePreference = (key, value) => {
+    sitePreferences = {
+        ...sitePreferences,
+        [key]: value,
+    };
+    writeSitePreferences();
+    applySitePreferences();
+    window.dispatchEvent(new CustomEvent(sitePreferenceChangeEvent, { detail: { ...sitePreferences } }));
+};
+
+const getSitePreference = (key) => sitePreferences[key];
+
+const subscribeToSitePreferences = (handler) => {
+    const listener = (event) => handler(event.detail);
+    window.addEventListener(sitePreferenceChangeEvent, listener);
+    handler({ ...sitePreferences });
+    return () => window.removeEventListener(sitePreferenceChangeEvent, listener);
+};
+
+applySitePreferences();
+
+const siteVersion = "v1.3.0";
 const updateSiteVersion = () => {
     document.querySelectorAll("[data-site-version]").forEach((versionElement) => {
         versionElement.textContent = siteVersion;
@@ -70,6 +132,89 @@ const loadJson = async (url) => {
         throw new Error("資料服務沒有回應。");
     }
     return response.json();
+};
+
+const earthquakeAlertEndpoint = "https://aizhen-earthquake-alert.2010magnitude.workers.dev/";
+const earthquakeAlertPollInterval = 20 * 1000;
+const earthquakeAlertSubscribers = new Set();
+let earthquakeAlertStatusTimer = null;
+let isCheckingEarthquakeAlertStatus = false;
+let hasEarthquakeAlertVisibilityListener = false;
+let latestEarthquakeAlertStatus = null;
+
+const notifyEarthquakeAlertSubscribers = (status) => {
+    earthquakeAlertSubscribers.forEach((subscriber) => {
+        try {
+            subscriber(status);
+        } catch (error) {
+            console.warn("Earthquake alert subscriber failed", error);
+        }
+    });
+};
+
+const checkEarthquakeAlertStatus = async () => {
+    if (isCheckingEarthquakeAlertStatus || !earthquakeAlertSubscribers.size) {
+        return;
+    }
+
+    isCheckingEarthquakeAlertStatus = true;
+    const startedAt = performance.now();
+    try {
+        const response = await fetch(earthquakeAlertEndpoint, { cache: "no-store" });
+        if (!response.ok || response.type === "opaque") {
+            throw new Error("Earthquake alert status is unreachable.");
+        }
+
+        const alert = await response.json();
+        latestEarthquakeAlertStatus = {
+            isOnline: true,
+            latencyMs: performance.now() - startedAt,
+            alert,
+        };
+    } catch (error) {
+        latestEarthquakeAlertStatus = {
+            isOnline: false,
+            latencyMs: null,
+            alert: null,
+            error,
+        };
+    } finally {
+        isCheckingEarthquakeAlertStatus = false;
+        notifyEarthquakeAlertSubscribers(latestEarthquakeAlertStatus);
+    }
+};
+
+const subscribeToEarthquakeAlertStatus = (subscriber) => {
+    earthquakeAlertSubscribers.add(subscriber);
+    if (latestEarthquakeAlertStatus) {
+        subscriber(latestEarthquakeAlertStatus);
+    }
+
+    if (!earthquakeAlertStatusTimer) {
+        checkEarthquakeAlertStatus();
+        earthquakeAlertStatusTimer = window.setInterval(() => {
+            if (!document.hidden) {
+                checkEarthquakeAlertStatus();
+            }
+        }, earthquakeAlertPollInterval);
+    }
+
+    if (!hasEarthquakeAlertVisibilityListener) {
+        hasEarthquakeAlertVisibilityListener = true;
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden && earthquakeAlertSubscribers.size) {
+                checkEarthquakeAlertStatus();
+            }
+        });
+    }
+
+    return () => {
+        earthquakeAlertSubscribers.delete(subscriber);
+        if (!earthquakeAlertSubscribers.size && earthquakeAlertStatusTimer) {
+            window.clearInterval(earthquakeAlertStatusTimer);
+            earthquakeAlertStatusTimer = null;
+        }
+    };
 };
 
 const formatClientLocation = (...parts) => {
@@ -255,12 +400,171 @@ const closeOpenSubmenus = () => {
     });
 };
 
+const createIconSvg = (paths, className) => {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    if (className) {
+        svg.setAttribute("class", className);
+    }
+
+    paths.forEach((pathData) => {
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", pathData);
+        svg.append(path);
+    });
+
+    return svg;
+};
+
+const createPreferenceSwitch = ({ key, label, description, checked, onChange, variant = "toggle" }) => {
+    const item = document.createElement("label");
+    item.className = `settings-switch settings-switch-${variant}`;
+
+    const text = document.createElement("span");
+    text.className = "settings-switch-text";
+    text.textContent = label;
+
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = checked;
+    input.dataset.preferenceKey = key;
+    input.setAttribute("aria-label", description || label);
+
+    const track = document.createElement("span");
+    track.className = "settings-switch-track";
+    track.setAttribute("aria-hidden", "true");
+
+    if (variant === "theme") {
+        const lightIcon = document.createElement("span");
+        lightIcon.className = "settings-switch-icon settings-switch-icon-light";
+        lightIcon.append(createIconSvg([
+            "M12 7.2A4.8 4.8 0 1 1 12 16.8A4.8 4.8 0 0 1 12 7.2Z",
+            "M12 2.2V4.4M12 19.6V21.8M4.4 4.4L5.95 5.95M18.05 18.05L19.6 19.6M2.2 12H4.4M19.6 12H21.8M4.4 19.6L5.95 18.05M18.05 5.95L19.6 4.4",
+        ]));
+
+        const darkIcon = document.createElement("span");
+        darkIcon.className = "settings-switch-icon settings-switch-icon-dark";
+        darkIcon.append(createIconSvg([
+            "M20.3 15.2A8.2 8.2 0 0 1 8.8 3.7A7.4 7.4 0 1 0 20.3 15.2Z",
+        ]));
+
+        track.append(lightIcon, darkIcon);
+    }
+
+    const thumb = document.createElement("span");
+    thumb.className = "settings-switch-thumb";
+    track.append(thumb);
+
+    input.addEventListener("change", () => onChange(input.checked));
+    item.append(text, input, track);
+    return item;
+};
+
+const createSiteSettingsMenu = (navList) => {
+    if (!navList || navList.querySelector(".site-settings-item")) {
+        return;
+    }
+
+    const item = document.createElement("li");
+    item.className = "nav-item site-settings-item";
+
+    const trigger = document.createElement("button");
+    trigger.className = "site-settings-trigger";
+    trigger.type = "button";
+    trigger.setAttribute("aria-label", "開啟網站設定");
+    trigger.setAttribute("aria-expanded", "false");
+    const icon = document.createElement("img");
+    icon.className = "site-settings-icon";
+    icon.src = assetPath("pic/settings_icon.svg");
+    icon.alt = "";
+    icon.setAttribute("aria-hidden", "true");
+    trigger.append(icon);
+
+    const panel = document.createElement("div");
+    panel.className = "site-settings-panel";
+    panel.setAttribute("role", "menu");
+    panel.setAttribute("aria-label", "網站設定");
+
+    const title = document.createElement("strong");
+    title.className = "site-settings-title";
+    title.textContent = "網站設定";
+
+    const themeSwitch = createPreferenceSwitch({
+        key: "theme",
+        label: "淺色 / 深色",
+        description: "切換淺色或深色主題",
+        checked: getSitePreference("theme") === "dark",
+        variant: "theme",
+        onChange: (checked) => setSitePreference("theme", checked ? "dark" : "light"),
+    });
+
+    const earthquakeSwitch = createPreferenceSwitch({
+        key: "earthquakeAlert",
+        label: "強震即時警報",
+        description: "開啟或關閉強震即時警報彈窗",
+        checked: getSitePreference("earthquakeAlert"),
+        onChange: (checked) => setSitePreference("earthquakeAlert", checked),
+    });
+
+    const lineSwitch = createPreferenceSwitch({
+        key: "lineInvite",
+        label: "LINE群組邀請圖標",
+        description: "顯示或隱藏 LINE 群組邀請圖標",
+        checked: getSitePreference("lineInvite"),
+        onChange: (checked) => setSitePreference("lineInvite", checked),
+    });
+
+    panel.append(title, themeSwitch, earthquakeSwitch, lineSwitch);
+    item.append(trigger, panel);
+    navList.insertBefore(item, navList.firstElementChild);
+
+    const closeSettings = () => {
+        item.classList.remove("open");
+        trigger.setAttribute("aria-expanded", "false");
+    };
+
+    trigger.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const isOpen = item.classList.toggle("open");
+        trigger.setAttribute("aria-expanded", String(isOpen));
+        if (isOpen) {
+            closeOpenSubmenus();
+        }
+    });
+
+    panel.addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!item.contains(event.target)) {
+            closeSettings();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeSettings();
+        }
+    });
+
+    subscribeToSitePreferences((preferences) => {
+        themeSwitch.querySelector("input").checked = preferences.theme === "dark";
+        earthquakeSwitch.querySelector("input").checked = preferences.earthquakeAlert;
+        lineSwitch.querySelector("input").checked = preferences.lineInvite;
+    });
+};
+
 const siteHeader = document.querySelector(".site-header");
 const mainNav = siteHeader?.querySelector(".main-nav");
 if (siteHeader && mainNav) {
     if (!mainNav.id) {
         mainNav.id = "mainNavigation";
     }
+
+    createSiteSettingsMenu(mainNav.querySelector("ul"));
 
     const menuButton = document.createElement("button");
     menuButton.className = "mobile-menu-button";
@@ -418,7 +722,6 @@ if (homePage) {
     };
 
     if (earthquakeStatusButton) {
-        const earthquakeStatusEndpoint = "https://aizhen-earthquake-alert.2010magnitude.workers.dev/";
         const earthquakeStatusTooltip = earthquakeStatusButton.querySelector(".status-tooltip");
         const updateCarrierSignal = (latencyMs) => {
             if (!telecomCarrier || !telecomCarrierName) {
@@ -452,21 +755,6 @@ if (homePage) {
                 earthquakeStatusTooltip.textContent = label;
             }
         };
-        const checkEarthquakeStatus = async () => {
-            try {
-                const startedAt = performance.now();
-                const response = await fetch(earthquakeStatusEndpoint, { cache: "no-store" });
-                if (!response.ok || response.type === "opaque") {
-                    throw new Error("Earthquake alert status is unreachable.");
-                }
-                await response.json();
-                updateCarrierSignal(performance.now() - startedAt);
-                setEarthquakeStatus(true);
-            } catch (_error) {
-                updateCarrierSignal(null);
-                setEarthquakeStatus(false);
-            }
-        };
 
         earthquakeStatusButton.addEventListener("click", () => {
             const isOpen = earthquakeStatusButton.classList.toggle("is-tooltip-open");
@@ -481,16 +769,9 @@ if (homePage) {
             }, 120);
         });
 
-        checkEarthquakeStatus();
-        window.setInterval(() => {
-            if (!document.hidden) {
-                checkEarthquakeStatus();
-            }
-        }, 20 * 1000);
-        document.addEventListener("visibilitychange", () => {
-            if (!document.hidden) {
-                checkEarthquakeStatus();
-            }
+        subscribeToEarthquakeAlertStatus((status) => {
+            updateCarrierSignal(status.latencyMs);
+            setEarthquakeStatus(status.isOnline);
         });
     }
 
@@ -692,32 +973,96 @@ if (homePage) {
         const windowElement = marqueeText.closest(".marquee-window");
         const messages = await loadMarqueeMessages();
         let index = 0;
+        let activeAnimation = null;
+        let isMarqueeVisible = true;
+        let isQueued = false;
+
+        const shouldPlayMarquee = () => !document.hidden && isMarqueeVisible;
+
+        const pauseMarquee = () => {
+            if (activeAnimation?.playState === "running") {
+                activeAnimation.pause();
+            }
+            marqueeText.classList.remove("is-animating");
+        };
+
+        const resumeMarquee = () => {
+            if (!shouldPlayMarquee()) {
+                pauseMarquee();
+                return;
+            }
+            marqueeText.classList.add("is-animating");
+            if (activeAnimation && activeAnimation.playState === "paused") {
+                activeAnimation.play();
+            } else if (!activeAnimation && !isQueued) {
+                runNextMessage();
+            }
+        };
 
         const runNextMessage = () => {
+            if (!shouldPlayMarquee()) {
+                return;
+            }
+
             const message = messages[index % messages.length];
             index += 1;
             marqueeText.textContent = message;
+            isQueued = true;
 
             requestAnimationFrame(() => {
+                isQueued = false;
+                if (!shouldPlayMarquee()) {
+                    return;
+                }
+
                 const windowWidth = windowElement?.clientWidth || 0;
                 const textWidth = marqueeText.scrollWidth;
                 const distance = windowWidth + textWidth;
                 const duration = Math.max(4800, distance * 16);
+                const frameCount = Math.max(1, Math.round((duration / 1000) * 30));
 
                 marqueeText.getAnimations().forEach((animation) => animation.cancel());
-                const animation = marqueeText.animate([
+                marqueeText.classList.add("is-animating");
+                activeAnimation = marqueeText.animate([
                     { transform: `translateX(${windowWidth}px)` },
                     { transform: `translateX(${-textWidth}px)` },
                 ], {
                     duration,
-                    easing: "linear",
+                    easing: `steps(${frameCount}, end)`,
                     fill: "forwards",
                 });
 
-                animation.onfinish = runNextMessage;
-                animation.oncancel = null;
+                activeAnimation.onfinish = () => {
+                    activeAnimation = null;
+                    marqueeText.classList.remove("is-animating");
+                    runNextMessage();
+                };
+                activeAnimation.oncancel = () => {
+                    activeAnimation = null;
+                    marqueeText.classList.remove("is-animating");
+                };
             });
         };
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                pauseMarquee();
+                return;
+            }
+            resumeMarquee();
+        });
+
+        if ("IntersectionObserver" in window && windowElement) {
+            const marqueeObserver = new IntersectionObserver((entries) => {
+                isMarqueeVisible = entries.some((entry) => entry.isIntersecting);
+                if (isMarqueeVisible) {
+                    resumeMarquee();
+                } else {
+                    pauseMarquee();
+                }
+            }, { threshold: 0.01 });
+            marqueeObserver.observe(windowElement);
+        }
 
         runNextMessage();
     };
@@ -921,13 +1266,13 @@ if (homePage) {
     document.addEventListener("visibilitychange", checkNetworkStatuses);
 
     const operatorColors = [
-        { match: "中華", color: "#8fd0ff" },
-        { match: "遠傳", color: "#ff8a8a" },
-        { match: "台哥大/原台星", color: "#ffc166" },
-        { match: "台灣大哥大", color: "#ffc166" },
-        { match: "台哥大", color: "#ffc166" },
-        { match: "原亞太", color: "#7ff0ad" },
-        { match: "原台星", color: "#d8a6ff" },
+        { match: "中華", key: "cht", color: "#8fd0ff" },
+        { match: "遠傳", key: "fet", color: "#ff8a8a" },
+        { match: "台哥大/原台星", key: "twm", color: "#ffc166" },
+        { match: "台灣大哥大", key: "twm", color: "#ffc166" },
+        { match: "台哥大", key: "twm", color: "#ffc166" },
+        { match: "原亞太", key: "aptg", color: "#7ff0ad" },
+        { match: "原台星", key: "tstartel", color: "#d8a6ff" },
     ];
 
     const badgeColors = {
@@ -938,8 +1283,10 @@ if (homePage) {
         服務異動: "rgba(187, 124, 255, 0.24)",
     };
 
+    const getOperatorInfo = (operator = "") => operatorColors.find((item) => operator.includes(item.match));
+
     const getOperatorColor = (operator = "") => {
-        const matched = operatorColors.find((item) => operator.includes(item.match));
+        const matched = getOperatorInfo(operator);
         return matched ? matched.color : "#f7fdff";
     };
 
@@ -996,7 +1343,12 @@ if (homePage) {
 
         visibleItems.forEach((item) => {
             const row = document.createElement("tr");
-            row.style.setProperty("--operator-row-color", getOperatorColor(item.operator));
+            const operatorInfo = getOperatorInfo(item.operator);
+            row.style.setProperty("--operator-row-color", operatorInfo ? operatorInfo.color : "#f7fdff");
+
+            if (operatorInfo) {
+                row.dataset.newsOperator = operatorInfo.key;
+            }
 
             appendTextCell(row, item.source);
             appendTextCell(row, item.date);
@@ -1831,11 +2183,8 @@ if (drillCountdownModal) {
     const countdownClose = drillCountdownModal.querySelector("#drillCountdownClose");
     const emergencyAlertAudio = drillCountdownModal.querySelector("#emergencyAlertAudio");
     const emergencyAlertMessage = drillCountdownModal.querySelector("#emergencyAlertMessage");
-    const emergencyAlertFeedEndpoint = "https://aizhen-earthquake-alert.2010magnitude.workers.dev/";
     const emergencyAlertFreshnessWindow = 3 * 60 * 1000;
-    const emergencyAlertPollInterval = 20 * 1000;
     const emergencyAlertStorageKey = "aizhenLastEarthquakeAlertId";
-    let isCheckingEmergencyAlert = false;
     let lastShownEmergencyAlertId = "";
 
     try {
@@ -1939,40 +2288,30 @@ if (drillCountdownModal) {
         }
     };
 
-    const checkLatestEarthquakeAlert = async () => {
-        if (isCheckingEmergencyAlert) {
-            return;
-        }
-
-        isCheckingEmergencyAlert = true;
-        try {
-            const response = await fetch(emergencyAlertFeedEndpoint, { cache: "no-store" });
-            if (!response.ok || response.type === "opaque") {
-                return;
-            }
-
-            const latestAlert = await response.json();
-            if (isFreshEmergencyAlert(latestAlert)) {
-                showEmergencyAlert(latestAlert);
-            }
-        } catch (_error) {
-            // Network failures should leave the homepage unchanged.
-        } finally {
-            isCheckingEmergencyAlert = false;
+    let unsubscribeEmergencyAlertStatus = null;
+    const handleEmergencyAlertStatus = (status) => {
+        if (status.isOnline && isFreshEmergencyAlert(status.alert)) {
+            showEmergencyAlert(status.alert);
         }
     };
 
-    checkLatestEarthquakeAlert();
-    window.setInterval(() => {
-        if (!document.hidden) {
-            checkLatestEarthquakeAlert();
+    const syncEmergencyAlertPreference = () => {
+        if (getSitePreference("earthquakeAlert")) {
+            if (!unsubscribeEmergencyAlertStatus) {
+                unsubscribeEmergencyAlertStatus = subscribeToEarthquakeAlertStatus(handleEmergencyAlertStatus);
+            }
+            return;
         }
-    }, emergencyAlertPollInterval);
-    document.addEventListener("visibilitychange", () => {
-        if (!document.hidden) {
-            checkLatestEarthquakeAlert();
+
+        if (unsubscribeEmergencyAlertStatus) {
+            unsubscribeEmergencyAlertStatus();
+            unsubscribeEmergencyAlertStatus = null;
         }
-    });
+        closeDrillCountdown();
+    };
+
+    syncEmergencyAlertPreference();
+    subscribeToSitePreferences(syncEmergencyAlertPreference);
 
     if (countdownClose) {
         countdownClose.addEventListener("click", closeDrillCountdown);
