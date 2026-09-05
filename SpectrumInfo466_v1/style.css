@@ -1035,6 +1035,60 @@ a {
     padding: clamp(1rem, 2vw, 1.35rem);
 }
 
+.changelog-page {
+    padding: clamp(1rem, 2.6vw, 1.8rem);
+}
+
+.changelog-panel {
+    display: grid;
+    gap: 1rem;
+}
+
+.changelog-header {
+    display: grid;
+    gap: 0.35rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(139, 232, 255, 0.18);
+}
+
+.changelog-header h1 {
+    margin: 0.15rem 0 0.2rem;
+    color: var(--text);
+    font-size: clamp(1.45rem, 3vw, 2.1rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+
+.changelog-content {
+    margin: 0;
+    padding: clamp(1rem, 2.5vw, 1.6rem);
+    overflow-x: auto;
+    border: 1px solid rgba(139, 232, 255, 0.16);
+    border-radius: 8px;
+    color: var(--text);
+    background:
+        linear-gradient(135deg, rgba(39, 225, 187, 0.08), transparent 36%),
+        rgba(6, 17, 23, 0.62);
+    font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.72;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+:root[data-theme="light"] .changelog-header {
+    border-bottom-color: rgba(0, 129, 150, 0.22);
+}
+
+:root[data-theme="light"] .changelog-content {
+    border-color: rgba(0, 129, 150, 0.24);
+    color: #17242a;
+    background:
+        linear-gradient(135deg, rgba(0, 139, 122, 0.08), transparent 36%),
+        rgba(255, 255, 255, 0.78);
+}
+
 .spectrum-toolbar {
     display: flex;
     align-items: flex-end;
