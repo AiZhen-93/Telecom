@@ -1118,7 +1118,7 @@ if (homePage) {
                 activeAnimation.onfinish = () => {
                     activeAnimation = null;
                     marqueeText.classList.remove("is-animating");
-                    if (stopAfterCurrentCycle && index === 0) {
+                    if (stopAfterCurrentCycle && index % messages.length === 0) {
                         showMarqueeDisabledMessage();
                         return;
                     }
