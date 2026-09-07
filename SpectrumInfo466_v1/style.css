@@ -1152,6 +1152,7 @@ a {
 }
 
 .changelog-subitem {
+    margin-left: 1.1rem;
     color: var(--muted);
     font-size: 0.95rem;
     list-style-type: circle;

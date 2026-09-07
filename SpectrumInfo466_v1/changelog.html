@@ -107,7 +107,7 @@
 
             const formatDate = (value) => {
                 if (!value || value.length !== 8) {
-                    return "未標日期";
+                    return "";
                 }
 
                 return `${value.slice(0, 4)}/${value.slice(4, 6)}/${value.slice(6, 8)}`;
@@ -177,13 +177,13 @@
                         meta.append(stage);
                     }
 
-                    const date = document.createElement("time");
-                    date.className = "changelog-date";
-                    date.textContent = entry.date;
-                    if (entry.date !== "未標日期") {
+                    if (entry.date) {
+                        const date = document.createElement("time");
+                        date.className = "changelog-date";
+                        date.textContent = entry.date;
                         date.dateTime = entry.date.replaceAll("/", "-");
+                        meta.append(date);
                     }
-                    meta.append(date);
 
                     const body = document.createElement("div");
                     body.className = "changelog-entry-body";
