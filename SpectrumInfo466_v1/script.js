@@ -548,6 +548,14 @@ const createSiteSettingsMenu = (navList) => {
     title.className = "site-settings-title";
     title.textContent = "網站設定";
 
+    const generalSettingsTitle = document.createElement("span");
+    generalSettingsTitle.className = "settings-section-title";
+    generalSettingsTitle.textContent = "整體設定";
+
+    const homeSettingsTitle = document.createElement("span");
+    homeSettingsTitle.className = "settings-section-title";
+    homeSettingsTitle.textContent = "首頁設定";
+
     const themeSwitch = createPreferenceSwitch({
         key: "theme",
         label: "淺色 / 深色",
@@ -581,7 +589,15 @@ const createSiteSettingsMenu = (navList) => {
         onChange: setMarqueeCycleEnabled,
     });
 
-    panel.append(title, themeSwitch, earthquakeSwitch, marqueeSwitch, lineSwitch);
+    panel.append(
+        title,
+        generalSettingsTitle,
+        themeSwitch,
+        earthquakeSwitch,
+        homeSettingsTitle,
+        marqueeSwitch,
+        lineSwitch,
+    );
     item.append(trigger, panel);
     navList.insertBefore(item, navList.firstElementChild);
 

@@ -7023,9 +7023,26 @@ td.n257-column .combo-value {
 }
 
 .site-settings-title {
+    display: block;
     color: var(--accent);
-    font-size: 0.88rem;
+    font-size: 1.04rem;
+    font-weight: 900;
+    line-height: 1.3;
     letter-spacing: 0;
+    text-align: center;
+}
+
+.settings-section-title {
+    display: block;
+    margin-top: 0.08rem;
+    padding-bottom: 0.32rem;
+    border-bottom: 1px solid rgba(139, 232, 255, 0.14);
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+    text-align: left;
 }
 
 .settings-switch {
