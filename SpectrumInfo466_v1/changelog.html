@@ -69,7 +69,7 @@
                     <p class="section-kicker">Changelog</p>
                     <h1>網站更新日誌</h1>
                 </div>
-                <pre class="changelog-content" id="changelogContent" aria-live="polite">更新日誌載入中...</pre>
+                <div class="changelog-timeline" id="changelogTimeline" aria-live="polite">更新日誌載入中...</div>
             </section>
         </main>
         <footer class="site-footer" aria-label="網站資訊">
@@ -92,15 +92,117 @@
                     <p>聲明：本工作室僅在本網站和YouTube平台經營，於其他任何平台(包含但不限於IG、Threads、PTT、Dcard、bilibili等)<br>若有發現本方發文或留言皆為冒名使用，請勿受騙上當。<br>本網站所有電信相關資訊皆為免費提供，頁面中亦無插入任何廣告，若您想表達感謝或鼓勵我，可以在這裡 <a class="footer-inline-link" href="https://reurl.cc/rxeGN4" target="_blank" rel="noopener noreferrer">贊助愛蓁</a>。</p>
                 </div>
             </div>
-            <div class="footer-bottom"><div class="footer-version"><span>版本: <span data-site-version>v1.3.0</span></span><a href="changelog.html" target="_blank" rel="noopener noreferrer">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 Ⓒ2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
+            <div class="footer-bottom"><div class="footer-version"><span>版本: <span data-site-version>v1.3.0</span></span><a href="changelog.html">Changelog</a></div><div class="footer-center"><div class="footer-copyright">愛蓁電信工作室 版權所有 Ⓒ2026</div><div class="footer-visits">累計瀏覽人次：<span data-visit-count>--</span></div></div><a class="footer-back-top" href="#">回到頂端</a></div>
         </footer>
     </div>
     <script>
         (() => {
-            const content = document.getElementById("changelogContent");
-            if (!content) {
+            const timeline = document.getElementById("changelogTimeline");
+            if (!timeline) {
                 return;
             }
+
+            const separatorPattern = /^[=-]{8,}$/;
+            const entryPattern = /^(?<stage>[A-Za-z]+)?【(?<version>[^】]+)】(?<date>\d{8})?\s*$/u;
+
+            const formatDate = (value) => {
+                if (!value || value.length !== 8) {
+                    return "未標日期";
+                }
+
+                return `${value.slice(0, 4)}/${value.slice(4, 6)}/${value.slice(6, 8)}`;
+            };
+
+            const parseChangelog = (text) => {
+                const entries = [];
+                let current = null;
+
+                text.split(/\r?\n/).forEach((rawLine) => {
+                    const line = rawLine.trim();
+                    if (!line || separatorPattern.test(line) || line === "頻譜資訊網更新日誌") {
+                        return;
+                    }
+
+                    const match = line.match(entryPattern);
+                    if (match?.groups) {
+                        current = {
+                            stage: match.groups.stage || "",
+                            version: match.groups.version,
+                            date: formatDate(match.groups.date || ""),
+                            items: [],
+                        };
+                        entries.push(current);
+                        return;
+                    }
+
+                    if (!current) {
+                        return;
+                    }
+
+                    const isSubitem = line.startsWith("*");
+                    const textContent = line.replace(/^[-*]\s*/, "");
+                    current.items.push({
+                        text: textContent,
+                        subitem: isSubitem,
+                    });
+                });
+
+                return entries;
+            };
+
+            const renderEntries = (entries) => {
+                if (!entries.length) {
+                    timeline.textContent = "目前尚無更新日誌。";
+                    return;
+                }
+
+                timeline.textContent = "";
+
+                entries.forEach((entry) => {
+                    const article = document.createElement("article");
+                    article.className = "changelog-entry";
+
+                    const meta = document.createElement("div");
+                    meta.className = "changelog-meta";
+
+                    const version = document.createElement("span");
+                    version.className = "changelog-version";
+                    version.textContent = entry.version;
+                    meta.append(version);
+
+                    if (entry.stage) {
+                        const stage = document.createElement("span");
+                        stage.className = "changelog-stage";
+                        stage.textContent = entry.stage;
+                        meta.append(stage);
+                    }
+
+                    const date = document.createElement("time");
+                    date.className = "changelog-date";
+                    date.textContent = entry.date;
+                    if (entry.date !== "未標日期") {
+                        date.dateTime = entry.date.replaceAll("/", "-");
+                    }
+                    meta.append(date);
+
+                    const body = document.createElement("div");
+                    body.className = "changelog-entry-body";
+
+                    const list = document.createElement("ul");
+                    entry.items.forEach((item) => {
+                        const listItem = document.createElement("li");
+                        if (item.subitem) {
+                            listItem.className = "changelog-subitem";
+                        }
+                        listItem.textContent = item.text;
+                        list.append(listItem);
+                    });
+
+                    body.append(list);
+                    article.append(meta, body);
+                    timeline.append(article);
+                });
+            };
 
             fetch("changelog.txt", { cache: "no-store" })
                 .then((response) => {
@@ -110,10 +212,10 @@
                     return response.text();
                 })
                 .then((text) => {
-                    content.textContent = text.trim() || "目前尚無更新日誌。";
+                    renderEntries(parseChangelog(text));
                 })
                 .catch(() => {
-                    content.textContent = "更新日誌載入失敗，請稍後再試。";
+                    timeline.textContent = "更新日誌載入失敗，請稍後再試。";
                 });
         })();
     </script>

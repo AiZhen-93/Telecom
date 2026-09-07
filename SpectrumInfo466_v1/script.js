@@ -8,9 +8,15 @@ const assetPath = (path) => {
 
 const sitePreferenceStorageKey = "aizhenSitePreferences";
 const sitePreferenceChangeEvent = "aizhen-site-preferences-change";
+const marqueeCycleChangeEvent = "aizhen-marquee-cycle-change";
+let isMarqueeCycleEnabled = true;
+const setMarqueeCycleEnabled = (enabled) => {
+    setSitePreference("marqueeCycle", Boolean(enabled));
+};
 const defaultSitePreferences = {
     theme: "dark",
     earthquakeAlert: true,
+    marqueeCycle: true,
     lineInvite: true,
 };
 
@@ -22,6 +28,7 @@ const readSitePreferences = () => {
             ...saved,
             theme: saved.theme === "light" ? "light" : "dark",
             earthquakeAlert: saved.earthquakeAlert !== false,
+            marqueeCycle: saved.marqueeCycle !== false,
             lineInvite: saved.lineInvite !== false,
         };
     } catch (_error) {
@@ -30,6 +37,7 @@ const readSitePreferences = () => {
 };
 
 let sitePreferences = readSitePreferences();
+isMarqueeCycleEnabled = sitePreferences.marqueeCycle;
 
 const writeSitePreferences = () => {
     try {
@@ -54,6 +62,10 @@ const setSitePreference = (key, value) => {
     };
     writeSitePreferences();
     applySitePreferences();
+    if (key === "marqueeCycle") {
+        isMarqueeCycleEnabled = Boolean(value);
+        window.dispatchEvent(new CustomEvent(marqueeCycleChangeEvent, { detail: isMarqueeCycleEnabled }));
+    }
     window.dispatchEvent(new CustomEvent(sitePreferenceChangeEvent, { detail: { ...sitePreferences } }));
 };
 
@@ -76,6 +88,51 @@ const updateSiteVersion = () => {
 };
 
 updateSiteVersion();
+
+let isEmergencyAlertAudioInitialized = false;
+const emergencyAlertAudioInitializationStorageKey = "aizhenEmergencyAlertAudioInitializationRequested";
+const initializeEmergencyAlertAudio = () => {
+    const audio = document.querySelector("#emergencyAlertAudio");
+    if (!audio || isEmergencyAlertAudioInitialized) {
+        return;
+    }
+
+    const originalVolume = audio.volume;
+    audio.pause();
+    audio.currentTime = 0;
+    audio.muted = false;
+    audio.volume = 0;
+
+    const playPromise = audio.play();
+    if (!playPromise) {
+        audio.volume = originalVolume;
+        return;
+    }
+
+    playPromise
+        .then(() => {
+            audio.pause();
+            audio.currentTime = 0;
+            audio.volume = originalVolume;
+            isEmergencyAlertAudioInitialized = true;
+        })
+        .catch(() => {
+            audio.pause();
+            audio.currentTime = 0;
+            audio.volume = originalVolume;
+        });
+};
+
+document.querySelectorAll(".brand a").forEach((brandLink) => {
+    brandLink.addEventListener("click", () => {
+        try {
+            sessionStorage.setItem(emergencyAlertAudioInitializationStorageKey, "1");
+        } catch (_error) {
+            // Storage may be unavailable in restrictive browser modes.
+        }
+        initializeEmergencyAlertAudio();
+    });
+});
 
 const visitCounterEndpoint = "https://aizhen-visit-counter.2010magnitude.workers.dev/hit";
 const updateVisitCount = async () => {
@@ -516,7 +573,15 @@ const createSiteSettingsMenu = (navList) => {
         onChange: (checked) => setSitePreference("lineInvite", checked),
     });
 
-    panel.append(title, themeSwitch, earthquakeSwitch, lineSwitch);
+    const marqueeSwitch = createPreferenceSwitch({
+        key: "marqueeCycle",
+        label: "跑馬燈循環輪播",
+        description: "開啟或關閉跑馬燈循環輪播",
+        checked: getSitePreference("marqueeCycle"),
+        onChange: setMarqueeCycleEnabled,
+    });
+
+    panel.append(title, themeSwitch, earthquakeSwitch, marqueeSwitch, lineSwitch);
     item.append(trigger, panel);
     navList.insertBefore(item, navList.firstElementChild);
 
@@ -527,6 +592,7 @@ const createSiteSettingsMenu = (navList) => {
 
     trigger.addEventListener("click", (event) => {
         event.stopPropagation();
+        initializeEmergencyAlertAudio();
         const isOpen = item.classList.toggle("open");
         trigger.setAttribute("aria-expanded", String(isOpen));
         if (isOpen) {
@@ -553,6 +619,7 @@ const createSiteSettingsMenu = (navList) => {
     subscribeToSitePreferences((preferences) => {
         themeSwitch.querySelector("input").checked = preferences.theme === "dark";
         earthquakeSwitch.querySelector("input").checked = preferences.earthquakeAlert;
+        marqueeSwitch.querySelector("input").checked = preferences.marqueeCycle;
         lineSwitch.querySelector("input").checked = preferences.lineInvite;
     });
 };
@@ -945,6 +1012,7 @@ if (homePage) {
 
     const marqueeText = homePage.querySelector("#homeMarqueeText");
     const marqueeFallbackMessage = "歡迎來到愛蓁電信工作室 - 頻譜資訊網~";
+    const marqueeDisabledMessage = "跑馬燈已關閉，重整後恢復";
 
     const loadMarqueeMessages = async () => {
         try {
@@ -976,8 +1044,20 @@ if (homePage) {
         let activeAnimation = null;
         let isMarqueeVisible = true;
         let isQueued = false;
+        let isMarqueeStopped = false;
+        let stopAfterCurrentCycle = !isMarqueeCycleEnabled;
 
         const shouldPlayMarquee = () => !document.hidden && isMarqueeVisible;
+
+        const showMarqueeDisabledMessage = () => {
+            isMarqueeStopped = true;
+            isQueued = false;
+            marqueeText.getAnimations().forEach((animation) => animation.cancel());
+            activeAnimation = null;
+            marqueeText.classList.remove("is-animating");
+            marqueeText.classList.add("is-stopped");
+            marqueeText.textContent = marqueeDisabledMessage;
+        };
 
         const pauseMarquee = () => {
             if (activeAnimation?.playState === "running") {
@@ -987,6 +1067,9 @@ if (homePage) {
         };
 
         const resumeMarquee = () => {
+            if (isMarqueeStopped) {
+                return;
+            }
             if (!shouldPlayMarquee()) {
                 pauseMarquee();
                 return;
@@ -1000,7 +1083,7 @@ if (homePage) {
         };
 
         const runNextMessage = () => {
-            if (!shouldPlayMarquee()) {
+            if (isMarqueeStopped || !shouldPlayMarquee()) {
                 return;
             }
 
@@ -1035,6 +1118,10 @@ if (homePage) {
                 activeAnimation.onfinish = () => {
                     activeAnimation = null;
                     marqueeText.classList.remove("is-animating");
+                    if (stopAfterCurrentCycle && index === 0) {
+                        showMarqueeDisabledMessage();
+                        return;
+                    }
                     runNextMessage();
                 };
                 activeAnimation.oncancel = () => {
@@ -1043,6 +1130,22 @@ if (homePage) {
                 };
             });
         };
+
+        window.addEventListener(marqueeCycleChangeEvent, (event) => {
+            if (event.detail) {
+                stopAfterCurrentCycle = false;
+                if (isMarqueeStopped) {
+                    isMarqueeStopped = false;
+                    index = 0;
+                    marqueeText.classList.remove("is-stopped");
+                    marqueeText.textContent = "";
+                    resumeMarquee();
+                }
+                return;
+            }
+
+            stopAfterCurrentCycle = true;
+        });
 
         document.addEventListener("visibilitychange", () => {
             if (document.hidden) {
@@ -2186,6 +2289,15 @@ if (drillCountdownModal) {
     const emergencyAlertFreshnessWindow = 3 * 60 * 1000;
     const emergencyAlertStorageKey = "aizhenLastEarthquakeAlertId";
     let lastShownEmergencyAlertId = "";
+
+    try {
+        if (sessionStorage.getItem(emergencyAlertAudioInitializationStorageKey) === "1") {
+            sessionStorage.removeItem(emergencyAlertAudioInitializationStorageKey);
+            initializeEmergencyAlertAudio();
+        }
+    } catch (_error) {
+        // Storage may be unavailable in restrictive browser modes.
+    }
 
     try {
         lastShownEmergencyAlertId = sessionStorage.getItem(emergencyAlertStorageKey) || "";
