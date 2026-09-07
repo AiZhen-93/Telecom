@@ -7388,8 +7388,7 @@ body.is-line-invite-disabled .status-line-link {
         display: none;
     }
 
-    .site-settings-item.open .site-settings-panel,
-    .site-settings-item:focus-within .site-settings-panel {
+    .site-settings-item.open .site-settings-panel {
         display: grid;
         opacity: 1;
         visibility: visible;
