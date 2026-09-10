@@ -3410,7 +3410,12 @@ td.n257-column .combo-value {
 .cell-towers-calendar strong { color: var(--text); font-size: 1.03rem; }
 .cell-towers-slider-wrap, .cell-towers-slider-track { display: grid; gap: 0.55rem; min-width: 0; }
 .cell-towers-slider-labels { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.82rem; font-weight: 700; }
-.cell-towers-slider-row { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 0.8rem; align-items: center; }
+.cell-towers-slider-row { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.8rem; align-items: center; }
+.cell-towers-slider-controls { display: flex; align-items: center; gap: 0.34rem; }
+.cell-towers-step-button { display: grid; width: 2rem; height: 2rem; place-items: center; padding: 0; border: 1px solid rgba(139, 232, 255, 0.3); border-radius: 50%; background: rgba(82, 169, 255, 0.1); color: #dff6ff; font: inherit; font-size: 1.7rem; font-weight: 500; line-height: 1; cursor: pointer; }
+.cell-towers-step-button:hover:not(:disabled), .cell-towers-step-button:focus-visible:not(:disabled) { border-color: var(--accent); background: rgba(39, 225, 187, 0.18); color: #ffffff; outline: none; }
+.cell-towers-step-button:focus-visible:not(:disabled) { box-shadow: 0 0 0 3px rgba(39, 225, 187, 0.28); }
+.cell-towers-step-button:disabled { opacity: 0.4; cursor: not-allowed; }
 .cell-towers-ticks { display: grid; height: 0.72rem; padding: 0 0.36rem; }
 .cell-towers-ticks span { justify-self: center; width: 1px; height: 0.72rem; background: rgba(237, 250, 255, 0.66); }
 .cell-towers-events { position: relative; height: 1.35rem; margin: -0.14rem 0 0; border-top: 1px solid rgba(139, 232, 255, 0.18); }
@@ -9961,6 +9966,19 @@ body.is-line-invite-disabled .status-line-link {
 :root[data-theme="light"] .cell-towers-event.is-current {
     color: #005f54;
     border-top-color: #008b7a;
+}
+
+:root[data-theme="light"] .cell-towers-step-button {
+    color: #185162;
+    border-color: rgba(24, 120, 138, 0.32);
+    background: rgba(255, 255, 255, 0.82);
+}
+
+:root[data-theme="light"] .cell-towers-step-button:hover:not(:disabled),
+:root[data-theme="light"] .cell-towers-step-button:focus-visible:not(:disabled) {
+    color: #005f54;
+    border-color: #008b7a;
+    background: rgba(0, 139, 122, 0.12);
 }
 
 :root[data-theme="light"] .cell-towers-total-card {

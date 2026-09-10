@@ -83,7 +83,11 @@
                 <div class="cell-towers-slider-wrap">
                     <div class="cell-towers-slider-labels" aria-hidden="true"><span>2014年6月</span><span>2026年8月</span></div>
                     <div class="cell-towers-slider-row">
-                        <button class="sleep-play-button" id="cellTowersPlayButton" type="button" aria-label="播放月份時間軸" aria-pressed="false"><span class="sleep-play-icon" aria-hidden="true"></span></button>
+                        <div class="cell-towers-slider-controls" role="group" aria-label="月份切換控制">
+                            <button class="cell-towers-step-button" id="cellTowersPreviousButton" type="button" aria-label="上一個有資料的月份" title="上一個有資料的月份"><span aria-hidden="true">‹</span></button>
+                            <button class="sleep-play-button" id="cellTowersPlayButton" type="button" aria-label="播放月份時間軸" aria-pressed="false"><span class="sleep-play-icon" aria-hidden="true"></span></button>
+                            <button class="cell-towers-step-button" id="cellTowersNextButton" type="button" aria-label="下一個有資料的月份" title="下一個有資料的月份"><span aria-hidden="true">›</span></button>
+                        </div>
                         <div class="cell-towers-slider-track">
                             <input id="cellTowersSlider" class="sleep-time-slider" type="range" min="0" max="0" value="0" step="1" aria-label="調整統計月份">
                             <div id="cellTowersTicks" class="cell-towers-ticks" aria-hidden="true"></div>
@@ -168,6 +172,8 @@
             const months = cellTowersData.months;
             const slider = page.querySelector("#cellTowersSlider");
             const playButton = page.querySelector("#cellTowersPlayButton");
+            const previousButton = page.querySelector("#cellTowersPreviousButton");
+            const nextButton = page.querySelector("#cellTowersNextButton");
             const label = page.querySelector("#cellTowersMonthLabel");
             const totalsNode = page.querySelector("#cellTowersOperatorTotals");
             const chart = page.querySelector("#cellTowersBarChart");
@@ -261,6 +267,13 @@
                 }, 900);
             };
             playButton.addEventListener("click", () => playTimer ? setPlaying(false) : play());
+            const moveMonth = (direction) => {
+                const nextIndex = Math.max(0, Math.min(months.length - 1, Number(slider.value) + direction));
+                if (nextIndex === Number(slider.value)) return;
+                slider.value = String(nextIndex); setPlaying(false); render();
+            };
+            previousButton.addEventListener("click", () => moveMonth(-1));
+            nextButton.addEventListener("click", () => moveMonth(1));
             slider.addEventListener("input", () => { setPlaying(false); render(); });
 
             function selectCity(city) {
@@ -384,12 +397,18 @@
                 eventNodes.forEach((node, eventMonth) => node.classList.toggle("is-current", eventMonth === month));
             }
 
+            function renderMonthControls() {
+                const currentIndex = Number(slider.value);
+                previousButton.disabled = currentIndex === 0;
+                nextButton.disabled = currentIndex === months.length - 1;
+            }
+
             function render() {
                 const month = months[Number(slider.value)];
                 const records = cellTowersData.records[month] || [];
                 const fourGFiveGRecords = records.filter((record) => record[2] === "4G" || record[2] === "5G");
                 label.textContent = monthLabel(month);
-                renderTotals(records); renderMapIntensity(fourGFiveGRecords); renderSelectedRanking(); renderTrend(); renderEvents();
+                renderTotals(records); renderMapIntensity(fourGFiveGRecords); renderSelectedRanking(); renderTrend(); renderEvents(); renderMonthControls();
                 mapPaths.forEach((path, city) => path.classList.toggle("is-selected", city === selectedCity));
             }
             render();
