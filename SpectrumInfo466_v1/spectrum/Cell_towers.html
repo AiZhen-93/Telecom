@@ -94,7 +94,7 @@
                             <div id="cellTowersEvents" class="cell-towers-events" aria-label="重要事件節點"></div>
                         </div>
                     </div>
-                    <p id="cellTowersEventSummary" class="cell-towers-event-summary" aria-live="polite">時間軸節點標示重要制度與業者事件。</p>
+                    <p id="cellTowersEventSummary" class="cell-towers-event-summary" aria-live="polite">點選時間軸圓點查看重要事件。</p>
                 </div>
             </section>
 
@@ -216,10 +216,8 @@
                 eventNode.type = "button";
                 eventNode.className = "cell-towers-event";
                 eventNode.style.left = `${(index / (months.length - 1)) * 100}%`;
-                eventNode.title = `${monthLabel(event.month)}｜${event.label}`;
                 eventNode.setAttribute("aria-label", `${monthLabel(event.month)}：${event.label}`);
                 eventNode.dataset.month = event.month;
-                eventNode.textContent = event.label;
                 eventNode.addEventListener("click", () => { slider.value = String(index); setPlaying(false); render(); });
                 eventsNode.append(eventNode);
                 eventNodes.set(event.month, eventNode);
@@ -393,7 +391,7 @@
             function renderEvents() {
                 const month = months[Number(slider.value)];
                 const event = timelineEvents.find((item) => item.month === month);
-                eventSummary.textContent = event ? `${monthLabel(event.month)}｜${event.description}` : "時間軸節點標示重要制度與業者事件。";
+                eventSummary.textContent = event ? `${monthLabel(event.month)}｜${event.description}` : "點選時間軸圓點查看重要事件。";
                 eventNodes.forEach((node, eventMonth) => node.classList.toggle("is-current", eventMonth === month));
             }
 
