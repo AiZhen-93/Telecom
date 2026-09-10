@@ -9918,3 +9918,95 @@ body.is-line-invite-disabled .status-line-link {
     color: #ffffff !important;
     background: #6b7b86 !important;
 }
+
+/* Cell towers statistics: light theme */
+:root[data-theme="light"] .cell-towers-page :is(.cell-towers-timeline, .cell-towers-overview, .cell-towers-notes) {
+    color: #102733;
+    border-color: rgba(24, 120, 138, 0.24);
+    background: rgba(255, 255, 255, 0.68);
+}
+
+:root[data-theme="light"] .cell-towers-page :is(.cell-towers-map-panel, .cell-towers-ranking-panel) {
+    color: #102733;
+    border-color: rgba(24, 120, 138, 0.2);
+    background: rgba(255, 255, 255, 0.56);
+}
+
+:root[data-theme="light"] .cell-towers-calendar strong,
+:root[data-theme="light"] .cell-towers-total-card p,
+:root[data-theme="light"] .cell-towers-bar-value,
+:root[data-theme="light"] .cell-towers-notes p {
+    color: #102733;
+}
+
+:root[data-theme="light"] :is(.cell-towers-slider-labels, .cell-towers-event-summary, .cell-towers-panel-heading > p, .cell-towers-ranking-empty) {
+    color: #385461;
+}
+
+:root[data-theme="light"] .cell-towers-ticks span {
+    background: rgba(16, 39, 51, 0.58);
+}
+
+:root[data-theme="light"] .cell-towers-events {
+    border-top-color: rgba(16, 39, 51, 0.2);
+}
+
+:root[data-theme="light"] .cell-towers-event {
+    color: #35515d;
+    border-top-color: #1874bd;
+}
+
+:root[data-theme="light"] .cell-towers-event:hover,
+:root[data-theme="light"] .cell-towers-event:focus-visible,
+:root[data-theme="light"] .cell-towers-event.is-current {
+    color: #005f54;
+    border-top-color: #008b7a;
+}
+
+:root[data-theme="light"] .cell-towers-total-card {
+    background: linear-gradient(145deg, color-mix(in srgb, var(--operator-color), white 86%), rgba(255, 255, 255, 0.86));
+}
+
+:root[data-theme="light"] .cell-towers-map-stage {
+    background: radial-gradient(circle at 50% 42%, rgba(0, 139, 122, 0.15), transparent 55%), #edf6f8;
+}
+
+:root[data-theme="light"] .cell-towers-map .taiwan-county {
+    stroke: #47717f;
+}
+
+:root[data-theme="light"] .cell-towers-map .taiwan-county:hover,
+:root[data-theme="light"] .cell-towers-map .taiwan-county:focus,
+:root[data-theme="light"] .cell-towers-map .taiwan-county.is-selected {
+    fill: #008b7a;
+    stroke: #ffffff;
+    filter: none;
+}
+
+:root[data-theme="light"] .cell-towers-inset-label {
+    fill: #173c49;
+}
+
+:root[data-theme="light"] .cell-towers-bar-fill {
+    background: color-mix(in srgb, var(--bar-color, #1874bd), transparent 84%);
+}
+
+:root[data-theme="light"] .cell-towers-trend-chart {
+    background: linear-gradient(180deg, rgba(24, 120, 138, 0.1), rgba(255, 255, 255, 0.42));
+}
+
+:root[data-theme="light"] .cell-towers-trend-grid {
+    stroke: rgba(16, 39, 51, 0.18);
+}
+
+:root[data-theme="light"] .cell-towers-trend-axis {
+    fill: #35515d;
+}
+
+:root[data-theme="light"] .cell-towers-trend-current {
+    stroke: #008b7a;
+}
+
+:root[data-theme="light"] .cell-towers-notes {
+    color: #385461;
+}
