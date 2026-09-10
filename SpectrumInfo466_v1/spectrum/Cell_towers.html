@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../style.css">
     <script src="../script.js" defer></script>
     <script src="cell-towers-data.js" defer></script>
+    <script src="cell-towers-town-data.js" defer></script>
 </head>
 <body>
     <div class="site-shell">
@@ -98,7 +99,7 @@
                 </div>
             </section>
 
-            <section class="cell-towers-overview" aria-label="各業者台數與縣市明細排行">
+            <section class="cell-towers-overview" aria-label="各業者、縣市與鄉鎮基地台統計">
                 <div class="cell-towers-operator-totals" id="cellTowersOperatorTotals" aria-live="polite"></div>
                 <div class="cell-towers-main-grid">
                     <section class="cell-towers-map-panel" aria-labelledby="cellTowersMapTitle">
@@ -116,14 +117,23 @@
                             <div id="cellTowersTrendLegend" class="cell-towers-trend-legend" aria-label="趨勢圖例"></div>
                             <svg id="cellTowersTrendChart" class="cell-towers-trend-chart" viewBox="0 0 640 280" role="img" aria-label="所選縣市4G與5G基地台數量歷史趨勢"></svg>
                         </section>
-                        <div class="cell-towers-panel-heading"><div><p class="section-kicker">County Detail Ranking</p><h2 id="cellTowersRankingTitle">台北市基地台數量排行</h2></div></div>
+                        <div class="cell-towers-panel-heading"><div><p class="section-kicker">County Detail Ranking</p><h2 id="cellTowersRankingTitle">2026年8月 台北市基地台數量排行</h2></div></div>
                         <div id="cellTowersBarChart" class="cell-towers-bar-chart" aria-live="polite"></div>
                     </section>
                 </div>
+                <section class="cell-towers-town-section" aria-labelledby="cellTowersTownTitle">
+                    <div class="cell-towers-panel-heading">
+                        <div><p id="cellTowersTownKicker" class="section-kicker">District Detail</p><h2 id="cellTowersTownTitle">2026年8月 台北市各區域基地台數量</h2></div>
+                        <p>各業者合計</p>
+                    </div>
+                    <div class="cell-towers-town-table-wrap">
+                        <div id="cellTowersTownTable" class="cell-towers-town-table-grid" aria-live="polite" aria-label="台北市各鄉鎮4G與5G基地台數量"></div>
+                    </div>
+                </section>
             </section>
 
             <section class="cell-towers-notes" aria-label="資料說明">
-                <p>資料來源: NCC開放資料集 - 行動通信業務基地台統計數(區分縣市業者)</p>
+                <p>資料來源: NCC開放資料集 - 行動通信業務基地台統計數(區分縣市業者)、行動通信業務基地台統計數(區分鄉鎮)</p>
                 <ol>
                     <li>各縣市各業者行動通信業務（4G/5G）基地台執照數統計。</li>
                     <li>2G業務於2017年6月30日終止。</li>
@@ -158,7 +168,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const page = document.querySelector(".cell-towers-page");
-            if (!page || typeof taiwanMapCountyPaths === "undefined" || typeof cellTowersData === "undefined") return;
+            if (!page || typeof taiwanMapCountyPaths === "undefined" || typeof cellTowersData === "undefined" || typeof cellTowersTownData === "undefined") return;
 
             const operatorMeta = {
                 "中華電信": { color: "#52a9ff", icon: "../pic/CellTower_CHT.svg" },
@@ -182,10 +192,14 @@
             const trendTitle = page.querySelector("#cellTowersTrendTitle");
             const trendChart = page.querySelector("#cellTowersTrendChart");
             const trendLegend = page.querySelector("#cellTowersTrendLegend");
+            const townKicker = page.querySelector("#cellTowersTownKicker");
+            const townTitle = page.querySelector("#cellTowersTownTitle");
+            const townTable = page.querySelector("#cellTowersTownTable");
             const eventSummary = page.querySelector("#cellTowersEventSummary");
             const rowHeight = 47;
             let selectedCity = "台北市";
             let playTimer = null;
+            let townResizeTimer = null;
             const mapPaths = new Map();
             const timelineEvents = [
                 { month: "2017-06", label: "2G終止", description: "2G業務於2017年6月30日終止。" },
@@ -240,11 +254,11 @@
             };
             taiwanMapCountyPaths.forEach(addCounty);
             [
-                { name: "連江縣", path: "M322 335h128v45H322z" },
-                { name: "金門縣", path: "M322 397h128v45H322z" },
+                { name: "連江縣", path: "M300 315h210v70H300z" },
+                { name: "金門縣", path: "M300 410h210v70H300z" },
             ].forEach(addCounty);
             [
-                ["連江縣", 386, 363], ["金門縣", 386, 425],
+                ["連江縣", 405, 358], ["金門縣", 405, 453],
             ].forEach(([name, x, y]) => {
                 const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
                 text.setAttribute("x", x); text.setAttribute("y", y); text.setAttribute("class", "cell-towers-inset-label"); text.setAttribute("text-anchor", "middle"); text.textContent = name;
@@ -273,18 +287,78 @@
             previousButton.addEventListener("click", () => moveMonth(-1));
             nextButton.addEventListener("click", () => moveMonth(1));
             slider.addEventListener("input", () => { setPlaying(false); render(); });
+            window.addEventListener("resize", () => {
+                window.clearTimeout(townResizeTimer);
+                townResizeTimer = window.setTimeout(renderTownTable, 120);
+            });
 
             function selectCity(city) {
                 selectedCity = city;
                 renderSelectedRanking();
                 renderTrend();
+                renderTownTable();
                 mapPaths.forEach((path, pathCity) => path.classList.toggle("is-selected", pathCity === city));
+            }
+
+            function renderTownTable() {
+                const month = months[Number(slider.value)];
+                const showFiveG = month >= "2020-12";
+                const townRows = cellTowersTownData.records[month]?.[selectedCity] || [];
+                const isDistrict = townRows.length > 0 && townRows.every(([town]) => town.endsWith("區"));
+                const administrativeLabel = isDistrict ? "區域" : "鄉鎮";
+                townKicker.textContent = isDistrict ? "District Detail" : "Township Detail";
+                townTitle.textContent = `${monthLabel(month)} ${selectedCity}各${administrativeLabel}基地台數量`;
+                townTable.setAttribute("aria-label", `${selectedCity}各${administrativeLabel}${showFiveG ? "4G與5G" : "4G"}基地台數量`);
+                townTable.replaceChildren();
+                if (!townRows.length) {
+                    const empty = document.createElement("p");
+                    empty.className = "cell-towers-town-empty";
+                    empty.textContent = `${monthLabel(month)}尚無${selectedCity}鄉鎮資料。`;
+                    townTable.append(empty);
+                    return;
+                }
+
+                const maxColumns = Math.min(3, Math.ceil(townRows.length / 3));
+                const columnCount = Math.min(maxColumns, Math.max(1, Math.floor(townTable.clientWidth / 300)));
+                const rowsPerColumn = Math.ceil(townRows.length / columnCount);
+                townTable.style.setProperty("--town-columns", String(columnCount));
+                Array.from({ length: columnCount }, (_, columnIndex) => townRows.slice(columnIndex * rowsPerColumn, (columnIndex + 1) * rowsPerColumn)).forEach((townRowsInColumn, columnIndex) => {
+                    const table = document.createElement("table");
+                    table.className = "cell-towers-town-table";
+                    table.setAttribute("aria-label", `${selectedCity}各${administrativeLabel}基地台數量，第${columnIndex + 1}欄`);
+                    const thead = document.createElement("thead");
+                    const headerRow = document.createElement("tr");
+                    ["鄉鎮", "4G台數", ...(showFiveG ? ["5G台數"] : [])].forEach((text) => {
+                        const heading = document.createElement("th");
+                        heading.scope = "col";
+                        heading.textContent = text;
+                        headerRow.append(heading);
+                    });
+                    thead.append(headerRow);
+                    table.append(thead);
+                    const tbody = document.createElement("tbody");
+                    townRowsInColumn.forEach(([town, fourG, fiveG]) => {
+                        const row = document.createElement("tr");
+                        const townCell = document.createElement("th");
+                        townCell.scope = "row";
+                        townCell.textContent = town;
+                        row.append(townCell);
+                        [fourG, ...(showFiveG ? [fiveG] : [])].forEach((value) => {
+                            const cell = document.createElement("td");
+                            cell.textContent = formatCount(value);
+                            row.append(cell);
+                        });
+                        tbody.append(row);
+                    });
+                    table.append(tbody);
+                    townTable.append(table);
+                });
             }
 
             function renderSelectedRanking() {
                 const month = months[Number(slider.value)];
                 const records = (cellTowersData.records[month] || []).filter((record) => record[0] === selectedCity).sort((a, b) => b[3] - a[3]);
-                rankingTitle.textContent = `${selectedCity}基地台數量排行`;
+                rankingTitle.textContent = `${monthLabel(month)} ${selectedCity}基地台數量排行`;
                 chart.replaceChildren();
                 if (!records.length) { const empty = document.createElement("p"); empty.className = "cell-towers-ranking-empty"; empty.textContent = `${monthLabel(month)}尚無${selectedCity}資料。`; chart.append(empty); return; }
                 const maximum = records[0][3] || 1;
@@ -406,7 +480,7 @@
                 const records = cellTowersData.records[month] || [];
                 const fourGFiveGRecords = records.filter((record) => record[2] === "4G" || record[2] === "5G");
                 label.textContent = monthLabel(month);
-                renderTotals(records); renderMapIntensity(fourGFiveGRecords); renderSelectedRanking(); renderTrend(); renderEvents(); renderMonthControls();
+                renderTotals(records); renderMapIntensity(fourGFiveGRecords); renderSelectedRanking(); renderTrend(); renderTownTable(); renderEvents(); renderMonthControls();
                 mapPaths.forEach((path, city) => path.classList.toggle("is-selected", city === selectedCity));
             }
             render();
