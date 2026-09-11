@@ -1,7 +1,73 @@
 window.phoneComboData = {
   "source": "ENDC及CA組合清單.xlsx",
-  "updated": "2026/09/01",
+  "updated": "2026/09/12",
   "rows": [
+    {
+      "brand": "Apple",
+      "model": "iPhone Duo",
+      "soc": "Apple A20 Pro",
+      "lte": {
+        "cht": "5CA",
+        "fet": "4CA",
+        "twm": "4CA"
+      },
+      "nrNsa": {
+        "cht": "支援",
+        "fet": "支援",
+        "twm": "支援"
+      },
+      "endc": {
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "不支援",
+      "note": ""
+    },
+    {
+      "brand": "Apple",
+      "model": "iPhone 18 Pro Max",
+      "soc": "Apple A20 Pro",
+      "lte": {
+        "cht": "5CA",
+        "fet": "4CA",
+        "twm": "4CA"
+      },
+      "nrNsa": {
+        "cht": "支援",
+        "fet": "支援",
+        "twm": "支援"
+      },
+      "endc": {
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "不支援",
+      "note": ""
+    },
+    {
+      "brand": "Apple",
+      "model": "iPhone 18 Pro",
+      "soc": "Apple A20 Pro",
+      "lte": {
+        "cht": "5CA",
+        "fet": "4CA",
+        "twm": "4CA"
+      },
+      "nrNsa": {
+        "cht": "支援",
+        "fet": "支援",
+        "twm": "支援"
+      },
+      "endc": {
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "不支援",
+      "note": ""
+    },
     {
       "brand": "Apple",
       "model": "iPhone Air",
@@ -523,7 +589,7 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE、n1+LTE",
+        "cht": "n78+LTE ?CA\nn1+LTE ?CA",
         "fet": "",
         "twm": ""
       },
@@ -545,7 +611,7 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE、n1+LTE",
+        "cht": "n78+LTE ?CA\nn1+LTE ?CA",
         "fet": "",
         "twm": ""
       },
@@ -567,7 +633,7 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE、n1+LTE",
+        "cht": "n78+LTE ?CA\nn1+LTE ?CA",
         "fet": "",
         "twm": ""
       },
@@ -589,7 +655,7 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE、n1+LTE",
+        "cht": "n78+LTE ?CA\nn1+LTE ?CA",
         "fet": "",
         "twm": ""
       },
@@ -3867,7 +3933,7 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE 4CA、n1+LTE 4CA、不支援n78+n1+LTE",
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\n不支援n78+n1+LTE",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n78+LTE、不支援n28+n78+LTE"
       },
@@ -3933,9 +3999,9 @@ window.phoneComboData = {
         "twm": ""
       },
       "endc": {
-        "cht": "n78+LTE 4CA、n1+LTE 4CA",
-        "fet": "",
-        "twm": ""
+        "cht": "n78+LTE 4CA\nn1+LTE 3CA\n不支援n78+n1+LTE",
+        "fet": "n78+LTE 4CA\nn28+LTE 3CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 4CA\nn28+LTE 3CA\n不支援n78+n78+LTE\n不支援n28+n78+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -3999,7 +4065,7 @@ window.phoneComboData = {
         "twm": ""
       },
       "endc": {
-        "cht": "n78+LTE 3CA、n1+LTE 3CA、不支援n78+n1+LTE",
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\n不支援n78+n1+LTE",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n78+LTE、不支援n28+n78+LTE"
       },
@@ -4134,6 +4200,28 @@ window.phoneComboData = {
         "cht": "n78+LTE 2CA、不支援n1+LTE、不支援n78+n1+LTE",
         "fet": "n78+LTE 2CA、不支援n28+LTE、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
         "twm": "n78+LTE 2CA、不支援n28+LTE、不支援n78+n78+LTE、不支援n28+n78+LTE"
+      },
+      "nrFr2": "不支援",
+      "note": ""
+    },
+    {
+      "brand": "SONY",
+      "model": "Xperia 10 VIII",
+      "soc": "高通 Snapdragon 6 Gen 3",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -4637,7 +4725,7 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "n78+LTE 3CA、n1+LTE 2CA、n78+n1+LTE 1CC",
+        "cht": "n78+LTE 3CA\nn1+LTE 3CA\nn78+n1+LTE 1CA",
         "fet": "待確認",
         "twm": "待確認"
       },
@@ -4659,7 +4747,7 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "n78+LTE 3CA、n1+LTE 3CA、不支援n78+n1+LTE",
+        "cht": "n78+LTE 2CA\nn1+LTE 2CA\n不支援n78+n1+LTE",
         "fet": "",
         "twm": ""
       },
@@ -4835,9 +4923,9 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "待確認",
-        "fet": "",
-        "twm": ""
+        "cht": "n78+LTE 2CA\nn1+LTE 2CA\n不支援n78+n1+LTE",
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\nn78+n78+LTE 1CA\n不支援n28+n78+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -5842,9 +5930,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "支援",
+        "fet": "支援",
+        "twm": "支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 3CA、n78+n1+LTE 1CC",
@@ -6020,12 +6108,12 @@ window.phoneComboData = {
       "nrNsa": {
         "cht": "支援",
         "fet": "不支援",
-        "twm": "不支援"
+        "twm": "半支援"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA\nn78+n1+LTE 1CC",
         "fet": "n78+LTE 2CA、不支援n28+LTE、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
-        "twm": "n78+LTE 2CA、不支援n28+LTE、不支援n78+n78+LTE、不支援n28+n78+LTE"
+        "twm": "n78+LTE 2CA、n28+LTE 1CC、不支援n78+n78+LTE、n28+n78+LTE 1CC"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -8570,9 +8658,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "支援",
+        "fet": "支援",
+        "twm": "支援"
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 4CA",
@@ -10242,14 +10330,14 @@ window.phoneComboData = {
         "twm": "待確認"
       },
       "nrNsa": {
-        "cht": "支援",
-        "fet": "支援",
-        "twm": "支援"
+        "cht": "不支援",
+        "fet": "不支援",
+        "twm": "不支援"
       },
       "endc": {
-        "cht": "待確認",
-        "fet": "待確認",
-        "twm": "待確認"
+        "cht": "n78+LTE 2CA\nn1+LTE 2CA\n不支援n78+n1+LTE",
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n78+LTE\n不支援n78+n28+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -10264,12 +10352,12 @@ window.phoneComboData = {
         "twm": "待確認"
       },
       "nrNsa": {
-        "cht": "待確認",
-        "fet": "待確認",
-        "twm": "待確認"
+        "cht": "支援",
+        "fet": "支援",
+        "twm": "支援"
       },
       "endc": {
-        "cht": "n1+LTE 3CA、n1+LTE 3CA",
+        "cht": "n78+LTE 3CA\nn1+LTE 3CA",
         "fet": "待確認",
         "twm": "n78+n78+LTE ?CA"
       },
@@ -10968,9 +11056,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "支援",
+        "fet": "支援",
+        "twm": "支援"
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 4CA",
@@ -11790,6 +11878,50 @@ window.phoneComboData = {
         "cht": "待確認",
         "fet": "",
         "twm": ""
+      },
+      "nrFr2": "不支援",
+      "note": ""
+    },
+    {
+      "brand": "HONOR",
+      "model": "600 Pro",
+      "soc": "高通 Snapdragon 8 Elite",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "不支援",
+      "note": ""
+    },
+    {
+      "brand": "HONOR",
+      "model": "600",
+      "soc": "高通 Snapdragon 7 Gen 4",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
       },
       "nrFr2": "不支援",
       "note": ""
