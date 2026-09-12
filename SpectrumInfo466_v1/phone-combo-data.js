@@ -1,6 +1,6 @@
 window.phoneComboData = {
   "source": "ENDC及CA組合清單.xlsx",
-  "updated": "2026/09/12",
+  "updated": "2026/09/13",
   "rows": [
     {
       "brand": "Apple",
@@ -2615,10 +2615,10 @@ window.phoneComboData = {
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
-        "twm": "n78+n78+LTE ?CA"
+        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
-      "note": ""
+      "note": "台哥大站台若有報n28，只能連到n78+n78+LTE 3CA"
     },
     {
       "brand": "SAMSUNG",
@@ -2637,10 +2637,10 @@ window.phoneComboData = {
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
-        "twm": "n78+n78+LTE ?CA"
+        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
-      "note": ""
+      "note": "台哥大站台若有報n28，只能連到n78+n78+LTE 3CA"
     },
     {
       "brand": "SAMSUNG",
@@ -2659,10 +2659,10 @@ window.phoneComboData = {
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
-        "twm": "n78+n78+LTE ?CA"
+        "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
-      "note": ""
+      "note": "台哥大站台若有報n28，只能連到n78+n78+LTE 3CA"
     },
     {
       "brand": "SAMSUNG",
