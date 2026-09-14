@@ -1331,6 +1331,44 @@ if (homePage) {
         ["green", "yellow", "red"].includes(level) ? level : "green"
     );
 
+    const getOperatorReportCount = (operatorStatus) => {
+        const candidates = [
+            operatorStatus?.reports,
+            operatorStatus?.latestReports,
+            operatorStatus?.reportCount,
+            operatorStatus?.currentReports,
+            operatorStatus?.lastReportCount,
+            operatorStatus?.latestPoint?.count,
+            operatorStatus?.topProblem?.reports,
+        ];
+
+        for (const value of candidates) {
+            const numericValue = typeof value === "string" && value.trim() !== "" ? Number(value) : value;
+            if (Number.isFinite(numericValue)) {
+                return numericValue;
+            }
+        }
+
+        return null;
+    };
+
+    const formatStatusUpdatedTime = (updated) => {
+        if (!updated) {
+            return "";
+        }
+
+        const date = new Date(updated);
+        if (Number.isNaN(date.getTime())) {
+            return "";
+        }
+
+        return date.toLocaleTimeString("zh-TW", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+        });
+    };
+
     const getNetworkStatusDetails = (operator, operatorStatus, networkStatusData) => {
         if (!networkStatusData) {
             return `${operator.name}: network-status.json 讀取失敗`;
@@ -1340,11 +1378,13 @@ if (homePage) {
             return `${operator.name}: network-status.json 沒有此業者資料`;
         }
 
-        if (operatorStatus.error) {
-            return `${operator.name}: ${operatorStatus.error}`;
-        }
+        const level = normalizeStatusLevel(operatorStatus.level);
+        const reportCount = getOperatorReportCount(operatorStatus);
+        const updatedTime = formatStatusUpdatedTime(networkStatusData.updated);
+        const countText = Number.isFinite(reportCount) ? `，回報數 ${reportCount}` : "";
+        const updatedText = updatedTime ? `，更新 ${updatedTime}` : "";
 
-        return operatorStatus.message || `${operator.name}: Actions 狀態更新於 ${networkStatusData.updated || "未知時間"}`;
+        return `${operator.name}: ${getStatusLabelText(level)}${countText}${updatedText}`;
     };
 
     const checkNetworkStatuses = async () => {
@@ -1368,7 +1408,7 @@ if (homePage) {
 
             const operatorStatus = networkStatusData[operator.id];
             const details = getNetworkStatusDetails(operator, operatorStatus, networkStatusResult.readable ? networkStatusData : null);
-            const reportCount = Number.isFinite(operatorStatus?.reports) ? operatorStatus.reports : null;
+            const reportCount = getOperatorReportCount(operatorStatus);
             const flagValue = statusFlags[operator.flagKey] ?? 0;
 
             if (applyManualStatusFlag(operator, flagValue)) {
