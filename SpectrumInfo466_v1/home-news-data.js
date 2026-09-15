@@ -1,5 +1,15 @@
 window.homeNewsData = [
   {
+    "source": "實測+回報",
+    "date": "2026/9/8",
+    "category": "頻率改配",
+    "operator": "中華",
+    "area": "台中市區",
+    "site": "部分",
+    "content": "台中市區已廣泛佈建5G SA，南屯部分基站已下發sib24",
+    "link": "https://youtu.be/ysKIfTutm5c"
+  },
+  {
     "source": "回報",
     "date": "2026/8/23",
     "category": "核網異常",
