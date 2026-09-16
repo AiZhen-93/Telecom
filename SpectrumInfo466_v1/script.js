@@ -4096,8 +4096,8 @@ if (maxSpeedPage) {
         let total = selectedBands.reduce((sum, band) => {
             let speed = band.speed;
             if (isUplink()) {
-                if (siteType === "indoor") {
-                    speed *= 1.03;
+                if (siteType === "indoor" && (selectedTechnology() === "lte" || band.category === "4g")) {
+                    speed *= 1.02;
                 }
                 if (band.ulCa && ulCa?.checked) {
                     speed *= 2;
