@@ -2837,10 +2837,10 @@ if (maxSpeedPage) {
 
     const lteUploadOperatorBands = {
         cht: [
-            { id: "ul-b1-18500", label: "B1[18500]", speed: 70 },
+            { id: "ul-b1-18500", label: "B1[18500]", speed: 72 },
             { id: "ul-b3-19400", label: "B3[19400]", speed: 35 },
-            { id: "ul-b3-19750", label: "B3[19750]", speed: 70 },
-            { id: "ul-b7-21050", label: "B7[21050]", speed: 70 },
+            { id: "ul-b3-19750", label: "B3[19750]", speed: 72 },
+            { id: "ul-b7-21050", label: "B7[21050]", speed: 72 },
             { id: "ul-b7-21400", label: "B7[21400]", speed: 35 },
             { id: "ul-b8-21650", label: "B8[21650]", speed: 30 },
             { id: "ul-b8-21750", label: "B8[21750]", speed: 32 },
