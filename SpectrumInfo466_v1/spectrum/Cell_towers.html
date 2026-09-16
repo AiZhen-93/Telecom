@@ -113,7 +113,10 @@
                     </section>
                     <section class="cell-towers-ranking-panel" aria-labelledby="cellTowersRankingTitle">
                         <section class="cell-towers-trend-section" aria-labelledby="cellTowersTrendTitle">
-                            <div class="cell-towers-panel-heading"><div><p class="section-kicker">County Trend</p><h2 id="cellTowersTrendTitle">台北市 4G/5G歷史趨勢</h2></div></div>
+                            <div class="cell-towers-panel-heading">
+                                <div><p class="section-kicker">County Trend</p><h2 id="cellTowersTrendTitle">台北市 4G/5G近一年趨勢</h2></div>
+                                <label class="cell-towers-trend-range" for="cellTowersTrendRange"><span>趨勢區間</span><select id="cellTowersTrendRange"><option value="1">近一年</option><option value="2">近兩年</option><option value="all">全部歷時</option></select></label>
+                            </div>
                             <div id="cellTowersTrendLegend" class="cell-towers-trend-legend" aria-label="趨勢圖例"></div>
                             <svg id="cellTowersTrendChart" class="cell-towers-trend-chart" viewBox="0 0 640 280" role="img" aria-label="所選縣市4G與5G基地台數量歷史趨勢"></svg>
                         </section>
@@ -192,6 +195,7 @@
             const trendTitle = page.querySelector("#cellTowersTrendTitle");
             const trendChart = page.querySelector("#cellTowersTrendChart");
             const trendLegend = page.querySelector("#cellTowersTrendLegend");
+            const trendRange = page.querySelector("#cellTowersTrendRange");
             const townKicker = page.querySelector("#cellTowersTownKicker");
             const townTitle = page.querySelector("#cellTowersTownTitle");
             const townTable = page.querySelector("#cellTowersTownTable");
@@ -287,6 +291,7 @@
             previousButton.addEventListener("click", () => moveMonth(-1));
             nextButton.addEventListener("click", () => moveMonth(1));
             slider.addEventListener("input", () => { setPlaying(false); render(); });
+            trendRange.addEventListener("change", renderTrend);
             window.addEventListener("resize", () => {
                 window.clearTimeout(townResizeTimer);
                 townResizeTimer = window.setTimeout(renderTownTable, 120);
@@ -357,7 +362,24 @@
 
             function renderSelectedRanking() {
                 const month = months[Number(slider.value)];
-                const records = (cellTowersData.records[month] || []).filter((record) => record[0] === selectedCity).sort((a, b) => b[3] - a[3]);
+                const monthIndex = Number(slider.value);
+                const monthRecords = cellTowersData.records[month] || [];
+                const records = monthRecords.filter((record) => record[0] === selectedCity);
+                if (month >= "2022-12") {
+                    cellTowersData.operators.forEach((operator) => {
+                        if (records.some((record) => record[1] === operator && record[2] === "5G")) return;
+                        const carrierFourGTotal = monthRecords.filter((record) => record[1] === operator && record[2] === "4G").reduce((sum, record) => sum + record[3], 0);
+                        const carrierMerged = (operator === "台灣之星" || operator === "亞太電信") && carrierFourGTotal === 0;
+                        if (carrierMerged) return;
+                        for (let index = monthIndex - 1; index >= 0; index -= 1) {
+                            const previousFiveG = (cellTowersData.records[months[index]] || []).filter((record) => record[0] === selectedCity && record[1] === operator && record[2] === "5G");
+                            if (!previousFiveG.length) continue;
+                            records.push([selectedCity, operator, "5G", previousFiveG.reduce((sum, record) => sum + record[3], 0)]);
+                            break;
+                        }
+                    });
+                }
+                records.sort((a, b) => b[3] - a[3]);
                 rankingTitle.textContent = `${monthLabel(month)} ${selectedCity}基地台數量排行`;
                 chart.replaceChildren();
                 if (!records.length) { const empty = document.createElement("p"); empty.className = "cell-towers-ranking-empty"; empty.textContent = `${monthLabel(month)}尚無${selectedCity}資料。`; chart.append(empty); return; }
@@ -382,7 +404,8 @@
                 const width = 640, height = 280, padding = { top: 20, right: 15, bottom: 32, left: 50 };
                 const plotWidth = width - padding.left - padding.right, plotHeight = height - padding.top - padding.bottom;
                 const selectedMonth = months[Number(slider.value)];
-                const startMonth = `${Number(selectedMonth.slice(0, 4)) - 1}-${selectedMonth.slice(5)}`;
+                const rangeYears = trendRange.value === "all" ? null : Number(trendRange.value);
+                const startMonth = rangeYears === null ? months[0] : `${Number(selectedMonth.slice(0, 4)) - rangeYears}-${selectedMonth.slice(5)}`;
                 const visibleMonths = months.filter((month) => month >= startMonth && month <= selectedMonth);
                 const historyMonths = months.filter((month) => month <= selectedMonth);
                 const trendValues = (operator, network) => {
@@ -410,7 +433,7 @@
                 const tickValues = Array.from({ length: maximum / scaleStep + 1 }, (_, index) => index * scaleStep);
                 const xAt = (index) => padding.left + (index / Math.max(1, visibleMonths.length - 1)) * plotWidth;
                 const yAt = (value) => padding.top + plotHeight - (value / maximum) * plotHeight;
-                trendTitle.textContent = `${selectedCity} 4G/5G近一年趨勢`;
+                trendTitle.textContent = `${selectedCity} 4G/5G${trendRange.options[trendRange.selectedIndex].text}趨勢`;
                 trendChart.replaceChildren(); trendLegend.replaceChildren();
                 tickValues.forEach((value) => {
                     const y = yAt(value);
@@ -435,19 +458,26 @@
                 totalsNode.replaceChildren();
                 const monthIndex = Number(slider.value);
                 const showFiveG = months[monthIndex] >= "2020-12";
+                const makeTotalLine = (network, total) => {
+                    const line = document.createElement("p");
+                    const networkLabel = document.createElement("span"); networkLabel.textContent = network;
+                    const value = document.createElement("span"); value.className = "cell-towers-total-value"; value.textContent = formatCount(total);
+                    line.append(networkLabel, value);
+                    return line;
+                };
                 cellTowersData.operators.forEach((operator) => {
                     const fourGTotal = records.filter((record) => record[1] === operator && record[2] === "4G").reduce((sum, record) => sum + record[3], 0);
                     if ((operator === "台灣之星" || operator === "亞太電信") && fourGTotal === 0) return;
                     const card = document.createElement("article"); card.className = "cell-towers-total-card"; card.style.setProperty("--operator-color", operatorMeta[operator].color);
                     const title = document.createElement("h3"); title.innerHTML = `<img src="${operatorMeta[operator].icon}" alt="">${operator}`; card.append(title);
-                    const fourGValue = document.createElement("p"); fourGValue.textContent = `4G ${formatCount(fourGTotal)}`; card.append(fourGValue);
+                    card.append(makeTotalLine("4G", fourGTotal));
                     if (showFiveG) {
                         let fiveGTotal = 0;
                         for (let index = monthIndex; index >= 0; index -= 1) {
                             fiveGTotal = (cellTowersData.records[months[index]] || []).filter((record) => record[1] === operator && record[2] === "5G").reduce((sum, record) => sum + record[3], 0);
                             if (fiveGTotal) break;
                         }
-                        const fiveGValue = document.createElement("p"); fiveGValue.textContent = `5G ${formatCount(fiveGTotal)}`; card.append(fiveGValue);
+                        card.append(makeTotalLine("5G", fiveGTotal));
                     }
                     totalsNode.append(card);
                 });
