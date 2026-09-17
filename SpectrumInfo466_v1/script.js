@@ -1204,6 +1204,7 @@ if (homePage) {
         "../network-status.json",
         "network-status.json",
     ];
+    const networkStatusMaxAgeMs = 2 * 60 * 60 * 1000;
     const statusLabels = {
         green: ["連線", "正常"],
         yellow: ["局部", "異常"],
@@ -1369,6 +1370,23 @@ if (homePage) {
         });
     };
 
+    const getNetworkStatusAgeMs = (networkStatusData) => {
+        if (!networkStatusData?.updated) {
+            return Number.POSITIVE_INFINITY;
+        }
+
+        const updatedDate = new Date(networkStatusData.updated);
+        if (Number.isNaN(updatedDate.getTime())) {
+            return Number.POSITIVE_INFINITY;
+        }
+
+        return Date.now() - updatedDate.getTime();
+    };
+
+    const isNetworkStatusFresh = (networkStatusData) => (
+        getNetworkStatusAgeMs(networkStatusData) <= networkStatusMaxAgeMs
+    );
+
     const getNetworkStatusDetails = (operator, operatorStatus, networkStatusData) => {
         if (!networkStatusData) {
             return `${operator.name}: network-status.json 讀取失敗`;
@@ -1381,10 +1399,11 @@ if (homePage) {
         const level = normalizeStatusLevel(operatorStatus.level);
         const reportCount = getOperatorReportCount(operatorStatus);
         const updatedTime = formatStatusUpdatedTime(networkStatusData.updated);
-        const countText = Number.isFinite(reportCount) ? `，回報數 ${reportCount}` : "";
+        const countText = Number.isFinite(reportCount) && isNetworkStatusFresh(networkStatusData) ? `，回報數 ${reportCount}` : "";
         const updatedText = updatedTime ? `，更新 ${updatedTime}` : "";
+        const staleText = isNetworkStatusFresh(networkStatusData) ? "" : "，資料超過2小時";
 
-        return `${operator.name}: ${getStatusLabelText(level)}${countText}${updatedText}`;
+        return `${operator.name}: ${getStatusLabelText(level)}${countText}${updatedText}${staleText}`;
     };
 
     const checkNetworkStatuses = async () => {
@@ -1399,6 +1418,7 @@ if (homePage) {
 
         const statusFlags = statusFlagsResult.flags;
         const networkStatusData = networkStatusResult.data || {};
+        const networkStatusFresh = networkStatusResult.readable && isNetworkStatusFresh(networkStatusData);
 
         detectorOperators.forEach((operator) => {
             if (!statusFlagsResult.readable) {
@@ -1408,7 +1428,7 @@ if (homePage) {
 
             const operatorStatus = networkStatusData[operator.id];
             const details = getNetworkStatusDetails(operator, operatorStatus, networkStatusResult.readable ? networkStatusData : null);
-            const reportCount = getOperatorReportCount(operatorStatus);
+            const reportCount = networkStatusFresh ? getOperatorReportCount(operatorStatus) : null;
             const flagValue = statusFlags[operator.flagKey] ?? 0;
 
             if (applyManualStatusFlag(operator, flagValue)) {
