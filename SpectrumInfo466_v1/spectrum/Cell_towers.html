@@ -428,11 +428,13 @@
                     values: trendValues(operator, network),
                 }))).filter((item) => item.values.some((value) => value > 0));
                 const rawMaximum = Math.max(0, ...series.flatMap((item) => item.values));
-                const scaleStep = Math.max(500, Math.ceil(rawMaximum / 7 / 500) * 500);
-                const maximum = Math.max(500, Math.ceil(rawMaximum / scaleStep) * scaleStep);
-                const tickValues = Array.from({ length: maximum / scaleStep + 1 }, (_, index) => index * scaleStep);
+                const rawMinimum = Math.min(rawMaximum, ...series.flatMap((item) => item.values));
+                const minimum = Math.max(0, Math.floor(rawMinimum / 500) * 500);
+                const scaleStep = Math.max(500, Math.ceil((rawMaximum - minimum) / 7 / 500) * 500);
+                const maximum = Math.max(minimum + scaleStep, minimum + Math.ceil((rawMaximum - minimum) / scaleStep) * scaleStep);
+                const tickValues = Array.from({ length: Math.round((maximum - minimum) / scaleStep) + 1 }, (_, index) => minimum + index * scaleStep);
                 const xAt = (index) => padding.left + (index / Math.max(1, visibleMonths.length - 1)) * plotWidth;
-                const yAt = (value) => padding.top + plotHeight - (value / maximum) * plotHeight;
+                const yAt = (value) => padding.top + plotHeight - ((value - minimum) / (maximum - minimum)) * plotHeight;
                 trendTitle.textContent = `${selectedCity} 4G/5G${trendRange.options[trendRange.selectedIndex].text}趨勢`;
                 trendChart.replaceChildren(); trendLegend.replaceChildren();
                 tickValues.forEach((value) => {
