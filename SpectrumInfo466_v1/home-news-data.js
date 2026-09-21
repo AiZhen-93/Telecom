@@ -1,12 +1,32 @@
 window.homeNewsData = [
   {
+    "source": "實測",
+    "date": "2026/9/19",
+    "category": "頻率改配",
+    "operator": "台哥大/原台星",
+    "area": "台中西屯",
+    "site": "部分",
+    "content": "西屯工業區一帶已佈建更多5G SA站台",
+    "link": "https://aizhen-93.github.io/Telecom/SpectrumInfo466_pic/46697NR_Cellmapper_gNB.jpg"
+  },
+  {
+    "source": "實測+回報",
+    "date": "2026/9/19",
+    "category": "參數調整",
+    "operator": "中華",
+    "area": "台中市區",
+    "site": "多數",
+    "content": "大多數站台Band Request皆加入n8，但實際尚未開台或配置n8測量頻點",
+    "link": "https://aizhen-93.github.io/Telecom/SpectrumInfo466_pic/46692NR_UE_Capabiility_Enquiry_N8.jpg"
+  },
+  {
     "source": "實測+回報",
     "date": "2026/9/8",
     "category": "頻率改配",
     "operator": "中華",
     "area": "台中市區",
     "site": "部分",
-    "content": "台中市區已廣泛佈建5G SA，南屯部分基站已下發sib24",
+    "content": "台中市區已廣泛佈建5G SA，部分LTE站台已開始下發sib24信令",
     "link": "https://youtu.be/ysKIfTutm5c"
   },
   {

@@ -8000,7 +8000,7 @@ body.is-line-invite-disabled .status-line-link {
     }
 
     .maintenance-month-controls {
-        align-items: stretch;
+        align-items: flex-end;
     }
 
     .month-picker-label {
@@ -10087,4 +10087,45 @@ body.is-line-invite-disabled .status-line-link {
 
 :root[data-theme="light"] .cell-towers-notes {
     color: #385461;
+}
+
+/* Light theme emergency alert: keep the message panel legible over the modal. */
+:root[data-theme="light"] .emergency-alert-card {
+    border-color: rgba(0, 111, 95, 0.36);
+    background:
+        linear-gradient(145deg, rgba(255, 200, 87, 0.12), transparent 44%),
+        rgba(255, 255, 255, 0.97);
+    box-shadow: 0 22px 52px rgba(31, 83, 100, 0.2);
+}
+
+:root[data-theme="light"] .emergency-alert-card h2,
+:root[data-theme="light"] .emergency-alert-title {
+    color: #102733;
+}
+
+:root[data-theme="light"] .emergency-alert-content {
+    border-color: rgba(0, 111, 95, 0.32);
+    background:
+        linear-gradient(135deg, rgba(255, 200, 87, 0.18), transparent 48%),
+        #f4fbfc;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+
+:root[data-theme="light"] .emergency-alert-content p {
+    color: #102733;
+}
+
+:root[data-theme="light"] .emergency-alert-content a {
+    color: #006f5f;
+    font-weight: 900;
+}
+
+:root[data-theme="light"] .drill-countdown-close {
+    color: #ffffff;
+    background: #008b7a;
+}
+
+:root[data-theme="light"] .drill-countdown-close:hover,
+:root[data-theme="light"] .drill-countdown-close:focus-visible {
+    background: #006f5f;
 }
