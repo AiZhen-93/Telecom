@@ -7,7 +7,7 @@ window.homeNewsData = [
     "area": "台中西屯",
     "site": "部分",
     "content": "西屯工業區一帶已佈建更多5G SA站台",
-    "link": "https://aizhen-93.github.io/Telecom/SpectrumInfo466_pic/46697NR_Cellmapper_gNB.jpg"
+    "link": "pic/46697NR_Cellmapper_gNB.jpg"
   },
   {
     "source": "實測+回報",
@@ -17,7 +17,7 @@ window.homeNewsData = [
     "area": "台中市區",
     "site": "多數",
     "content": "大多數站台Band Request皆加入n8，但實際尚未開台或配置n8測量頻點",
-    "link": "https://aizhen-93.github.io/Telecom/SpectrumInfo466_pic/46692NR_UE_Capabiility_Enquiry_N8.jpg"
+    "link": "pic/46692NR_UE_Capabiility_Enquiry_N8.jpg"
   },
   {
     "source": "實測+回報",
