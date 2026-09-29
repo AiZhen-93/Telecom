@@ -2652,8 +2652,9 @@ if (speedDatabasePage) {
     };
 
     const isVisibleProjectOption = (value) => {
-        const project = String(value || "");
+        const project = String(value || "").trim();
         return project
+            && !project.startsWith("＊本案")
             && !project.includes("要求測試")
             && !project.includes("自費案件")
             && !project.includes("@")
