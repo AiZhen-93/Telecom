@@ -4712,6 +4712,11 @@ td.n257-column .combo-value {
     color: #7fffdc;
 }
 
+.arfcn-calculator output.has-confirmed-result {
+    color: #7fffdc;
+    white-space: pre-line;
+}
+
 .arfcn-calculator output.is-error {
     color: #ffd2a1;
 }

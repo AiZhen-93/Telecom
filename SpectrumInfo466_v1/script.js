@@ -4798,7 +4798,28 @@ if (arfcnCalculator) {
     const setResult = (message, state = "") => {
         result.textContent = message;
         result.classList.toggle("has-result", state === "result");
+        result.classList.toggle("has-confirmed-result", state === "confirmed");
         result.classList.toggle("is-error", state === "error");
+    };
+
+    const normalizeArfcn = (value) => value.replace(/\D/g, "");
+
+    const getConfirmedUnknownFrequencyResult = (arfcn) => {
+        const targetArfcn = String(arfcn);
+        const rows = document.querySelectorAll(".unknown-frequency-table tbody tr");
+        for (const row of rows) {
+            const cells = row.querySelectorAll("td");
+            if (cells.length < 6) {
+                continue;
+            }
+
+            const statusText = cells[0].textContent.trim();
+            const rowArfcn = normalizeArfcn(cells[1].textContent);
+            if (statusText === "已確認" && rowArfcn === targetArfcn) {
+                return cells[5].innerText.trim();
+            }
+        }
+        return "";
     };
 
     const calculateFrequency = (arfcn) => {
@@ -4839,6 +4860,12 @@ if (arfcnCalculator) {
 
         if (!rawValue || !Number.isInteger(arfcn)) {
             setResult("請輸入整數 ARFCN。", "error");
+            return;
+        }
+
+        const confirmedResult = getConfirmedUnknownFrequencyResult(arfcn);
+        if (confirmedResult) {
+            setResult(confirmedResult, "confirmed");
             return;
         }
 
