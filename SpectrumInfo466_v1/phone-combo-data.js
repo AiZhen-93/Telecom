@@ -1,6 +1,6 @@
 window.phoneComboData = {
   "source": "ENDC及CA組合清單.xlsx",
-  "updated": "2026/09/13",
+  "updated": "2026/09/29",
   "rows": [
     {
       "brand": "Apple",
@@ -61,9 +61,9 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "n78+LTE 5CA\nn1+LTE 5CA",
-        "fet": "待確認",
-        "twm": "待確認"
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\nn78+n1+LTE 4CA",
+        "fet": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n28+LTE 3CA\nn78+n38+LTE 3CA\nn78+n41+LTE 2CA",
+        "twm": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n78+LTE 4CA\nn28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -1316,8 +1316,8 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
-        "fet": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
-        "twm": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n78+LTE、不支援n28+n78+LTE"
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n78+LTE\n不支援n28+n78+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -1338,8 +1338,8 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
-        "fet": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
-        "twm": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n78+LTE、不支援n28+n78+LTE"
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n78+LTE\n不支援n28+n78+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -2002,6 +2002,28 @@ window.phoneComboData = {
         "twm": ""
       },
       "nrFr2": "不支援",
+      "note": ""
+    },
+    {
+      "brand": "SAMSUNG",
+      "model": "Galaxy S26 FE",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "支援",
+        "fet": "支援",
+        "twm": "支援"
+      },
+      "endc": {
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA",
+        "fet": "待確認",
+        "twm": "n78+n78+LTE ?CA"
+      },
+      "nrFr2": "待確認",
       "note": ""
     },
     {
@@ -2789,8 +2811,8 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "n78+LTE 5CA、n1+LTE 5CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA",
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\nn78+n1+LTE 4CA",
+        "fet": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n28+LTE 3CA\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -4206,6 +4228,28 @@ window.phoneComboData = {
     },
     {
       "brand": "SONY",
+      "model": "Xperia 10 VIII XQ-GH54",
+      "soc": "高通 Snapdragon 6 Gen 3",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "待確認",
+      "note": ""
+    },
+    {
+      "brand": "SONY",
       "model": "Xperia 10 VIII",
       "soc": "高通 Snapdragon 6 Gen 3",
       "lte": {
@@ -4664,6 +4708,94 @@ window.phoneComboData = {
         "twm": "n78+LTE 4CA、n28+LTE 3CA\nn78+n78+LTE 2CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
+      "note": ""
+    },
+    {
+      "brand": "Xiaomi",
+      "model": "MI 18 Pro Max",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "待確認",
+      "note": ""
+    },
+    {
+      "brand": "Xiaomi",
+      "model": "MI 18 Pro",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "待確認",
+      "note": ""
+    },
+    {
+      "brand": "Xiaomi",
+      "model": "MI 18",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "待確認",
+      "note": ""
+    },
+    {
+      "brand": "Xiaomi",
+      "model": "POCO X8",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "n78+LTE 2CA\nn1+LTE 2CA\n不支援n78+n1+LTE",
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\nn78+n78+LTE 1CA\n不支援n28+n78+LTE"
+      },
+      "nrFr2": "待確認",
       "note": ""
     },
     {
@@ -5160,14 +5292,14 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "支援",
-        "fet": "支援",
-        "twm": "支援"
+        "cht": "不支援",
+        "fet": "不支援",
+        "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE 4CA、n1+LTE 4CA\nn78+n1+LTE 3CA",
-        "fet": "",
-        "twm": ""
+        "cht": "n78+LTE 3CA\nn1+LTE 3CA\n不支援n78+n1+LTE",
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n78+LTE\n不支援n28+n78+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -6670,6 +6802,50 @@ window.phoneComboData = {
     },
     {
       "brand": "OPPO",
+      "model": "A7 Pro Max",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "待確認",
+      "note": ""
+    },
+    {
+      "brand": "OPPO",
+      "model": "A7 Pro",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "待確認",
+      "note": ""
+    },
+    {
+      "brand": "OPPO",
       "model": "Reno16F",
       "soc": "MTK Dimensity 7300-Energy",
       "lte": {
@@ -7651,9 +7827,9 @@ window.phoneComboData = {
         "twm": ""
       },
       "endc": {
-        "cht": "n78+LTE 5CA、n1+LTE 5CA",
-        "fet": "",
-        "twm": ""
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\n不支援n78+n1+LTE",
+        "fet": "n78+LTE 4CA\nn28+LTE 3CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 4CA\nn28+LTE 3CA\n不支援n78+n78+LTE\n不支援n28+n78+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -11880,6 +12056,72 @@ window.phoneComboData = {
         "twm": ""
       },
       "nrFr2": "不支援",
+      "note": ""
+    },
+    {
+      "brand": "HONOR",
+      "model": "Magic V6",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "待確認",
+      "note": ""
+    },
+    {
+      "brand": "HONOR",
+      "model": "600 LITE",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "待確認",
+      "note": ""
+    },
+    {
+      "brand": "HONOR",
+      "model": "600S",
+      "soc": "待確認",
+      "lte": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrNsa": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "endc": {
+        "cht": "待確認",
+        "fet": "待確認",
+        "twm": "待確認"
+      },
+      "nrFr2": "待確認",
       "note": ""
     },
     {
