@@ -1,6 +1,6 @@
 window.phoneComboData = {
   "source": "ENDC及CA組合清單.xlsx",
-  "updated": "2026/09/29",
+  "updated": "2026/09/30",
   "rows": [
     {
       "brand": "Apple",
@@ -2007,7 +2007,7 @@ window.phoneComboData = {
     {
       "brand": "SAMSUNG",
       "model": "Galaxy S26 FE",
-      "soc": "待確認",
+      "soc": "三星 Exynos 2500",
       "lte": {
         "cht": "待確認",
         "fet": "待確認",
@@ -2349,9 +2349,9 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "n78+LTE 5CA、n1+LTE 5CA",
-        "fet": "",
-        "twm": ""
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\nn78+n1+LTE 4CA",
+        "fet": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n28+LTE 3CA\n不支援n78+n38+LTE\nn78+n41+LTE 2CA",
+        "twm": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n78+LTE 4CA\nn78+n28+LTE 3CA"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -3427,9 +3427,9 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE 2CA、n1+LTE 2CA",
-        "fet": "",
-        "twm": "不支援n78+n78+LTE"
+        "cht": "n78+LTE 3CA\n不支援n1+LTE\n不支援n78+n1+LTE",
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n78+LTE\n不支援n78+n28+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -4756,28 +4756,6 @@ window.phoneComboData = {
     },
     {
       "brand": "Xiaomi",
-      "model": "MI 18",
-      "soc": "待確認",
-      "lte": {
-        "cht": "待確認",
-        "fet": "待確認",
-        "twm": "待確認"
-      },
-      "nrNsa": {
-        "cht": "待確認",
-        "fet": "待確認",
-        "twm": "待確認"
-      },
-      "endc": {
-        "cht": "待確認",
-        "fet": "待確認",
-        "twm": "待確認"
-      },
-      "nrFr2": "待確認",
-      "note": ""
-    },
-    {
-      "brand": "Xiaomi",
       "model": "POCO X8",
       "soc": "待確認",
       "lte": {
@@ -4808,14 +4786,14 @@ window.phoneComboData = {
         "twm": "待確認"
       },
       "nrNsa": {
-        "cht": "支援",
-        "fet": "支援",
-        "twm": "支援"
+        "cht": "不支援",
+        "fet": "不支援",
+        "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE 3CA、n1+LTE 2CA、n78+n1+LTE 1CC",
-        "fet": "待確認",
-        "twm": "待確認"
+        "cht": "n78+LTE 3CA\nn1+LTE 3CA\n不支援n78+n1+LTE",
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援n78+n78+LTE\n不支援n78+n28+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -4835,7 +4813,7 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "n78+LTE 3CA、n1+LTE 2CA、n78+n1+LTE 1CC",
+        "cht": "n78+LTE 3CA\nn1+LTE 2CA\n不支援n78+n1+LTE",
         "fet": "待確認",
         "twm": "待確認"
       },
@@ -4857,7 +4835,7 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "n78+LTE 3CA\nn1+LTE 3CA\nn78+n1+LTE 1CA",
+        "cht": "n78+LTE 3CA\nn1+LTE 3CA\n不支援n78+n1+LTE",
         "fet": "待確認",
         "twm": "待確認"
       },
@@ -6200,7 +6178,7 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 4CA、n1+n78+LTE 4CA",
-        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、不支援n78+n38+LTE、n78+n41+LTE 2CA",
+        "fet": "n78+LTE 4CA、n28+LTE 3CA、n78+n28+LTE 3CA、n78+n38+LTE 1CC、n78+n41+LTE 2CA",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、n78+n78+LTE 4CA、n28+n78+LTE 3CA"
       },
       "nrFr2": "不支援",
@@ -6617,7 +6595,7 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE 5CA、n1+LTE 4CA、不支援n78+n1+LTE",
+        "cht": "n78+LTE 5CA、n1+LTE 5CA、不支援n78+n1+LTE",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n78+LTE、不支援n28+n78+LTE"
       },
@@ -6626,7 +6604,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Xiaomi",
-      "model": "MI11 Lite 5G NE",
+      "model": "MI 11 Lite 5G NE",
       "soc": "高通 Snapdragon 778G",
       "lte": {
         "cht": "4CA",
@@ -8232,7 +8210,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "VIVO X300 FE",
+      "model": "X300 FE",
       "soc": "高通 Snapdragon 8 Gen 5",
       "lte": {
         "cht": "",
@@ -8254,7 +8232,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y31 5G",
+      "model": "Y31 5G",
       "soc": "高通 Snapdragon 4 Gen 2",
       "lte": {
         "cht": "",
@@ -8276,7 +8254,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X300 Ultra",
+      "model": "X300 Ultra",
       "soc": "高通 Snapdragon 8 Elite Gen 5",
       "lte": {
         "cht": "5CA",
@@ -8320,7 +8298,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V70 FE",
+      "model": "V70 FE",
       "soc": "MTK Dimensity 7360-Turbo",
       "lte": {
         "cht": "3CA",
@@ -8342,7 +8320,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V70",
+      "model": "V70",
       "soc": "高通 Snapdragon 7 Gen 4",
       "lte": {
         "cht": "4CA",
@@ -8364,7 +8342,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y21 5G",
+      "model": "Y21 5G",
       "soc": "MTK Dimensity 6300",
       "lte": {
         "cht": "2CA",
@@ -8408,7 +8386,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X300 Pro",
+      "model": "X300 Pro",
       "soc": "MTK Dimensity 9500",
       "lte": {
         "cht": "5CA",
@@ -8430,7 +8408,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X300",
+      "model": "X300",
       "soc": "MTK Dimensity 9500",
       "lte": {
         "cht": "5CA",
@@ -8452,7 +8430,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V60 Lite 5G",
+      "model": "V60 Lite 5G",
       "soc": "MTK Dimensity 7360-Turbo",
       "lte": {
         "cht": "3CA",
@@ -8474,7 +8452,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V60",
+      "model": "V60",
       "soc": "高通 Snapdragon 7 Gen 4",
       "lte": {
         "cht": "4CA",
@@ -8496,7 +8474,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X Fold5",
+      "model": "X Fold5",
       "soc": "高通 Snapdragon 8 Gen 3",
       "lte": {
         "cht": "5CA",
@@ -8518,7 +8496,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X200 FE",
+      "model": "X200 FE",
       "soc": "MTK Dimensity 9300+",
       "lte": {
         "cht": "5CA",
@@ -8540,7 +8518,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V50 Lite",
+      "model": "V50 Lite",
       "soc": "MTK Dimensity 6300",
       "lte": {
         "cht": "2CA",
@@ -8562,7 +8540,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V50",
+      "model": "V50",
       "soc": "高通 Snapdragon 7 Gen 3",
       "lte": {
         "cht": "5CA",
@@ -8584,7 +8562,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X200 Pro",
+      "model": "X200 Pro",
       "soc": "MTK Dimensity 9400",
       "lte": {
         "cht": "5CA",
@@ -8606,7 +8584,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X200",
+      "model": "X200",
       "soc": "MTK Dimensity 9400",
       "lte": {
         "cht": "5CA",
@@ -8628,7 +8606,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y39 5G",
+      "model": "Y39 5G",
       "soc": "高通 Snapdragon 4 Gen 2",
       "lte": {
         "cht": "4CA",
@@ -8650,7 +8628,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y29s 5G",
+      "model": "Y29s 5G",
       "soc": "高通 Dimensity 6300",
       "lte": {
         "cht": "2CA",
@@ -8672,7 +8650,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V40 Lite",
+      "model": "V40 Lite",
       "soc": "高通 Snapdragon 4 Gen 2",
       "lte": {
         "cht": "4CA",
@@ -8694,7 +8672,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V40 Pro",
+      "model": "V40 Pro",
       "soc": "MTK Dimensity 9200+",
       "lte": {
         "cht": "5CA",
@@ -8716,7 +8694,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V40",
+      "model": "V40",
       "soc": "高通 Snapdragon 7 Gen 3",
       "lte": {
         "cht": "5CA",
@@ -8738,7 +8716,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y28s",
+      "model": "Y28s",
       "soc": "高通 Dimensity 6300",
       "lte": {
         "cht": "2CA",
@@ -8760,7 +8738,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y38 5G",
+      "model": "Y38 5G",
       "soc": "高通 Snapdragon 4 Gen 2",
       "lte": {
         "cht": "4CA",
@@ -8782,7 +8760,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V30e 5G",
+      "model": "V30e 5G",
       "soc": "高通 Snapdragon 6 Gen 1",
       "lte": {
         "cht": "4CA",
@@ -8804,7 +8782,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y100",
+      "model": "Y100",
       "soc": "高通 Snapdragon 4 Gen 2",
       "lte": {
         "cht": "4CA",
@@ -8826,7 +8804,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V30 Pro",
+      "model": "V30 Pro",
       "soc": "MTK Dimensity 8200",
       "lte": {
         "cht": "5CA",
@@ -8848,7 +8826,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V30",
+      "model": "V30",
       "soc": "高通 Snapdragon 7 Gen 3",
       "lte": {
         "cht": "5CA",
@@ -8870,7 +8848,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X100 Pro",
+      "model": "X100 Pro",
       "soc": "MTK Dimensity 9300",
       "lte": {
         "cht": "5CA",
@@ -8892,7 +8870,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X100",
+      "model": "X100",
       "soc": "MTK Dimensity 9300",
       "lte": {
         "cht": "5CA",
@@ -8914,7 +8892,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V29e",
+      "model": "V29e",
       "soc": "高通 Snapdragon 695",
       "lte": {
         "cht": "4CA",
@@ -8936,7 +8914,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V29",
+      "model": "V29",
       "soc": "高通 Snapdragon 778G",
       "lte": {
         "cht": "4CA",
@@ -8958,7 +8936,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y27",
+      "model": "Y27",
       "soc": "MTK Dimensity 6020",
       "lte": {
         "cht": "2CA",
@@ -8980,7 +8958,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y36",
+      "model": "Y36",
       "soc": "MTK Dimensity 6020",
       "lte": {
         "cht": "2CA",
@@ -9002,7 +8980,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y78",
+      "model": "Y78",
       "soc": "MTK Dimensity 7020",
       "lte": {
         "cht": "4CA",
@@ -9024,7 +9002,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V27",
+      "model": "V27",
       "soc": "MTK Dimensity 7200",
       "lte": {
         "cht": "5CA",
@@ -9046,7 +9024,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y55s",
+      "model": "Y55s",
       "soc": "MTK Dimensity 700",
       "lte": {
         "cht": "2CA",
@@ -9068,7 +9046,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X90 Pro",
+      "model": "X90 Pro",
       "soc": "MTK Dimensity 9200",
       "lte": {
         "cht": "5CA",
@@ -9090,7 +9068,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X90",
+      "model": "X90",
       "soc": "MTK Dimensity 9200",
       "lte": {
         "cht": "5CA",
@@ -9112,7 +9090,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V21S",
+      "model": "V21S",
       "soc": "MTK Dimensity 800U",
       "lte": {
         "cht": "4CA",
@@ -9134,7 +9112,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V25 Pro",
+      "model": "V25 Pro",
       "soc": "MTK Dimensity 1300",
       "lte": {
         "cht": "4CA",
@@ -9156,7 +9134,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V25",
+      "model": "V25",
       "soc": "MTK Dimensity 900",
       "lte": {
         "cht": "4CA",
@@ -9178,7 +9156,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y52 5G",
+      "model": "Y52 5G",
       "soc": "MTK Dimensity 700",
       "lte": {
         "cht": "2CA",
@@ -9200,7 +9178,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo X80",
+      "model": "X80",
       "soc": "MTK Dimensity 9000",
       "lte": {
         "cht": "5CA",
@@ -9222,7 +9200,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "VIvo Y55 5G",
+      "model": "Y55 5G",
       "soc": "MTK Dimensity 700",
       "lte": {
         "cht": "2CA",
@@ -9244,7 +9222,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V23e 5G",
+      "model": "V23e 5G",
       "soc": "MTK Dimensity 810",
       "lte": {
         "cht": "2CA",
@@ -9266,7 +9244,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo V23 5G",
+      "model": "V23 5G",
       "soc": "MTK Dimensity 920",
       "lte": {
         "cht": "4CA",
@@ -9288,7 +9266,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y76 5G",
+      "model": "Y76 5G",
       "soc": "MTK Dimensity 700",
       "lte": {
         "cht": "2CA",
@@ -9310,7 +9288,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo X70 Pro",
+      "model": "X70 Pro",
       "soc": "MTK Dimensity 1200",
       "lte": {
         "cht": "4CA",
@@ -9332,7 +9310,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo X70",
+      "model": "X70",
       "soc": "MTK Dimensity 1200",
       "lte": {
         "cht": "4CA",
@@ -9354,7 +9332,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "vivo Y52",
+      "model": "Y52",
       "soc": "MTK Dimensity 700",
       "lte": {
         "cht": "2CA",
@@ -9376,7 +9354,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo V21",
+      "model": "V21",
       "soc": "MTK Dimensity 800U",
       "lte": {
         "cht": "4CA",
@@ -9398,7 +9376,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo Y72 5G",
+      "model": "Y72 5G",
       "soc": "MTK Dimensity 700",
       "lte": {
         "cht": "4CA",
@@ -9420,7 +9398,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo X60 Pro",
+      "model": "X60 Pro",
       "soc": "高通 Snapdragon 870",
       "lte": {
         "cht": "5CA",
@@ -9442,7 +9420,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo X60",
+      "model": "X60",
       "soc": "三星 Exynos 1080",
       "lte": {
         "cht": "5CA",
@@ -9464,7 +9442,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo X50e",
+      "model": "X50e",
       "soc": "高通 Snapdragon 765G",
       "lte": {
         "cht": "4CA",
@@ -9486,7 +9464,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo X50 Pro",
+      "model": "X50 Pro",
       "soc": "高通 Snapdragon 765G",
       "lte": {
         "cht": "4CA",
@@ -9508,7 +9486,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo X50",
+      "model": "X50",
       "soc": "高通 Snapdragon 765G",
       "lte": {
         "cht": "4CA",
@@ -9530,7 +9508,7 @@ window.phoneComboData = {
     },
     {
       "brand": "VIVO",
-      "model": "Vivo NEX3",
+      "model": "NEX3",
       "soc": "高通 Snapdragon 855+",
       "lte": {
         "cht": "3CA",
@@ -9552,7 +9530,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme c100",
+      "model": "c100",
       "soc": "MTK Dimensity 6300",
       "lte": {
         "cht": "2CA",
@@ -9574,7 +9552,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 16 Pro",
+      "model": "16 Pro",
       "soc": "MTK Dimensity 7300-Max 5G",
       "lte": {
         "cht": "3CA",
@@ -9596,7 +9574,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 16",
+      "model": "16",
       "soc": "MTK Dimensity 6400 Turbo",
       "lte": {
         "cht": "2CA",
@@ -9618,7 +9596,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme GT 8 Pro",
+      "model": "GT 8 Pro",
       "soc": "高通 Snapdragon 8 Elite Gen 5",
       "lte": {
         "cht": "4CA",
@@ -9640,7 +9618,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme 15T",
+      "model": "15T",
       "soc": "MTK Dimensity 6400 Max 5G",
       "lte": {
         "cht": "2CA",
@@ -9662,7 +9640,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme 15 Pro",
+      "model": "15 Pro",
       "soc": "高通 Snapdragon 7 Gen 4",
       "lte": {
         "cht": "4CA",
@@ -9684,7 +9662,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme 15",
+      "model": "15",
       "soc": "MTK Dimensity 7300+",
       "lte": {
         "cht": "4CA",
@@ -9706,7 +9684,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme GT 7T",
+      "model": "GT 7T",
       "soc": "MTK Dimensity 8400-Max",
       "lte": {
         "cht": "4CA",
@@ -9728,7 +9706,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme GT 7",
+      "model": "GT 7",
       "soc": "MTK Dimensity 9400e",
       "lte": {
         "cht": "5CA",
@@ -9750,7 +9728,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme 14 Pro",
+      "model": "14 Pro",
       "soc": "MTK Dimensity 7300E",
       "lte": {
         "cht": "3CA",
@@ -9772,7 +9750,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme 14x 5G",
+      "model": "14x 5G",
       "soc": "MTK Dimensity 6300",
       "lte": {
         "cht": "2CA",
@@ -9794,7 +9772,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme GT 7 Pro",
+      "model": "GT 7 Pro",
       "soc": "高通 Snapdragon 8 Elite",
       "lte": {
         "cht": "4CA",
@@ -9816,7 +9794,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme 13+ 5G",
+      "model": "13+ 5G",
       "soc": "MTK Dimensity 7300E",
       "lte": {
         "cht": "3CA",
@@ -9838,7 +9816,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme 13 5G",
+      "model": "13 5G",
       "soc": "MTK Dimensity 6300",
       "lte": {
         "cht": "2CA",
@@ -9860,7 +9838,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme 13 pro+ 5G",
+      "model": "13 pro+ 5G",
       "soc": "高通 Snapdragon 7s Gen 2",
       "lte": {
         "cht": "4CA",
@@ -9882,7 +9860,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme 13 pro 5G",
+      "model": "13 pro 5G",
       "soc": "高通 Snapdragon 7s Gen 2",
       "lte": {
         "cht": "4CA",
@@ -9904,7 +9882,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme GT 6",
+      "model": "GT 6",
       "soc": "高通 Snapdragon 8s Gen 3",
       "lte": {
         "cht": "",
@@ -9926,7 +9904,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 12X",
+      "model": "12X",
       "soc": "MTK Dimensity 6100+",
       "lte": {
         "cht": "2CA",
@@ -9948,7 +9926,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 12 Pro+",
+      "model": "12 Pro+",
       "soc": "高通 Snapdragon 7s Gen 2",
       "lte": {
         "cht": "4CA",
@@ -9970,7 +9948,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 12+",
+      "model": "12+",
       "soc": "MTK Dimensity 7050",
       "lte": {
         "cht": "4CA",
@@ -9992,7 +9970,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 12 5G",
+      "model": "12 5G",
       "soc": "MTK Dimensity 6100+",
       "lte": {
         "cht": "2CA",
@@ -10014,7 +9992,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 11X",
+      "model": "11X",
       "soc": "MTK Dimensity 6100+",
       "lte": {
         "cht": "2CA",
@@ -10036,7 +10014,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 11 Pro+",
+      "model": "11 Pro+",
       "soc": "MTK Dimensity 7050",
       "lte": {
         "cht": "4CA",
@@ -10058,7 +10036,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 11 Pro",
+      "model": "11 Pro",
       "soc": "MTK Dimensity 7050",
       "lte": {
         "cht": "4CA",
@@ -10080,7 +10058,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 11",
+      "model": "11",
       "soc": "MTK Dimensity 6100+",
       "lte": {
         "cht": "2CA",
@@ -10102,7 +10080,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 10T 5G",
+      "model": "10T 5G",
       "soc": "MTK Dimensity 810",
       "lte": {
         "cht": "2CA",
@@ -10124,7 +10102,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 10 Pro+",
+      "model": "10 Pro+",
       "soc": "MTK Dimensity 1080",
       "lte": {
         "cht": "3CA",
@@ -10146,7 +10124,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 10 Pro",
+      "model": "10 Pro",
       "soc": "高通 Snapdragon 695",
       "lte": {
         "cht": "2CA",
@@ -10168,7 +10146,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 9I 5G",
+      "model": "9I 5G",
       "soc": "MTK Dimensity 810",
       "lte": {
         "cht": "2CA",
@@ -10190,7 +10168,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme GT Neo3t",
+      "model": "GT Neo3t",
       "soc": "高通 Snapdragon 870",
       "lte": {
         "cht": "4CA",
@@ -10212,7 +10190,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme GT Neo3",
+      "model": "GT Neo3",
       "soc": "MTK Dimensity 8100",
       "lte": {
         "cht": "4CA",
@@ -10234,7 +10212,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme narzo 50 pro 5G",
+      "model": "narzo 50 pro 5G",
       "soc": "MTK Dimensity 920",
       "lte": {
         "cht": "不支援",
@@ -10256,7 +10234,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme GT 2 Pro",
+      "model": "GT 2 Pro",
       "soc": "高通 Snapdragon 8 Gen 1",
       "lte": {
         "cht": "5CA",
@@ -10278,7 +10256,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 9 Pro+",
+      "model": "9 Pro+",
       "soc": "MTK Dimensity 920",
       "lte": {
         "cht": "4CA",
@@ -10300,7 +10278,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 9 Pro",
+      "model": "9 Pro",
       "soc": "高通 Snapdragon 695",
       "lte": {
         "cht": "4CA",
@@ -10322,7 +10300,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "Realme GT Neo 2",
+      "model": "GT Neo 2",
       "soc": "高通 Snapdragon 870",
       "lte": {
         "cht": "4CA",
@@ -10344,7 +10322,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme GT大師版",
+      "model": "GT大師版",
       "soc": "高通 Snapdragon 778G",
       "lte": {
         "cht": "4CA",
@@ -10366,7 +10344,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme 8 5G",
+      "model": "8 5G",
       "soc": "MTK Dimensity 700",
       "lte": {
         "cht": "2CA",
@@ -10388,7 +10366,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme GT",
+      "model": "GT",
       "soc": "高通 Snapdragon 888",
       "lte": {
         "cht": "5CA",
@@ -10410,7 +10388,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme X7 Pro",
+      "model": "X7 Pro",
       "soc": "MTK Dimensity 1000+",
       "lte": {
         "cht": "4CA",
@@ -10424,15 +10402,15 @@ window.phoneComboData = {
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA",
-        "fet": "n78+LTE 3CA、n28+LTE 3CA",
-        "twm": "n78+LTE 3CA、n28+LTE 3CA"
+        "fet": "n78+LTE 3CA\nn28+LTE 3CA\n不支援n78+n28+LTE\n不支援n78+n38+LTE\n不支援n78+n41+LTE",
+        "twm": "n78+LTE 3CA\nn28+LTE 3CA\n不支援n78+n78+LTE\n不支援n78+n28+LTE"
       },
       "nrFr2": "不支援",
       "note": ""
     },
     {
       "brand": "Realme",
-      "model": "realme 7 5G",
+      "model": "7 5G",
       "soc": "MTK Dimensity 800U",
       "lte": {
         "cht": "4CA",
@@ -10454,7 +10432,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme X50 Pro",
+      "model": "X50 Pro",
       "soc": "高通 Snapdragon 865",
       "lte": {
         "cht": "5CA",
@@ -10476,7 +10454,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Realme",
-      "model": "realme X50",
+      "model": "X50",
       "soc": "高通 Snapdragon 765G",
       "lte": {
         "cht": "4CA",
@@ -11752,7 +11730,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Lenovo",
-      "model": "Lenovo Legion Phone Duel",
+      "model": "Legion Phone Duel",
       "soc": "高通 Snapdragon 865+",
       "lte": {
         "cht": "4CA",
@@ -11972,7 +11950,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Black Shark",
-      "model": "Black Shark 5 Pro",
+      "model": "5 Pro",
       "soc": "高通 Snapdragon 8 Gen 1",
       "lte": {
         "cht": "",
@@ -11994,7 +11972,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Black Shark",
-      "model": "Black Shark 5",
+      "model": "5",
       "soc": "高通 Snapdragon 870",
       "lte": {
         "cht": "",
@@ -12016,7 +11994,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Black Shark",
-      "model": "Black Shark 4",
+      "model": "4",
       "soc": "高通 Snapdragon 870",
       "lte": {
         "cht": "",
@@ -12038,7 +12016,7 @@ window.phoneComboData = {
     },
     {
       "brand": "Black Shark",
-      "model": "Black Shark 3",
+      "model": "3",
       "soc": "高通 Snapdragon 865",
       "lte": {
         "cht": "",

@@ -80,7 +80,7 @@ const subscribeToSitePreferences = (handler) => {
 
 applySitePreferences();
 
-const siteVersion = "v1.4.3";
+const siteVersion = "v1.4.4";
 const updateSiteVersion = () => {
     document.querySelectorAll("[data-site-version]").forEach((versionElement) => {
         versionElement.textContent = siteVersion;
@@ -280,7 +280,7 @@ const formatClientLocation = (...parts) => {
         if (typeof part !== "string" || !part.trim()) {
             return;
         }
-        const value = part.trim();
+        const value = getTaiwanLocationName(part.trim()) || part.trim();
         if (!uniqueParts.some((item) => item.toLocaleLowerCase() === value.toLocaleLowerCase())) {
             uniqueParts.push(value);
         }
@@ -289,6 +289,7 @@ const formatClientLocation = (...parts) => {
 };
 
 const ispDisplayNames = {
+    "Chunghwa Telecom Co., Ltd.": "中華電信股份有限公司",
     "Data Communication Business Group": "中華電信數據通信分公司",
     "Mobile Business Group": "中華電信行動通信分公司",
     "Far EastTone Telecommunication Co., Ltd.": "遠傳電信股份有限公司",
@@ -309,48 +310,111 @@ const normalizeCoordinate = (value) => {
 };
 
 const taiwanLocationNames = {
+    "TW": "台灣",
+    "Taiwan": "台灣",
+    "Taiwan Province": "台灣",
+    "Taiwan, Province of China": "台灣",
     "Taipei": "台北",
     "Taipei City": "台北",
     "New Taipei": "新北",
     "New Taipei City": "新北",
+    "New Taipei County": "新北",
+    "New Taipei Municipality": "新北",
     "Taoyuan": "桃園",
     "Taoyuan City": "桃園",
+    "Tao yuan": "桃園",
+    "Tao yuan City": "桃園",
     "Taichung": "台中",
     "Taichung City": "台中",
+    "Tai chung": "台中",
+    "Tai chung City": "台中",
     "Tainan": "台南",
     "Tainan City": "台南",
+    "Tai nan": "台南",
+    "Tai nan City": "台南",
     "Kaohsiung": "高雄",
     "Kaohsiung City": "高雄",
+    "Kao hsiung": "高雄",
+    "Kao hsiung City": "高雄",
     "Keelung": "基隆",
     "Keelung City": "基隆",
+    "Kee lung": "基隆",
+    "Kee lung City": "基隆",
     "Hsinchu": "新竹",
     "Hsinchu City": "新竹",
     "Hsinchu County": "新竹",
+    "Hsin chu": "新竹",
+    "Hsin chu City": "新竹",
+    "Hsin chu County": "新竹",
     "Miaoli": "苗栗",
     "Miaoli County": "苗栗",
+    "Miao li": "苗栗",
+    "Miao li County": "苗栗",
     "Changhua": "彰化",
     "Changhua County": "彰化",
+    "Chang hua": "彰化",
+    "Chang hua County": "彰化",
     "Nantou": "南投",
     "Nantou County": "南投",
+    "Nan tou": "南投",
+    "Nan tou County": "南投",
     "Yunlin": "雲林",
     "Yunlin County": "雲林",
+    "Yun lin": "雲林",
+    "Yun lin County": "雲林",
     "Chiayi": "嘉義",
     "Chiayi City": "嘉義",
     "Chiayi County": "嘉義",
+    "Chia yi": "嘉義",
+    "Chia yi City": "嘉義",
+    "Chia yi County": "嘉義",
     "Pingtung": "屏東",
     "Pingtung County": "屏東",
+    "Ping tung": "屏東",
+    "Ping tung County": "屏東",
     "Yilan": "宜蘭",
     "Yilan County": "宜蘭",
+    "Yi lan": "宜蘭",
+    "Yi lan County": "宜蘭",
+    "I lan": "宜蘭",
+    "I lan County": "宜蘭",
     "Hualien": "花蓮",
     "Hualien County": "花蓮",
+    "Hua lien": "花蓮",
+    "Hua lien County": "花蓮",
     "Taitung": "台東",
     "Taitung County": "台東",
+    "Tai tung": "台東",
+    "Tai tung County": "台東",
     "Penghu": "澎湖",
     "Penghu County": "澎湖",
+    "Peng hu": "澎湖",
+    "Peng hu County": "澎湖",
     "Kinmen": "金門",
     "Kinmen County": "金門",
+    "Kin men": "金門",
+    "Kin men County": "金門",
     "Lienchiang": "連江",
     "Lienchiang County": "連江",
+    "Lien chiang": "連江",
+    "Lien chiang County": "連江",
+    "Matsu": "連江",
+};
+
+const normalizeTaiwanLocationKey = (value = "") => String(value)
+    .trim()
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ");
+
+const getTaiwanLocationName = (value = "") => {
+    const directName = taiwanLocationNames[value];
+    if (directName) {
+        return directName;
+    }
+    const normalizedName = normalizeTaiwanLocationKey(value);
+    return taiwanLocationNames[normalizedName]
+        || taiwanLocationNames[normalizedName.replace(/\s+(City|County|Municipality)$/i, "")]
+        || "";
 };
 
 const formatWeatherPlaceName = (clientInfo) => {
@@ -359,7 +423,11 @@ const formatWeatherPlaceName = (clientInfo) => {
         return "";
     }
     const firstPart = rawName.split("，").map((part) => part.trim()).filter(Boolean).pop() || rawName.trim();
-    return taiwanLocationNames[firstPart] || firstPart.replace(/\s+(City|County)$/i, "");
+    const taiwanLocationName = getTaiwanLocationName(firstPart);
+    if (taiwanLocationName) {
+        return taiwanLocationName;
+    }
+    return normalizeTaiwanLocationKey(firstPart).replace(/\s+(City|County|Municipality)$/i, "");
 };
 
 let clientNetworkInfoPromise;

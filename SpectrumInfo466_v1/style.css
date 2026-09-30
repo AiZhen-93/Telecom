@@ -10078,6 +10078,10 @@ body.is-line-invite-disabled .status-line-link {
     background: linear-gradient(180deg, rgba(24, 120, 138, 0.1), rgba(255, 255, 255, 0.42));
 }
 
+:root[data-theme="light"] .cell-towers-trend-legend-item {
+    color: #173c49;
+}
+
 :root[data-theme="light"] .cell-towers-trend-grid {
     stroke: rgba(16, 39, 51, 0.18);
 }
