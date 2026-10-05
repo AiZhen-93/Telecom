@@ -1,5 +1,5 @@
 window.baseStationMaintenanceMeta = {
-  "updated": "2026/10/04"
+  "updated": "2026/10/05"
 };
 window.baseStationMaintenanceNotices = [
   {
@@ -3396,5 +3396,10 @@ window.baseStationMaintenanceNotices = [
     "date": "2026-10-02",
     "operator": "twm",
     "text": "交換設備維護公告\n為提升服務品質，部分基地台預計於10/04 02:00-02:30進行系統升級維護，維護期間可能短暫無法使用4G、5G語音及數據服務，造成不便敬請見諒，謝謝。\n\n影響範圍:\n影響台北市部分區域。"
+  },
+  {
+    "date": "2026-10-05",
+    "operator": "twm",
+    "text": "基地台維護公告\n為提升服務品質，部分基地台預計於10/06 01:00-04:30進行系統升級維護，維護期間可能短暫無法使用4G、5G語音及數據服務，造成不便敬請見諒，謝謝。\n\n影響範圍:\n影響台北市、新北市、基隆市、宜蘭縣、新竹市、新竹縣、桃園市、台中市及臺南市部分區域。"
   }
 ];
