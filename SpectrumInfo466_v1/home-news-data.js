@@ -1,10 +1,30 @@
 window.homeNewsData = [
   {
+    "source": "實測+回報",
+    "date": "2026/10/9",
+    "category": "授權升級",
+    "operator": "中華",
+    "area": "台中、台北",
+    "site": "少數",
+    "content": "台中車站前開出n78+n8 NR CA，台北大安開出n1+n8 NR CA",
+    "link": "https://www.youtube.com/watch?v=1YnwtnkoKnk"
+  },
+  {
+    "source": "回報",
+    "date": "2026/10/6",
+    "category": "參數調整",
+    "operator": "中華",
+    "area": "新北",
+    "site": "少數",
+    "content": "中華已設定5G n77/n78 MFBI",
+    "link": null
+  },
+  {
     "source": "實測",
     "date": "2026/9/19",
     "category": "頻率改配",
     "operator": "台哥大/原台星",
-    "area": "台中西屯",
+    "area": "台中、新北",
     "site": "部分",
     "content": "西屯工業區一帶已佈建更多5G SA站台",
     "link": "pic/46697NR_Cellmapper_gNB.jpg"
