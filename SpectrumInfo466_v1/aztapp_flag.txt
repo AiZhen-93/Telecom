@@ -1,3 +1,4 @@
 Allstatus: 0
-Version: 0.8.2
-DLlink: https://aizhen-93.github.io/Telecom/SpectrumInfo466_v1/AiZhenTelecom_app-release_v0.7.0.rar
+Version: 0.8.1
+Forceupdate: 0
+DLlink: https://aizhen-93.github.io/Telecom/SpectrumInfo466_v1/AiZhenTelecom_app-release_v0.8.1.rar
