@@ -978,12 +978,59 @@ if (homePage) {
     document.addEventListener("visibilitychange", updateCurrentTime);
 
     const weatherPanel = homePage.querySelector(".weather-panel");
+    const weatherKicker = homePage.querySelector("#homeWeatherKicker");
     const weatherTitle = homePage.querySelector("#homeWeatherTitle");
     const weatherIcon = homePage.querySelector("#homeWeatherIcon");
     const weatherSummary = homePage.querySelector("#homeWeatherSummary");
     const weatherLocation = homePage.querySelector("#homeWeatherLocation");
+    const typhoonWarning = homePage.querySelector("#homeTyphoonWarning");
+    const typhoonWarningFrame = homePage.querySelector("#homeTyphoonWarningFrame");
+    const typhoonWarningImage = homePage.querySelector("#homeTyphoonWarningImage");
+    const weatherFallback = homePage.querySelector("#homeWeatherFallback");
     const desktopWeatherQuery = window.matchMedia("(min-width: 761px)");
     let hasLoadedWeather = false;
+
+    const showWeatherFallback = () => {
+        if (typhoonWarning) {
+            typhoonWarning.hidden = true;
+        }
+        if (weatherFallback) {
+            weatherFallback.hidden = false;
+        }
+        if (weatherPanel) {
+            weatherPanel.classList.remove("has-typhoon-warning");
+            weatherPanel.setAttribute("aria-label", "目前所在地天氣");
+        }
+        if (weatherKicker) {
+            weatherKicker.textContent = "Local Weather";
+        }
+        if (weatherTitle) {
+            weatherTitle.textContent = "所在地天氣";
+        }
+    };
+
+    const showTyphoonWarning = () => {
+        if (typhoonWarningFrame && typhoonWarningImage
+            && typhoonWarningImage.naturalWidth > 0 && typhoonWarningImage.naturalHeight > 0) {
+            typhoonWarningFrame.style.aspectRatio = `${typhoonWarningImage.naturalWidth} / ${typhoonWarningImage.naturalHeight * 0.8}`;
+        }
+        if (weatherFallback) {
+            weatherFallback.hidden = true;
+        }
+        if (typhoonWarning) {
+            typhoonWarning.hidden = false;
+        }
+        if (weatherPanel) {
+            weatherPanel.classList.add("has-typhoon-warning");
+            weatherPanel.setAttribute("aria-label", "中央氣象署颱風警報圖");
+        }
+        if (weatherKicker) {
+            weatherKicker.textContent = "Typhoon Warning";
+        }
+        if (weatherTitle) {
+            weatherTitle.textContent = "颱風警報";
+        }
+    };
 
     const getWeatherInfo = (code) => {
         const weatherCode = Number(code);
@@ -1091,8 +1138,37 @@ if (homePage) {
         }
     };
 
-    loadHomeWeather();
-    desktopWeatherQuery.addEventListener?.("change", loadHomeWeather);
+    const loadWeatherFallback = () => {
+        showWeatherFallback();
+        loadHomeWeather();
+    };
+
+    if (typhoonWarningImage) {
+        typhoonWarningImage.addEventListener("load", () => {
+            if (typhoonWarningImage.naturalWidth > 0) {
+                showTyphoonWarning();
+            } else {
+                loadWeatherFallback();
+            }
+        }, { once: true });
+        typhoonWarningImage.addEventListener("error", loadWeatherFallback, { once: true });
+
+        if (typhoonWarningImage.complete) {
+            if (typhoonWarningImage.naturalWidth > 0) {
+                showTyphoonWarning();
+            } else {
+                loadWeatherFallback();
+            }
+        }
+    } else {
+        loadWeatherFallback();
+    }
+
+    desktopWeatherQuery.addEventListener?.("change", () => {
+        if (!typhoonWarning || typhoonWarning.hidden) {
+            loadHomeWeather();
+        }
+    });
 
     const marqueeText = homePage.querySelector("#homeMarqueeText");
     const marqueeFallbackMessage = "歡迎來到愛蓁電信工作室 - 頻譜資訊網~";
@@ -5356,4 +5432,48 @@ if (phoneComboPage) {
     });
 
     renderRows();
+}
+
+const aztAppPage = document.querySelector(".azt-app-page");
+if (aztAppPage) {
+    const lightbox = document.querySelector("#aztAppLightbox");
+    const lightboxImage = lightbox?.querySelector("img");
+    const lightboxCaption = lightbox?.querySelector("p");
+    const closeButton = lightbox?.querySelector(".azt-app-lightbox-close");
+    let lastFocusedShot = null;
+
+    const closeAztLightbox = () => {
+        if (!lightbox || lightbox.hidden) {
+            return;
+        }
+        lightbox.hidden = true;
+        lightboxImage.removeAttribute("src");
+        lastFocusedShot?.focus();
+    };
+
+    aztAppPage.querySelectorAll(".azt-app-shot").forEach((shot) => {
+        shot.addEventListener("click", () => {
+            if (!lightbox || !lightboxImage || !lightboxCaption) {
+                return;
+            }
+            lastFocusedShot = shot;
+            lightboxImage.src = shot.dataset.aztShot || "";
+            lightboxImage.alt = shot.dataset.aztCaption || "愛蓁電信 App 畫面預覽";
+            lightboxCaption.textContent = shot.dataset.aztCaption || "";
+            lightbox.hidden = false;
+            closeButton?.focus();
+        });
+    });
+
+    closeButton?.addEventListener("click", closeAztLightbox);
+    lightbox?.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+            closeAztLightbox();
+        }
+    });
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeAztLightbox();
+        }
+    });
 }
