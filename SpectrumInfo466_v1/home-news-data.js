@@ -1,5 +1,15 @@
 window.homeNewsData = [
   {
+    "source": "回報",
+    "date": "2026/10/22",
+    "category": "核網異常",
+    "operator": "中華",
+    "area": "新北",
+    "site": "多數",
+    "content": "20時起因機房異常，導致新北多處5G無法上網、VoLTE不通情形，至22時30分排除",
+    "link": null
+  },
+  {
     "source": "實測+回報",
     "date": "2026/10/9",
     "category": "授權升級",
