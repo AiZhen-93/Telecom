@@ -1,5 +1,5 @@
 Allstatus: 0
-Version: 0.8.1
+Version: 0.9.0
 Forceupdate: 0
-DLlink: https://aizhen-93.github.io/Telecom/SpectrumInfo466_v1/AiZhenTelecom_app-release_v0.8.1.rar
+DLlink: https://drive.google.com/file/d/1S06GK8qHKbZdYxc5K3DWgPtNH3TzeY7R/view?usp=drive_link
 Announcement: 感謝您下載「愛蓁電信」App
