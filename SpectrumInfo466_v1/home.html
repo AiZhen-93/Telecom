@@ -118,26 +118,19 @@
                         </div>
                         </div>
 
-                        <section class="home-panel weather-panel has-typhoon-warning" aria-label="中央氣象署颱風警報圖">
+                        <section class="home-panel weather-panel" aria-label="目前所在地天氣">
                             <div class="home-panel-heading weather-heading">
                                 <div>
-                                    <p class="section-kicker" id="homeWeatherKicker">Typhoon Warning</p>
-                                    <h2 id="homeWeatherTitle">颱風警報</h2>
+                                    <p class="section-kicker">Local Weather</p>
+                                    <h2 id="homeWeatherTitle">所在地天氣</h2>
                                 </div>
                             </div>
-                        <div class="typhoon-warning" id="homeTyphoonWarning">
-                            <div class="typhoon-warning-image-frame" id="homeTyphoonWarningFrame">
-                                <img id="homeTyphoonWarningImage" src="https://www.cwa.gov.tw/Data/typhoon/TY_WARN/B20.png" alt="中央氣象署颱風警報圖" loading="eager">
+                        <div class="weather-content" id="homeWeather" aria-live="polite">
+                            <div class="weather-main">
+                                <span class="weather-icon weather-icon-unknown" id="homeWeatherIcon" aria-hidden="true"></span>
+                                <p class="weather-summary" id="homeWeatherSummary">天氣資訊載入中</p>
                             </div>
-                        </div>
-                        <div id="homeWeatherFallback" hidden>
-                            <div class="weather-content" id="homeWeather" aria-live="polite">
-                                <div class="weather-main">
-                                    <span class="weather-icon weather-icon-unknown" id="homeWeatherIcon" aria-hidden="true"></span>
-                                    <p class="weather-summary" id="homeWeatherSummary">天氣資訊載入中</p>
-                                </div>
-                                <p class="weather-location" id="homeWeatherLocation"></p>
-                            </div>
+                            <p class="weather-location" id="homeWeatherLocation"></p>
                         </div>
                     </section>
                     </div>
