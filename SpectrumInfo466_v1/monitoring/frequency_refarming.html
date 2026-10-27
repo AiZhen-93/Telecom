@@ -58,7 +58,7 @@
                         <button class="nav-trigger" type="button" aria-expanded="false">專題發表</button>
                         <ul class="submenu">
                             <li><a href="../Topics/videos.html">專題影片</a></li>
-                            <li><a href="../Topics/article.html">專題文章</a></li>
+                            <li><a href="../Topics/azt_app.html">愛蓁電信App</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -69,7 +69,7 @@
                 <div>
                     <p class="section-kicker">FET Frequency Refarming Monitoring</p>
                     <h1>遠傳電信 700MHz &amp; TDD2600MHz 改配情形</h1>
-                <p class="spectrum-updated">更新於2026/09/29</p>
+                <p class="spectrum-updated">更新於2026/10/28</p>
                 </div>
             </section>
 
@@ -114,6 +114,42 @@
                 </div>
             </section>
 
+            <section class="spectrum-toolbar refarming-toolbar cht-refarming-toolbar" aria-label="中華電信頻率改配監測標題">
+                <div>
+                    <p class="section-kicker">CHT Frequency Refarming Monitoring</p>
+                    <h2>中華電信 900MHz &amp; 2100MHz 改配情形</h2>
+                </div>
+            </section>
+
+            <section class="refarming-map-section refarming-map-section-cht" aria-label="中華電信 900MHz 與 2100MHz 改配地圖">
+
+                <div class="refarming-map-grid">
+                    <article class="refarming-map-card cht-refarming-map-card">
+                        <div class="refarming-legend" aria-label="N8 開台程度圖例">
+                            <span><i class="level-wide"></i>廣泛開台</span>
+                            <span><i class="level-partial"></i>部分開台</span>
+                            <span><i class="level-limited"></i>少量開台</span>
+                            <span><i class="level-spot"></i>零星開台</span>
+                            <span><i class="level-closed"></i>已關台/幾乎關閉</span>
+                            <span><i class="level-none"></i>一站都沒有</span>
+                        </div>
+                        <h2><img src="../pic/CellTower_CHT.svg" alt="" aria-hidden="true">N8[191090]開台情形</h2>
+                        <div class="refarming-map-stage" data-refarming-map="cht-n8-191090"></div>
+                    </article>
+                    <article class="refarming-map-card cht-refarming-map-card">
+                        <div class="refarming-legend" aria-label="B1 改配程度圖例">
+                            <span><i class="level-expanded-wide"></i>幾乎已擴頻</span>
+                            <span><i class="level-expanded-partial"></i>部分已擴頻</span>
+                            <span><i class="level-not-expanded"></i>多數未擴頻</span>
+                            <span><i class="level-refarmed"></i>已重耕N1或幾乎關閉</span>
+                            <span><i class="level-none"></i>一站都沒有</span>
+                        </div>
+                        <h2><img src="../pic/CellTower_CHT.svg" alt="" aria-hidden="true">B1[525][500]改配情形</h2>
+                        <div class="refarming-map-stage" data-refarming-map="cht-b1-525-500"></div>
+                    </article>
+                </div>
+            </section>
+
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const template = document.querySelector("#taiwanRegionMap");
@@ -125,13 +161,13 @@
                     const statusSets = {
                         "fet-n28-152670": {
                             partial: ["台北市", "新北市", "桃園市", "新竹縣", "新竹市", "台中市", "台南市", "高雄市", "宜蘭縣", "嘉義縣", "嘉義市"],
-                            limited: ["彰化縣", "台東縣"],
+                            limited: ["彰化縣", "台東縣", "花蓮縣"],
                             spot: ["苗栗縣", "南投縣"],
                         },
                         "fet-n28-156010": {
                             partial: ["台北市", "宜蘭縣", "台南市", "新北市", "高雄市", "嘉義縣", "嘉義市"],
                             limited: ["桃園市", "台東縣", "花蓮縣"],
-                            none: ["基隆市", "新竹縣", "新竹市", "苗栗縣", "台中市", "彰化縣", "南投縣", "雲林縣"],
+                            none: ["基隆市", "新竹縣", "新竹市", "苗栗縣", "台中市", "彰化縣", "南投縣", "雲林縣", "屏東縣"],
                         },
                         "fet-b38-b41": {
                             wide: ["台北市", "新北市", "桃園市", "台中市", "彰化縣", "台南市", "高雄市", "宜蘭縣"],
@@ -144,7 +180,18 @@
                             partial: ["新竹市"],
                             spot: ["台北市", "新北市", "桃園市"],
                             closed: ["台中市", "台南市", "高雄市", "彰化縣", "苗栗縣"],
-                            none: ["南投縣", "宜蘭縣", "雲林縣", "嘉義縣", "嘉義市"],
+                            none: ["南投縣", "宜蘭縣", "雲林縣", "嘉義縣", "嘉義市", "花蓮縣", "台東縣", "屏東縣"],
+                        },
+                        "cht-n8-191090": {
+                            limited: ["台北市", "台中市"],
+                            spot: ["台南市", "高雄市"],
+                            none: ["基隆市", "新北市", "桃園市", "新竹縣", "新竹市", "苗栗縣", "彰化縣", "南投縣", "雲林縣", "嘉義縣", "嘉義市", "屏東縣", "宜蘭縣", "花蓮縣", "台東縣", "澎湖縣"],
+                        },
+                        "cht-b1-525-500": {
+                            expandedWide: ["台中市", "嘉義縣"],
+                            expandedPartial: ["新北市"],
+                            notExpanded: ["台北市", "桃園市", "新竹縣", "新竹市"],
+                            none: ["基隆市", "苗栗縣", "彰化縣", "南投縣", "雲林縣", "嘉義市", "台南市", "高雄市", "屏東縣", "宜蘭縣", "花蓮縣", "台東縣", "澎湖縣"],
                         },
                     };
 
@@ -154,6 +201,10 @@
                         limited: "少量開台",
                         spot: "零星開台",
                         closed: "已關台/幾乎關閉",
+                        expandedWide: "幾乎已擴頻",
+                        expandedPartial: "部分已擴頻",
+                        notExpanded: "多數未擴頻",
+                        refarmed: "已重耕N1或幾乎關閉",
                         none: "一站都沒有",
                         unknown: "不明",
                     };
