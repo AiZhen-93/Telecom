@@ -882,7 +882,7 @@ a {
     justify-content: space-between;
     gap: 1rem;
     min-height: 4rem;
-    padding: 0.85rem 3.8rem 0.85rem 1.2rem;
+    padding: 0.85rem 1.2rem 0.85rem 3.2rem;
     color: var(--text);
     cursor: pointer;
     list-style: none;
@@ -896,19 +896,23 @@ a {
 
 .azt-app-disclosure > summary::after,
 .azt-app-faq-item > summary::after {
-    content: "+";
+    content: "";
     position: absolute;
-    right: 1.15rem;
+    top: 50%;
+    right: auto;
+    left: 1.15rem;
+    width: 0.58rem;
+    height: 0.58rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
     color: #9aefff;
-    font-size: 1.7rem;
-    font-weight: 400;
-    line-height: 1;
-    transition: transform 180ms ease;
+    transform: translateY(-50%) rotate(-45deg);
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .azt-app-disclosure[open] > summary::after,
 .azt-app-faq-item[open] > summary::after {
-    transform: rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
 }
 
 .azt-app-disclosure > summary > span {
@@ -972,14 +976,68 @@ a {
     font-weight: 900;
 }
 
+.azt-app-install-step-text {
+    min-height: 2rem;
+}
+
+.azt-app-install-step-one,
+.azt-app-install-media {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(0.65rem, 1.5vw, 1rem);
+    margin-top: 0.8rem;
+}
+
+.azt-app-install-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    color: #04202b;
+    background: #72e3f7;
+    box-shadow: 0 8px 19px rgba(16, 202, 242, 0.26);
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    transition: transform 160ms ease, background 160ms ease;
+}
+
+.azt-app-install-download:hover,
+.azt-app-install-download:focus-visible {
+    background: #b3f3ff;
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.azt-app-install-step-one img,
+.azt-app-install-media img {
+    display: block;
+    width: min(100%, 14.5rem);
+    max-height: 26rem;
+    padding: 0.2rem;
+    border: 1px solid rgba(139, 232, 255, 0.25);
+    border-radius: 10px;
+    object-fit: contain;
+    background: rgba(3, 17, 25, 0.68);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.azt-app-install-media {
+    align-items: flex-start;
+}
+
 .azt-app-faq .azt-app-disclosure-content {
     display: grid;
     gap: 0.5rem;
     padding-top: 0.65rem;
+    counter-reset: azt-faq-item;
 }
 
 .azt-app-faq-item {
     border-bottom: 1px solid rgba(139, 232, 255, 0.13);
+    counter-increment: azt-faq-item;
 }
 
 .azt-app-faq-item:last-child {
@@ -987,22 +1045,47 @@ a {
 }
 
 .azt-app-faq-item > summary {
+    display: block;
     min-height: 3.35rem;
-    padding: 0.55rem 3.3rem 0.55rem 0.2rem;
+    padding: 0.55rem 3.3rem 0.55rem 4.25rem;
     color: #d9f6ff;
     font-size: 0.96rem;
+    line-height: 1.8;
+}
+
+.azt-app-faq-item > summary::before {
+    content: "Q" counter(azt-faq-item) "：";
+    position: absolute;
+    top: 0.55rem;
+    left: 1.55rem;
+    min-width: 2.45rem;
+    color: #8ce8fa;
+    font-weight: 900;
 }
 
 .azt-app-faq-item > summary::after {
-    right: 0.3rem;
-    font-size: 1.35rem;
+    right: auto;
+    left: 0.25rem;
+    width: 0.45rem;
+    height: 0.45rem;
 }
 
 .azt-app-faq-item p {
+    display: grid;
+    /* Match the Q label and question text columns exactly. */
+    grid-template-columns: 2.45rem minmax(0, 1fr);
+    column-gap: 0.25rem;
+    align-items: start;
     margin: -0.05rem 0 0;
-    padding: 0 1rem 1rem 0.2rem;
+    padding: 0 1rem 1rem 1.55rem;
     color: var(--muted);
     line-height: 1.8;
+}
+
+.azt-app-faq-item p::before {
+    content: "A" counter(azt-faq-item) "：";
+    color: #b7f4ff;
+    font-weight: 900;
 }
 
 .azt-app-disclosure > summary:hover,
@@ -1011,6 +1094,32 @@ a {
 .azt-app-faq-item > summary:focus-visible {
     background: rgba(108, 218, 255, 0.09);
     outline: none;
+}
+
+@keyframes azt-app-disclosure-open {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.azt-app-disclosure[open] > .azt-app-disclosure-content {
+    animation: azt-app-disclosure-open 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.azt-app-faq-item[open] > p {
+    animation: azt-app-disclosure-open 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .azt-app-disclosure[open] > .azt-app-disclosure-content,
+    .azt-app-faq-item[open] > p {
+        animation: none;
+    }
 }
 
 .azt-app-lightbox {
@@ -1182,6 +1291,11 @@ a {
 
 :root[data-theme="light"] .azt-app-faq-item > summary {
     color: #17485d;
+}
+
+:root[data-theme="light"] .azt-app-faq-item > summary::before,
+:root[data-theme="light"] .azt-app-faq-item p::before {
+    color: #087393;
 }
 
 @media (max-width: 820px) {
