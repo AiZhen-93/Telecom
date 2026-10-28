@@ -5364,7 +5364,27 @@ if (aztAppPage) {
     const lightboxImage = lightbox?.querySelector("img");
     const lightboxCaption = lightbox?.querySelector("p");
     const closeButton = lightbox?.querySelector(".azt-app-lightbox-close");
+    const previousButton = lightbox?.querySelector(".azt-app-lightbox-nav.is-previous");
+    const nextButton = lightbox?.querySelector(".azt-app-lightbox-nav.is-next");
+    const lightboxCounter = lightbox?.querySelector(".azt-app-lightbox-counter");
+    const shots = Array.from(aztAppPage.querySelectorAll(".azt-app-shot"));
     let lastFocusedShot = null;
+    let activeShotIndex = 0;
+    let touchStartX = null;
+
+    const showAztShot = (index) => {
+        if (!lightbox || !lightboxImage || !lightboxCaption || !shots.length) {
+            return;
+        }
+        activeShotIndex = (index + shots.length) % shots.length;
+        const shot = shots[activeShotIndex];
+        lightboxImage.src = shot.dataset.aztShot || "";
+        lightboxImage.alt = shot.dataset.aztCaption || "愛蓁電信 App 畫面預覽";
+        lightboxCaption.textContent = shot.dataset.aztCaption || "";
+        if (lightboxCounter) {
+            lightboxCounter.textContent = `${activeShotIndex + 1} / ${shots.length}`;
+        }
+    };
 
     const closeAztLightbox = () => {
         if (!lightbox || lightbox.hidden) {
@@ -5375,29 +5395,50 @@ if (aztAppPage) {
         lastFocusedShot?.focus();
     };
 
-    aztAppPage.querySelectorAll(".azt-app-shot").forEach((shot) => {
+    shots.forEach((shot, index) => {
         shot.addEventListener("click", () => {
-            if (!lightbox || !lightboxImage || !lightboxCaption) {
+            if (!lightbox) {
                 return;
             }
             lastFocusedShot = shot;
-            lightboxImage.src = shot.dataset.aztShot || "";
-            lightboxImage.alt = shot.dataset.aztCaption || "愛蓁電信 App 畫面預覽";
-            lightboxCaption.textContent = shot.dataset.aztCaption || "";
+            showAztShot(index);
             lightbox.hidden = false;
             closeButton?.focus();
         });
     });
 
     closeButton?.addEventListener("click", closeAztLightbox);
+    previousButton?.addEventListener("click", () => showAztShot(activeShotIndex - 1));
+    nextButton?.addEventListener("click", () => showAztShot(activeShotIndex + 1));
     lightbox?.addEventListener("click", (event) => {
         if (event.target === lightbox) {
             closeAztLightbox();
         }
     });
+    lightbox?.addEventListener("touchstart", (event) => {
+        touchStartX = event.changedTouches[0]?.clientX ?? null;
+    }, { passive: true });
+    lightbox?.addEventListener("touchend", (event) => {
+        const touchEndX = event.changedTouches[0]?.clientX;
+        if (touchStartX === null || touchEndX === undefined) {
+            return;
+        }
+        const distance = touchEndX - touchStartX;
+        touchStartX = null;
+        if (Math.abs(distance) < 42) {
+            return;
+        }
+        showAztShot(activeShotIndex + (distance < 0 ? 1 : -1));
+    }, { passive: true });
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
             closeAztLightbox();
+        } else if (!lightbox?.hidden && event.key === "ArrowLeft") {
+            event.preventDefault();
+            showAztShot(activeShotIndex - 1);
+        } else if (!lightbox?.hidden && event.key === "ArrowRight") {
+            event.preventDefault();
+            showAztShot(activeShotIndex + 1);
         }
     });
 }
