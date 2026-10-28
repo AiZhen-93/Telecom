@@ -859,6 +859,160 @@ a {
     color: #79d8ff;
 }
 
+.azt-app-support {
+    display: grid;
+    gap: 0.9rem;
+    margin: clamp(1rem, 3vw, 2.6rem) 0 0;
+    padding: 0 clamp(1.4rem, 3vw, 2rem) clamp(1.5rem, 4vw, 3rem);
+}
+
+.azt-app-disclosure {
+    overflow: hidden;
+    border: 1px solid rgba(139, 232, 255, 0.2);
+    border-radius: 12px;
+    background: linear-gradient(112deg, rgba(16, 62, 83, 0.46), rgba(5, 19, 28, 0.58));
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+.azt-app-disclosure > summary,
+.azt-app-faq-item > summary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4rem;
+    padding: 0.85rem 3.8rem 0.85rem 1.2rem;
+    color: var(--text);
+    cursor: pointer;
+    list-style: none;
+    font-weight: 900;
+}
+
+.azt-app-disclosure > summary::-webkit-details-marker,
+.azt-app-faq-item > summary::-webkit-details-marker {
+    display: none;
+}
+
+.azt-app-disclosure > summary::after,
+.azt-app-faq-item > summary::after {
+    content: "+";
+    position: absolute;
+    right: 1.15rem;
+    color: #9aefff;
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform 180ms ease;
+}
+
+.azt-app-disclosure[open] > summary::after,
+.azt-app-faq-item[open] > summary::after {
+    transform: rotate(45deg);
+}
+
+.azt-app-disclosure > summary > span {
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+.azt-app-disclosure > summary small {
+    color: #8ce8fa;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.azt-app-disclosure-content {
+    padding: 0 clamp(1.1rem, 3vw, 2rem) clamp(1.25rem, 3vw, 1.8rem);
+    border-top: 1px solid rgba(139, 232, 255, 0.14);
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.azt-app-disclosure-content > p {
+    margin: 1rem 0 0;
+}
+
+.azt-app-disclosure-content h3 {
+    margin: 1.3rem 0 0;
+    color: #b7f4ff;
+    font-size: 1.05rem;
+}
+
+.azt-app-install-steps {
+    display: grid;
+    gap: 0.8rem;
+    margin: 0.8rem 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: install-step;
+}
+
+.azt-app-install-steps li {
+    position: relative;
+    min-height: 2.5rem;
+    padding: 0.55rem 0 0.55rem 3rem;
+    counter-increment: install-step;
+}
+
+.azt-app-install-steps li::before {
+    content: counter(install-step);
+    position: absolute;
+    top: 0.45rem;
+    left: 0;
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 1px solid rgba(129, 227, 255, 0.45);
+    border-radius: 50%;
+    color: #dffaff;
+    background: rgba(43, 171, 207, 0.16);
+    font-weight: 900;
+}
+
+.azt-app-faq .azt-app-disclosure-content {
+    display: grid;
+    gap: 0.5rem;
+    padding-top: 0.65rem;
+}
+
+.azt-app-faq-item {
+    border-bottom: 1px solid rgba(139, 232, 255, 0.13);
+}
+
+.azt-app-faq-item:last-child {
+    border-bottom: 0;
+}
+
+.azt-app-faq-item > summary {
+    min-height: 3.35rem;
+    padding: 0.55rem 3.3rem 0.55rem 0.2rem;
+    color: #d9f6ff;
+    font-size: 0.96rem;
+}
+
+.azt-app-faq-item > summary::after {
+    right: 0.3rem;
+    font-size: 1.35rem;
+}
+
+.azt-app-faq-item p {
+    margin: -0.05rem 0 0;
+    padding: 0 1rem 1rem 0.2rem;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.azt-app-disclosure > summary:hover,
+.azt-app-disclosure > summary:focus-visible,
+.azt-app-faq-item > summary:hover,
+.azt-app-faq-item > summary:focus-visible {
+    background: rgba(108, 218, 255, 0.09);
+    outline: none;
+}
+
 .azt-app-lightbox {
     position: fixed;
     inset: 0;
@@ -884,9 +1038,19 @@ a {
 }
 
 .azt-app-lightbox p {
+    grid-column: 1;
+    grid-row: 2;
     margin: 0;
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.86rem;
+}
+
+.azt-app-lightbox-counter {
+    grid-column: 1;
+    grid-row: 3;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
 }
 
 .azt-app-lightbox-close {
@@ -902,6 +1066,46 @@ a {
     font-size: 1.75rem;
     line-height: 1;
     cursor: pointer;
+}
+
+.azt-app-lightbox-nav {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    width: clamp(2.75rem, 6vw, 3.5rem);
+    height: clamp(2.75rem, 6vw, 3.5rem);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(4, 22, 32, 0.78);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 0.8;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.azt-app-lightbox-nav:hover,
+.azt-app-lightbox-nav:focus-visible,
+.azt-app-lightbox-close:hover,
+.azt-app-lightbox-close:focus-visible {
+    border-color: rgba(155, 237, 255, 0.95);
+    background: rgba(22, 109, 142, 0.88);
+    outline: none;
+}
+
+.azt-app-lightbox-nav:hover,
+.azt-app-lightbox-nav:focus-visible {
+    transform: translateY(-50%) scale(1.06);
+}
+
+.azt-app-lightbox-nav.is-previous {
+    left: max(0.7rem, calc(50% - min(46vw, 18rem)));
+}
+
+.azt-app-lightbox-nav.is-next {
+    right: max(0.7rem, calc(50% - min(46vw, 18rem)));
 }
 
 :root[data-theme="light"] .azt-app-overview,
@@ -920,11 +1124,81 @@ a {
     text-shadow: none;
 }
 
+:root[data-theme="light"] .azt-app-hero {
+    border-color: rgba(21, 112, 154, 0.4);
+    background:
+        linear-gradient(to left, rgba(243, 251, 255, 0.96) 0%, rgba(231, 246, 253, 0.9) 46%, rgba(232, 246, 253, 0.3) 100%),
+        url("pic/AZT_BG.jpg") center / cover;
+}
+
+:root[data-theme="light"] .azt-app-hero::after {
+    mix-blend-mode: multiply;
+    opacity: 0.14;
+}
+
+:root[data-theme="light"] .azt-app-eyebrow,
+:root[data-theme="light"] .azt-app-publisher {
+    color: #07617f;
+}
+
+:root[data-theme="light"] .azt-app-heading h1 {
+    color: #092f43;
+    text-shadow: none;
+}
+
+:root[data-theme="light"] .azt-app-release-note,
+:root[data-theme="light"] .azt-app-version {
+    color: #254e61;
+}
+
+:root[data-theme="light"] .azt-app-icon {
+    border-color: rgba(8, 93, 125, 0.42);
+    box-shadow: 0 18px 38px rgba(15, 83, 110, 0.24), 0 0 0 0.45rem rgba(71, 202, 255, 0.14);
+}
+
+:root[data-theme="light"] .azt-app-disclosure {
+    border-color: rgba(24, 120, 138, 0.25);
+    background: linear-gradient(112deg, rgba(223, 247, 253, 0.88), rgba(255, 255, 255, 0.78));
+    box-shadow: 0 14px 30px rgba(36, 100, 122, 0.1);
+}
+
+:root[data-theme="light"] .azt-app-disclosure > summary,
+:root[data-theme="light"] .azt-app-faq-item > summary {
+    color: #153b4d;
+}
+
+:root[data-theme="light"] .azt-app-disclosure > summary small,
+:root[data-theme="light"] .azt-app-disclosure > summary::after,
+:root[data-theme="light"] .azt-app-faq-item > summary::after,
+:root[data-theme="light"] .azt-app-disclosure-content h3 {
+    color: #087393;
+}
+
+:root[data-theme="light"] .azt-app-install-steps li::before {
+    border-color: rgba(13, 121, 151, 0.38);
+    color: #07536e;
+    background: rgba(77, 197, 225, 0.14);
+}
+
+:root[data-theme="light"] .azt-app-faq-item > summary {
+    color: #17485d;
+}
+
 @media (max-width: 820px) {
     .azt-app-hero-content {
-        align-items: flex-start;
+        align-items: flex-end;
         flex-direction: column;
-        padding-left: clamp(2rem, 6vw, 5rem);
+        padding: clamp(1.5rem, 6vw, 3rem);
+        padding-left: clamp(7rem, 27vw, 15rem);
+        text-align: right;
+    }
+
+    .azt-app-heading {
+        text-align: right;
+    }
+
+    .azt-app-actions {
+        justify-content: flex-end;
     }
 
     .azt-app-shots {
@@ -964,6 +1238,14 @@ a {
         left: auto;
         font-size: clamp(8rem, 30vw, 13rem);
     }
+
+    .azt-app-lightbox-nav.is-previous {
+        left: 0.55rem;
+    }
+
+    .azt-app-lightbox-nav.is-next {
+        right: 0.55rem;
+    }
 }
 
 @media (max-width: 540px) {
@@ -981,7 +1263,7 @@ a {
     }
 
     .azt-app-actions {
-        align-items: flex-start;
+        align-items: flex-end;
         flex-direction: column;
         gap: 0.45rem;
     }
