@@ -127,6 +127,38 @@
                     <div class="azt-app-feature-content"><h2>每個關鍵時刻，及時提醒</h2><ul><li>自訂各項通知，不錯過每一次值得留意的訊號變化。無論是基地台在你附近，連到特殊站台或過遠的站台都能及時發覺！</li><li>更有音效功能，發起TAU、主頻率變更、斷線了？免查看螢幕一聽就知！</li></ul></div>
                 </article>
             </section>
+
+            <section class="azt-app-support" aria-label="安裝說明與常見問題">
+                <details class="azt-app-disclosure">
+                    <summary><span>如何安裝</span><small>Android 10 以上</small></summary>
+                    <div class="azt-app-disclosure-content">
+                        <p>此App暫時未打算於Play商店上架，因此只能以外部Apk的方式來安裝。</p>
+                        <p>App僅適用於Android 10以上的手機。</p>
+                        <h3>安裝步驟</h3>
+                        <ol class="azt-app-install-steps">
+                            <li>請先點選頁面中的「搶先體驗」，下載Apk檔案，預設會儲存在手機的Download資料夾。</li>
+                            <li>點選Apk檔案，系統會跳出需允許安裝未知來源的檔案，點選會跳轉到相應系統設定頁面，請點選允許。</li>
+                            <li>安裝Apk，過程可能會出現Play商店掃描未知應用程式的通知，請選擇「不掃描就安裝」，即可完成安裝。</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details class="azt-app-disclosure azt-app-faq">
+                    <summary><span>常見問題</span><small>FAQ</small></summary>
+                    <div class="azt-app-disclosure-content">
+                        <details class="azt-app-faq-item"><summary>Q1：此App可以在Google Play商店下載嗎？</summary><p>A1：目前暫無上架Play商店的計畫，需透過外部Apk安裝。</p></details>
+                        <details class="azt-app-faq-item"><summary>Q2：此App目前只能用台灣三家電信業者嗎？</summary><p>A2：目前的確是為國內三家電信業者（中華電信、遠傳電信、台灣大哥大）設計，接收到國外的其他電信業者可能無法正常顯示。</p></details>
+                        <details class="azt-app-faq-item"><summary>Q3：舊手機就可以裝嗎？</summary><p>A3：最低的支援版本為Android 10。</p></details>
+                        <details class="azt-app-faq-item"><summary>Q4：此App需要ROOT權限嗎？</summary><p>A4：不需要ROOT。</p></details>
+                        <details class="azt-app-faq-item"><summary>Q5：此App可以鎖頻段嗎？</summary><p>A5：App為Non-Root設計，無法鎖定頻段喔。</p></details>
+                        <details class="azt-app-faq-item"><summary>Q6：此App需要付費嗎？</summary><p>A6：App採贊助制度，可付費支持以取得完整功能授權，但這並非強制；只要對App有貢獻者（Debug除錯、功能建議、使用體驗分享等）皆可以獲得延長完整功能授權使用期限。</p></details>
+                        <details class="azt-app-faq-item"><summary>Q7：此App需要存取哪些權限？</summary><p>A7：電話、定位權限為顯示基地台資訊的必要權限。通知功能則需要允許通知權限。</p></details>
+                        <details class="azt-app-faq-item"><summary>Q8：App是否會回傳我的位置或基地台資料？</summary><p>A8：請放心，這些資料僅會儲存在您的手機上，決不會回傳到外部伺服器，詳情請見App中的隱私權政策。</p></details>
+                        <details class="azt-app-faq-item"><summary>Q9：為什麼App打開來什麼東西都沒有？</summary><p>A9：請確認目前人在台灣，使用國內三大電信業者SIM卡，且有訊號。如果仍無法顯示，請回報給愛蓁。</p></details>
+                        <details class="azt-app-faq-item"><summary>Q10：為什麼4G/5G頻段的資料顯示時常不完整？</summary><p>A10：這取決於您手機的晶片及安卓版本。一般來說高通晶片在LTE的顯示較為完整，但部分手機可能無法讀取到5G NSA頻段。MTK晶片在LTE顯示上可能缺少部分資料，但5G NSA則較為完整。Pixel手機的三星modem晶片在LTE/NR資料上較為完整，但讀取的延遲性較大，偶爾有取不到資料的情況。</p></details>
+                    </div>
+                </details>
+            </section>
         </main>
 
         <footer class="site-footer" aria-label="網站資訊">
@@ -136,8 +168,11 @@
     </div>
     <div class="azt-app-lightbox" id="aztAppLightbox" role="dialog" aria-modal="true" aria-label="App 截圖放大檢視" hidden>
         <button class="azt-app-lightbox-close" type="button" aria-label="關閉圖片檢視">×</button>
+        <button class="azt-app-lightbox-nav is-previous" type="button" aria-label="上一張圖片">‹</button>
         <img src="" alt="">
+        <button class="azt-app-lightbox-nav is-next" type="button" aria-label="下一張圖片">›</button>
         <p></p>
+        <span class="azt-app-lightbox-counter" aria-live="polite"></span>
     </div>
 </body>
 </html>
