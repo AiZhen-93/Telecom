@@ -1300,6 +1300,15 @@ a {
 }
 
 @media (max-width: 820px) {
+    .azt-app-hero,
+    :root[data-theme="light"] .azt-app-hero {
+        background-position: center, left calc(50% + var(--azt-app-hero-crop-offset));
+    }
+
+    .azt-app-hero::after {
+        background-position: left calc(50% + var(--azt-app-hero-crop-offset));
+    }
+
     .azt-app-hero-content {
         align-items: flex-end;
         flex-direction: column;
