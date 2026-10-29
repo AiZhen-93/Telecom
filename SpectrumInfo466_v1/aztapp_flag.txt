@@ -1,5 +1,5 @@
 Allstatus: 0
-Version: 0.9.0
+Version: 0.9.0 (163)
 Forceupdate: 0
 DLlink: https://drive.google.com/file/d/1S06GK8qHKbZdYxc5K3DWgPtNH3TzeY7R/view?usp=drive_link
 Announcement: 感謝您下載「愛蓁電信」App
