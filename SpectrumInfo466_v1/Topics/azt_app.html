@@ -75,8 +75,8 @@
                         <p class="azt-app-publisher">愛蓁電信工作室</p>
                         <p class="azt-app-release-note">正式版本即將推出</p>
                         <div class="azt-app-actions">
-                            <a class="azt-app-cta" href="https://drive.google.com/file/d/1S06GK8qHKbZdYxc5K3DWgPtNH3TzeY7R/view?usp=drive_link" target="_blank" rel="noopener noreferrer">搶先體驗</a>
-                            <span class="azt-app-version">v0.9.0 Beta</span>
+                            <a class="azt-app-cta" href="https://drive.google.com/file/d/137rdLlDyTXjWGLUvqkr7McvMNPa5-Ns_/view?usp=sharing" target="_blank" rel="noopener noreferrer">搶先體驗</a>
+                            <span class="azt-app-version">v0.9.2 Beta</span>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
                         <p>App僅適用於Android 10以上的手機。</p>
                         <h3>安裝步驟</h3>
                         <ol class="azt-app-install-steps">
-                            <li><div class="azt-app-install-step-text">請先點選頁面中的「搶先體驗」，點選下載Apk檔案，瀏覽器可能會出現安全性提示，點選「仍要下載」。</div><div class="azt-app-install-step-one"><a class="azt-app-install-download" href="https://drive.google.com/file/d/1S06GK8qHKbZdYxc5K3DWgPtNH3TzeY7R/view?usp=drive_link" target="_blank" rel="noopener noreferrer">立即下載</a><img src="../pic/AZT_Install_1.jpg" alt="下載愛蓁電信 App 的瀏覽器畫面" loading="lazy"></div></li>
+                            <li><div class="azt-app-install-step-text">請先點選頁面中的「搶先體驗」，點選下載Apk檔案，瀏覽器可能會出現安全性提示，點選「仍要下載」。</div><div class="azt-app-install-step-one"><a class="azt-app-install-download" href="https://drive.google.com/file/d/137rdLlDyTXjWGLUvqkr7McvMNPa5-Ns_/view?usp=sharing" target="_blank" rel="noopener noreferrer">立即下載</a><img src="../pic/AZT_Install_1.jpg" alt="下載愛蓁電信 App 的瀏覽器畫面" loading="lazy"></div></li>
                             <li><div class="azt-app-install-step-text">在瀏覽器檢視下載，點選該Apk檔案，系統會跳出需允許安裝未知來源的檔案，請點選「設定」跳轉到相應畫面，然後將允許權限「開啟」。</div><div class="azt-app-install-media"><img src="../pic/AZT_Install_2.jpg" alt="在瀏覽器檢視下載的畫面" loading="lazy"><img src="../pic/AZT_Install_3.jpg" alt="允許未知來源安裝權限的設定畫面" loading="lazy"></div></li>
                             <li><div class="azt-app-install-step-text">點選「安裝」Apk，過程可能會出現Play商店掃描未知應用程式的通知，請選擇「不掃描就安裝」，即可完成安裝。</div><div class="azt-app-install-media"><img src="../pic/AZT_Install_4.jpg" alt="安裝愛蓁電信 App 的畫面" loading="lazy"><img src="../pic/AZT_Install_5.jpg" alt="Play 商店掃描應用程式的畫面" loading="lazy"><img src="../pic/AZT_Install_6.jpg" alt="選擇不掃描就安裝的畫面" loading="lazy"></div></li>
                         </ol>
@@ -176,11 +176,15 @@
                         <details class="azt-app-faq-item"><summary>為什麼基地台鐵塔圖示旁邊的頻段有重複的，例如兩個1800MHz？</summary><p>鐵塔圖示旁邊的頻段會根據當前連接的電信業者對應顯示，例如中華電信就有兩個1800MHz，對應EARFCN1400及1750，這是正常的。</p></details>
                         <details class="azt-app-faq-item"><summary>基地台鐵塔右側的英文燈號分別代表什麼？</summary><p>(1)「RRC-CONN」表示當前RRC處於連接狀態。<br>(2)「RRC-IDLE」則為待機狀態。<br>(3)「ULI」表示上層指示(Upper Layer Indication)，即該4G站台具有連接5G NSA的能力。<br>(4)「ENDC」表示雙連結，亦即現在已經連上4G+5G NSA。<br>(5)「DCNR-R」表示NR連接受限(Restriction)，您的SIM卡方案無法連接到5G。<br>(6)「Threm」亮起表示裝置溫度較高，建議停止保持RRC連線、連續上下載等功能。</p></details>
                         <details class="azt-app-faq-item"><summary>為什麼基地台eNB號碼顯示為「-」？</summary><p>這表示偵測您的手機eNB取值有問題或延遲，為避免造成站台資料庫和定位產生衝突，App進行防寫保護，再取得正確的eNB值會重新顯示。</p></details>
-                        <details class="azt-app-faq-item"><summary>基地台資訊的「Cell」是指什麼？</summary><p>這裡的Cell只是Local Cell ID，ECI=eNB*256+CID。Cell ID通常包含射向和頻段資料，由各業者自行編碼，在本App已經是配了三家電信的編碼方式。您可以在設定選擇「Cell呈現方式」，例如中華電信的23表示第2個射向和1750的頻點，若選擇「僅射向」，App就只會呈現「2」。</p></details>
+                        <details class="azt-app-faq-item"><summary>基地台資訊的「Cell」是指什麼？</summary><p>這裡的Cell只是Local Cell ID，ECI=eNB*256+CID。Cell ID通常包含射向和頻段資料，由各業者自行編碼，在本App會自動對應三家電信的編碼方式。您可以在設定選擇「Cell呈現方式」，例如中華電信的23表示第2個射向和1750的頻點，若選擇「僅射向」，Cell欄位就只會呈現「2」。</p></details>
+                        <details class="azt-app-faq-item"><summary>為什麼eNB和Cell的數字有時顯示的顏色不一樣？</summary><p>特殊或罕見的eNB站台號碼或Cell，會以不同顏色來達到醒目顯示效果。<br>特殊eNB包含以下：<br>(1) 中華電信eNB第二碼不為1或2，或是第3碼為9。<br>(2) 遠傳電信eNB第二碼+5。<br>(3) 台灣大哥大eNB第4碼為6。<br>Cell醒目顯示則是當出現第7~9射向時。</p></details>
+                        <details class="azt-app-faq-item"><summary>基地台頁面右側的按鈕分別是什麼功能？</summary><p>功能按鈕依據如下：<br>(1) SIM卡切換按鈕：可切換SIM卡1/SIM卡2。若只有插入1張SIM卡，此按鈕不可按。<br>(2) 暫停回放按鈕：可以回放查看自本次App開啟到目前的訊號資料。(最長支援至2小時)<br>(3) 儲存按鈕：可將本次App開啟到目前的訊號資料儲存成回放log專案檔。<br>(4) 導入按鈕：可導入過去的回放log專案檔進行檢視。<br>(5) RRC CONN按鈕：可讓RRC保持連接狀態。<br>(6) 網速檢視按鈕：可切換檢視網速圖表畫面，再點一下切回基地台畫面。<br>(7) 隱私按鈕：可隱藏部分TAC/eNB碼位，或完全隱藏。<br>(8) 連續下載按鈕：開始/停止進行連續下載測試。<br>(9) 連續上傳按鈕：開始/停止進行連續上傳測試。</p></details>
+                        <details class="azt-app-faq-item"><summary>功能按鈕的順序是否可以調整？</summary><p>可以。請至設定，將「自訂功能按鈕顯示與排序」開啟，即可調整按鈕順序，或隱藏部分按鈕。</p></details>
                         <details class="azt-app-faq-item"><summary>為什麼保持RRC連線、連續上下載功能無法使用？</summary><p>此功能無法在連上Wi-Fi時使用，請先關閉Wi-Fi網路。</p></details>
+                        <details class="azt-app-faq-item"><summary>連接頻段組合的P、S、N頻段代表什麼？</summary><p>P表示主頻段(Primary Cell)，S表示CA頻段(Secondary Cell)，依據順序為S1、S2、S3、S4。N則是鄰近的訊號(Neighbor Cell)。</p></details>
 
                         <h3 class="azt-app-faq-category" id="azt-faq-map" tabindex="-1">地圖定位相關</h3>
-                        <details class="azt-app-faq-item"><summary>為什麼地圖中一直不會嘗試定位基地台？</summary><p>(1) 請確認已開啟設定中的「啟用地圖定位功能」，以及「透過定位及訊號推算站台位置」。<br>(2) GPS訊號定位誤差需小於30米，才能做有效定位。<br>(3) 手機須保持RRC連線狀態，才能依據TA值進行距離定位，您可以在基地台頁面中，點選「RRC CONN」圖示，讓手機保持在RRC連線狀態。<br>(4) 如果您希望在背景/關閉螢幕時持續定位站台，請至設定，將記錄方式改為「始終紀錄軌跡」。</p></details>
+                        <details class="azt-app-faq-item"><summary>為什麼地圖中始終不會嘗試定位基地台？</summary><p>(1) 請確認已開啟設定中的「啟用地圖定位功能」，以及「透過定位及訊號推算站台位置」。<br>(2) GPS訊號定位誤差需小於30米，才能做有效定位依據。<br>(3) 手機須保持RRC連線狀態，才能用TA值進行距離定位，您可以在基地台頁面中，點選「RRC CONN」圖示，讓手機保持在RRC連線狀態。<br>(4) 如果您希望在背景/關閉螢幕時持續定位站台，請至設定，將記錄方式改為「始終紀錄軌跡」。</p></details>
                         <details class="azt-app-faq-item"><summary>為什麼基地台推估定位的位置很不準確？</summary><p>定位演算法是根據您的實際觀測數據，利用GPS位置及當下的eNB/PCI/RSRP/TA等參數來推估站台位置，若觀測點數量較少(例如僅單方向經過)或數據品質較低(例如GPS精度差、TA遠)，就可能導致定位的誤差較大。</p></details>
                         <details class="azt-app-faq-item"><summary>某基地台定位嚴重失準跑掉了，是否可以重設？</summary><p>可以到站台資料庫，長按該eNB，選擇「僅刪除定位推估資料」即可。</p></details>
                         <details class="azt-app-faq-item"><summary>基地台推估定位結果是否會被共享到網路上？</summary><p>不會的，這些資料僅會儲存在您的手機上。若往後欲更換手機，可以將站台資料庫匯出，該CSV檔會保存站台推估的位置資訊。</p></details>
