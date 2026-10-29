@@ -1036,6 +1036,69 @@ a {
     counter-reset: azt-faq-item;
 }
 
+.azt-app-faq-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 0 0 0.35rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(139, 232, 255, 0.18);
+    border-radius: 10px;
+    background: rgba(4, 25, 37, 0.46);
+}
+
+.azt-app-faq-categories a {
+    padding: 0.38rem 0.72rem;
+    border: 1px solid rgba(132, 231, 255, 0.36);
+    border-radius: 999px;
+    color: #a7f1ff;
+    font-size: 0.83rem;
+    font-weight: 800;
+    line-height: 1.35;
+    text-decoration: none;
+    transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.azt-app-faq-categories a:hover,
+.azt-app-faq-categories a:focus-visible {
+    border-color: #87ebff;
+    outline: none;
+    background: rgba(86, 213, 244, 0.16);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.azt-app-faq-category {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.45rem 0 0.15rem !important;
+    scroll-margin-top: 1.25rem;
+    color: #b7f4ff;
+    font-size: 1.04rem !important;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+}
+
+.azt-app-faq-categories + .azt-app-faq-category {
+    margin-top: 0.3rem !important;
+}
+
+.azt-app-faq-category::before,
+.azt-app-faq-category::after {
+    content: "";
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(132, 231, 255, 0.55));
+}
+
+.azt-app-faq-category::before {
+    width: clamp(1.25rem, 7vw, 4rem);
+}
+
+.azt-app-faq-category::after {
+    flex: 1;
+}
+
 .azt-app-faq-item {
     border-bottom: 1px solid rgba(139, 232, 255, 0.13);
     counter-increment: azt-faq-item;
@@ -1297,6 +1360,32 @@ a {
 :root[data-theme="light"] .azt-app-faq-item > summary::before,
 :root[data-theme="light"] .azt-app-faq-item p::before {
     color: #087393;
+}
+
+:root[data-theme="light"] .azt-app-faq-categories {
+    border-color: rgba(24, 120, 138, 0.22);
+    background: rgba(241, 251, 255, 0.82);
+}
+
+:root[data-theme="light"] .azt-app-faq-categories a {
+    border-color: rgba(13, 121, 151, 0.34);
+    color: #07617f;
+}
+
+:root[data-theme="light"] .azt-app-faq-categories a:hover,
+:root[data-theme="light"] .azt-app-faq-categories a:focus-visible {
+    border-color: #087393;
+    background: rgba(77, 197, 225, 0.16);
+    color: #043f56;
+}
+
+:root[data-theme="light"] .azt-app-faq-category {
+    color: #087393;
+}
+
+:root[data-theme="light"] .azt-app-faq-category::before,
+:root[data-theme="light"] .azt-app-faq-category::after {
+    background: linear-gradient(90deg, transparent, rgba(13, 121, 151, 0.43));
 }
 
 @media (max-width: 820px) {

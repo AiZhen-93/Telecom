@@ -5430,6 +5430,25 @@ if (aztAppPage) {
         }
         showAztShot(activeShotIndex + (distance < 0 ? 1 : -1));
     }, { passive: true });
+
+    const faqCategoryLinks = aztAppPage.querySelectorAll(".azt-app-faq-categories a");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    faqCategoryLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const targetId = link.getAttribute("href")?.slice(1);
+            const target = targetId ? document.getElementById(targetId) : null;
+            if (!target) {
+                return;
+            }
+            event.preventDefault();
+            target.scrollIntoView({
+                behavior: reducedMotion ? "auto" : "smooth",
+                block: "start"
+            });
+            history.replaceState(null, "", `#${targetId}`);
+        });
+    });
+
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
             closeAztLightbox();
