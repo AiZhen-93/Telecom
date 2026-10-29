@@ -1,5 +1,5 @@
 Allstatus: 0
-Version: 0.9.2 (196)
+Version: 0.9.2
 Forceupdate: 0
 DLlink: https://drive.google.com/file/d/137rdLlDyTXjWGLUvqkr7McvMNPa5-Ns_/view?usp=sharing
 Announcement: 感謝您下載「愛蓁電信」App
