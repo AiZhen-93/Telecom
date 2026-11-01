@@ -1,5 +1,5 @@
 Allstatus: 0
-Version: 0.9.3 (206)
+Version: 0.9.3
 Forceupdate: 0
 DLlink: https://drive.google.com/file/d/1WuiimIyozo5HQ-aKYNz28bvOUKHer3I4/view?usp=sharing
 Announcement: 0
