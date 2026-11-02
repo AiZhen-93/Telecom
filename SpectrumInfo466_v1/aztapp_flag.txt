@@ -2,4 +2,4 @@ Allstatus: 0
 Version: 0.9.3
 Forceupdate: 0
 DLlink: https://drive.google.com/file/d/1WuiimIyozo5HQ-aKYNz28bvOUKHer3I4/view?usp=sharing
-Announcement: 提醒您，我們即將停止維護App 0.8.x (162)以下的版本，請盡速前往更新。
+Announcement: 提醒您，我們即將停止維護App 0.8.x (162)以下的版本，請盡速前往更新。(可至裝置與授權確認您的App版本)
