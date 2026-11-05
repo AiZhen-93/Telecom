@@ -1,5 +1,5 @@
 Allstatus: 0
 Version: 0.9.4
 Forceupdate: 1
-DLlink: https://drive.google.com/file/d/1ebA3SEvnvuQ-43g2NUtjwSe-e_FNzuhv/view?usp=sharing
+DLlink: https://drive.google.com/file/d/1zfjFgoowKEd-IkOtKIkalx36Hl-AJdGj/view?usp=sharing
 Announcement: v0.9.4已推出，支援5G SA介面！並新增和改進多項功能。
