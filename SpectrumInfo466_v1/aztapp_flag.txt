@@ -2,4 +2,4 @@ Allstatus: 0
 Version: 0.9.4 (244)
 Forceupdate: 0
 DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.4-244.apk
-Announcement: 不必羨慕隔壁的App能免Root鎖頻段，咱們愛蓁電信下一個版本也能做到！敬請期待～
+Announcement: 5G SA即將開台，App的SA介面已準備好了。
