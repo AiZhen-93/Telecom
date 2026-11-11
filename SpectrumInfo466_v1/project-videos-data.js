@@ -1,5 +1,13 @@
 window.projectVideosData = [
     {
+        "date": "2026/11/11",
+        "type": "彙報",
+        "title": "中華電信開放更換5G SUCI SIM卡！真的能連上5G SA了嗎？",
+        "intro": "中華電信突然宣布自11/9起，可至門市更換新版5G SA「SUCI」SIM卡，這是什麼呢？為什麼需要更換？換卡後就能連接上5G SA基地台嗎？讓愛蓁一一解說與實測。",
+        "url": "https://youtu.be/rCqio6FJZYI",
+        "thumbnail": "pic/project-video-rCqio6FJZYI.jpg"
+    },
+    {
         "date": "2026/8/16",
         "type": "彙報",
         "title": "愛蓁電信工作室 - 頻譜資訊網正式版終於上線啦！聊聊最近各電信的頻率調整情形～",
