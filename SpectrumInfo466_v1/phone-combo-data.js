@@ -1,6 +1,6 @@
 window.phoneComboData = {
   "source": "ENDC及CA組合清單.xlsx",
-  "updated": "2026/10/11",
+  "updated": "2026/11/11",
   "rows": [
     {
       "brand": "Apple",
@@ -1332,9 +1332,9 @@ window.phoneComboData = {
         "twm": ""
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -2102,9 +2102,9 @@ window.phoneComboData = {
         "twm": ""
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 3CA、不支援n78+n1+LTE",
@@ -2366,8 +2366,8 @@ window.phoneComboData = {
         "twm": "2CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
+        "cht": "X",
+        "fet": "X",
         "twm": "不支援"
       },
       "endc": {
@@ -2564,9 +2564,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 3CA",
@@ -2586,9 +2586,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA、不支援n78+n1+LTE",
@@ -3400,8 +3400,8 @@ window.phoneComboData = {
         "twm": "2CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
+        "cht": "X",
+        "fet": "X",
         "twm": "不支援"
       },
       "endc": {
@@ -3532,14 +3532,14 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": "不支援"
+        "cht": "等待分析",
+        "fet": "x",
+        "twm": "等待分析"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA",
-        "fet": "",
-        "twm": "不支援n78+n78+LTE"
+        "fet": "n78+LTE 3CA\nn28+LTE 3CA\n不支援\n不支援\n不支援",
+        "twm": "n78+LTE 3CA\nn28+LTE 3CA\n不支援\n不支援"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -3554,14 +3554,14 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": "不支援"
+        "cht": "等待分析",
+        "fet": "x",
+        "twm": "等待分析"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA",
-        "fet": "",
-        "twm": "不支援n78+n78+LTE"
+        "fet": "n78+LTE 3CA\nn28+LTE 3CA\n不支援\n不支援\n不支援",
+        "twm": "n78+LTE 3CA\nn28+LTE 3CA\n不支援\n不支援"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -3911,7 +3911,7 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE 4CA、n1+LTE 4CA、不支援n78+n1+LTE",
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\n不支援",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n78+LTE、不支援n28+n78+LTE"
       },
@@ -3950,9 +3950,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 4CA\nn1+LTE 3CA\n不支援n78+n1+LTE",
@@ -4016,9 +4016,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 5CA\nn1+LTE 5CA\n不支援n78+n1+LTE",
@@ -4241,7 +4241,7 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "endc": {
-        "cht": "n78+LTE 5CA、n1+LTE 5CA、不支援n78+n1+LTE",
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\n不支援\n不支援",
         "fet": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
         "twm": "n78+LTE 4CA、n28+LTE 3CA、不支援n78+n78+LTE、不支援n28+n78+LTE"
       },
@@ -4434,9 +4434,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA",
@@ -4456,14 +4456,14 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
       },
       "endc": {
-        "cht": "n78+LTE 5CA、n1+LTE 5CA",
-        "fet": "",
-        "twm": ""
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\nn78+n1+LTE 4CA\nn78+n8+LTE 4CA",
+        "fet": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n28+LTE 3CA\nn78+n38+LTE 2CA\nn78+n41+LTE 2CA",
+        "twm": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n78+LTE 3CA\nn78+n28+LTE 3CA"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -4544,9 +4544,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA",
@@ -4588,14 +4588,14 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
-        "cht": "n78+LTE 2CA、n1+LTE 4CA",
-        "fet": "",
-        "twm": ""
+        "cht": "n78+LTE 4CA\nn1+LTE 4CA\n不支援\n不支援",
+        "fet": "n78+LTE 3CA\nn28+LTE 2CA\n不支援\n不支援\n不支援",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援\n不支援"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -4615,7 +4615,7 @@ window.phoneComboData = {
         "twm": ""
       },
       "endc": {
-        "cht": "n78+LTE 5CA、n1+LTE 5CA",
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\n不支援\n不支援",
         "fet": "",
         "twm": ""
       },
@@ -4962,8 +4962,8 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
+        "cht": "X",
+        "fet": "X",
         "twm": "支援"
       },
       "endc": {
@@ -5006,9 +5006,9 @@ window.phoneComboData = {
         "twm": ""
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA、不支援n78+n1+LTE",
@@ -5028,9 +5028,9 @@ window.phoneComboData = {
         "twm": ""
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA、不支援n78+n1+LTE",
@@ -5116,9 +5116,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -5138,9 +5138,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -5160,9 +5160,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "不支援n78+n1+LTE",
@@ -5270,9 +5270,9 @@ window.phoneComboData = {
         "twm": "2CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -5402,8 +5402,8 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
+        "cht": "X",
+        "fet": "X",
         "twm": "支援"
       },
       "endc": {
@@ -5446,9 +5446,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 3CA、不支援n78+n1+LTE",
@@ -5468,9 +5468,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -5490,9 +5490,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -5556,9 +5556,9 @@ window.phoneComboData = {
         "twm": "2CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -5601,7 +5601,7 @@ window.phoneComboData = {
       },
       "nrNsa": {
         "cht": "支援",
-        "fet": "",
+        "fet": "x",
         "twm": "支援"
       },
       "endc": {
@@ -5623,7 +5623,7 @@ window.phoneComboData = {
       },
       "nrNsa": {
         "cht": "支援",
-        "fet": "",
+        "fet": "x",
         "twm": "支援"
       },
       "endc": {
@@ -5732,9 +5732,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -5754,9 +5754,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 3CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -5776,9 +5776,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -5825,9 +5825,9 @@ window.phoneComboData = {
         "twm": "支援"
       },
       "endc": {
-        "cht": "n78+LTE 4CA、n1+LTE 4CA\nn78+n1+LTE 3CA",
-        "fet": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n28+LTE 3CA",
-        "twm": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n78+LTE 2CA\nn28+n78+LTE 3CA"
+        "cht": "n78+LTE 4CA\nn1+LTE 3CA\nn78+n1+LTE 3CA",
+        "fet": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n28+LTE 3CA\nn78+n38+LTE 2CA\nn78+n41+LTE 2CA",
+        "twm": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n78+LTE 3CA\nn78+n28+LTE 3CA"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -5842,9 +5842,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -6040,13 +6040,13 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
+        "cht": "X",
+        "fet": "X",
         "twm": "支援"
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 3CA、不支援n78+n1+LTE",
-        "fet": "n78+LTE 2CA、n28+LTE 2CA、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援\n不支援\nn78+n41+LTE 1CC",
         "twm": "n78+LTE 2CA、n28+LTE 2CA、n78+n78+LTE 1CC、不支援n28+n78+LTE"
       },
       "nrFr2": "不支援",
@@ -6216,9 +6216,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 4CA、不支援n78+n1+LTE",
@@ -6370,8 +6370,8 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
+        "cht": "X",
+        "fet": "X",
         "twm": "不支援"
       },
       "endc": {
@@ -6480,9 +6480,9 @@ window.phoneComboData = {
         "twm": "2CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -6502,9 +6502,9 @@ window.phoneComboData = {
         "twm": "2CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -6634,14 +6634,14 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
-        "fet": "n78+LTE 1CC、不支援n28+LTE、不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
-        "twm": "n78+LTE 1CC、不支援n28+LTE、不支援n78+n78+LTE、不支援n28+n78+LTE"
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援\n不支援\n不支援",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援\n不支援"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -6700,9 +6700,9 @@ window.phoneComboData = {
         "twm": "3CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 2CA、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -7426,14 +7426,14 @@ window.phoneComboData = {
         "twm": "2CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
       },
       "endc": {
-        "cht": "n78+LTE 2CA、n1+LTE 3CA",
-        "fet": "",
-        "twm": ""
+        "cht": "n78+LTE 2CA\nn1+LTE 3CA\nn78+n1+LTE 1CC\nn78+n8+LTE 1CC",
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\nn78+n28+LTE 1CC\n不支援\n不支援",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援\nn78+n28+LTE 1CC"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -7734,9 +7734,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
       },
       "endc": {
         "cht": "n78+LTE 5CA\nn1+LTE 5CA\n不支援n78+n1+LTE",
@@ -7866,9 +7866,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 1CC、n1+LTE 2CA、不支援n78+n1+LTE",
@@ -7888,9 +7888,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 5CA、n1+LTE 5CA、不支援n78+n1+LTE",
@@ -7954,9 +7954,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 4CA、不支援n78+n1+LTE",
@@ -8086,9 +8086,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 3CA、不支援n78+n1+LTE",
@@ -8108,9 +8108,9 @@ window.phoneComboData = {
         "twm": "4CA"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "x",
+        "fet": "x",
+        "twm": "x"
       },
       "endc": {
         "cht": "n78+LTE 4CA、n1+LTE 3CA、不支援n78+n1+LTE",
@@ -10176,14 +10176,14 @@ window.phoneComboData = {
         "twm": "不支援"
       },
       "nrNsa": {
-        "cht": "",
-        "fet": "",
-        "twm": ""
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
       },
       "endc": {
-        "cht": "不支援",
-        "fet": "不支援n78+n28+LTE、不支援n78+n38+LTE、不支援n78+n41+LTE",
-        "twm": "不支援n78+n78+LTE、不支援n28+n78+LTE"
+        "cht": "n78+LTE 3CA\nn1+LTE 3CA\nn78+n1+LTE 3CA",
+        "fet": "n78+LTE 3CA\nn28+LTE 3CA\nn78+n28+LTE 2CA\n不支援\nn78+n41+LTE 2CA",
+        "twm": "n78+LTE 3CA\nn28+LTE 3CA\nn78+n78+LTE 3CA\nn78+n28+LTE 2CA"
       },
       "nrFr2": "不支援",
       "note": ""
@@ -12188,6 +12188,204 @@ window.phoneComboData = {
         "twm": ""
       },
       "nrFr2": "不支援",
+      "note": ""
+    },
+    {
+      "brand": "Nothing",
+      "model": "Nothing Phone(3a) Pro(未上市)",
+      "soc": "",
+      "lte": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrNsa": {
+        "cht": "X",
+        "fet": "X",
+        "twm": "X"
+      },
+      "endc": {
+        "cht": "n78+LTE 2CA\nn1+LTE 2CA\n不支援",
+        "fet": "n78+LTE 2CA\nn28+LTE 2CA\n不支援\n不支援\n不支援",
+        "twm": "n78+LTE 2CA\nn28+LTE 2CA\n不支援\n不支援"
+      },
+      "nrFr2": "",
+      "note": ""
+    },
+    {
+      "brand": "SAMSUNG",
+      "model": "Galaxy Tab S12 Ultra 5G",
+      "soc": "",
+      "lte": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrNsa": {
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
+      },
+      "endc": {
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\nn78+n1+LTE 4CA\nn78+n8+LTE 4CA",
+        "fet": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n28+LTE 3CA\nn78+n38 LTE 2CA\nn78+n41+LTE 2CA",
+        "twm": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n78+LTE 4CA\nn78+n28+LTE 3CA"
+      },
+      "nrFr2": "",
+      "note": ""
+    },
+    {
+      "brand": "SAMSUNG",
+      "model": "Galaxy Tab S12+ 5G",
+      "soc": "",
+      "lte": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrNsa": {
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
+      },
+      "endc": {
+        "cht": "n78+LTE 5CA\nn1+LTE 5CA\nn78+n1+LTE 4CA\nn78+n8+LTE 4CA",
+        "fet": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n28+LTE 3CA\nn78+n38 LTE 2CA\nn78+n41+LTE 2CA",
+        "twm": "n78+LTE 4CA\nn28+LTE 3CA\nn78+n78+LTE 4CA\nn78+n28+LTE 3CA"
+      },
+      "nrFr2": "",
+      "note": ""
+    },
+    {
+      "brand": "OPPO",
+      "model": "Find X10 Pro Max",
+      "soc": "",
+      "lte": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrNsa": {
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
+      },
+      "endc": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrFr2": "",
+      "note": ""
+    },
+    {
+      "brand": "OPPO",
+      "model": "Find X10",
+      "soc": "",
+      "lte": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrNsa": {
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
+      },
+      "endc": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrFr2": "",
+      "note": ""
+    },
+    {
+      "brand": "VIVO",
+      "model": "V80",
+      "soc": "",
+      "lte": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrNsa": {
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
+      },
+      "endc": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrFr2": "",
+      "note": ""
+    },
+    {
+      "brand": "VIVO",
+      "model": "X500 Pro Max",
+      "soc": "",
+      "lte": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrNsa": {
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
+      },
+      "endc": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrFr2": "",
+      "note": ""
+    },
+    {
+      "brand": "VIVO",
+      "model": "X500 Pro",
+      "soc": "",
+      "lte": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrNsa": {
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
+      },
+      "endc": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrFr2": "",
+      "note": ""
+    },
+    {
+      "brand": "VIVO",
+      "model": "X500",
+      "soc": "",
+      "lte": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrNsa": {
+        "cht": "V",
+        "fet": "V",
+        "twm": "V"
+      },
+      "endc": {
+        "cht": "",
+        "fet": "",
+        "twm": ""
+      },
+      "nrFr2": "",
       "note": ""
     }
   ]
