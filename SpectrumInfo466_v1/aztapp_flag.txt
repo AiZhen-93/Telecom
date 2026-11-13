@@ -1,5 +1,5 @@
 Allstatus: 0
-Version: 0.9.5 (297)
+Version: 0.9.6 (311)
 Forceupdate: 0
-DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.6-297.apk
-Announcement: v0.9.6已新增鎖頻功能(試驗)，並解決地圖中站台定位不出來的BUG。
+DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.6-311.apk
+Announcement: 可更新：支援NR鎖頻功能，並相容於更多機型。
