@@ -16,6 +16,7 @@
 }
 
 @media (min-width: 981px) {
+    .site-shell:has(> .content-area:is(.spectrum-page, .spectrum-table-page, .tac-enb-page)) > .site-header,
     .content-area:is(.spectrum-page, .spectrum-table-page, .tac-enb-page) {
         width: 100%;
     }
