@@ -1,5 +1,15 @@
 window.homeNewsData = [
   {
+    "source": "實測",
+    "date": "2026/11/16",
+    "category": "參數調整",
+    "operator": "台哥大/原台星",
+    "area": "全區",
+    "site": "多數",
+    "content": "站台維護作業，完成全區5G SA TAC/gNB配置",
+    "link": "https://youtu.be/ujW_zgAkLww"
+  },
+  {
     "source": "回報",
     "date": "2026/10/22",
     "category": "核網異常",
