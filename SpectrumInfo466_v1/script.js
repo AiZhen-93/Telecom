@@ -80,7 +80,7 @@ const subscribeToSitePreferences = (handler) => {
 
 applySitePreferences();
 
-const siteVersion = "v1.5.0";
+const siteVersion = "v1.5.1";
 const updateSiteVersion = () => {
     document.querySelectorAll("[data-site-version]").forEach((versionElement) => {
         versionElement.textContent = siteVersion;

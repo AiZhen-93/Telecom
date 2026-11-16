@@ -15,6 +15,12 @@
     --page-width: 1420px;
 }
 
+@media (min-width: 981px) {
+    :root {
+        --page-width: 100%;
+    }
+}
+
 :root[data-theme="light"] {
     --bg: #eaf4f7;
     --bg-soft: #d7e9ef;
