@@ -16,8 +16,8 @@
 }
 
 @media (min-width: 981px) {
-    :root {
-        --page-width: 100%;
+    .content-area:is(.spectrum-page, .spectrum-table-page, .tac-enb-page) {
+        width: 100%;
     }
 }
 
