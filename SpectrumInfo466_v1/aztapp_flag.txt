@@ -1,5 +1,5 @@
 Allstatus: 0
-Version: 0.9.7 (364)
+Version: 0.9.7 (368)
 Forceupdate: 0
-DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.7-364.apk
+DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.7-368.apk
 Announcement: v0.9.7已可更新：(1) 站台資料庫支援海外電信業者，(2) 自適應顯示比例，(3) 新一代站台定位演算法(部分站台可能會被重設位置)，(4) 鎖頻功能優化，(5) BUG修復與微小功能改動共73處。
