@@ -184,11 +184,17 @@ const parseCloudflareTrace = (text) => text
     }, {});
 
 const loadJson = async (url) => {
-    const response = await fetchWithCacheBust(url);
-    if (!response.ok) {
-        throw new Error("資料服務沒有回應。");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 8000);
+    try {
+        const response = await fetchWithCacheBust(url, { signal: controller.signal });
+        if (!response.ok) {
+            throw new Error(`資料服務回應 ${response.status}。`);
+        }
+        return await response.json();
+    } finally {
+        window.clearTimeout(timeout);
     }
-    return response.json();
 };
 
 const earthquakeAlertEndpoint = "https://aizhen-earthquake-alert.2010magnitude.workers.dev/";
@@ -305,6 +311,9 @@ const formatIspName = (isp) => {
 };
 
 const normalizeCoordinate = (value) => {
+    if (value === null || value === undefined || value === "") {
+        return null;
+    }
     const number = Number(value);
     return Number.isFinite(number) ? number : null;
 };
@@ -439,8 +448,8 @@ const loadClientNetworkInfo = async () => {
     clientNetworkInfoPromise = (async () => {
         try {
             const data = await loadJson("https://ipwho.is/");
-            if (data.success === false) {
-                throw new Error("ipwho.is 無法辨識此 IP。");
+            if (data.success === false || normalizeCoordinate(data.latitude) === null || normalizeCoordinate(data.longitude) === null) {
+                throw new Error("ipwho.is 沒有提供有效位置。");
             }
             return {
                 ip: data.ip || "",
@@ -455,6 +464,9 @@ const loadClientNetworkInfo = async () => {
         } catch (_error) {
             try {
                 const data = await loadJson("https://ipwhois.app/json/");
+                if (data.success === false || normalizeCoordinate(data.latitude) === null || normalizeCoordinate(data.longitude) === null) {
+                    throw new Error("ipwhois.app 沒有提供有效位置。");
+                }
                 return {
                     ip: data.ip || "",
                     isp: data.isp || data.org || data.asn || "",
@@ -468,6 +480,9 @@ const loadClientNetworkInfo = async () => {
             } catch (_secondaryError) {
                 try {
                     const data = await loadJson("https://ipapi.co/json/");
+                    if (data.error || normalizeCoordinate(data.latitude) === null || normalizeCoordinate(data.longitude) === null) {
+                        throw new Error("ipapi.co 沒有提供有效位置。");
+                    }
                     return {
                         ip: data.ip || "",
                         isp: data.org || data.asn || "",
@@ -512,7 +527,11 @@ const loadClientNetworkInfo = async () => {
         }
     })();
 
-    return clientNetworkInfoPromise;
+    const clientInfo = await clientNetworkInfoPromise;
+    if (!Number.isFinite(clientInfo.latitude) || !Number.isFinite(clientInfo.longitude)) {
+        clientNetworkInfoPromise = null;
+    }
+    return clientInfo;
 };
 
 const closeOpenSubmenus = () => {
@@ -984,6 +1003,8 @@ if (homePage) {
     const weatherLocation = homePage.querySelector("#homeWeatherLocation");
     const desktopWeatherQuery = window.matchMedia("(min-width: 761px)");
     let hasLoadedWeather = false;
+    let isLoadingWeather = false;
+    let weatherRetryTimer = null;
 
     const getWeatherInfo = (code) => {
         const weatherCode = Number(code);
@@ -1055,10 +1076,10 @@ if (homePage) {
     };
 
     const loadHomeWeather = async () => {
-        if (!weatherPanel || !weatherSummary || !weatherLocation || hasLoadedWeather || !desktopWeatherQuery.matches) {
+        if (!weatherPanel || !weatherSummary || !weatherLocation || hasLoadedWeather || isLoadingWeather || !desktopWeatherQuery.matches) {
             return;
         }
-        hasLoadedWeather = true;
+        isLoadingWeather = true;
 
         try {
             const clientInfo = await loadClientNetworkInfo();
@@ -1085,9 +1106,18 @@ if (homePage) {
             }
             weatherSummary.textContent = `${weatherInfo.label}，${Math.round(temperature)}℃，降雨機率${Number.isFinite(precipitation) ? Math.round(precipitation) : "--"}%`;
             weatherLocation.textContent = "";
+            hasLoadedWeather = true;
         } catch (error) {
             console.warn("Home weather check failed", error);
             setWeatherError();
+            if (!weatherRetryTimer) {
+                weatherRetryTimer = window.setTimeout(() => {
+                    weatherRetryTimer = null;
+                    loadHomeWeather();
+                }, 5 * 60 * 1000);
+            }
+        } finally {
+            isLoadingWeather = false;
         }
     };
 
