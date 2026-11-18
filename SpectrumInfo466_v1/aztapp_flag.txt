@@ -1,6 +1,6 @@
 Allstatus: 0
-Version: 0.9.7 (368)
+Version: 0.9.8 (383)
 Forceupdate: 0
-DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.7-368.apk
+DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.8-383.apk
 WhatsNew: (1) 改善App運行穩定性及效能 (2) 優化小米NR鎖頻功能 (3) 優化站台定位演算衝突
 Announcement: 要變天了！出門路測、找基地台，注意保暖嘿！
