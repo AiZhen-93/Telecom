@@ -2,4 +2,4 @@ Allstatus: 0
 Version: 0.9.7 (368)
 Forceupdate: 0
 DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.7-368.apk
-Announcement: 要變天了！出門路測、找基地台，記得注意保暖！
+Announcement: 要變天了！出門路測、找基地台，注意保暖嘿！
