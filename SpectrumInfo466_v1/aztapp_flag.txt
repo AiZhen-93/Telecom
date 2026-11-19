@@ -2,5 +2,5 @@ Allstatus: 0
 Version: 0.9.8 (400)
 Forceupdate: 0
 DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.8-400.apk
-WhatsNew: (1) 調整進階功能頁面排版 (2) 鎖頻功能相容於更多機型 (3) 修復無5G能力裝置出現NR頻段選項的問題
+WhatsNew: (1) 調整進階功能頁面排版 (2) 鎖頻功能相容於更多機型 (3) 修復無5G能力裝置出現NR頻段選項的問題 (4) 修復首次啟動時隱私權政策頁面確認按鈕溢出問題
 Announcement: 要變天了！出門路測、找基地台，注意保暖嘿！
