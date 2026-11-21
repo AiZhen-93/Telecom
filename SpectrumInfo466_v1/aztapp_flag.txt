@@ -1,6 +1,6 @@
 Allstatus: 0
-Version: 0.9.8 (414)
+Version: 0.9.8 (433)
 Forceupdate: 0
-DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.8-414.apk
-WhatsNew: (1) [進階功能]解決部分手機雙SIM卡鎖頻失敗問題 (2) [進階功能]改善modem輔助數據角色 (3) 修復沒有插SIM卡無法顯示SA訊號的問題 (4) 改善MTK裝置RRC判讀問題 (5) 修復雙SIM卡檢視按鈕數字溢出問題
+DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.8-433.apk
+WhatsNew: (1) 改善部分手機顯示版面過大的問題 (2) 改進站台定位演算法 (3) 修復MTK裝置5G SA gNB值異常問題 (4) 修正MTK裝置啟用modem資料補強後NR出現重複頻段問題
 Announcement: 0
