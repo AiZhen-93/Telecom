@@ -1,6 +1,6 @@
 Allstatus: 0
-Version: 0.9.8 (439)
+Version: 0.9.8 (456)
 Forceupdate: 0
-DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.8-439.apk
-WhatsNew: (1) 修復切換上網SIM卡畫面不會自動切換問題 (2) [進階功能]修復部分手機無法正常清除鎖頻問題
+DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.8-456.apk
+WhatsNew: (1) 新增5G SA掃頻地圖位置粗略標記 (2) 改善回放專案站台解算效率 (3) 站台資料庫新增網路類型篩選功能
 Announcement: 0
