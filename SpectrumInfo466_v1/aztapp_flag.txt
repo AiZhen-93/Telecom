@@ -3,4 +3,4 @@ Version: 0.9.8 (456)
 Forceupdate: 0
 DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.8-456.apk
 WhatsNew: (1) 新增5G SA掃頻地圖位置粗略標記 (2) 改善回放專案站台解算效率 (3) 站台資料庫新增網路類型篩選功能
-Announcement: 0
+Announcement: 授權到期了不用急著買！請填寫回饋表單幫助我們改善App，即可免費延長授權期限！
