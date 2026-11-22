@@ -1,6 +1,6 @@
 Allstatus: 0
-Version: 0.9.8 (433)
+Version: 0.9.8 (439)
 Forceupdate: 0
-DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.8-433.apk
-WhatsNew: (1) 改善部分手機顯示版面過大的問題 (2) 改進站台定位演算法 (3) 修復MTK裝置5G SA gNB值異常問題 (4) 修正MTK裝置啟用modem資料補強後NR出現重複頻段問題
+DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.8-439.apk
+WhatsNew: (1) 修復切換上網SIM卡畫面不會自動切換問題 (2) [進階功能]修復部分手機無法正常清除鎖頻問題
 Announcement: 0
