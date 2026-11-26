@@ -1,7 +1,7 @@
 Allstatus: 0
-Version: 0.9.9 (492)
+Version: 0.9.9 (499)
 Forceupdate: 0
-DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.9-492.apk
-WhatsNew: (1) 大幅改善地圖底圖載入速度 (2) 裝置過熱功能限制 (3) 對海外PLMN加入NR頻段及LTE CA頻段推估
+DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.9-499.apk
+WhatsNew: (1) 修復高速移動下過於容易觸發站址拆分的問題 (2) 改進無SIM卡狀態下的部分畫面顯示問題 (3) 改進鎖頻相容性
 Announcement: 授權到期了不用急著買！請填寫回饋表單幫助我們改善App，即可免費延長授權期限！
 
