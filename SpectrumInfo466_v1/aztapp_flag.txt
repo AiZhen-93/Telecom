@@ -2,6 +2,6 @@ Allstatus: 0
 Version: 0.9.9 (515)
 Forceupdate: 0
 DLlink: https://aizhen-license.2010magnitude.workers.dev/download/aizhen-telecom-0.9.9-515.apk
-WhatsNew: (1) 修復弱訊路段標記會隨地圖縮小而變粗的問題 (2) 改善實體站址拆分演算法 (3) 降低站台被定位在水上的情形
+WhatsNew: (1) 修正弱訊路段判斷邏輯(本次更新後，舊的標記將會被清除！) (2) 修復弱訊路段標記會隨地圖縮小而變粗的問題 (3) 改善實體站址拆分演算法 (4) 降低站台被定位在水上的情形
 Announcement: 授權到期了不用急著買！請填寫回饋表單幫助我們改善App，即可免費延長授權期限！
 
